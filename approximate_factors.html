@@ -1,0 +1,1467 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Approximate Factor Models &#8212; Financial Data Science Python Notebooks</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'approximate_factors';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="State Space Models" href="economic_states.html" />
+    <link rel="prev" title="Econometric Forecasts" href="econometric_forecast.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="README.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Financial Data Science Python Notebooks</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="README.html">
+                    Financial Data Science Notebooks
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="stock_prices.html">Stock prices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jegadeesh_titman.html">Jegadeesh-Titman Rolling Portfolios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fama_french.html">Fama-French Portfolio Sorts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fama_macbeth.html">Fama-Macbeth Cross-sectional Regressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weekly_reversal.html">Weekly reversal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quant_factors.html">Quant Factors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event_study.html">Event Study</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="economic_releases.html">Economic Data Revisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regression_diagnostics.html">Linear Regression Diagonostics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="econometric_forecast.html">Econometric Forecasts</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Approximate Factor Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="economic_states.html">State Space Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional_volatility.html">Conditional Volatility</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="covariance_matrix.html">Covariance Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="term_structure.html">Term Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bond_returns.html">Bond Returns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="options_pricing.html">Options Pricing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="market_microstructure.html">Market Microstructure</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="event_risk.html">Event risk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="customer_ego.html">Principal Customers Network</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="bea_centrality.html">Graph Centrality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="industry_community.html">Community Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="link_prediction.html">Link Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spatial_regression.html">Spatial Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fomc_topics.html">Topic Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management_sentiment.html">Sentiment Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="business_description.html">10-K Business Description</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="classification_models.html">Classification for supervised learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regression_models.html">Regression for supervised learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deep_classifier.html">Deep Averaging Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="convolutional_net.html">Temporal Convolution Net</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recurrent_net.html">Recurrent Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fomc_language.html">Language Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reinforcement_learning.html">Reinforcement Learning</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/terence-lim/data-science-notebooks.git" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/terence-lim/data-science-notebooks.git/issues/new?title=Issue%20on%20page%20%2Fapproximate_factors.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/approximate_factors.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Approximate Factor Models</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fred-md">FRED-MD</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#approximate-factor-model">Approximate factor model</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="approximate-factor-models">
+<h1>Approximate Factor Models<a class="headerlink" href="#approximate-factor-models" title="Permalink to this heading">#</a></h1>
+<p><em>UNDER CONSTRUCTION</em></p>
+<ul class="simple">
+<li><p>PCA, EM</p></li>
+<li><p>Approximate factors and selection: Bai and Ng (2002), McCracken and Ng (2016)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">Series</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">finds.readers.alfred</span> <span class="kn">import</span> <span class="n">Alfred</span><span class="p">,</span> <span class="n">fred_md</span><span class="p">,</span> <span class="n">fred_qd</span>
+<span class="kn">from</span> <span class="nn">finds.econs</span> <span class="kn">import</span> <span class="n">factors_em</span><span class="p">,</span> <span class="n">mrsq</span><span class="p">,</span> <span class="n">select_bai_ng</span><span class="p">,</span> <span class="n">integration_order</span>
+<span class="kn">from</span> <span class="nn">finds.filters</span> <span class="kn">import</span> <span class="n">remove_outliers</span><span class="p">,</span> <span class="n">is_outlier</span>
+<span class="kn">from</span> <span class="nn">finds.unstructured.store</span> <span class="kn">import</span> <span class="n">Store</span>
+<span class="kn">from</span> <span class="nn">finds.misc.show</span> <span class="kn">import</span> <span class="n">Show</span>
+<span class="kn">from</span> <span class="nn">secret</span> <span class="kn">import</span> <span class="n">credentials</span><span class="p">,</span> <span class="n">paths</span>
+<span class="n">show</span> <span class="o">=</span> <span class="n">Show</span><span class="p">(</span><span class="n">ndigits</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">latex</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">VERBOSE</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="c1"># %matplotlib qt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">imgdir</span> <span class="o">=</span> <span class="n">paths</span><span class="p">[</span><span class="s1">&#39;images&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="s1">&#39;ts&#39;</span>
+<span class="n">alf</span> <span class="o">=</span> <span class="n">Alfred</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;fred&#39;</span><span class="p">][</span><span class="s1">&#39;api_key&#39;</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">store</span> <span class="o">=</span> <span class="n">Store</span><span class="p">(</span><span class="n">paths</span><span class="p">[</span><span class="s1">&#39;scratch&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="fred-md">
+<h2>FRED-MD<a class="headerlink" href="#fred-md" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Transformation Codes</p></li>
+<li><p>Stationarity, Integration Order</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Transformation Codes, and Stationarity</span>
+<span class="n">qd_df</span><span class="p">,</span> <span class="n">qd_codes</span> <span class="o">=</span> <span class="n">fred_qd</span><span class="p">()</span> <span class="c1"># 202004</span>
+<span class="n">md_df</span><span class="p">,</span> <span class="n">md_codes</span> <span class="o">=</span> <span class="n">fred_md</span><span class="p">()</span> <span class="c1"># 201505</span>
+<span class="n">qd_date</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">qd_df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">md_date</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">md_df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of series by suggested tcode transformations (</span><span class="si">{</span><span class="n">md_date</span><span class="si">}</span><span class="s2">):&quot;</span><span class="p">)</span>
+<span class="n">tcodes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">Series</span><span class="p">(</span><span class="n">alf</span><span class="o">.</span><span class="n">tcode</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">)],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">tcodes</span> <span class="o">=</span> <span class="n">tcodes</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">qd_codes</span><span class="p">[</span><span class="s1">&#39;transform&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;fred-qd&#39;</span><span class="p">))</span>\
+               <span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">md_codes</span><span class="p">[</span><span class="s1">&#39;transform&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;fred-md&#39;</span><span class="p">))</span>\
+               <span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>\
+               <span class="o">.</span><span class="n">astype</span><span class="p">({</span><span class="s1">&#39;fred-qd&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;fred-md&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">})</span>\
+               <span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;tcode&#39;</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="n">tcodes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>quarterly/current.csv
+monthly/current.csv
+Number of series by suggested tcode transformations (20230630):
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>diff</th>
+      <th>log</th>
+      <th>pct_change</th>
+      <th>fred-qd</th>
+      <th>fred-md</th>
+    </tr>
+    <tr>
+      <th>tcode</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>0</td>
+      <td>False</td>
+      <td>22</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>0</td>
+      <td>False</td>
+      <td>32</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2</td>
+      <td>0</td>
+      <td>False</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>1</td>
+      <td>False</td>
+      <td>0</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1</td>
+      <td>1</td>
+      <td>False</td>
+      <td>141</td>
+      <td>53</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>2</td>
+      <td>1</td>
+      <td>False</td>
+      <td>50</td>
+      <td>33</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>1</td>
+      <td>0</td>
+      <td>True</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Verify integration order</span>
+<span class="n">out</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">transforms</span> <span class="ow">in</span> <span class="p">[[</span><span class="s1">&#39;md&#39;</span><span class="p">,</span> <span class="n">md_df</span><span class="p">,</span> <span class="n">md_codes</span><span class="p">[</span><span class="s1">&#39;transform&#39;</span><span class="p">]],</span>
+                              <span class="p">[</span><span class="s1">&#39;qd&#39;</span><span class="p">,</span> <span class="n">qd_df</span><span class="p">,</span> <span class="n">qd_codes</span><span class="p">[</span><span class="s1">&#39;transform&#39;</span><span class="p">]]]:</span>
+    <span class="n">stationary</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">series_id</span><span class="p">,</span> <span class="n">tcode</span> <span class="ow">in</span> <span class="n">transforms</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">tcode</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">):</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">series_id</span><span class="p">])</span> <span class="k">if</span> <span class="n">tcode</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span> <span class="k">else</span> <span class="n">df</span><span class="p">[</span><span class="n">series_id</span><span class="p">]</span>
+            <span class="n">order</span> <span class="o">=</span> <span class="n">integration_order</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">dropna</span><span class="p">(),</span> <span class="n">pvalue</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+            <span class="n">expected_order</span> <span class="o">=</span> <span class="mi">2</span> <span class="k">if</span> <span class="n">tcode</span> <span class="o">==</span> <span class="mi">7</span> <span class="k">else</span> <span class="p">((</span><span class="n">tcode</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">3</span><span class="p">)</span>
+            <span class="n">stationary</span><span class="p">[</span><span class="n">series_id</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;tcode&#39;</span><span class="p">:</span> <span class="n">tcode</span><span class="p">,</span>
+                                     <span class="s1">&#39;I(p)&#39;</span><span class="p">:</span> <span class="n">order</span><span class="p">,</span>
+                                     <span class="s1">&#39;different&#39;</span><span class="p">:</span> <span class="n">order</span> <span class="o">-</span> <span class="n">expected_order</span><span class="p">,</span>
+                                     <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="n">alf</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="n">series_id</span><span class="p">)}</span>
+<span class="c1">#            print(series_id, tcode, expected_order, order)</span>
+    <span class="n">stationary</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">stationary</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>
+    <span class="n">stationary</span> <span class="o">=</span> <span class="n">stationary</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">stationary</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">())</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">stationary</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;tcode&#39;</span><span class="p">,</span><span class="s1">&#39;I(p)&#39;</span><span class="p">])[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+    <span class="n">out</span><span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;tcode&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;I(p)&#39;</span><span class="p">,</span>
+                         <span class="n">values</span><span class="o">=</span><span class="s1">&#39;title&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">out</span><span class="p">[</span><span class="n">label</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;I(</span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="s2">)&quot;</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">out</span><span class="p">[</span><span class="n">label</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Series by tcode, transformations and estimated order of integration:&#39;</span><span class="p">)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">tcodes</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;fred-md&#39;</span><span class="p">),</span>
+                     <span class="n">out</span><span class="p">[</span><span class="s1">&#39;qd&#39;</span><span class="p">],</span>
+                     <span class="n">tcodes</span><span class="p">[</span><span class="s1">&#39;fred-md&#39;</span><span class="p">],</span>
+                     <span class="n">out</span><span class="p">[</span><span class="s1">&#39;md&#39;</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="n">results</span><span class="p">,</span>
+     <span class="n">caption</span><span class="o">=</span><span class="s1">&#39;FRED-MD order of integration, transformations and frequency&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Series by tcode, transformations and estimated order of integration:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>diff</th>
+      <th>log</th>
+      <th>pct_change</th>
+      <th>fred-qd</th>
+      <th>I(0)</th>
+      <th>I(1)</th>
+      <th>I(2)</th>
+      <th>fred-md</th>
+      <th>I(0)</th>
+      <th>I(1)</th>
+      <th>I(2)</th>
+    </tr>
+    <tr>
+      <th>FRED-MD order of integration, transformations and frequency</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>22</td>
+      <td>18</td>
+      <td>4</td>
+      <td>0</td>
+      <td>11</td>
+      <td>11</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>32</td>
+      <td>10</td>
+      <td>20</td>
+      <td>2</td>
+      <td>19</td>
+      <td>3</td>
+      <td>16</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>10</td>
+      <td>6</td>
+      <td>4</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>141</td>
+      <td>30</td>
+      <td>106</td>
+      <td>5</td>
+      <td>53</td>
+      <td>14</td>
+      <td>39</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>50</td>
+      <td>0</td>
+      <td>28</td>
+      <td>22</td>
+      <td>33</td>
+      <td>0</td>
+      <td>29</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show</span><span class="p">(</span><span class="n">stationary</span><span class="p">[</span><span class="n">stationary</span><span class="p">[</span><span class="s1">&#39;different&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">],</span>
+     <span class="n">max_colwidth</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span>
+     <span class="n">caption</span><span class="o">=</span><span class="s1">&#39;FRED-MD series with unit root after transformations&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tcode</th>
+      <th>I(p)</th>
+      <th>different</th>
+      <th>title</th>
+    </tr>
+    <tr>
+      <th>FRED-MD series with unit root after transformations</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>NWPI</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>*** NWPI ***</td>
+    </tr>
+    <tr>
+      <th>TLBSNNBBDI</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>*** TLBSNNBBDI ***</td>
+    </tr>
+    <tr>
+      <th>TLBSNNCBBDI</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>*** TLBSNNCBBDI ***</td>
+    </tr>
+    <tr>
+      <th>HWI</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Help Wanted Index for United States</td>
+    </tr>
+    <tr>
+      <th>GFDEBTN</th>
+      <td>2</td>
+      <td>2</td>
+      <td>1</td>
+      <td>Federal Debt: Total Public Debt</td>
+    </tr>
+    <tr>
+      <th>S&amp;P div yield</th>
+      <td>2</td>
+      <td>2</td>
+      <td>1</td>
+      <td>S&amp;P's Composite Common Stock: Dividend Yield</td>
+    </tr>
+    <tr>
+      <th>CES2000000008</th>
+      <td>5</td>
+      <td>2</td>
+      <td>1</td>
+      <td>Average Hourly Earnings of Production and Nons...</td>
+    </tr>
+    <tr>
+      <th>TLBSHNO</th>
+      <td>5</td>
+      <td>2</td>
+      <td>1</td>
+      <td>Households and Nonprofit Organizations; Total ...</td>
+    </tr>
+    <tr>
+      <th>OPHMFG</th>
+      <td>5</td>
+      <td>2</td>
+      <td>1</td>
+      <td>Manufacturing Sector: Labor Productivity (Outp...</td>
+    </tr>
+    <tr>
+      <th>SPCS20RSA</th>
+      <td>5</td>
+      <td>2</td>
+      <td>1</td>
+      <td>S&amp;P/Case-Shiller 20-City Composite Home Price ...</td>
+    </tr>
+    <tr>
+      <th>SLCE</th>
+      <td>5</td>
+      <td>2</td>
+      <td>1</td>
+      <td>State and Local Consumption Expenditures &amp; Gro...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="approximate-factor-model">
+<h2>Approximate factor model<a class="headerlink" href="#approximate-factor-model" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Bai and Ng, McCracken and Ng</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verify BaiNg implemention on published FRED-MD and FRED-QD reports</span>
+<span class="n">qd_df</span><span class="p">,</span> <span class="n">qd_codes</span> <span class="o">=</span> <span class="n">fred_qd</span><span class="p">(</span><span class="mi">202004</span><span class="p">)</span>
+<span class="n">md_df</span><span class="p">,</span> <span class="n">md_codes</span> <span class="o">=</span> <span class="n">fred_md</span><span class="p">(</span><span class="mi">201505</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">freq</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">transforms</span> <span class="ow">in</span> <span class="p">[[</span><span class="s1">&#39;monthly&#39;</span><span class="p">,</span> <span class="n">md_df</span><span class="p">,</span> <span class="n">md_codes</span><span class="p">[</span><span class="s1">&#39;transform&#39;</span><span class="p">]],</span>
+                             <span class="p">[</span><span class="s1">&#39;quarterly&#39;</span><span class="p">,</span> <span class="n">qd_df</span><span class="p">,</span> <span class="n">qd_codes</span><span class="p">[</span><span class="s1">&#39;transform&#39;</span><span class="p">]]]:</span>    
+    <span class="c1"># Apply tcode transformations</span>
+    <span class="n">transformed</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="n">transformed</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">alf</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">],</span>
+                                         <span class="n">tcode</span><span class="o">=</span><span class="n">transforms</span><span class="p">[</span><span class="n">col</span><span class="p">],</span>
+                                         <span class="n">freq</span><span class="o">=</span><span class="n">freq</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">transformed</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+    <span class="n">cols</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+    <span class="n">sample</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">[((</span><span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span>
+                         <span class="o">|</span> <span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span> <span class="o">&lt;=</span> <span class="mi">20141231</span><span class="p">))</span>
+                        <span class="o">&amp;</span> <span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="mi">19600301</span><span class="p">)]</span>
+
+    <span class="c1"># set missing and outliers in X to NaN</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sample</span><span class="p">]</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">remove_outliers</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+    <span class="c1"># compute factors EM and auto select number of components, r</span>
+    <span class="n">Z</span> <span class="o">=</span> <span class="n">factors_em</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">select_bai_ng</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    
+    <span class="c1"># show marginal R2&#39;s of series to each component</span>
+    <span class="n">mR2</span> <span class="o">=</span> <span class="n">mrsq</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+    <span class="n">show</span><span class="p">(</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;selected&#39;</span><span class="p">:</span> <span class="n">r</span><span class="p">,</span>
+                    <span class="s1">&#39;variance explained&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">mR2</span><span class="p">[:,</span> <span class="p">:</span><span class="n">r</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)),</span>
+                    <span class="s1">&#39;start&#39;</span><span class="p">:</span> <span class="nb">min</span><span class="p">(</span><span class="n">sample</span><span class="p">),</span>
+                    <span class="s1">&#39;end&#39;</span><span class="p">:</span> <span class="nb">max</span><span class="p">(</span><span class="n">sample</span><span class="p">),</span>
+                    <span class="s1">&#39;obs&#39;</span><span class="p">:</span> <span class="n">Z</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                    <span class="s1">&#39;series&#39;</span><span class="p">:</span> <span class="n">Z</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]},</span>
+                   <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;factors&#39;</span><span class="p">]),</span>
+         <span class="n">caption</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;FRED-</span><span class="si">{</span><span class="n">freq</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2">D </span><span class="si">{</span><span class="n">freq</span><span class="si">}</span><span class="s2"> series:&quot;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+        <span class="n">args</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="o">-</span><span class="n">mR2</span><span class="p">[:,</span> <span class="n">k</span><span class="p">])</span>
+        <span class="n">show</span><span class="p">(</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">({</span><span class="n">mR2</span><span class="p">[</span><span class="n">arg</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+                                  <span class="p">{</span><span class="s1">&#39;series&#39;</span><span class="p">:</span> <span class="n">cols</span><span class="p">[</span><span class="n">arg</span><span class="p">],</span>
+                                   <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="n">alf</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="n">cols</span><span class="p">[</span><span class="n">arg</span><span class="p">])}</span>
+                                  <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span><span class="p">[:</span><span class="mi">10</span><span class="p">]},</span>
+                                 <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">),</span>
+             <span class="n">caption</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Factor:</span><span class="si">{</span><span class="mi">1</span><span class="o">+</span><span class="n">k</span><span class="si">}</span><span class="s2"> Variance Explained=</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">mR2</span><span class="p">[:,</span><span class="n">k</span><span class="p">])</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>quarterly/2020-04.csv
+monthly/2015-05.csv
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Sanity check Extract factors: SVD == PCA</span>
+<span class="c1"># pipe.fit through 20141231, pipe.transform through 20201231</span>
+
+<span class="n">df</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="n">fred_md</span><span class="p">()</span>  <span class="c1">#202104 # 201505</span>
+<span class="n">transforms</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="s1">&#39;transform&#39;</span><span class="p">]</span>
+<span class="n">sample_date</span> <span class="o">=</span> <span class="mi">20141231</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">alf</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">],</span> <span class="n">tcode</span><span class="o">=</span><span class="n">transforms</span><span class="p">[</span><span class="n">col</span><span class="p">],</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;m&#39;</span><span class="p">))</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">sample</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">[((</span><span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="o">|</span>
+                     <span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span> <span class="o">&lt;=</span> <span class="n">sample_date</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="mi">19600301</span><span class="p">)]</span>
+<span class="n">train_sample</span> <span class="o">=</span> <span class="n">sample</span><span class="p">[</span><span class="n">sample</span> <span class="o">&lt;=</span> <span class="n">sample_date</span><span class="p">]</span>
+<span class="n">test_sample</span> <span class="o">=</span> <span class="n">sample</span><span class="p">[</span><span class="n">sample</span> <span class="o">&lt;=</span> <span class="mi">20191231</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>monthly/current.csv
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># replace missing and outliers with PCA EM and fixed number of components r=8</span>
+<span class="n">r</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">train_sample</span><span class="p">]</span> <span class="c1"># X = np.array(data.loc[train_sample])</span>
+<span class="n">X</span><span class="p">[</span><span class="n">is_outlier</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;iq10&#39;</span><span class="p">)]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">factors_em</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">kmax</span><span class="o">=</span><span class="n">r</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extract factors with SVD</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">((</span><span class="n">x</span><span class="o">-</span><span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="o">/</span><span class="n">x</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">ddof</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">u</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">vT</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">full_matrices</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1">#factors = DataFrame(u[:, :r], columns=np.arange(1, 1+r),</span>
+<span class="c1">#                    index=pd.DatetimeIndex(train_sample.astype(str), freq=&#39;M&#39;))</span>
+<span class="n">Series</span><span class="p">(</span><span class="n">s</span><span class="p">[:</span><span class="n">r</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">s</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">r</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;R2&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>R2</th>
+      <td>0.151032</td>
+      <td>0.071875</td>
+      <td>0.068792</td>
+      <td>0.056614</td>
+      <td>0.043291</td>
+      <td>0.033761</td>
+      <td>0.031713</td>
+      <td>0.027361</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Equivalent to sklearn PCA</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+<span class="n">pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;pca&#39;</span><span class="p">,</span> <span class="n">PCA</span><span class="p">(</span><span class="n">r</span><span class="p">))])</span>
+<span class="n">pipe</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>              <span class="c1"># fit model on training data</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sample</span><span class="p">]</span>     <span class="c1"># to transform on full sample data</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">factors_em</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">kmax</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># replace missing (not outlier)</span>
+<span class="n">factors</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">pipe</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)),</span>
+                    <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">(</span><span class="n">sample</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">),</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;infer&#39;</span><span class="p">),</span>
+                    <span class="n">columns</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="n">r</span><span class="p">))</span>
+
+<span class="c1"># store approximate factors in local folder</span>
+<span class="n">store</span><span class="p">[</span><span class="s1">&#39;approximate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">factors</span><span class="o">=</span><span class="n">factors</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/terence/env3.11/lib/python3.11/site-packages/sklearn/base.py:432: UserWarning: X has feature names, but StandardScaler was fitted without feature names
+  warnings.warn(
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Series</span><span class="p">(</span><span class="n">pipe</span><span class="o">.</span><span class="n">named_steps</span><span class="p">[</span><span class="s1">&#39;pca&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">,</span>
+       <span class="n">index</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">r</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;R2&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>   <span class="c1"># sanity check</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>R2</th>
+      <td>0.151032</td>
+      <td>0.071875</td>
+      <td>0.068792</td>
+      <td>0.056614</td>
+      <td>0.043291</td>
+      <td>0.033761</td>
+      <td>0.031713</td>
+      <td>0.027361</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Retrieve recession periods from FRED</span>
+<span class="n">vspans</span> <span class="o">=</span> <span class="n">alf</span><span class="o">.</span><span class="n">date_spans</span><span class="p">(</span><span class="s1">&#39;USREC&#39;</span><span class="p">)</span>
+<span class="n">DataFrame</span><span class="p">(</span><span class="n">vspans</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Start&#39;</span><span class="p">,</span> <span class="s1">&#39;End&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Start</th>
+      <th>End</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1854-12-31</td>
+      <td>1854-12-31</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1857-06-30</td>
+      <td>1858-12-31</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1860-10-31</td>
+      <td>1861-06-30</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1865-04-30</td>
+      <td>1867-12-31</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1869-06-30</td>
+      <td>1870-12-31</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1873-10-31</td>
+      <td>1879-03-31</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>1882-03-31</td>
+      <td>1885-05-31</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>1887-03-31</td>
+      <td>1888-04-30</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>1890-07-31</td>
+      <td>1891-05-31</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>1893-01-31</td>
+      <td>1894-06-30</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>1895-12-31</td>
+      <td>1897-06-30</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>1899-06-30</td>
+      <td>1900-12-31</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>1902-09-30</td>
+      <td>1904-08-31</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>1907-05-31</td>
+      <td>1908-06-30</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>1910-01-31</td>
+      <td>1912-01-31</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>1913-01-31</td>
+      <td>1914-12-31</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>1918-08-31</td>
+      <td>1919-03-31</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>1920-01-31</td>
+      <td>1921-07-31</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>1923-05-31</td>
+      <td>1924-07-31</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>1926-10-31</td>
+      <td>1927-11-30</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>1929-08-31</td>
+      <td>1933-03-31</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>1937-05-31</td>
+      <td>1938-06-30</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>1945-02-28</td>
+      <td>1945-10-31</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>1948-11-30</td>
+      <td>1949-10-31</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>1953-07-31</td>
+      <td>1954-05-31</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>1957-08-31</td>
+      <td>1958-04-30</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>1960-04-30</td>
+      <td>1961-02-28</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>1969-12-31</td>
+      <td>1970-11-30</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>1973-11-30</td>
+      <td>1975-03-31</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>1980-01-31</td>
+      <td>1980-07-31</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>1981-07-31</td>
+      <td>1982-11-30</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>1990-07-31</td>
+      <td>1991-03-31</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>2001-03-31</td>
+      <td>2001-11-30</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>2007-12-31</td>
+      <td>2009-06-30</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>2020-02-29</td>
+      <td>2020-04-30</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Plot extracted factors</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">num</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">factors</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">col</span><span class="p">)</span>
+    <span class="n">flip</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">factors</span><span class="p">[</span><span class="n">col</span><span class="p">])</span> <span class="o">+</span> <span class="nb">min</span><span class="p">(</span><span class="n">factors</span><span class="p">[</span><span class="n">col</span><span class="p">]))</span> <span class="c1"># try match sign</span>
+    <span class="p">(</span><span class="n">flip</span><span class="o">*</span><span class="n">factors</span><span class="p">[</span><span class="n">col</span><span class="p">])</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;C</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="ow">in</span> <span class="n">vspans</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">b</span> <span class="o">&gt;=</span> <span class="nb">min</span><span class="p">(</span><span class="n">factors</span><span class="o">.</span><span class="n">index</span><span class="p">):</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">factors</span><span class="o">.</span><span class="n">index</span><span class="p">)),</span> <span class="nb">min</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">factors</span><span class="o">.</span><span class="n">index</span><span class="p">)),</span>
+                       <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot;Factor </span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2"> Estimate&quot;</span><span class="p">,</span> <span class="s1">&#39;NBER Recession&#39;</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">&quot;top&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">&quot;right&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">rect</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Factor Estimates </span><span class="si">{</span><span class="n">factors</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">%b-%Y</span><span class="si">}</span><span class="s2">:&quot;</span>
+             <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">factors</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">%b-%Y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">imgdir</span> <span class="o">/</span> <span class="s1">&#39;approximate.jpg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/74b43c1a0153cf6f4d8a798d32c2f8abd3d04b59ad799b5333a0b0517bff4539.png" src="_images/74b43c1a0153cf6f4d8a798d32c2f8abd3d04b59ad799b5333a0b0517bff4539.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="econometric_forecast.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Econometric Forecasts</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="economic_states.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">State Space Models</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fred-md">FRED-MD</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#approximate-factor-model">Approximate factor model</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Terence Lim
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

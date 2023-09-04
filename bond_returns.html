@@ -1,0 +1,1055 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Bond Returns &#8212; Financial Data Science Python Notebooks</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'bond_returns';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Options Pricing" href="options_pricing.html" />
+    <link rel="prev" title="Term Structure" href="term_structure.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="README.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Financial Data Science Python Notebooks</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="README.html">
+                    Financial Data Science Notebooks
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="stock_prices.html">Stock prices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jegadeesh_titman.html">Jegadeesh-Titman Rolling Portfolios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fama_french.html">Fama-French Portfolio Sorts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fama_macbeth.html">Fama-Macbeth Cross-sectional Regressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weekly_reversal.html">Weekly reversal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quant_factors.html">Quant Factors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event_study.html">Event Study</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="economic_releases.html">Economic Data Revisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regression_diagnostics.html">Linear Regression Diagonostics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="econometric_forecast.html">Econometric Forecasts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="approximate_factors.html">Approximate Factor Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="economic_states.html">State Space Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional_volatility.html">Conditional Volatility</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="covariance_matrix.html">Covariance Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="term_structure.html">Term Structure</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Bond Returns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="options_pricing.html">Options Pricing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="market_microstructure.html">Market Microstructure</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="event_risk.html">Event risk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="customer_ego.html">Principal Customers Network</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="bea_centrality.html">Graph Centrality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="industry_community.html">Community Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="link_prediction.html">Link Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spatial_regression.html">Spatial Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fomc_topics.html">Topic Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management_sentiment.html">Sentiment Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="business_description.html">10-K Business Description</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="classification_models.html">Classification for supervised learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regression_models.html">Regression for supervised learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deep_classifier.html">Deep Averaging Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="convolutional_net.html">Temporal Convolution Net</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recurrent_net.html">Recurrent Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fomc_language.html">Language Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reinforcement_learning.html">Reinforcement Learning</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/terence-lim/data-science-notebooks.git" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/terence-lim/data-science-notebooks.git/issues/new?title=Issue%20on%20page%20%2Fbond_returns.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/bond_returns.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Bond Returns</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="bond-returns">
+<h1>Bond Returns<a class="headerlink" href="#bond-returns" title="Permalink to this heading">#</a></h1>
+<p><em>UNDER CONSTRUCTION</em></p>
+<ul class="simple">
+<li><p>PCA</p></li>
+<li><p>bond portfolio returns</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">Series</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">from</span> <span class="nn">finds.readers</span> <span class="kn">import</span> <span class="n">Alfred</span>
+<span class="kn">from</span> <span class="nn">finds.misc</span> <span class="kn">import</span> <span class="n">Show</span>
+<span class="kn">from</span> <span class="nn">secret</span> <span class="kn">import</span> <span class="n">credentials</span><span class="p">,</span> <span class="n">paths</span>
+<span class="c1"># %matplotlib qt</span>
+<span class="n">VERBOSE</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">show</span> <span class="o">=</span> <span class="n">Show</span><span class="p">(</span><span class="n">ndigits</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">latex</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">imgdir</span> <span class="o">=</span> <span class="n">paths</span><span class="p">[</span><span class="s1">&#39;images&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="s1">&#39;ts&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alf</span> <span class="o">=</span> <span class="n">Alfred</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;fred&#39;</span><span class="p">][</span><span class="s1">&#39;api_key&#39;</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Bond Return Components</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## get Merrill Lynch bond indexes</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">alf</span><span class="o">.</span><span class="n">get_category</span><span class="p">(</span><span class="mi">32413</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span> <span class="n">c</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">Series</span><span class="p">({</span><span class="n">s</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]:</span> <span class="n">s</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">c</span><span class="p">[</span><span class="s1">&#39;series&#39;</span><span class="p">]})</span>
+<span class="n">t</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://api.stlouisfed.org/fred/category?category_id=32413&amp;api_key=eb428f329807459fa7bee89be4ebbc3b&amp;file_type=json
+https://api.stlouisfed.org/fred/category/children?category_id=32413&amp;api_key=eb428f329807459fa7bee89be4ebbc3b&amp;file_type=json
+https://api.stlouisfed.org/fred/category/series?category_id=32413&amp;api_key=eb428f329807459fa7bee89be4ebbc3b&amp;file_type=json&amp;offset=0
+https://api.stlouisfed.org/fred/category/series?category_id=32413&amp;api_key=eb428f329807459fa7bee89be4ebbc3b&amp;file_type=json&amp;offset=1000
+32413 BofA Merrill Lynch Total Bond Return Index Values
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BAMLCC0A0CMTRIV             ICE BofA US Corporate Index Total Return Index...
+BAMLCC0A1AAATRIV            ICE BofA AAA US Corporate Index Total Return I...
+BAMLCC0A2AATRIV             ICE BofA AA US Corporate Index Total Return In...
+BAMLCC0A3ATRIV              ICE BofA Single-A US Corporate Index Total Ret...
+BAMLCC0A4BBBTRIV            ICE BofA BBB US Corporate Index Total Return I...
+BAMLCC1A013YTRIV            ICE BofA 1-3 Year US Corporate Index Total Ret...
+BAMLCC2A035YTRIV            ICE BofA 3-5 Year US Corporate Index Total Ret...
+BAMLCC3A057YTRIV            ICE BofA 5-7 Year US Corporate Index Total Ret...
+BAMLCC4A0710YTRIV           ICE BofA 7-10 Year US Corporate Index Total Re...
+BAMLCC7A01015YTRIV          ICE BofA 10-15 Year US Corporate Index Total R...
+BAMLCC8A015PYTRIV           ICE BofA 15+ Year US Corporate Index Total Ret...
+BAMLEM1BRRAAA2ACRPITRIV     ICE BofA AAA-A Emerging Markets Corporate Plus...
+BAMLEM1RAAA2ALCRPIUSTRIV    ICE BofA AAA-A US Emerging Markets Liquid Corp...
+BAMLEM2BRRBBBCRPITRIV       ICE BofA BBB Emerging Markets Corporate Plus I...
+BAMLEM2RBBBLCRPIUSTRIV      ICE BofA BBB US Emerging Markets Liquid Corpor...
+BAMLEM3BRRBBCRPITRIV        ICE BofA BB Emerging Markets Corporate Plus In...
+BAMLEM3RBBLCRPIUSTRIV       ICE BofA BB US Emerging Markets Liquid Corpora...
+BAMLEM4BRRBLCRPITRIV        ICE BofA B &amp; Lower Emerging Markets Corporate ...
+BAMLEM4RBLLCRPIUSTRIV       ICE BofA B &amp; Lower US Emerging Markets Liquid ...
+BAMLEM5BCOCRPITRIV          ICE BofA Crossover Emerging Markets Corporate ...
+BAMLEMALLCRPIASIAUSTRIV     ICE BofA Asia US Emerging Markets Liquid Corpo...
+BAMLEMCBPITRIV              ICE BofA Emerging Markets Corporate Plus Index...
+BAMLEMCLLCRPIUSTRIV         ICE BofA US Emerging Markets Liquid Corporate ...
+BAMLEMEBCRPIETRIV           ICE BofA Euro Emerging Markets Corporate Plus ...
+BAMLEMELLCRPIEMEAUSTRIV     ICE BofA EMEA US Emerging Markets Liquid Corpo...
+BAMLEMFLFLCRPIUSTRIV        ICE BofA Financial US Emerging Markets Liquid ...
+BAMLEMFSFCRPITRIV           ICE BofA Private Sector Financial Emerging Mar...
+BAMLEMHBHYCRPITRIV          ICE BofA High Yield Emerging Markets Corporate...
+BAMLEMHGHGLCRPIUSTRIV       ICE BofA High Grade US Emerging Markets Liquid...
+BAMLEMHYHYLCRPIUSTRIV       ICE BofA High Yield US Emerging Markets Liquid...
+BAMLEMIBHGCRPITRIV          ICE BofA High Grade Emerging Markets Corporate...
+BAMLEMLLLCRPILAUSTRIV       ICE BofA Latin America US Emerging Markets Liq...
+BAMLEMNFNFLCRPIUSTRIV       ICE BofA Non-Financial US Emerging Markets Liq...
+BAMLEMNSNFCRPITRIV          ICE BofA Non-Financial Emerging Markets Corpor...
+BAMLEMPBPUBSICRPITRIV       ICE BofA Public Sector Issuers Emerging Market...
+BAMLEMPTPRVICRPITRIV        ICE BofA Private Sector Issuers Emerging Marke...
+BAMLEMPUPUBSLCRPIUSTRIV     ICE BofA Public Sector Issuers US Emerging Mar...
+BAMLEMPVPRIVSLCRPIUSTRIV    ICE BofA Private Sector Issuers US Emerging Ma...
+BAMLEMRACRPIASIATRIV        ICE BofA Asia Emerging Markets Corporate Plus ...
+BAMLEMRECRPIEMEATRIV        ICE BofA EMEA Emerging Markets Corporate Plus ...
+BAMLEMRLCRPILATRIV          ICE BofA Latin America Emerging Markets Corpor...
+BAMLEMUBCRPIUSTRIV          ICE BofA US Emerging Markets Corporate Plus In...
+BAMLEMXOCOLCRPIUSTRIV       ICE BofA Crossover US Emerging Markets Liquid ...
+BAMLHE00EHYITRIV            ICE BofA Euro High Yield Index Total Return In...
+BAMLHYH0A0HYM2TRIV          ICE BofA US High Yield Index Total Return Inde...
+BAMLHYH0A1BBTRIV            ICE BofA BB US High Yield Index Total Return I...
+BAMLHYH0A2BTRIV             ICE BofA Single-B US High Yield Index Total Re...
+BAMLHYH0A3CMTRIV            ICE BofA CCC &amp; Lower US High Yield Index Total...
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="p">[]</span>   <span class="c1"># accumulate bond returns</span>
+<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+    <span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">alf</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">19961231</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">bonds</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Show blocks of data available</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">bonds</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">v</span><span class="p">,</span> <span class="p">(</span><span class="n">v</span> <span class="o">!=</span> <span class="n">v</span><span class="o">.</span><span class="n">shift</span><span class="p">())</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;notna&#39;</span><span class="p">)],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;notna&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">])[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s1">&#39;first&#39;</span><span class="p">,</span><span class="s1">&#39;last&#39;</span><span class="p">])</span>
+<span class="n">g</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>first</th>
+      <th>last</th>
+    </tr>
+    <tr>
+      <th>notna</th>
+      <th>count</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <th>15</th>
+      <td>19961231</td>
+      <td>19971230</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <th>16</th>
+      <td>19971231</td>
+      <td>19981230</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <th>33</th>
+      <td>19981231</td>
+      <td>20031230</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <th>48</th>
+      <td>20031231</td>
+      <td>20181108</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <th>46</th>
+      <td>20181109</td>
+      <td>20181109</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <th>48</th>
+      <td>20181112</td>
+      <td>20230829</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">start_date</span> <span class="o">=</span> <span class="mi">19981231</span>
+<span class="n">rets</span> <span class="o">=</span> <span class="n">bonds</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">bonds</span><span class="o">.</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="n">start_date</span><span class="p">,</span>
+                 <span class="n">bonds</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">start_date</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">]</span>
+<span class="n">rets</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">alf</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">rets</span><span class="p">[</span><span class="n">col</span><span class="p">],</span> <span class="n">log</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">diff</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+                  <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">rets</span><span class="o">.</span><span class="n">columns</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="n">Series</span><span class="p">(</span><span class="n">alf</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="n">rets</span><span class="o">.</span><span class="n">columns</span><span class="p">),</span>
+            <span class="n">index</span><span class="o">=</span><span class="n">rets</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+            <span class="n">name</span><span class="o">=</span><span class="s1">&#39;title&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span><span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="s1">&#39;series&#39;</span><span class="p">),</span>
+     <span class="n">max_colwidth</span><span class="o">=</span><span class="mi">88</span><span class="p">,</span>
+     <span class="n">caption</span><span class="o">=</span><span class="s2">&quot;Bond Index Total Returns&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>title</th>
+    </tr>
+    <tr>
+      <th>Bond Index Total Returns</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>BAMLCC0A0CMTRIV</th>
+      <td>ICE BofA US Corporate Index Total Return Index...</td>
+    </tr>
+    <tr>
+      <th>BAMLCC0A1AAATRIV</th>
+      <td>ICE BofA AAA US Corporate Index Total Return I...</td>
+    </tr>
+    <tr>
+      <th>BAMLCC0A2AATRIV</th>
+      <td>ICE BofA AA US Corporate Index Total Return In...</td>
+    </tr>
+    <tr>
+      <th>BAMLCC0A3ATRIV</th>
+      <td>ICE BofA Single-A US Corporate Index Total Ret...</td>
+    </tr>
+    <tr>
+      <th>BAMLCC0A4BBBTRIV</th>
+      <td>ICE BofA BBB US Corporate Index Total Return I...</td>
+    </tr>
+    <tr>
+      <th>BAMLCC1A013YTRIV</th>
+      <td>ICE BofA 1-3 Year US Corporate Index Total Ret...</td>
+    </tr>
+    <tr>
+      <th>BAMLCC2A035YTRIV</th>
+      <td>ICE BofA 3-5 Year US Corporate Index Total Ret...</td>
+    </tr>
+    <tr>
+      <th>BAMLCC3A057YTRIV</th>
+      <td>ICE BofA 5-7 Year US Corporate Index Total Ret...</td>
+    </tr>
+    <tr>
+      <th>BAMLCC4A0710YTRIV</th>
+      <td>ICE BofA 7-10 Year US Corporate Index Total Re...</td>
+    </tr>
+    <tr>
+      <th>BAMLCC7A01015YTRIV</th>
+      <td>ICE BofA 10-15 Year US Corporate Index Total R...</td>
+    </tr>
+    <tr>
+      <th>BAMLCC8A015PYTRIV</th>
+      <td>ICE BofA 15+ Year US Corporate Index Total Ret...</td>
+    </tr>
+    <tr>
+      <th>BAMLEM1BRRAAA2ACRPITRIV</th>
+      <td>ICE BofA AAA-A Emerging Markets Corporate Plus...</td>
+    </tr>
+    <tr>
+      <th>BAMLEM2BRRBBBCRPITRIV</th>
+      <td>ICE BofA BBB Emerging Markets Corporate Plus I...</td>
+    </tr>
+    <tr>
+      <th>BAMLEM3BRRBBCRPITRIV</th>
+      <td>ICE BofA BB Emerging Markets Corporate Plus In...</td>
+    </tr>
+    <tr>
+      <th>BAMLEM4BRRBLCRPITRIV</th>
+      <td>ICE BofA B &amp; Lower Emerging Markets Corporate ...</td>
+    </tr>
+    <tr>
+      <th>BAMLEM5BCOCRPITRIV</th>
+      <td>ICE BofA Crossover Emerging Markets Corporate ...</td>
+    </tr>
+    <tr>
+      <th>BAMLEMCBPITRIV</th>
+      <td>ICE BofA Emerging Markets Corporate Plus Index...</td>
+    </tr>
+    <tr>
+      <th>BAMLEMEBCRPIETRIV</th>
+      <td>ICE BofA Euro Emerging Markets Corporate Plus ...</td>
+    </tr>
+    <tr>
+      <th>BAMLEMFSFCRPITRIV</th>
+      <td>ICE BofA Private Sector Financial Emerging Mar...</td>
+    </tr>
+    <tr>
+      <th>BAMLEMHBHYCRPITRIV</th>
+      <td>ICE BofA High Yield Emerging Markets Corporate...</td>
+    </tr>
+    <tr>
+      <th>BAMLEMIBHGCRPITRIV</th>
+      <td>ICE BofA High Grade Emerging Markets Corporate...</td>
+    </tr>
+    <tr>
+      <th>BAMLEMNSNFCRPITRIV</th>
+      <td>ICE BofA Non-Financial Emerging Markets Corpor...</td>
+    </tr>
+    <tr>
+      <th>BAMLEMPBPUBSICRPITRIV</th>
+      <td>ICE BofA Public Sector Issuers Emerging Market...</td>
+    </tr>
+    <tr>
+      <th>BAMLEMPTPRVICRPITRIV</th>
+      <td>ICE BofA Private Sector Issuers Emerging Marke...</td>
+    </tr>
+    <tr>
+      <th>BAMLEMRACRPIASIATRIV</th>
+      <td>ICE BofA Asia Emerging Markets Corporate Plus ...</td>
+    </tr>
+    <tr>
+      <th>BAMLEMRECRPIEMEATRIV</th>
+      <td>ICE BofA EMEA Emerging Markets Corporate Plus ...</td>
+    </tr>
+    <tr>
+      <th>BAMLEMRLCRPILATRIV</th>
+      <td>ICE BofA Latin America Emerging Markets Corpor...</td>
+    </tr>
+    <tr>
+      <th>BAMLEMUBCRPIUSTRIV</th>
+      <td>ICE BofA US Emerging Markets Corporate Plus In...</td>
+    </tr>
+    <tr>
+      <th>BAMLHE00EHYITRIV</th>
+      <td>ICE BofA Euro High Yield Index Total Return In...</td>
+    </tr>
+    <tr>
+      <th>BAMLHYH0A0HYM2TRIV</th>
+      <td>ICE BofA US High Yield Index Total Return Inde...</td>
+    </tr>
+    <tr>
+      <th>BAMLHYH0A1BBTRIV</th>
+      <td>ICE BofA BB US High Yield Index Total Return I...</td>
+    </tr>
+    <tr>
+      <th>BAMLHYH0A2BTRIV</th>
+      <td>ICE BofA Single-B US High Yield Index Total Re...</td>
+    </tr>
+    <tr>
+      <th>BAMLHYH0A3CMTRIV</th>
+      <td>ICE BofA CCC &amp; Lower US High Yield Index Total...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Marginal Variance Explained</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">rets</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">rets</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">rets</span><span class="o">.</span><span class="n">columns</span>
+<span class="n">r</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">from finds.alfred import marginalRsq</span>
+<span class="sd">mR2 = marginalRsq(x, standardize=True)</span>
+<span class="sd">print(f&quot;Explained by {r} factors: {np.sum(np.mean(mR2[:r,:], axis=1)):.3f}&quot;</span>
+<span class="sd">      f&quot; ({len(x)} obs)&quot;)</span>
+<span class="sd">df = DataFrame({&#39;explained&#39;: np.mean(mR2, axis=1)},</span>
+<span class="sd">               index=np.arange(1, len(mR2) + 1))</span>
+<span class="sd">df.iloc[4]</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;\nfrom finds.alfred import marginalRsq\nmR2 = marginalRsq(x, standardize=True)\nprint(f&quot;Explained by {r} factors: {np.sum(np.mean(mR2[:r,:], axis=1)):.3f}&quot;\n      f&quot; ({len(x)} obs)&quot;)\ndf = DataFrame({\&#39;explained\&#39;: np.mean(mR2, axis=1)},\n               index=np.arange(1, len(mR2) + 1))\ndf.iloc[4]\n&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Same calculation with sklearn</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+<span class="n">pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;pca&#39;</span><span class="p">,</span> <span class="n">PCA</span><span class="p">())])</span>
+<span class="n">pipe</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pipe</span><span class="o">.</span><span class="n">named_steps</span><span class="p">[</span><span class="s1">&#39;pca&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">)</span>  <span class="c1"># sanity check</span>
+<span class="n">scree</span> <span class="o">=</span> <span class="n">Series</span><span class="p">(</span><span class="n">pipe</span><span class="o">.</span><span class="n">named_steps</span><span class="p">[</span><span class="s1">&#39;pca&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">,</span>
+               <span class="n">index</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[5.86789902e-01 1.86999891e-01 7.70507495e-02 2.31692776e-02
+ 2.09236720e-02 1.74466819e-02 1.59969576e-02 1.11997496e-02
+ 1.08857821e-02 9.62694118e-03 7.23593993e-03 5.86580950e-03
+ 5.18815697e-03 4.67376507e-03 4.08324626e-03 2.59381179e-03
+ 2.45324538e-03 2.30697359e-03 1.37010289e-03 9.79850816e-04
+ 8.05769526e-04 6.38160060e-04 4.08352451e-04 3.82511512e-04
+ 3.14728492e-04 2.77963772e-04 9.32990978e-05 8.59047248e-05
+ 5.50770945e-05 4.00939820e-05 3.59304585e-05 1.58570390e-05
+ 5.84577715e-06]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Scree plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">num</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">scree</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">rot</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">.8</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Scree Plot: PCA of FRED BofA Bond Return Indexes&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Percent Variance Explained&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Principal Component&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">imgdir</span> <span class="o">/</span> <span class="s1">&#39;scree.jpg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/445458536c524c5895520141b8c7090055e6a2e4010ff42d2d8fa565e60823f2.png" src="_images/445458536c524c5895520141b8c7090055e6a2e4010ff42d2d8fa565e60823f2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Rsquare of components explained by Interest Rate Indicators</span>
+<span class="n">rates</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;BAA10Y&#39;</span><span class="p">,</span> <span class="s1">&#39;T10Y2Y&#39;</span><span class="p">,</span> <span class="s1">&#39;DGS10&#39;</span><span class="p">]</span>  <span class="c1"># compare rate levels</span>
+<span class="n">rates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">alf</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">rates</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><span class="o">.</span><span class="n">pad</span><span class="p">()</span>
+<span class="n">rates</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">(</span><span class="n">rates</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">),</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;infer&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_4082727/620974196.py:3: FutureWarning: DataFrame.pad/Series.pad is deprecated. Use DataFrame.ffill/Series.ffill instead
+  rates = pd.concat([alf(s) for s in rates], axis=1).reindex(d).pad()
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">factors</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">pipe</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">x</span><span class="p">)[:,</span> <span class="p">:</span><span class="mi">3</span><span class="p">],</span>
+                    <span class="n">columns</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+                    <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">),</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;infer&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rsq</span> <span class="o">=</span> <span class="p">[</span><span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">factors</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(),</span> <span class="n">rates</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">rsquared</span>
+       <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">factors</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Rsq of rate levels&#39;</span><span class="p">:</span> <span class="n">rsq</span><span class="p">},</span> <span class="n">index</span><span class="o">=</span><span class="n">factors</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">res</span><span class="p">[</span><span class="s1">&#39;Rsq of rate changes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">factors</span><span class="p">[</span><span class="n">col</span><span class="p">],</span>
+                                      <span class="n">rates</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>\
+                               <span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">rsquared</span>
+                               <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">factors</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+<span class="n">show</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">max_colwidth</span><span class="o">=</span><span class="mi">75</span><span class="p">,</span> 
+     <span class="n">caption</span><span class="o">=</span><span class="s2">&quot;R-squared of each PC explained by Interest Rate Indicators&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Rsq of rate levels</th>
+      <th>Rsq of rate changes</th>
+    </tr>
+    <tr>
+      <th>R-squared of each PC explained by Interest Rate Indicators</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>0.7131</td>
+      <td>0.5263</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.2942</td>
+      <td>0.5016</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.9211</td>
+      <td>0.0499</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot of cumulative components and interest rates levels</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="n">num</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">isub</span><span class="p">,</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">factors</span><span class="o">.</span><span class="n">columns</span><span class="p">):</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">col</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">flip</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="k">if</span> <span class="n">col</span> <span class="o">==</span> <span class="mi">3</span> <span class="k">else</span> <span class="mi">1</span>
+    <span class="p">(</span><span class="n">flip</span><span class="o">*</span><span class="n">factors</span><span class="p">[</span><span class="n">col</span><span class="p">])</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot;PC</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2">  (r-square=</span><span class="si">{</span><span class="n">rsq</span><span class="p">[</span><span class="n">isub</span><span class="p">]</span><span class="si">:</span><span class="s2">.3</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_tick_params</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">isub</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Bond Returns Components (cumulated)&#39;</span><span class="p">)</span>
+        
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">isub</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">rates</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="n">isub</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">rates</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">isub</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_tick_params</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">isub</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Selected Interest Rates&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">alf</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="n">rates</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">isub</span><span class="p">])[:</span><span class="mi">80</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">imgdir</span> <span class="o">/</span> <span class="s1">&#39;components.jpg&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/36a5b03166faaf883b8fbba4f3ffc3077eff15147b98828aacd3867b3acb3e34.png" src="_images/36a5b03166faaf883b8fbba4f3ffc3077eff15147b98828aacd3867b3acb3e34.png" />
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="term_structure.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Term Structure</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="options_pricing.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Options Pricing</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Terence Lim
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1446 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Fama-Macbeth Cross-sectional Regressions &#8212; Financial Data Science Python Notebooks</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'fama_macbeth';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Weekly reversal" href="weekly_reversal.html" />
+    <link rel="prev" title="Fama-French Portfolio Sorts" href="fama_french.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="README.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Financial Data Science Python Notebooks</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="README.html">
+                    Financial Data Science Notebooks
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="stock_prices.html">Stock prices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jegadeesh_titman.html">Jegadeesh-Titman Rolling Portfolios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fama_french.html">Fama-French Portfolio Sorts</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Fama-Macbeth Cross-sectional Regressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weekly_reversal.html">Weekly reversal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quant_factors.html">Quant Factors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event_study.html">Event Study</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="economic_releases.html">Economic Data Revisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regression_diagnostics.html">Linear Regression Diagonostics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="econometric_forecast.html">Econometric Forecasts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="approximate_factors.html">Approximate Factor Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="economic_states.html">State Space Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional_volatility.html">Conditional Volatility</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="covariance_matrix.html">Covariance Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="term_structure.html">Term Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bond_returns.html">Bond Returns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="options_pricing.html">Options Pricing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="market_microstructure.html">Market Microstructure</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="event_risk.html">Event risk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="customer_ego.html">Principal Customers Network</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="bea_centrality.html">Graph Centrality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="industry_community.html">Community Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="link_prediction.html">Link Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spatial_regression.html">Spatial Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fomc_topics.html">Topic Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management_sentiment.html">Sentiment Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="business_description.html">10-K Business Description</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="classification_models.html">Classification for supervised learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regression_models.html">Regression for supervised learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deep_classifier.html">Deep Averaging Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="convolutional_net.html">Temporal Convolution Net</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recurrent_net.html">Recurrent Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fomc_language.html">Language Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reinforcement_learning.html">Reinforcement Learning</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/terence-lim/data-science-notebooks.git" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/terence-lim/data-science-notebooks.git/issues/new?title=Issue%20on%20page%20%2Ffama_macbeth.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/fama_macbeth.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Fama-Macbeth Cross-sectional Regressions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-sectional-regressions">Cross-sectional regressions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-transformations">Feature transformations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-regression">Kernel Regression</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loocv">LOOCV</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-sectional-regressions-and-portfolio-sorts">Cross-sectional regressions and portfolio sorts</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="fama-macbeth-cross-sectional-regressions">
+<h1>Fama-Macbeth Cross-sectional Regressions<a class="headerlink" href="#fama-macbeth-cross-sectional-regressions" title="Permalink to this heading">#</a></h1>
+<p><em>UNDER CONSTRUCTION</em></p>
+<ul class="simple">
+<li><p>Beta, tests of the CAPM</p></li>
+<li><p>Polynomial regression, feature transformations</p></li>
+<li><p>Risk premiums from cross-sectional regressions</p></li>
+<li><p>Kernel regression and LOOCV</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">skew</span><span class="p">,</span> <span class="n">kurtosis</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">Series</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+<span class="kn">from</span> <span class="nn">pandas_datareader.famafrench</span> <span class="kn">import</span> <span class="n">FamaFrenchReader</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">from</span> <span class="nn">finds.database</span> <span class="kn">import</span> <span class="n">SQL</span><span class="p">,</span> <span class="n">RedisDB</span>
+<span class="kn">from</span> <span class="nn">finds.structured</span> <span class="kn">import</span> <span class="n">Signals</span><span class="p">,</span> <span class="n">Benchmarks</span><span class="p">,</span> <span class="n">CRSP</span>
+<span class="kn">from</span> <span class="nn">finds.busday</span> <span class="kn">import</span> <span class="n">BusDay</span>
+<span class="kn">from</span> <span class="nn">finds.backtesting</span> <span class="kn">import</span> <span class="n">RiskPremium</span>
+<span class="kn">from</span> <span class="nn">finds.filters</span> <span class="kn">import</span> <span class="n">winsorize</span>
+<span class="kn">from</span> <span class="nn">finds.econs</span> <span class="kn">import</span> <span class="n">least_squares</span>
+<span class="kn">from</span> <span class="nn">finds.misc</span> <span class="kn">import</span> <span class="n">Show</span>
+<span class="kn">from</span> <span class="nn">secret</span> <span class="kn">import</span> <span class="n">credentials</span><span class="p">,</span> <span class="n">paths</span><span class="p">,</span> <span class="n">CRSP_DATE</span>
+<span class="n">show</span> <span class="o">=</span> <span class="n">Show</span><span class="p">(</span><span class="n">ndigits</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">latex</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">VERBOSE</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="c1">#%matplotlib qt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># open connections</span>
+<span class="n">sql</span> <span class="o">=</span> <span class="n">SQL</span><span class="p">(</span><span class="o">**</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;sql&#39;</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
+<span class="n">user</span> <span class="o">=</span> <span class="n">SQL</span><span class="p">(</span><span class="o">**</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
+<span class="n">rdb</span> <span class="o">=</span> <span class="n">RedisDB</span><span class="p">(</span><span class="o">**</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;redis&#39;</span><span class="p">])</span>
+<span class="n">bd</span> <span class="o">=</span> <span class="n">BusDay</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
+<span class="n">crsp</span> <span class="o">=</span> <span class="n">CRSP</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">bd</span><span class="p">,</span> <span class="n">rdb</span><span class="o">=</span><span class="n">rdb</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
+<span class="n">signals</span> <span class="o">=</span> <span class="n">Signals</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
+<span class="n">bench</span> <span class="o">=</span> <span class="n">Benchmarks</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">bd</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
+<span class="n">imgdir</span> <span class="o">=</span> <span class="n">paths</span><span class="p">[</span><span class="s1">&#39;images&#39;</span><span class="p">]</span>
+<span class="n">LAST_DATE</span> <span class="o">=</span> <span class="n">bd</span><span class="o">.</span><span class="n">endmo</span><span class="p">(</span><span class="n">CRSP_DATE</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">)</span>
+<span class="c1">## Retrieve market and test asset returns</span>
+<span class="n">asset_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;25_Portfolios_ME_BETA_5x5&#39;</span><span class="p">]</span>
+<span class="c1"># &#39;25_Portfolios_ME_VAR_5x5&#39;, &#39;25_Portfolios_ME_RESVAR_5x5&#39;, &#39;25_Portfolios_5x5&#39;]</span>
+
+<span class="n">test_assets</span> <span class="o">=</span> <span class="p">{</span><span class="n">asset</span><span class="p">:</span> <span class="n">FamaFrenchReader</span><span class="p">(</span><span class="n">asset</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1900</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="mi">2099</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+               <span class="k">for</span> <span class="n">asset</span> <span class="ow">in</span> <span class="n">asset_names</span><span class="p">}</span>
+<span class="c1">#for a in test_assets.values():</span>
+<span class="c1">#    for p in range(2):</span>
+<span class="c1">#        a[p].index = a[p].index.strftime(&#39;%Y%m&#39;).astype(int)</span>
+
+<span class="n">mkt</span> <span class="o">=</span> <span class="n">FamaFrenchReader</span><span class="p">(</span><span class="s1">&#39;F-F_Research_Data_Factors&#39;</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1900</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="mi">2099</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">mkt</span> <span class="o">=</span> <span class="n">mkt</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Mkt-RF&#39;</span><span class="p">:</span> <span class="s1">&#39;BETA&#39;</span><span class="p">})</span>
+<span class="c1">#mkt.index = mkt.index.strftime(&#39;%Y%m&#39;).astype(int)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show summary statistics of Mkt-Rf, every 25 years</span>
+<span class="n">periods</span><span class="o">=</span><span class="p">[(</span><span class="mi">1925</span><span class="p">,</span> <span class="mi">2024</span><span class="p">),</span> <span class="p">(</span><span class="mi">1925</span><span class="p">,</span> <span class="mi">1949</span><span class="p">),</span> <span class="p">(</span><span class="mi">1950</span><span class="p">,</span> <span class="mi">1974</span><span class="p">),</span> <span class="p">(</span><span class="mi">1975</span><span class="p">,</span> <span class="mi">1999</span><span class="p">),</span> <span class="p">(</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">2024</span><span class="p">)]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">beg</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span> <span class="ow">in</span> <span class="n">periods</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">mkt</span><span class="p">[(</span><span class="n">mkt</span><span class="o">.</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">beg</span><span class="si">}</span><span class="s2">-01&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">mkt</span><span class="o">.</span><span class="n">index</span> <span class="o">&lt;=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">end</span><span class="si">}</span><span class="s2">-12&quot;</span><span class="p">)][</span><span class="s1">&#39;BETA&#39;</span><span class="p">]</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;of months&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">),</span>
+                         <span class="s1">&#39;annual mean&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">),</span>
+                         <span class="s1">&#39;annual stdev&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span>
+                         <span class="s1">&#39;sharpe ratio&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">data</span><span class="p">),</span>
+                         <span class="s1">&#39;skewness&#39;</span><span class="p">:</span> <span class="n">skew</span><span class="p">(</span><span class="n">data</span><span class="p">),</span>
+                         <span class="s1">&#39;excess kurtosis&#39;</span><span class="p">:</span> <span class="n">kurtosis</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">fisher</span><span class="o">=</span><span class="kc">True</span><span class="p">)},</span>
+                        <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">])[:</span><span class="mi">4</span><span class="p">]</span><span class="si">}</span><span class="s2">-&quot;</span> <span class="o">+</span> 
+                               <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])[:</span><span class="mi">4</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]))</span>
+<span class="n">show</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">df</span><span class="p">),</span>
+     <span class="n">caption</span><span class="o">=</span><span class="s2">&quot;Summary statistics of Mkt-RF monthly returns&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>of months</th>
+      <th>annual mean</th>
+      <th>annual stdev</th>
+      <th>sharpe ratio</th>
+      <th>skewness</th>
+      <th>excess kurtosis</th>
+    </tr>
+    <tr>
+      <th>Summary statistics of Mkt-RF monthly returns</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1926-2023</th>
+      <td>1164</td>
+      <td>8.1160</td>
+      <td>18.5122</td>
+      <td>0.4384</td>
+      <td>0.1572</td>
+      <td>7.4086</td>
+    </tr>
+    <tr>
+      <th>1926-1949</th>
+      <td>282</td>
+      <td>8.6630</td>
+      <td>26.6461</td>
+      <td>0.3251</td>
+      <td>0.4932</td>
+      <td>5.5027</td>
+    </tr>
+    <tr>
+      <th>1950-1974</th>
+      <td>300</td>
+      <td>6.4956</td>
+      <td>13.5968</td>
+      <td>0.4777</td>
+      <td>-0.2875</td>
+      <td>0.8862</td>
+    </tr>
+    <tr>
+      <th>1975-1999</th>
+      <td>300</td>
+      <td>10.7464</td>
+      <td>15.3718</td>
+      <td>0.6991</td>
+      <td>-0.7028</td>
+      <td>3.2154</td>
+    </tr>
+    <tr>
+      <th>2000-2023</th>
+      <td>282</td>
+      <td>6.4945</td>
+      <td>15.9814</td>
+      <td>0.4064</td>
+      <td>-0.4912</td>
+      <td>0.7481</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<section id="cross-sectional-regressions">
+<h2>Cross-sectional regressions<a class="headerlink" href="#cross-sectional-regressions" title="Permalink to this heading">#</a></h2>
+<section id="feature-transformations">
+<h3>Feature transformations<a class="headerlink" href="#feature-transformations" title="Permalink to this heading">#</a></h3>
+<p>A simple way to directly extend the linear model to accommodate
+non-linear relationships, using polynomial regression, is to include
+transformed versions of the predictors in the model, such asa
+quadratic term or several polynomial functions of the predictors,
+and use standard linear regression to estimate coefficients in order to produce a non-linear fit.  The CAPM predicts that these coefficients are zero.</p>
+<p>Raw polynomial terms may be highly correlated with each other: <em>orthogonal polynomials</em> transform the raw data matrix of polynomial terms to another whose columns are a basis of orthogonal terms which span the same column space. For example, regress the second predictor on the first and replace its column with the residuals, then regress the third predictor on the first two and replace its column with the residuals, and so on.</p>
+<p>Other feature transformation approaches include:</p>
+<ul class="simple">
+<li><p>dummy or binary indicator variable</p></li>
+<li><p>categorical variables with two or more levels</p></li>
+<li><p>binarization or turning a categorical variable into several binary variables (4)</p></li>
+<li><p>Legendre polynomals which are defined as a system of orthogonal polynomials over the interval <span class="math notranslate nohighlight">\([-1, 1]\)</span></p></li>
+<li><p>interaction term constructed by computing the product of the values of the two variables to capture the effect that response of one predictor is dependent on the value of another predictor.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">periods</span> <span class="o">=</span> <span class="p">[</span><span class="n">mkt</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;1963-07&#39;</span><span class="p">]</span>
+<span class="n">out</span> <span class="o">=</span> <span class="p">{</span><span class="n">period</span><span class="p">:</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">period</span> <span class="ow">in</span> <span class="n">periods</span><span class="p">}</span>
+<span class="k">for</span> <span class="n">period</span> <span class="ow">in</span> <span class="n">periods</span><span class="p">:</span>
+    
+    <span class="k">for</span> <span class="n">asset</span> <span class="ow">in</span> <span class="n">asset_names</span><span class="p">:</span>
+        <span class="n">by_asset</span> <span class="o">=</span> <span class="p">[]</span>
+    
+        <span class="k">for</span> <span class="n">p</span><span class="p">,</span> <span class="n">wt</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="s1">&#39;Value-weighted Test Assets&#39;</span><span class="p">,</span> <span class="s1">&#39;Equal-weighted Test Assets&#39;</span><span class="p">]):</span>
+            <span class="c1"># subtract riskfree, and stack data as thin dataframe</span>
+            <span class="n">f</span> <span class="o">=</span> <span class="n">test_assets</span><span class="p">[</span><span class="n">asset</span><span class="p">][</span><span class="n">p</span><span class="p">]</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">mkt</span><span class="p">[</span><span class="s1">&#39;RF&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="n">rets</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;ret&#39;</span><span class="p">)</span>\
+                             <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;level_1&#39;</span><span class="p">:</span><span class="s1">&#39;port&#39;</span><span class="p">,</span>
+                                              <span class="s1">&#39;level_0&#39;</span><span class="p">:</span><span class="s1">&#39;Date&#39;</span><span class="p">})</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">mkt</span><span class="p">[[</span><span class="s1">&#39;BETA&#39;</span><span class="p">]],</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="n">period</span><span class="p">]</span>
+
+            <span class="c1"># estimate test assets market betas from time-series of returns</span>
+            <span class="n">betas</span> <span class="o">=</span> <span class="n">least_squares</span><span class="p">(</span><span class="n">data</span><span class="p">,</span>
+                                  <span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+                                  <span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;BETA&#39;</span><span class="p">],</span>
+                                  <span class="n">stdres</span><span class="o">=</span><span class="kc">True</span><span class="p">)[[</span><span class="s1">&#39;BETA&#39;</span><span class="p">,</span> <span class="s1">&#39;stdres&#39;</span><span class="p">]]</span>  
+        
+            <span class="c1"># orthogonalize beta^2 and residual-volatility regressors</span>
+            <span class="n">betas</span><span class="p">[</span><span class="s1">&#39;BETA2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="s2">&quot;I(BETA**2) ~ BETA&quot;</span><span class="p">,</span>
+                                     <span class="n">data</span><span class="o">=</span><span class="n">betas</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">resid</span>
+            <span class="n">betas</span><span class="p">[</span><span class="s1">&#39;RES&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="s2">&quot;stdres ~ BETA + BETA2&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">betas</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">resid</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">rets</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">betas</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;port&#39;</span><span class="p">)</span>\
+                    <span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;port&#39;</span><span class="p">,</span> <span class="s1">&#39;Date&#39;</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        
+            <span class="c1"># run monthly Fama MacBeth cross-sectional regressions</span>
+            <span class="n">fm</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">least_squares</span><span class="p">,</span>
+                                            <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ret&#39;</span><span class="p">],</span>
+                                            <span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;BETA&#39;</span><span class="p">,</span> <span class="s1">&#39;BETA2&#39;</span><span class="p">,</span> <span class="s1">&#39;RES&#39;</span><span class="p">])</span>
+
+            <span class="c1"># time-series means and standard errors of the FM coefficients</span>
+            <span class="n">sub</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;mean&#39;</span><span class="p">:</span> <span class="n">fm</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
+                             <span class="s1">&#39;stderr&#39;</span><span class="p">:</span> <span class="n">fm</span><span class="o">.</span><span class="n">sem</span><span class="p">(),</span>
+                             <span class="s1">&#39;tstat&#39;</span><span class="p">:</span> <span class="n">fm</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">/</span> <span class="n">fm</span><span class="o">.</span><span class="n">sem</span><span class="p">()})</span><span class="o">.</span><span class="n">T</span>
+            <span class="n">sub</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">([(</span><span class="n">wt</span><span class="p">,</span> <span class="n">col</span><span class="p">)</span>
+                                                     <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">sub</span><span class="o">.</span><span class="n">columns</span><span class="p">])</span>
+            <span class="n">sub</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">([(</span><span class="n">asset</span><span class="p">,</span> <span class="n">row</span><span class="p">)</span>
+                                                   <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">sub</span><span class="o">.</span><span class="n">index</span><span class="p">])</span>
+            <span class="n">by_asset</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sub</span><span class="p">)</span>
+        <span class="n">out</span><span class="p">[</span><span class="n">period</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">by_asset</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">periods</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">show</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">out</span><span class="p">[</span><span class="n">p</span><span class="p">]),</span>
+     <span class="n">caption</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;Fama-Macbeth Monthly CSR </span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th colspan="4" halign="left">Value-weighted Test Assets</th>
+      <th colspan="4" halign="left">Equal-weighted Test Assets</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th></th>
+      <th>Intercept</th>
+      <th>BETA</th>
+      <th>BETA2</th>
+      <th>RES</th>
+      <th>Intercept</th>
+      <th>BETA</th>
+      <th>BETA2</th>
+      <th>RES</th>
+    </tr>
+    <tr>
+      <th>Fama-Macbeth Monthly CSR 1926-07 to 2023-06</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="3" valign="top">25_Portfolios_ME_BETA_5x5</th>
+      <th>mean</th>
+      <td>0.6599</td>
+      <td>0.0861</td>
+      <td>-0.8213</td>
+      <td>0.1061</td>
+      <td>0.8044</td>
+      <td>-0.0080</td>
+      <td>-0.8349</td>
+      <td>0.1315</td>
+    </tr>
+    <tr>
+      <th>stderr</th>
+      <td>0.1637</td>
+      <td>0.2374</td>
+      <td>0.2630</td>
+      <td>0.0675</td>
+      <td>0.1561</td>
+      <td>0.2295</td>
+      <td>0.2597</td>
+      <td>0.0615</td>
+    </tr>
+    <tr>
+      <th>tstat</th>
+      <td>4.0310</td>
+      <td>0.3625</td>
+      <td>-3.1230</td>
+      <td>1.5724</td>
+      <td>5.1518</td>
+      <td>-0.0349</td>
+      <td>-3.2146</td>
+      <td>2.1390</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Post-1963 time-period</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">periods</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">show</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">out</span><span class="p">[</span><span class="n">p</span><span class="p">]),</span>
+     <span class="n">caption</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;Fama-Macbeth Monthly CSR </span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th colspan="4" halign="left">Value-weighted Test Assets</th>
+      <th colspan="4" halign="left">Equal-weighted Test Assets</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th></th>
+      <th>Intercept</th>
+      <th>BETA</th>
+      <th>BETA2</th>
+      <th>RES</th>
+      <th>Intercept</th>
+      <th>BETA</th>
+      <th>BETA2</th>
+      <th>RES</th>
+    </tr>
+    <tr>
+      <th>Fama-Macbeth Monthly CSR 1963-07 to 2023-06</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="3" valign="top">25_Portfolios_ME_BETA_5x5</th>
+      <th>mean</th>
+      <td>0.6599</td>
+      <td>0.0861</td>
+      <td>-0.8213</td>
+      <td>0.1061</td>
+      <td>0.8044</td>
+      <td>-0.0080</td>
+      <td>-0.8349</td>
+      <td>0.1315</td>
+    </tr>
+    <tr>
+      <th>stderr</th>
+      <td>0.1637</td>
+      <td>0.2374</td>
+      <td>0.2630</td>
+      <td>0.0675</td>
+      <td>0.1561</td>
+      <td>0.2295</td>
+      <td>0.2597</td>
+      <td>0.0615</td>
+    </tr>
+    <tr>
+      <th>tstat</th>
+      <td>4.0310</td>
+      <td>0.3625</td>
+      <td>-3.1230</td>
+      <td>1.5724</td>
+      <td>5.1518</td>
+      <td>-0.0349</td>
+      <td>-3.2146</td>
+      <td>2.1390</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>Clustered standard errors</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Compare to robust cov</span>
+<span class="n">ls</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="s2">&quot;ret ~ BETA + BETA2 + RES&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">r</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ls</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="c1"># print(ls.get_robustcov_results(&#39;HC0&#39;).summary())</span>
+<span class="c1"># print(ls.get_robustcov_results(&#39;HAC&#39;, maxlags=6).summary())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                    ret   R-squared:                       0.000
+Model:                            OLS   Adj. R-squared:                  0.000
+Method:                 Least Squares   F-statistic:                     2.811
+Date:                Thu, 31 Aug 2023   Prob (F-statistic):             0.0379
+Time:                        10:40:36   Log-Likelihood:                -57761.
+No. Observations:               18000   AIC:                         1.155e+05
+Df Residuals:                   17996   BIC:                         1.156e+05
+Df Model:                           3                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept      0.8044      0.189      4.256      0.000       0.434       1.175
+BETA          -0.0080      0.165     -0.048      0.961      -0.332       0.316
+BETA2         -0.8349      0.616     -1.356      0.175      -2.041       0.372
+RES            0.1315      0.051      2.567      0.010       0.031       0.232
+==============================================================================
+Omnibus:                     1559.773   Durbin-Watson:                   1.767
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):            10364.480
+Skew:                          -0.063   Prob(JB):                         0.00
+Kurtosis:                       6.715   Cond. No.                         20.8
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ls</span><span class="o">.</span><span class="n">get_robustcov_results</span><span class="p">(</span><span class="s1">&#39;hac-panel&#39;</span><span class="p">,</span>
+                               <span class="n">groups</span><span class="o">=</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;port&#39;</span><span class="p">],</span>
+                               <span class="n">maxlags</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="c1"># print(ls.get_robustcov_results(&#39;cluster&#39;, groups=r[&#39;port&#39;]).summary())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                    ret   R-squared:                       0.000
+Model:                            OLS   Adj. R-squared:                  0.000
+Method:                 Least Squares   F-statistic:                     1.696
+Date:                Thu, 31 Aug 2023   Prob (F-statistic):              0.195
+Time:                        10:40:36   Log-Likelihood:                -57761.
+No. Observations:               18000   AIC:                         1.155e+05
+Df Residuals:                   17996   BIC:                         1.156e+05
+Df Model:                           3                                         
+Covariance Type:            hac-panel                                         
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept      0.8044      0.199      4.045      0.000       0.394       1.215
+BETA          -0.0080      0.191     -0.042      0.967      -0.403       0.387
+BETA2         -0.8349      0.651     -1.282      0.212      -2.179       0.510
+RES            0.1315      0.067      1.952      0.063      -0.008       0.271
+==============================================================================
+Omnibus:                     1559.773   Durbin-Watson:                   1.767
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):            10364.480
+Skew:                          -0.063   Prob(JB):                         0.00
+Kurtosis:                       6.715   Cond. No.                         20.8
+==============================================================================
+
+Notes:
+[1] Standard Errors are robust to cluster correlation (HAC-Panel)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="kernel-regression">
+<h2>Kernel Regression<a class="headerlink" href="#kernel-regression" title="Permalink to this heading">#</a></h2>
+<section id="loocv">
+<h3>LOOCV<a class="headerlink" href="#loocv" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Leave-one-out cross-validation</p></li>
+</ul>
+</section>
+</section>
+<section id="cross-sectional-regressions-and-portfolio-sorts">
+<h2>Cross-sectional regressions and portfolio sorts<a class="headerlink" href="#cross-sectional-regressions-and-portfolio-sorts" title="Permalink to this heading">#</a></h2>
+<p>Cross-sectional regression of monthly stock returns on fundamental stock exposures (winsored at 5% tail):</p>
+<ul class="simple">
+<li><p>size: -log of market cap, standardized</p></li>
+<li><p>value: book-to-market ratio, standardized</p></li>
+<li><p>momentum: 12-month skip past month momentum, standardized</p></li>
+<li><p>reversal: 1-month reversal, standardized</p></li>
+</ul>
+<p>compared to time series of portfolio-sort monthly returns</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rebalbeg</span><span class="o">=</span><span class="mi">19640601</span>
+<span class="n">rebalend</span><span class="o">=</span><span class="n">LAST_DATE</span>
+<span class="n">rebaldates</span> <span class="o">=</span> <span class="n">crsp</span><span class="o">.</span><span class="n">bd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">rebalbeg</span><span class="p">,</span> <span class="n">rebalend</span><span class="p">,</span> <span class="s1">&#39;endmo&#39;</span><span class="p">)</span>
+<span class="n">loadings</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">pordate</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">rebaldates</span><span class="p">):</span>           <span class="c1"># retrieve signal values every month</span>
+    <span class="n">date</span> <span class="o">=</span> <span class="n">bd</span><span class="o">.</span><span class="n">june_universe</span><span class="p">(</span><span class="n">pordate</span><span class="p">)</span>
+    <span class="n">univ</span> <span class="o">=</span> <span class="n">crsp</span><span class="o">.</span><span class="n">get_universe</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
+    <span class="n">cap</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">crsp</span><span class="o">.</span><span class="n">get_cap</span><span class="p">(</span><span class="n">date</span><span class="p">))</span>
+    <span class="n">smb</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">cap</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;size&#39;</span><span class="p">)</span>
+    <span class="n">hml</span> <span class="o">=</span> <span class="n">signals</span><span class="p">(</span><span class="s1">&#39;hml&#39;</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">bd</span><span class="o">.</span><span class="n">endmo</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="o">-</span><span class="mi">12</span><span class="p">))[</span><span class="s1">&#39;hml&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">)</span>
+    <span class="c1">#beta = signals(&#39;beta&#39;, pordate, bd.begmo(pordate))[&#39;beta&#39;]*2/3 + 1/3 #shrink</span>
+    <span class="n">mom</span> <span class="o">=</span> <span class="n">signals</span><span class="p">(</span><span class="s1">&#39;mom&#39;</span><span class="p">,</span> <span class="n">pordate</span><span class="p">)[</span><span class="s1">&#39;mom&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;momentum&#39;</span><span class="p">)</span>
+    <span class="n">strev</span> <span class="o">=</span> <span class="o">-</span><span class="n">signals</span><span class="p">(</span><span class="s1">&#39;strev&#39;</span><span class="p">,</span> <span class="n">pordate</span><span class="p">)[</span><span class="s1">&#39;strev&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;reversal&#39;</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">((</span><span class="n">strev</span><span class="p">,</span> <span class="n">hml</span><span class="p">,</span> <span class="n">smb</span><span class="p">,</span> <span class="n">mom</span><span class="p">),</span>  <span class="c1"># inner join of signals with univ</span>
+                   <span class="n">join</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">,</span>
+                   <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">univ</span><span class="o">.</span><span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+    <span class="n">loadings</span><span class="p">[</span><span class="n">pordate</span><span class="p">]</span> <span class="o">=</span> <span class="n">winsorize</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">quantiles</span><span class="o">=</span><span class="p">[</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">])</span>
+
+<span class="c1"># Compute coefficients from FM cross-sectional regressions</span>
+<span class="n">riskpremium</span> <span class="o">=</span> <span class="n">RiskPremium</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">bench</span><span class="p">,</span> <span class="s1">&#39;RF&#39;</span><span class="p">,</span> <span class="n">LAST_DATE</span><span class="p">)</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">riskpremium</span><span class="p">(</span><span class="n">stocks</span><span class="o">=</span><span class="n">crsp</span><span class="p">,</span>        <span class="c1"># FM regressions on standardized scores</span>
+                  <span class="n">loadings</span><span class="o">=</span><span class="n">loadings</span><span class="p">,</span>
+                  <span class="n">standardize</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;value&#39;</span> <span class="p">,</span><span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="s1">&#39;momentum&#39;</span><span class="p">,</span> <span class="s1">&#39;reversal&#39;</span><span class="p">])</span>
+     
+<span class="c1"># Compare time series of estimated risk premiums to portfolio-sort benchmark eturns</span>
+<span class="n">benchnames</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;momentum&#39;</span><span class="p">:</span> <span class="s1">&#39;Mom(mo)&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;reversal&#39;</span><span class="p">:</span> <span class="s1">&#39;ST_Rev(mo)&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;size&#39;</span><span class="p">:</span><span class="s1">&#39;SMB(mo)&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="s1">&#39;HML(mo)&#39;</span><span class="p">}</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">riskpremium</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">benchnames</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>  <span class="c1"># to compare portfolio-sorts</span>
+<span class="n">riskpremium</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">benchnames</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">imgdir</span> <span class="o">/</span> <span class="s1">&#39;fm.jpg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|          | 0/702 [00:00&lt;?, ?it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 702/702 [16:00&lt;00:00,  1.37s/it]
+</pre></div>
+</div>
+<img alt="_images/2508d45c2b31e4404f0daacd65c19d97635a72feefee66c10ef70da2c27b0903.png" src="_images/2508d45c2b31e4404f0daacd65c19d97635a72feefee66c10ef70da2c27b0903.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Summarize time-series means of Fama-Macbeth risk premiums</span>
+<span class="n">caption</span><span class="p">,</span> <span class="n">df</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Fama-MacBeth Cross-sectional Regression Risk Premiums&quot;</span><span class="p">,</span> <span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;tvalue&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;stderr&#39;</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;sharpe&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;std&#39;</span><span class="p">]</span>
+<span class="n">show</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">caption</span><span class="o">=</span><span class="n">caption</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Factor Returns</th>
+      <th>mean</th>
+      <th>stderr</th>
+      <th>std</th>
+      <th>count</th>
+      <th>tvalue</th>
+      <th>sharpe</th>
+    </tr>
+    <tr>
+      <th>Fama-MacBeth Cross-sectional Regression Risk Premiums</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>reversal</th>
+      <td>0.0063</td>
+      <td>0.0005</td>
+      <td>0.0143</td>
+      <td>701</td>
+      <td>11.7877</td>
+      <td>1.5423</td>
+    </tr>
+    <tr>
+      <th>value</th>
+      <td>0.0022</td>
+      <td>0.0004</td>
+      <td>0.0112</td>
+      <td>701</td>
+      <td>5.1258</td>
+      <td>0.6706</td>
+    </tr>
+    <tr>
+      <th>size</th>
+      <td>0.0016</td>
+      <td>0.0007</td>
+      <td>0.0175</td>
+      <td>701</td>
+      <td>2.3589</td>
+      <td>0.3086</td>
+    </tr>
+    <tr>
+      <th>momentum</th>
+      <td>0.0019</td>
+      <td>0.0007</td>
+      <td>0.0175</td>
+      <td>701</td>
+      <td>2.8051</td>
+      <td>0.3670</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Summarize time-series means of Fama-French portfolio-sort returns</span>
+<span class="n">caption</span><span class="p">,</span> <span class="n">df</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Fama-French Portfolio-Sorts&quot;</span><span class="p">,</span> <span class="n">out</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;tvalue&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;stderr&#39;</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;sharpe&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;std&#39;</span><span class="p">]</span>
+<span class="n">show</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">caption</span><span class="o">=</span><span class="n">caption</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Benchmarks</th>
+      <th>mean</th>
+      <th>stderr</th>
+      <th>std</th>
+      <th>count</th>
+      <th>tvalue</th>
+      <th>sharpe</th>
+    </tr>
+    <tr>
+      <th>Fama-French Portfolio-Sorts</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Mom(mo)</th>
+      <td>0.0063</td>
+      <td>0.0016</td>
+      <td>0.0422</td>
+      <td>701</td>
+      <td>3.9535</td>
+      <td>0.5173</td>
+    </tr>
+    <tr>
+      <th>ST_Rev(mo)</th>
+      <td>0.0047</td>
+      <td>0.0012</td>
+      <td>0.0315</td>
+      <td>701</td>
+      <td>3.9134</td>
+      <td>0.5120</td>
+    </tr>
+    <tr>
+      <th>SMB(mo)</th>
+      <td>0.0020</td>
+      <td>0.0012</td>
+      <td>0.0307</td>
+      <td>701</td>
+      <td>1.7260</td>
+      <td>0.2258</td>
+    </tr>
+    <tr>
+      <th>HML(mo)</th>
+      <td>0.0030</td>
+      <td>0.0011</td>
+      <td>0.0299</td>
+      <td>701</td>
+      <td>2.6371</td>
+      <td>0.3450</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show correlation of returns</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">out</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">out</span><span class="p">[</span><span class="mi">4</span><span class="p">]),</span> <span class="n">out</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">out</span><span class="p">[</span><span class="mi">3</span><span class="p">])],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> 
+     <span class="n">caption</span><span class="o">=</span><span class="s1">&#39;Correlation of FM Risk Premiums and FF Portfolio-Sort Returns&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>reversal</th>
+      <th>value</th>
+      <th>size</th>
+      <th>momentum</th>
+      <th>Mom(mo)</th>
+      <th>ST_Rev(mo)</th>
+      <th>SMB(mo)</th>
+      <th>HML(mo)</th>
+    </tr>
+    <tr>
+      <th>Correlation of FM Risk Premiums and FF Portfolio-Sort Returns</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>reversal</th>
+      <td>1.0000</td>
+      <td>-0.0039</td>
+      <td>0.0881</td>
+      <td>-0.4460</td>
+      <td>-0.3965</td>
+      <td>0.7942</td>
+      <td>0.1340</td>
+      <td>0.0551</td>
+    </tr>
+    <tr>
+      <th>value</th>
+      <td>-0.0039</td>
+      <td>1.0000</td>
+      <td>-0.1993</td>
+      <td>-0.1860</td>
+      <td>-0.1618</td>
+      <td>-0.0399</td>
+      <td>-0.2487</td>
+      <td>0.8178</td>
+    </tr>
+    <tr>
+      <th>size</th>
+      <td>0.0881</td>
+      <td>-0.1993</td>
+      <td>1.0000</td>
+      <td>-0.0179</td>
+      <td>0.1198</td>
+      <td>0.0176</td>
+      <td>0.5747</td>
+      <td>-0.1421</td>
+    </tr>
+    <tr>
+      <th>momentum</th>
+      <td>-0.4460</td>
+      <td>-0.1860</td>
+      <td>-0.0179</td>
+      <td>1.0000</td>
+      <td>0.8860</td>
+      <td>-0.2729</td>
+      <td>-0.0416</td>
+      <td>-0.2076</td>
+    </tr>
+    <tr>
+      <th>Mom(mo)</th>
+      <td>-0.3965</td>
+      <td>-0.1618</td>
+      <td>0.1198</td>
+      <td>0.8860</td>
+      <td>1.0000</td>
+      <td>-0.3057</td>
+      <td>-0.0282</td>
+      <td>-0.2053</td>
+    </tr>
+    <tr>
+      <th>ST_Rev(mo)</th>
+      <td>0.7942</td>
+      <td>-0.0399</td>
+      <td>0.0176</td>
+      <td>-0.2729</td>
+      <td>-0.3057</td>
+      <td>1.0000</td>
+      <td>0.1754</td>
+      <td>0.0206</td>
+    </tr>
+    <tr>
+      <th>SMB(mo)</th>
+      <td>0.1340</td>
+      <td>-0.2487</td>
+      <td>0.5747</td>
+      <td>-0.0416</td>
+      <td>-0.0282</td>
+      <td>0.1754</td>
+      <td>1.0000</td>
+      <td>-0.1750</td>
+    </tr>
+    <tr>
+      <th>HML(mo)</th>
+      <td>0.0551</td>
+      <td>0.8178</td>
+      <td>-0.1421</td>
+      <td>-0.2076</td>
+      <td>-0.2053</td>
+      <td>0.0206</td>
+      <td>-0.1750</td>
+      <td>1.0000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="fama_french.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Fama-French Portfolio Sorts</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="weekly_reversal.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Weekly reversal</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-sectional-regressions">Cross-sectional regressions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-transformations">Feature transformations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-regression">Kernel Regression</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loocv">LOOCV</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-sectional-regressions-and-portfolio-sorts">Cross-sectional regressions and portfolio sorts</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Terence Lim
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

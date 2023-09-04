@@ -1,0 +1,717 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Financial Data Science Notebooks &#8212; Financial Data Science Python Notebooks</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'README';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Stock prices" href="stock_prices.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Financial Data Science Python Notebooks</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1 current active">
+                <a class="reference internal" href="#">
+                    Financial Data Science Notebooks
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="stock_prices.html">Stock prices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jegadeesh_titman.html">Jegadeesh-Titman Rolling Portfolios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fama_french.html">Fama-French Portfolio Sorts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fama_macbeth.html">Fama-Macbeth Cross-sectional Regressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weekly_reversal.html">Weekly reversal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quant_factors.html">Quant Factors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event_study.html">Event Study</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="economic_releases.html">Economic Data Revisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regression_diagnostics.html">Linear Regression Diagonostics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="econometric_forecast.html">Econometric Forecasts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="approximate_factors.html">Approximate Factor Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="economic_states.html">State Space Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional_volatility.html">Conditional Volatility</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="covariance_matrix.html">Covariance Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="term_structure.html">Term Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bond_returns.html">Bond Returns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="options_pricing.html">Options Pricing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="market_microstructure.html">Market Microstructure</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="event_risk.html">Event risk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="customer_ego.html">Principal Customers Network</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="bea_centrality.html">Graph Centrality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="industry_community.html">Community Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="link_prediction.html">Link Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spatial_regression.html">Spatial Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fomc_topics.html">Topic Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management_sentiment.html">Sentiment Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="business_description.html">10-K Business Description</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="classification_models.html">Classification for supervised learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regression_models.html">Regression for supervised learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deep_classifier.html">Deep Averaging Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="convolutional_net.html">Temporal Convolution Net</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recurrent_net.html">Recurrent Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fomc_language.html">Language Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reinforcement_learning.html">Reinforcement Learning</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/terence-lim/data-science-notebooks.git" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/terence-lim/data-science-notebooks.git/issues/new?title=Issue%20on%20page%20%2FREADME.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/README.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Financial Data Science Notebooks</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#topics">Topics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contact">Contact</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="financial-data-science-notebooks">
+<h1>Financial Data Science Notebooks<a class="headerlink" href="#financial-data-science-notebooks" title="Permalink to this heading">#</a></h1>
+<p><em>UNDER CONSTRUCTION</em></p>
+<p><strong>30+ Projects in Financial Data Science</strong>, presented as Jupyter Notebooks, using the <em>FinDS</em> Python package</p>
+<section id="topics">
+<h2>Topics<a class="headerlink" href="#topics" title="Permalink to this heading">#</a></h2>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>notebook</p></th>
+<th class="head text-left"><p>Financial</p></th>
+<th class="head text-left"><p>Data</p></th>
+<th class="head text-left"><p>Science</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>stock_prices</p></td>
+<td class="text-left"><p>Stock distributions, delistings</p></td>
+<td class="text-left"><p>CRSP stocks</p></td>
+<td class="text-left"><p>Sample selection</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>jegadeesh_titman</p></td>
+<td class="text-left"><p>Overlapping portfolios; <br> Momentum</p></td>
+<td class="text-left"><p>CRSP stocks</p></td>
+<td class="text-left"><p>Hypothesis testing; <br> Newey-West correction</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>fama_french</p></td>
+<td class="text-left"><p>Bivariate sorts;  <br> Value, Size;  <br> CAPM</p></td>
+<td class="text-left"><p>CRSP stocks;  <br> Compustat</p></td>
+<td class="text-left"><p>Linear regression; <br> Quadratic programming</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>fama_macbeth</p></td>
+<td class="text-left"><p>Cross-sectional Regressions; <br> Beta</p></td>
+<td class="text-left"><p>Ken French data library</p></td>
+<td class="text-left"><p>Feature transformations; <br> Kernel regression, LOOCV</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>weekly_reversals</p></td>
+<td class="text-left"><p>Mean reversion; <br> Implementation shortfall</p></td>
+<td class="text-left"><p>CRSP stocks</p></td>
+<td class="text-left"><p>Structural break tests</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>quant_factors</p></td>
+<td class="text-left"><p>Factor zoo; <br> Performance evaluation</p></td>
+<td class="text-left"><p>CRSP stocks; <br> Compustat; IBES</p></td>
+<td class="text-left"><p>Clustering for unsupervised learning</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>event_study</p></td>
+<td class="text-left"><p>Event studies</p></td>
+<td class="text-left"><p>S&amp;P key developments</p></td>
+<td class="text-left"><p>Multiple testing; <br> FFT</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>economic_releases</p></td>
+<td class="text-left"><p>Macroeconomic analysis; <br> Unemployment</p></td>
+<td class="text-left"><p>ALFRED</p></td>
+<td class="text-left"><p>Economic data revisions</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>regression_diagnostics</p></td>
+<td class="text-left"><p>Regression analysis; <br> Inflation</p></td>
+<td class="text-left"><p>FRED</p></td>
+<td class="text-left"><p>Linear regression diagnostics; <br> Residual Analysis</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>econometric_forecast</p></td>
+<td class="text-left"><p>Time series analysis; <br> National Output</p></td>
+<td class="text-left"><p>FRED</p></td>
+<td class="text-left"><p>Stationarity, Autocorrelation</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>approximate_factors</p></td>
+<td class="text-left"><p>Approximate factor models</p></td>
+<td class="text-left"><p>FRED-MD</p></td>
+<td class="text-left"><p>Unit Root; <br> PCA; <br> EM Algorithm</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>economic_states</p></td>
+<td class="text-left"><p>State space models</p></td>
+<td class="text-left"><p>FRED-MD</p></td>
+<td class="text-left"><p>Gaussian Mixture; <br> HMM; <br> Kalman Filter</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>conditional_volatility</p></td>
+<td class="text-left"><p>Value at risk; <br> Conditional volatility</p></td>
+<td class="text-left"><p>FRED cryptos and currencies</p></td>
+<td class="text-left"><p>ARCH, GARCH; <br> VaR, TVaR</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>covariance_matrix</p></td>
+<td class="text-left"><p>Covariance matrix estimation; <br> Portfolio risk</p></td>
+<td class="text-left"><p>Ken French data library</p></td>
+<td class="text-left"><p>Shrinkage</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>term_structure</p></td>
+<td class="text-left"><p>Interest rates, yield curve</p></td>
+<td class="text-left"><p>FRED</p></td>
+<td class="text-left"><p>Splines, PCA</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>bond_returns</p></td>
+<td class="text-left"><p>Bond portfolio returns</p></td>
+<td class="text-left"><p>FRED</p></td>
+<td class="text-left"><p>SVD</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>option_pricing</p></td>
+<td class="text-left"><p>Binomial trees; <br> the Greeks</p></td>
+<td class="text-left"><p>OptionMetrics; <br> FRED</p></td>
+<td class="text-left"><p>Simulations</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>market_microstructure</p></td>
+<td class="text-left"><p>Liquidity costs; <br> Bid-ask spreads</p></td>
+<td class="text-left"><p>TAQ tick data</p></td>
+<td class="text-left"><p>Realized volatility; Variance ratio</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>event_risk</p></td>
+<td class="text-left"><p>Earnings surprises</p></td>
+<td class="text-left"><p>IBES; <br>  FRED-QD</p></td>
+<td class="text-left"><p>Poisson regression; <br> GLM’s</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>customer_ego</p></td>
+<td class="text-left"><p>Principal customers</p></td>
+<td class="text-left"><p>Compustat customer segments</p></td>
+<td class="text-left"><p>Graph Networks</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>bea_centrality</p></td>
+<td class="text-left"><p>Input-output use tables</p></td>
+<td class="text-left"><p>Bureau of Economic Analysis</p></td>
+<td class="text-left"><p>Graph centrality</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>industry_community</p></td>
+<td class="text-left"><p>Industry sectors</p></td>
+<td class="text-left"><p>Hoberg&amp;Phillips data library</p></td>
+<td class="text-left"><p>Community detection</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>link_prediction</p></td>
+<td class="text-left"><p>Product markets</p></td>
+<td class="text-left"><p>Hoberg&amp;Phillips data library</p></td>
+<td class="text-left"><p>Links prediction</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>spatial_regression</p></td>
+<td class="text-left"><p>Earnings surprises</p></td>
+<td class="text-left"><p>IBES; <br> Hoberg&amp;Phillips data library</p></td>
+<td class="text-left"><p>Spatial regression</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>fomc_topics</p></td>
+<td class="text-left"><p>Fedspeak</p></td>
+<td class="text-left"><p>FOMC meeting minutes</p></td>
+<td class="text-left"><p>Topic modelling</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>mda_sentiment</p></td>
+<td class="text-left"><p>Company filings</p></td>
+<td class="text-left"><p>SEC Edgar</p></td>
+<td class="text-left"><p>Sentiment analysis</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>business_description</p></td>
+<td class="text-left"><p>Growth and value stocks</p></td>
+<td class="text-left"><p>SEC Edgar</p></td>
+<td class="text-left"><p>Part-of-speech tagging</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>classification_models</p></td>
+<td class="text-left"><p>News classification</p></td>
+<td class="text-left"><p>S&amp;P key developments</p></td>
+<td class="text-left"><p>Classification for supervised learning</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>regression_models</p></td>
+<td class="text-left"><p>Macroeconomic forecasting</p></td>
+<td class="text-left"><p>FRED-MD</p></td>
+<td class="text-left"><p>Regression for supervised learning</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>deep_classifier</p></td>
+<td class="text-left"><p>News classification</p></td>
+<td class="text-left"><p>S&amp;P key developments</p></td>
+<td class="text-left"><p>Feedforward neural networks; <br> Word embeddings; <br> Deep averaging</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>convolutional_net</p></td>
+<td class="text-left"><p>Macroeconomic forecasting</p></td>
+<td class="text-left"><p>FRED-MD</p></td>
+<td class="text-left"><p>Temporal convolutional networks; <br> Vector autoregression</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>recurrent_net</p></td>
+<td class="text-left"><p>Macroeconomic forecasting</p></td>
+<td class="text-left"><p>FRED-MD</p></td>
+<td class="text-left"><p>Elman recurrent networks; <br> Kalman filter</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>fomc_language</p></td>
+<td class="text-left"><p>Fedspeak</p></td>
+<td class="text-left"><p>FOMC meeting minutes</p></td>
+<td class="text-left"><p>Language modelling; <br> Transformers</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>reinforcement_learning</p></td>
+<td class="text-left"><p>Spending policy</p></td>
+<td class="text-left"><p>Stocks, bonds, bills, and inflation</p></td>
+<td class="text-left"><p>Reinforcement learning</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="resources">
+<h2>Resources<a class="headerlink" href="#resources" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://terence-lim.github.io/data-science-notebooks/">Online Jupyter-book</a>, or <a class="reference external" href="https://terence-lim.github.io/notes/data-science-notebooks.pdf">download pdf</a></p></li>
+<li><p><a class="reference external" href="https://terence-lim.github.io/financial-data-science/">FinDS API reference</a></p></li>
+<li><p><a class="reference external" href="https://github.com/terence-lim/finds">FinDS repo</a></p></li>
+<li><p><a class="reference external" href="https://github.com/terence-lim/finds-notebooks">Jupyter notebooks repo</a></p></li>
+</ol>
+</section>
+<section id="contact">
+<h2>Contact<a class="headerlink" href="#contact" title="Permalink to this heading">#</a></h2>
+<p>Github: <a class="reference external" href="https://terence-lim.github.io">https://terence-lim.github.io</a></p>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="right-next"
+       href="stock_prices.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Stock prices</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#topics">Topics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contact">Contact</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Terence Lim
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

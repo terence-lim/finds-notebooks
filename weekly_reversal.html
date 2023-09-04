@@ -1,0 +1,1054 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Weekly reversal &#8212; Financial Data Science Python Notebooks</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'weekly_reversal';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Quant Factors" href="quant_factors.html" />
+    <link rel="prev" title="Fama-Macbeth Cross-sectional Regressions" href="fama_macbeth.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="README.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Financial Data Science Python Notebooks</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="README.html">
+                    Financial Data Science Notebooks
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="stock_prices.html">Stock prices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jegadeesh_titman.html">Jegadeesh-Titman Rolling Portfolios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fama_french.html">Fama-French Portfolio Sorts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fama_macbeth.html">Fama-Macbeth Cross-sectional Regressions</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Weekly reversal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quant_factors.html">Quant Factors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event_study.html">Event Study</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="economic_releases.html">Economic Data Revisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regression_diagnostics.html">Linear Regression Diagonostics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="econometric_forecast.html">Econometric Forecasts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="approximate_factors.html">Approximate Factor Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="economic_states.html">State Space Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional_volatility.html">Conditional Volatility</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="covariance_matrix.html">Covariance Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="term_structure.html">Term Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bond_returns.html">Bond Returns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="options_pricing.html">Options Pricing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="market_microstructure.html">Market Microstructure</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="event_risk.html">Event risk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="customer_ego.html">Principal Customers Network</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="bea_centrality.html">Graph Centrality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="industry_community.html">Community Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="link_prediction.html">Link Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spatial_regression.html">Spatial Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fomc_topics.html">Topic Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management_sentiment.html">Sentiment Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="business_description.html">10-K Business Description</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="classification_models.html">Classification for supervised learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regression_models.html">Regression for supervised learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deep_classifier.html">Deep Averaging Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="convolutional_net.html">Temporal Convolution Net</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recurrent_net.html">Recurrent Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fomc_language.html">Language Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reinforcement_learning.html">Reinforcement Learning</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/terence-lim/data-science-notebooks.git" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/terence-lim/data-science-notebooks.git/issues/new?title=Issue%20on%20page%20%2Fweekly_reversal.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/weekly_reversal.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Weekly reversal</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-shortfall">Implementation Shortfall</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#information-coefficient">Information coefficient</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structural-break-with-unknown-changepoint">Structural break with unknown changepoint</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="weekly-reversal">
+<h1>Weekly reversal<a class="headerlink" href="#weekly-reversal" title="Permalink to this heading">#</a></h1>
+<p><em>UNDER CONSTRUCTION</em></p>
+<ul class="simple">
+<li><p>Contrarian trading (Lo and Mackinlay 1990, and others), mean reversion</p></li>
+<li><p>implementation shortfall</p></li>
+<li><p>structural break with unknown changepoint</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">Series</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">rpy2.robjects</span> <span class="k">as</span> <span class="nn">ro</span>
+<span class="kn">from</span> <span class="nn">rpy2.robjects.packages</span> <span class="kn">import</span> <span class="n">importr</span>
+<span class="kn">from</span> <span class="nn">finds.database</span> <span class="kn">import</span> <span class="n">SQL</span><span class="p">,</span> <span class="n">RedisDB</span>
+<span class="kn">from</span> <span class="nn">finds.busday</span> <span class="kn">import</span> <span class="n">BusDay</span>
+<span class="kn">from</span> <span class="nn">finds.structured</span> <span class="kn">import</span> <span class="n">CRSP</span><span class="p">,</span> <span class="n">Benchmarks</span>
+<span class="kn">from</span> <span class="nn">finds.backtesting</span> <span class="kn">import</span> <span class="n">fractiles</span>
+<span class="kn">from</span> <span class="nn">finds.econs</span> <span class="kn">import</span> <span class="n">lm</span>
+<span class="kn">from</span> <span class="nn">finds.misc</span> <span class="kn">import</span> <span class="n">PyR</span><span class="p">,</span> <span class="n">row_formatted</span><span class="p">,</span> <span class="n">Show</span>
+<span class="kn">from</span> <span class="nn">secret</span> <span class="kn">import</span> <span class="n">credentials</span><span class="p">,</span> <span class="n">paths</span><span class="p">,</span> <span class="n">CRSP_DATE</span>
+<span class="n">show</span> <span class="o">=</span> <span class="n">Show</span><span class="p">(</span><span class="n">ndigits</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">latex</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">VERBOSE</span> <span class="o">=</span> <span class="mi">0</span>      <span class="c1"># 1</span>
+<span class="c1">#%matplotlib qt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># open connections</span>
+<span class="n">sql</span> <span class="o">=</span> <span class="n">SQL</span><span class="p">(</span><span class="o">**</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;sql&#39;</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
+<span class="n">rdb</span> <span class="o">=</span> <span class="n">RedisDB</span><span class="p">(</span><span class="o">**</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;redis&#39;</span><span class="p">])</span>
+<span class="n">bd</span> <span class="o">=</span> <span class="n">BusDay</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
+<span class="n">crsp</span> <span class="o">=</span> <span class="n">CRSP</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">bd</span><span class="p">,</span> <span class="n">rdb</span><span class="o">=</span><span class="n">rdb</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
+<span class="n">bench</span> <span class="o">=</span> <span class="n">Benchmarks</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">bd</span><span class="p">)</span>
+<span class="n">imgdir</span> <span class="o">=</span> <span class="n">paths</span><span class="p">[</span><span class="s1">&#39;images&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Construct weekly reversal</strong></p>
+<p>Retrieve weekly returns, standardize scores, and compute returns and i.c.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weekday</span> <span class="o">=</span> <span class="mi">3</span>          <span class="c1"># wednesday close-to-close</span>
+<span class="n">bd</span> <span class="o">=</span> <span class="n">BusDay</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">endweek</span><span class="o">=</span><span class="n">weekday</span><span class="p">)</span>   <span class="c1"># Generate weekly cal</span>
+<span class="n">begweek</span> <span class="o">=</span> <span class="mi">19740102</span>   <span class="c1"># increased stocks coverage in CRSP in Jan 1973</span>
+<span class="n">middate</span> <span class="o">=</span> <span class="mi">19851231</span>   <span class="c1"># increased stocks traded in CRSP around this date</span>
+<span class="n">endweek</span> <span class="o">=</span> <span class="n">bd</span><span class="o">.</span><span class="n">endwk</span><span class="p">(</span><span class="n">CRSP_DATE</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">rebaldates</span> <span class="o">=</span> <span class="n">bd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">begweek</span><span class="p">,</span> <span class="n">endweek</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;weekly&#39;</span><span class="p">)</span>
+<span class="n">retdates</span> <span class="o">=</span> <span class="n">bd</span><span class="o">.</span><span class="n">date_tuples</span><span class="p">(</span><span class="n">rebaldates</span><span class="p">)</span>
+<span class="n">june_universe</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># to track when reached a June end to update universe</span>
+<span class="n">year</span> <span class="o">=</span> <span class="mi">0</span>           <span class="c1"># to track new year to retrieve prices in batch</span>
+<span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">lagged_weights</span> <span class="o">=</span> <span class="n">Series</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span> <span class="c1"># to track &quot;turnover&quot; of stock weights</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Last FamaFrench Date 2023-04-28 00:00:00
+</pre></div>
+</div>
+</div>
+</div>
+<p>Loop over weekly rebalance dates</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">rebaldate</span><span class="p">,</span> <span class="n">pastdates</span><span class="p">,</span> <span class="n">nextdates</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">rebaldates</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+                                                <span class="n">retdates</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+                                                <span class="n">retdates</span><span class="p">[</span><span class="mi">1</span><span class="p">:])):</span>
+    <span class="c1"># screen universe each June: largest 5 size deciles</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">bd</span><span class="o">.</span><span class="n">june_universe</span><span class="p">(</span><span class="n">rebaldate</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">d</span> <span class="o">!=</span> <span class="n">june_universe</span><span class="p">:</span>  <span class="c1"># need next June&#39;s universe</span>
+        <span class="n">june_universe</span> <span class="o">=</span> <span class="n">d</span>                        <span class="c1"># update universe every June</span>
+        <span class="n">univ</span> <span class="o">=</span> <span class="n">crsp</span><span class="o">.</span><span class="n">get_universe</span><span class="p">(</span><span class="n">june_universe</span><span class="p">)</span>  <span class="c1"># usual CRSP universe screen</span>
+        <span class="n">univ</span> <span class="o">=</span> <span class="n">univ</span><span class="p">[</span><span class="n">univ</span><span class="p">[</span><span class="s1">&#39;decile&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">9</span><span class="p">]</span>         <span class="c1"># drop smallest half stocks</span>
+
+    <span class="c1"># retrieve new annual batch of daily prices and returns when start year</span>
+    <span class="k">if</span> <span class="n">bd</span><span class="o">.</span><span class="n">begyr</span><span class="p">(</span><span class="n">rebaldate</span><span class="p">)</span> <span class="o">!=</span> <span class="n">year</span><span class="p">:</span>
+        <span class="n">year</span> <span class="o">=</span> <span class="n">bd</span><span class="o">.</span><span class="n">begyr</span><span class="p">(</span><span class="n">rebaldate</span><span class="p">)</span>
+        <span class="n">prc</span> <span class="o">=</span> <span class="n">crsp</span><span class="o">.</span><span class="n">get_range</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="s1">&#39;daily&#39;</span><span class="p">,</span>
+                             <span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;bidlo&#39;</span><span class="p">,</span> <span class="s1">&#39;askhi&#39;</span><span class="p">,</span> <span class="s1">&#39;prc&#39;</span><span class="p">,</span> <span class="s1">&#39;retx&#39;</span><span class="p">,</span> <span class="s1">&#39;ret&#39;</span><span class="p">],</span>
+                             <span class="n">date_field</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">,</span>
+                             <span class="n">beg</span><span class="o">=</span><span class="n">year</span><span class="p">,</span>
+                             <span class="n">end</span><span class="o">=</span><span class="n">bd</span><span class="o">.</span><span class="n">offset</span><span class="p">(</span><span class="n">bd</span><span class="o">.</span><span class="n">endyr</span><span class="p">(</span><span class="n">year</span><span class="p">),</span> <span class="mi">10</span><span class="p">),</span>
+                             <span class="n">cache_mode</span><span class="o">=</span><span class="s2">&quot;rw&quot;</span><span class="p">)</span>
+
+    <span class="c1"># get past week&#39;s returns, require price at start of week</span>
+    <span class="n">past_week</span> <span class="o">=</span> <span class="n">prc</span><span class="p">[</span><span class="n">prc</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="n">rebaldate</span><span class="p">][</span><span class="s1">&#39;prc&#39;</span><span class="p">]</span>\
+        <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>\
+        <span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;permno&#39;</span><span class="p">)</span>\
+        <span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">crsp</span><span class="o">.</span><span class="n">get_ret</span><span class="p">(</span><span class="o">*</span><span class="n">pastdates</span><span class="p">)</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">univ</span><span class="o">.</span><span class="n">index</span><span class="p">))</span>\
+        <span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+
+    <span class="c1"># convert past week&#39;s minus returns to standardized weights in portfolio</span>
+    <span class="n">weights</span> <span class="o">=</span> <span class="p">((</span><span class="n">past_week</span><span class="p">[</span><span class="s1">&#39;ret&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">past_week</span><span class="p">[</span><span class="s1">&#39;ret&#39;</span><span class="p">])</span> <span class="o">/</span>
+               <span class="p">(</span><span class="n">past_week</span><span class="p">[</span><span class="s1">&#39;ret&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">past_week</span><span class="p">)))</span>
+
+    <span class="c1"># turnover = total abs change in stock weight, scaled by total abs weight</span>
+    <span class="n">chg_weights</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">weights</span><span class="p">,</span> <span class="o">-</span><span class="n">lagged_weights</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>\
+                       <span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>\
+                       <span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">total_weight</span> <span class="o">=</span> <span class="n">weights</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">+</span> <span class="n">lagged_weights</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="n">lagged_weights</span> <span class="o">=</span> <span class="n">weights</span>
+    
+    <span class="c1"># get next week&#39;s returns</span>
+    <span class="n">next_week</span> <span class="o">=</span> <span class="n">crsp</span><span class="o">.</span><span class="n">get_ret</span><span class="p">(</span><span class="o">*</span><span class="n">nextdates</span><span class="p">)</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">past_week</span><span class="o">.</span><span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="c1"># get next day&#39;s closing prices (or bid-ask quotes), to compute one-day delay cost</span>
+    <span class="n">next_day</span> <span class="o">=</span> <span class="n">prc</span><span class="p">[</span><span class="n">prc</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span> <span class="o">==</span>
+                   <span class="n">bd</span><span class="o">.</span><span class="n">offset</span><span class="p">(</span><span class="n">rebaldate</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span>\
+                   <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>\
+                   <span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;permno&#39;</span><span class="p">)</span>\
+                   <span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">)</span>\
+                   <span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">chg_weights</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+    <span class="n">avgprc</span> <span class="o">=</span> <span class="n">next_day</span><span class="p">[[</span><span class="s1">&#39;bidlo&#39;</span><span class="p">,</span> <span class="s1">&#39;askhi&#39;</span><span class="p">,</span> <span class="s1">&#39;prc&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># if no trade next day, then enter position at askhi (long) or bidlo (short)</span>
+    <span class="n">bidask</span> <span class="o">=</span> <span class="n">next_day</span><span class="p">[</span><span class="s1">&#39;askhi&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">weights</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">next_day</span><span class="p">[</span><span class="s1">&#39;bidlo&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span>
+    <span class="n">avgprc</span> <span class="o">=</span> <span class="n">next_day</span><span class="p">[</span><span class="s1">&#39;prc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">next_day</span><span class="p">[</span><span class="s1">&#39;prc&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">bidask</span><span class="p">)</span>
+
+    <span class="c1"># delay slippage (positive is cost) = weights chg * drift of next day price</span>
+    <span class="n">drift</span> <span class="o">=</span> <span class="n">avgprc</span><span class="o">.</span><span class="n">div</span><span class="p">(</span><span class="n">next_day</span><span class="p">[</span><span class="s1">&#39;prc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">abs</span><span class="p">())</span>\
+                  <span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">next_day</span><span class="p">[</span><span class="s1">&#39;ret&#39;</span><span class="p">])</span>\
+                  <span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>\
+                  <span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="c1"># accumulate weekly computations</span>
+    <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;ret&#39;</span><span class="p">:</span> <span class="n">weights</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">next_week</span><span class="p">),</span>
+                              <span class="s1">&#39;ic&#39;</span><span class="p">:</span> <span class="n">weights</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">next_week</span><span class="p">),</span>
+                              <span class="s1">&#39;n&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">next_week</span><span class="p">),</span>
+                              <span class="s1">&#39;beg&#39;</span><span class="p">:</span> <span class="n">nextdates</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                              <span class="s1">&#39;end&#39;</span><span class="p">:</span> <span class="n">nextdates</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                              <span class="s1">&#39;absweight&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">weights</span><span class="o">.</span><span class="n">abs</span><span class="p">()),</span>
+                              <span class="s1">&#39;turnover&#39;</span><span class="p">:</span> <span class="n">chg_weights</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="n">total_weight</span><span class="p">,</span>
+                              <span class="s1">&#39;vol&#39;</span><span class="p">:</span> <span class="n">next_week</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+                              <span class="s1">&#39;delay&#39;</span><span class="p">:</span> <span class="n">chg_weights</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">drift</span><span class="p">)},</span>
+                             <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="n">rebaldate</span><span class="p">]))</span>
+
+<span class="c1"># Combine accumulated weekly computations</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">dates</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span>
+<span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">))</span>
+
+<span class="c1"># Show summary</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ic&#39;</span> <span class="p">,</span><span class="s1">&#39;vol&#39;</span><span class="p">,</span> <span class="s1">&#39;ret&#39;</span><span class="p">,</span> <span class="s1">&#39;delay&#39;</span><span class="p">,</span> <span class="s1">&#39;turnover&#39;</span><span class="p">]</span>
+<span class="n">indexes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Information coefficient&#39;</span><span class="p">,</span> <span class="s1">&#39;Cross-sectional Volatility&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;Alpha (gross return)&#39;</span><span class="p">,</span> <span class="s1">&#39;Delay cost&#39;</span><span class="p">,</span> <span class="s1">&#39;Portfolio turnover&#39;</span><span class="p">]</span>
+<span class="n">show</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;mean&#39;</span><span class="p">),</span>
+                <span class="n">df</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;std&#39;</span><span class="p">)],</span>
+               <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">(</span><span class="n">indexes</span><span class="p">)),</span>
+     <span class="n">caption</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Summary of Weekly Mean Reversion Strategy </span><span class="si">{</span><span class="n">dates</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">-</span><span class="si">{</span><span class="n">dates</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2555it [01:13, 34.69it/s]
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mean</th>
+      <th>std</th>
+    </tr>
+    <tr>
+      <th>Summary of Weekly Mean Reversion Strategy 19740109-20221221</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Information coefficient</th>
+      <td>0.0398</td>
+      <td>0.0927</td>
+    </tr>
+    <tr>
+      <th>Cross-sectional Volatility</th>
+      <td>0.0583</td>
+      <td>0.0203</td>
+    </tr>
+    <tr>
+      <th>Alpha (gross return)</th>
+      <td>0.0024</td>
+      <td>0.0077</td>
+    </tr>
+    <tr>
+      <th>Delay cost</th>
+      <td>0.0019</td>
+      <td>0.0042</td>
+    </tr>
+    <tr>
+      <th>Portfolio turnover</th>
+      <td>0.7370</td>
+      <td>0.0384</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<section id="implementation-shortfall">
+<h2>Implementation Shortfall<a class="headerlink" href="#implementation-shortfall" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>decision price</p></li>
+<li><p>delay</p></li>
+<li><p>market impact</p></li>
+<li><p>opportunity cost</p></li>
+</ul>
+</section>
+<section id="information-coefficient">
+<h2>Information coefficient<a class="headerlink" href="#information-coefficient" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Grinold rule of thum</p></li>
+<li><p>alpha = IC time volatility</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Plot returns, and rolling avg information coefficient and cross-sectional vol</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">num</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;ret&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">rot</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;cumulative returns&#39;</span><span class="p">],</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;cumulative returns&#39;</span><span class="p">)</span>
+<span class="n">bx</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">roll</span> <span class="o">=</span> <span class="mi">250</span>  <span class="c1"># 250 week rolling average ~ 5 years</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;ic&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">roll</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">bx</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">rot</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;vol&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">roll</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">bx</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">rot</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
+<span class="c1">#bx.axhline(df[&#39;ic&#39;].mean(), linestyle=&#39;-&#39;, color=&#39;C0&#39;, lw=2)</span>
+<span class="n">bx</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">bx</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot;information coefficient (</span><span class="si">{</span><span class="n">roll</span><span class="si">}</span><span class="s2">-week roll)&quot;</span><span class="p">,</span>
+           <span class="sa">f</span><span class="s2">&quot;cross-sectional vol (</span><span class="si">{</span><span class="n">roll</span><span class="si">}</span><span class="s2">-week roll)&quot;</span><span class="p">],</span>
+          <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower right&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Profitability of Weekly Mean Reversion </span><span class="si">{</span><span class="n">dates</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">-</span><span class="si">{</span><span class="n">dates</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">pad</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">imgdir</span> <span class="o">/</span> <span class="s1">&#39;weekrev.jpg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/570c5ac8842aa779df8297a07f6b8e1560aab1334b8b9890dad0a08b59794c92.png" src="_images/570c5ac8842aa779df8297a07f6b8e1560aab1334b8b9890dad0a08b59794c92.png" />
+</div>
+</div>
+</section>
+<section id="structural-break-with-unknown-changepoint">
+<h2>Structural break with unknown changepoint<a class="headerlink" href="#structural-break-with-unknown-changepoint" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Welch/Chow test</p></li>
+<li><p>Andrews</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Structural Break Test with Unknown Changepoint</span>
+<span class="n">importr</span><span class="p">(</span><span class="s1">&#39;strucchange&#39;</span><span class="p">)</span>   <span class="c1"># R package to use</span>
+
+<span class="c1"># Set up data and formulas for R</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;ret&#39;</span><span class="p">]</span>
+<span class="n">formula</span> <span class="o">=</span> <span class="n">ro</span><span class="o">.</span><span class="n">Formula</span><span class="p">(</span><span class="s1">&#39;y ~ 1&#39;</span><span class="p">)</span>
+<span class="n">formula</span><span class="o">.</span><span class="n">environment</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">PyR</span><span class="p">(</span><span class="n">Y</span><span class="o">.</span><span class="n">values</span><span class="p">)</span><span class="o">.</span><span class="n">ro</span>
+
+<span class="c1"># Call R strucchange routines to compute breakpoint statistics</span>
+<span class="n">fstats_r</span> <span class="o">=</span> <span class="n">ro</span><span class="o">.</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;Fstats&#39;</span><span class="p">](</span><span class="n">formula</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s1">&#39;from&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>    <span class="c1"># Fstats at every break</span>
+<span class="n">breakpoints_r</span> <span class="o">=</span> <span class="n">ro</span><span class="o">.</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;breakpoints&#39;</span><span class="p">](</span><span class="n">formula</span><span class="p">)</span>         <span class="c1"># candidate breakpoints</span>
+<span class="n">confint_r</span> <span class="o">=</span> <span class="n">ro</span><span class="o">.</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;confint&#39;</span><span class="p">](</span><span class="n">breakpoints_r</span><span class="p">,</span> <span class="n">breaks</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># conf interval for 1 break</span>
+<span class="n">sctest_r</span> <span class="o">=</span> <span class="n">ro</span><span class="o">.</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;sctest&#39;</span><span class="p">](</span><span class="n">fstats_r</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;aveF&#39;</span><span class="p">})</span>
+
+<span class="c1"># Extract output from R results</span>
+<span class="n">confint</span> <span class="o">=</span> <span class="n">PyR</span><span class="p">(</span><span class="n">confint_r</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>  <span class="c1"># R index starts at 1</span>
+<span class="n">output</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">confint</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">confint</span><span class="p">]))</span>       <span class="c1"># confidence interval</span>
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">sctest_r</span><span class="o">.</span><span class="n">slots</span><span class="p">[</span><span class="s1">&#39;names&#39;</span><span class="p">][:</span><span class="mi">3</span><span class="p">],</span> <span class="n">sctest_r</span><span class="p">[:</span><span class="mi">3</span><span class="p">]):</span> <span class="c1"># significance values</span>
+    <span class="n">output</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">PyR</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">output</span><span class="p">[</span><span class="s1">&#39;mean(pre)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Y</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">&lt;=</span> <span class="n">output</span><span class="p">[</span><span class="s1">&#39;breakpoints&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> 
+<span class="n">output</span><span class="p">[</span><span class="s1">&#39;mean(post)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Y</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">&gt;</span> <span class="n">output</span><span class="p">[</span><span class="s1">&#39;breakpoints&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">fstat</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">PyR</span><span class="p">(</span><span class="n">fstats_r</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">values</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># pad beyond from and to </span>
+
+<span class="n">show</span><span class="p">(</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sctest&#39;</span><span class="p">]),</span>
+     <span class="n">caption</span><span class="o">=</span><span class="s2">&quot;Structural break test with unknown changepoint&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>2.5 %</th>
+      <th>breakpoints</th>
+      <th>97.5 %</th>
+      <th>statistic</th>
+      <th>p.value</th>
+      <th>method</th>
+      <th>mean(pre)</th>
+      <th>mean(post)</th>
+    </tr>
+    <tr>
+      <th>Structural break test with unknown changepoint</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>sctest</th>
+      <td>1998-07-01</td>
+      <td>2001-07-03</td>
+      <td>2002-07-31</td>
+      <td>23.1675</td>
+      <td>0.0</td>
+      <td>aveF test</td>
+      <td>0.0035</td>
+      <td>0.001</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Plot breakpoint F-stats</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">num</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">fstat</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">)</span>
+<span class="n">arg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanargmax</span><span class="p">(</span><span class="n">fstat</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">arg</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">confint</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">confint</span><span class="p">[</span><span class="mi">2</span><span class="p">]],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;F-stat&#39;</span><span class="p">,</span> <span class="s1">&#39;Max-F&#39;</span><span class="p">,</span> <span class="s1">&#39;C.I. of Break Date&#39;</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">arg</span><span class="p">]</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">),</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">arg</span><span class="p">],</span> <span class="n">fstat</span><span class="p">[</span><span class="n">arg</span><span class="p">]))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;F-statistic at Breakpoints&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Date of Breakpoints&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Structural Break with Unknown Changepoint: &#39;</span>
+             <span class="s1">&#39;Weekly Mean Reversion&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">pad</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">imgdir</span> <span class="o">/</span> <span class="s1">&#39;break.jpg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/58efd66a025b3640ecf58a60374e9bac503ccfd600873d6896ec119866524166.png" src="_images/58efd66a025b3640ecf58a60374e9bac503ccfd600873d6896ec119866524166.png" />
+</div>
+</div>
+<p>Compute gross annualized sharpe ratio and delay slippage</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">market</span> <span class="o">=</span> <span class="n">bench</span><span class="o">.</span><span class="n">get_series</span><span class="p">(</span><span class="n">permnos</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Mkt-RF&#39;</span><span class="p">],</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;ret&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="nb">breakpoint</span> <span class="o">=</span> <span class="n">BusDay</span><span class="o">.</span><span class="n">to_date</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;breakpoints&#39;</span><span class="p">])</span>
+<span class="n">out</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">select</span><span class="p">,</span> <span class="n">period</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">([</span><span class="n">dates</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">dates</span> <span class="o">&lt;=</span> <span class="nb">breakpoint</span><span class="p">,</span> <span class="n">dates</span> <span class="o">&gt;</span> <span class="nb">breakpoint</span><span class="p">],</span>
+                          <span class="p">[</span><span class="s1">&#39;Full&#39;</span><span class="p">,</span> <span class="s1">&#39;Pre-break&#39;</span><span class="p">,</span> <span class="s1">&#39;Post-break&#39;</span><span class="p">]):</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">select</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">res</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">dates</span><span class="p">[</span><span class="n">select</span><span class="p">]</span>
+
+    <span class="c1"># align market returns and compute market regression beta</span>
+    <span class="c1">#res[&#39;date&#39;] = res.index</span>
+    <span class="n">res</span><span class="p">[</span><span class="s1">&#39;mkt&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">market</span><span class="p">[</span><span class="n">market</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="o">*</span><span class="n">dt</span><span class="p">)][</span><span class="s1">&#39;Mkt-RF&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">prod</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span>
+                  <span class="k">for</span> <span class="n">dt</span> <span class="ow">in</span> <span class="n">res</span><span class="p">[[</span><span class="s1">&#39;beg&#39;</span><span class="p">,</span><span class="s1">&#39;end&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">itertuples</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)]</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">lm</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;mkt&#39;</span><span class="p">],</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;ret&#39;</span><span class="p">],</span> <span class="n">flatten</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+    <span class="c1"># save df summary</span>
+    <span class="n">out</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">period</span><span class="si">}</span><span class="s2"> Period&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;start date&#39;</span><span class="p">:</span> <span class="nb">min</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">index</span><span class="p">),</span>
+        <span class="s1">&#39;end date&#39;</span><span class="p">:</span> <span class="nb">max</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">index</span><span class="p">),</span>
+        <span class="s1">&#39;Sharpe Ratio&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">52</span><span class="p">)</span><span class="o">*</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;ret&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">/</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;ret&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">(),</span>
+        <span class="s1">&#39;Average Return&#39;</span><span class="p">:</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;ret&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
+        <span class="s1">&#39;Std Dev Return&#39;</span><span class="p">:</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;ret&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">(),</span>
+        <span class="s1">&#39;Market Beta&#39;</span><span class="p">:</span> <span class="n">model</span><span class="o">.</span><span class="n">coefficients</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+        <span class="s1">&#39;Jensen Alpha (annualized)&#39;</span><span class="p">:</span> <span class="n">model</span><span class="o">.</span><span class="n">coefficients</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">52</span><span class="p">,</span>
+<span class="c1">#        &#39;Appraisal Ratio&#39;: np.sqrt(52) * model.coefficients[0] / model.stderr,</span>
+        <span class="s1">&#39;Information Coefficient&#39;</span><span class="p">:</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;ic&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
+        <span class="s1">&#39;Cross-sectional Vol&#39;</span><span class="p">:</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;vol&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
+        <span class="s1">&#39;Delay cost&#39;</span><span class="p">:</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;delay&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
+        <span class="s1">&#39;Turnover Fraction&#39;</span><span class="p">:</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;turnover&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
+        <span class="c1">#&#39;Abs Weight&#39;: res[&#39;absweight&#39;].mean(),</span>
+        <span class="s1">&#39;Num Stocks&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;n&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()),</span>
+    <span class="p">}</span>
+
+<span class="c1"># Display as formatted DataFrame</span>
+<span class="n">formats</span> <span class="o">=</span> <span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">([</span><span class="s1">&#39;start date&#39;</span> <span class="p">,</span><span class="s1">&#39;end date&#39;</span><span class="p">,</span> <span class="s1">&#39;Num Stocks&#39;</span><span class="p">],</span> <span class="s1">&#39;</span><span class="si">{:.0f}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="n">row_formatted</span><span class="p">(</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">out</span><span class="p">),</span> <span class="n">formats</span><span class="o">=</span><span class="n">formats</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">{:.4f}</span><span class="s1">&#39;</span><span class="p">),</span>
+     <span class="n">caption</span><span class="o">=</span><span class="s2">&quot;Subperiod Performance of Weekly Mean Reversion Strategy&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(get_series many) SELECT date, permno, ret   FROM benchmarks  WHERE date &gt;= 19000000 AND date &lt;= 29001231     AND permno IN (&#39;Mkt-RF&#39;)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Full Period</th>
+      <th>Pre-break Period</th>
+      <th>Post-break Period</th>
+    </tr>
+    <tr>
+      <th>Subperiod Performance of Weekly Mean Reversion Strategy</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>start date</th>
+      <td>19740109</td>
+      <td>19740109</td>
+      <td>20010711</td>
+    </tr>
+    <tr>
+      <th>end date</th>
+      <td>20221221</td>
+      <td>20010703</td>
+      <td>20221221</td>
+    </tr>
+    <tr>
+      <th>Sharpe Ratio</th>
+      <td>2.2938</td>
+      <td>4.2094</td>
+      <td>0.8167</td>
+    </tr>
+    <tr>
+      <th>Average Return</th>
+      <td>0.0024</td>
+      <td>0.0035</td>
+      <td>0.0010</td>
+    </tr>
+    <tr>
+      <th>Std Dev Return</th>
+      <td>0.0077</td>
+      <td>0.0061</td>
+      <td>0.0092</td>
+    </tr>
+    <tr>
+      <th>Market Beta</th>
+      <td>0.0928</td>
+      <td>0.0688</td>
+      <td>0.1181</td>
+    </tr>
+    <tr>
+      <th>Jensen Alpha (annualized)</th>
+      <td>0.1201</td>
+      <td>0.1792</td>
+      <td>0.0446</td>
+    </tr>
+    <tr>
+      <th>Information Coefficient</th>
+      <td>0.0398</td>
+      <td>0.0601</td>
+      <td>0.0138</td>
+    </tr>
+    <tr>
+      <th>Cross-sectional Vol</th>
+      <td>0.0583</td>
+      <td>0.0588</td>
+      <td>0.0578</td>
+    </tr>
+    <tr>
+      <th>Delay cost</th>
+      <td>0.0019</td>
+      <td>0.0033</td>
+      <td>0.0002</td>
+    </tr>
+    <tr>
+      <th>Turnover Fraction</th>
+      <td>0.7370</td>
+      <td>0.7401</td>
+      <td>0.7331</td>
+    </tr>
+    <tr>
+      <th>Num Stocks</th>
+      <td>2552</td>
+      <td>2658</td>
+      <td>2416</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="fama_macbeth.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Fama-Macbeth Cross-sectional Regressions</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="quant_factors.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Quant Factors</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-shortfall">Implementation Shortfall</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#information-coefficient">Information coefficient</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structural-break-with-unknown-changepoint">Structural break with unknown changepoint</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Terence Lim
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

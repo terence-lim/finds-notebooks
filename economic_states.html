@@ -1,0 +1,1439 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>State Space Models &#8212; Financial Data Science Python Notebooks</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'economic_states';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Conditional Volatility" href="conditional_volatility.html" />
+    <link rel="prev" title="Approximate Factor Models" href="approximate_factors.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="README.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Financial Data Science Python Notebooks</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="README.html">
+                    Financial Data Science Notebooks
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="stock_prices.html">Stock prices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jegadeesh_titman.html">Jegadeesh-Titman Rolling Portfolios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fama_french.html">Fama-French Portfolio Sorts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fama_macbeth.html">Fama-Macbeth Cross-sectional Regressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weekly_reversal.html">Weekly reversal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quant_factors.html">Quant Factors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event_study.html">Event Study</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="economic_releases.html">Economic Data Revisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regression_diagnostics.html">Linear Regression Diagonostics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="econometric_forecast.html">Econometric Forecasts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="approximate_factors.html">Approximate Factor Models</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">State Space Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional_volatility.html">Conditional Volatility</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="covariance_matrix.html">Covariance Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="term_structure.html">Term Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bond_returns.html">Bond Returns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="options_pricing.html">Options Pricing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="market_microstructure.html">Market Microstructure</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="event_risk.html">Event risk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="customer_ego.html">Principal Customers Network</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="bea_centrality.html">Graph Centrality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="industry_community.html">Community Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="link_prediction.html">Link Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spatial_regression.html">Spatial Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fomc_topics.html">Topic Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management_sentiment.html">Sentiment Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="business_description.html">10-K Business Description</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="classification_models.html">Classification for supervised learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regression_models.html">Regression for supervised learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deep_classifier.html">Deep Averaging Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="convolutional_net.html">Temporal Convolution Net</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recurrent_net.html">Recurrent Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fomc_language.html">Language Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reinforcement_learning.html">Reinforcement Learning</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/terence-lim/data-science-notebooks.git" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/terence-lim/data-science-notebooks.git/issues/new?title=Issue%20on%20page%20%2Feconomic_states.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/economic_states.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>State Space Models</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidden-markov-model">Hidden Markov Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-mixture-model">Gaussian Mixture Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-factor-models">Dynamic Factor Models</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="state-space-models">
+<h1>State Space Models<a class="headerlink" href="#state-space-models" title="Permalink to this heading">#</a></h1>
+<p><em>UNDER CONSTRUCTION</em></p>
+<ul class="simple">
+<li><p>Gaussian Mixture Model</p></li>
+<li><p>Hidden Markov Models</p>
+<ul>
+<li><p>Viterbi algorithm</p></li>
+</ul>
+</li>
+<li><p>Kalman Filter and Dynamic Factor Models</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">Series</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">from</span> <span class="nn">hmmlearn</span> <span class="kn">import</span> <span class="n">hmm</span>
+<span class="kn">from</span> <span class="nn">sklearn.mixture</span> <span class="kn">import</span> <span class="n">GaussianMixture</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span>
+<span class="kn">from</span> <span class="nn">finds.readers</span> <span class="kn">import</span> <span class="n">fred_md</span><span class="p">,</span> <span class="n">fred_qd</span><span class="p">,</span> <span class="n">Alfred</span>
+<span class="kn">from</span> <span class="nn">finds.misc</span> <span class="kn">import</span> <span class="n">Show</span>
+<span class="kn">from</span> <span class="nn">secret</span> <span class="kn">import</span> <span class="n">paths</span><span class="p">,</span> <span class="n">credentials</span>
+
+<span class="n">show</span> <span class="o">=</span> <span class="n">Show</span><span class="p">(</span><span class="n">ndigits</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">latex</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">VERBOSE</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="c1"># %matplotlib qt</span>
+<span class="n">imgdir</span> <span class="o">=</span> <span class="n">paths</span><span class="p">[</span><span class="s1">&#39;images&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="s1">&#39;states&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load and pre-process time series from FRED</span>
+<span class="n">alf</span> <span class="o">=</span> <span class="n">Alfred</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;fred&#39;</span><span class="p">][</span><span class="s1">&#39;api_key&#39;</span><span class="p">])</span>
+<span class="n">vspans</span> <span class="o">=</span> <span class="n">alf</span><span class="o">.</span><span class="n">date_spans</span><span class="p">(</span><span class="s1">&#39;USREC&#39;</span><span class="p">)</span>  <span class="c1"># to indicate recession periods in the plots</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">today</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">))</span>
+<span class="n">beg</span> <span class="o">=</span> <span class="mi">19600301</span>
+<span class="n">end</span> <span class="o">=</span> <span class="mi">20221231</span>    <span class="c1"># should be current less 4-6 months?</span>
+<span class="n">split</span> <span class="o">=</span> <span class="mi">20220601</span>  <span class="c1"># forecast last two quarters</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>FRED-MD</p>
+<ul class="simple">
+<li><p>replace outliers</p></li>
+<li><p>apply tcode transformations</p></li>
+<li><p>train/test split: train up to MINUS two quarters, forecast through current</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+<span class="c1">#</span>
+<span class="c1"># TODO: use EM to replace outliers in data</span>
+<span class="c1">#</span>
+<span class="c1">#</span>
+<span class="c1"># Retrieve FRED-MD series and apply tcode transformations</span>
+<span class="n">df</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="n">fred_md</span><span class="p">()</span>        <span class="c1"># from vintage April 2020?</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">alf</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">],</span> <span class="n">tcode</span><span class="o">=</span><span class="n">t</span><span class="p">[</span><span class="s1">&#39;transform&#39;</span><span class="p">][</span><span class="n">col</span><span class="p">],</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;m&#39;</span><span class="p">))</span>
+<span class="n">mdf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+<span class="n">mdata</span> <span class="o">=</span> <span class="n">mdf</span><span class="p">[(</span><span class="n">mdf</span><span class="o">.</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="n">beg</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">mdf</span><span class="o">.</span><span class="n">index</span> <span class="o">&lt;=</span> <span class="n">end</span><span class="p">)]</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">mdata</span> <span class="o">=</span> <span class="p">(</span><span class="n">mdata</span> <span class="o">-</span> <span class="n">mdata</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span> <span class="o">/</span> <span class="n">mdata</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">mdata</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">(</span><span class="n">mdata</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">),</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;m&#39;</span><span class="p">)</span>
+<span class="n">mdata</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>monthly/current.csv
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>RPI</th>
+      <th>W875RX1</th>
+      <th>DPCERA3M086SBEA</th>
+      <th>CMRMTSPL</th>
+      <th>RETAIL</th>
+      <th>INDPRO</th>
+      <th>IPFPNSS</th>
+      <th>IPFINAL</th>
+      <th>IPCONGD</th>
+      <th>IPDCONGD</th>
+      <th>...</th>
+      <th>PCEPI</th>
+      <th>DDURRG3M086SBEA</th>
+      <th>DNDGRG3M086SBEA</th>
+      <th>DSERRG3M086SBEA</th>
+      <th>CES0600000008</th>
+      <th>CES2000000008</th>
+      <th>CES3000000008</th>
+      <th>DTCOLNVHFNM</th>
+      <th>DTCTHFNM</th>
+      <th>INVEST</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1960-03-31</th>
+      <td>-0.055906</td>
+      <td>-0.239279</td>
+      <td>1.361862</td>
+      <td>-2.436357</td>
+      <td>-0.373310</td>
+      <td>-1.128282</td>
+      <td>-0.544828</td>
+      <td>-0.288448</td>
+      <td>-0.030594</td>
+      <td>-0.670564</td>
+      <td>...</td>
+      <td>-0.251034</td>
+      <td>-1.387819</td>
+      <td>0.286975</td>
+      <td>-0.688081</td>
+      <td>-0.005209</td>
+      <td>3.346166</td>
+      <td>-1.006546</td>
+      <td>0.145331</td>
+      <td>0.048471</td>
+      <td>0.322440</td>
+    </tr>
+    <tr>
+      <th>1960-04-30</th>
+      <td>0.070437</td>
+      <td>0.197310</td>
+      <td>1.518351</td>
+      <td>0.617775</td>
+      <td>1.351158</td>
+      <td>-1.018832</td>
+      <td>0.046300</td>
+      <td>-0.071603</td>
+      <td>0.510438</td>
+      <td>-0.099990</td>
+      <td>...</td>
+      <td>1.588834</td>
+      <td>1.257955</td>
+      <td>0.711232</td>
+      <td>0.889271</td>
+      <td>-2.259533</td>
+      <td>-7.559300</td>
+      <td>0.000557</td>
+      <td>0.363396</td>
+      <td>0.275403</td>
+      <td>2.250783</td>
+    </tr>
+    <tr>
+      <th>1960-05-31</th>
+      <td>-0.014758</td>
+      <td>0.007897</td>
+      <td>-2.731964</td>
+      <td>-2.719109</td>
+      <td>-1.263778</td>
+      <td>-0.315496</td>
+      <td>0.397676</td>
+      <td>0.466734</td>
+      <td>0.398859</td>
+      <td>0.223473</td>
+      <td>...</td>
+      <td>-1.342564</td>
+      <td>-0.394294</td>
+      <td>-1.073753</td>
+      <td>0.360705</td>
+      <td>2.259270</td>
+      <td>4.621913</td>
+      <td>0.000557</td>
+      <td>-0.202301</td>
+      <td>-0.103697</td>
+      <td>0.351217</td>
+    </tr>
+    <tr>
+      <th>1960-06-30</th>
+      <td>-0.149637</td>
+      <td>-0.427661</td>
+      <td>-0.336036</td>
+      <td>0.517670</td>
+      <td>-0.390060</td>
+      <td>-1.503229</td>
+      <td>-1.370566</td>
+      <td>-1.260830</td>
+      <td>-0.785716</td>
+      <td>-0.387215</td>
+      <td>...</td>
+      <td>-0.311868</td>
+      <td>-0.801636</td>
+      <td>0.036861</td>
+      <td>-0.425122</td>
+      <td>-1.129832</td>
+      <td>-1.268962</td>
+      <td>0.000557</td>
+      <td>0.214617</td>
+      <td>0.374620</td>
+      <td>-0.935720</td>
+    </tr>
+    <tr>
+      <th>1960-07-31</th>
+      <td>-0.062582</td>
+      <td>-0.079816</td>
+      <td>-0.067982</td>
+      <td>-0.728275</td>
+      <td>-0.947820</td>
+      <td>-0.556224</td>
+      <td>-0.785820</td>
+      <td>-0.725112</td>
+      <td>-1.008340</td>
+      <td>-1.242847</td>
+      <td>...</td>
+      <td>0.682163</td>
+      <td>0.869009</td>
+      <td>0.293779</td>
+      <td>0.307193</td>
+      <td>1.124537</td>
+      <td>0.838260</td>
+      <td>0.000557</td>
+      <td>-0.457746</td>
+      <td>-0.165399</td>
+      <td>3.001718</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2022-08-31</th>
+      <td>0.031812</td>
+      <td>0.268079</td>
+      <td>0.259747</td>
+      <td>1.120513</td>
+      <td>0.145295</td>
+      <td>-0.095970</td>
+      <td>0.117463</td>
+      <td>0.254708</td>
+      <td>0.145430</td>
+      <td>-0.254268</td>
+      <td>...</td>
+      <td>1.841999</td>
+      <td>2.128771</td>
+      <td>-0.404350</td>
+      <td>3.054382</td>
+      <td>-0.364202</td>
+      <td>0.306571</td>
+      <td>-0.772418</td>
+      <td>0.051969</td>
+      <td>0.071119</td>
+      <td>-0.431431</td>
+    </tr>
+    <tr>
+      <th>2022-09-30</th>
+      <td>-0.105971</td>
+      <td>-0.000502</td>
+      <td>-0.002497</td>
+      <td>-0.128454</td>
+      <td>-0.313545</td>
+      <td>0.095777</td>
+      <td>-0.137272</td>
+      <td>-0.231848</td>
+      <td>-0.406570</td>
+      <td>-0.193276</td>
+      <td>...</td>
+      <td>0.386374</td>
+      <td>-0.105260</td>
+      <td>0.628192</td>
+      <td>-0.070539</td>
+      <td>0.354791</td>
+      <td>-0.003621</td>
+      <td>0.682301</td>
+      <td>0.217847</td>
+      <td>-0.008291</td>
+      <td>-0.680035</td>
+    </tr>
+    <tr>
+      <th>2022-10-31</th>
+      <td>-0.107340</td>
+      <td>-0.775597</td>
+      <td>0.005934</td>
+      <td>-0.260730</td>
+      <td>0.360985</td>
+      <td>-0.314157</td>
+      <td>0.060215</td>
+      <td>0.222922</td>
+      <td>0.347623</td>
+      <td>0.342962</td>
+      <td>...</td>
+      <td>0.386478</td>
+      <td>-2.555433</td>
+      <td>1.999584</td>
+      <td>-0.833222</td>
+      <td>0.083418</td>
+      <td>-0.172316</td>
+      <td>0.081215</td>
+      <td>0.013922</td>
+      <td>0.108611</td>
+      <td>-0.412855</td>
+    </tr>
+    <tr>
+      <th>2022-11-30</th>
+      <td>-0.214863</td>
+      <td>-0.510423</td>
+      <td>-0.803318</td>
+      <td>-0.939377</td>
+      <td>-1.145908</td>
+      <td>-0.538102</td>
+      <td>-0.534353</td>
+      <td>-0.557796</td>
+      <td>-0.308918</td>
+      <td>-0.744716</td>
+      <td>...</td>
+      <td>-1.270842</td>
+      <td>-0.531799</td>
+      <td>-1.413324</td>
+      <td>-0.351634</td>
+      <td>0.258909</td>
+      <td>-0.069131</td>
+      <td>0.837302</td>
+      <td>0.067908</td>
+      <td>-0.003047</td>
+      <td>0.892882</td>
+    </tr>
+    <tr>
+      <th>2022-12-31</th>
+      <td>-0.227146</td>
+      <td>-0.418519</td>
+      <td>-0.540658</td>
+      <td>1.027194</td>
+      <td>-0.762278</td>
+      <td>-1.797629</td>
+      <td>-1.433904</td>
+      <td>-0.978260</td>
+      <td>-0.728798</td>
+      <td>-0.377401</td>
+      <td>...</td>
+      <td>0.156942</td>
+      <td>1.050942</td>
+      <td>-0.980203</td>
+      <td>1.076286</td>
+      <td>-0.272668</td>
+      <td>0.333477</td>
+      <td>-1.268091</td>
+      <td>-0.111931</td>
+      <td>-0.058777</td>
+      <td>0.819264</td>
+    </tr>
+  </tbody>
+</table>
+<p>754 rows × 120 columns</p>
+</div></div></div>
+</div>
+<section id="hidden-markov-model">
+<h2>Hidden Markov Model<a class="headerlink" href="#hidden-markov-model" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hmm_summary</span><span class="p">(</span><span class="n">markov</span><span class="p">:</span> <span class="n">hmm</span><span class="o">.</span><span class="n">GaussianHMM</span><span class="p">,</span> <span class="n">X</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span>
+                <span class="n">lengths</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">matrix</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Helper to return summary statistics from fitting Hidden Markov Model</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        markov: Fitted GaussianHMM </span>
+<span class="sd">        X: Input data of shape (nsamples, nfeatures)</span>
+<span class="sd">        lengths: Lengths of the individual sequences in X, sum is nsamples</span>
+<span class="sd">        matrix: Whether to return the transition and stationary matrices</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Dictionary of results in {&#39;aic&#39;, &#39;bic&#39;, &#39;parameters&#39;, &#39;NLL&#39;}</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logL</span> <span class="o">=</span> <span class="n">markov</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">lengths</span><span class="p">)</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">lengths</span><span class="p">)</span>      <span class="c1"># n_samples</span>
+
+    <span class="n">n</span> <span class="o">=</span> <span class="n">markov</span><span class="o">.</span><span class="n">n_features</span>    <span class="c1"># number of features ~ dim of covariance matrix</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">markov</span><span class="o">.</span><span class="n">n_components</span>  <span class="c1"># number of states</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">markov</span><span class="o">.</span><span class="n">n_features</span> <span class="o">+</span> <span class="p">{</span><span class="s2">&quot;diag&quot;</span><span class="p">:</span> <span class="n">m</span> <span class="o">*</span> <span class="n">n</span><span class="p">,</span>    <span class="c1"># parms in mean and cov matrix</span>
+                             <span class="s2">&quot;full&quot;</span><span class="p">:</span> <span class="n">m</span> <span class="o">*</span> <span class="n">n</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">,</span>
+                             <span class="s2">&quot;tied&quot;</span><span class="p">:</span> <span class="n">n</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">,</span>
+                             <span class="s2">&quot;spherical&quot;</span><span class="p">:</span> <span class="n">m</span><span class="p">}[</span><span class="n">markov</span><span class="o">.</span><span class="n">covariance_type</span><span class="p">]</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">m</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">k</span> <span class="o">*</span> <span class="n">m</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>   <span class="c1"># number of indepedent parameters of the model</span>
+    
+    <span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;aic&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="n">logL</span> <span class="o">+</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">p</span><span class="p">),</span>
+               <span class="s1">&#39;bic&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="n">logL</span> <span class="o">+</span> <span class="p">(</span><span class="n">p</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">T</span><span class="p">)),</span>
+               <span class="s1">&#39;parameters&#39;</span><span class="p">:</span> <span class="n">p</span><span class="p">,</span>
+               <span class="s1">&#39;NLL&#39;</span> <span class="p">:</span> <span class="o">-</span><span class="n">logL</span><span class="p">}</span>
+    <span class="k">if</span> <span class="n">matrix</span><span class="p">:</span>   <span class="c1"># whether to return the transition and stationary matrix</span>
+        <span class="n">matrix</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">markov</span><span class="o">.</span><span class="n">transmat_</span><span class="p">)</span>\
+            <span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;Transition Matrix:&#39;</span><span class="p">)</span>
+        <span class="n">matrix</span><span class="p">[</span><span class="s1">&#39;Stationary&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">markov</span><span class="o">.</span><span class="n">get_stationary_distribution</span><span class="p">()</span>
+        <span class="n">results</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;matrix&#39;</span><span class="p">:</span> <span class="n">matrix</span><span class="p">})</span>   <span class="c1"># return matrix as DataFrame</span>
+    <span class="k">return</span> <span class="n">results</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Compare covariance types in Gaussian HMM models </span>
+<span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">covariance_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;full&quot;</span><span class="p">,</span> <span class="s2">&quot;diag&quot;</span><span class="p">,</span> <span class="s2">&quot;tied&quot;</span><span class="p">,</span> <span class="s2">&quot;spherical&quot;</span><span class="p">]:</span>
+    <span class="k">for</span> <span class="n">n_components</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">16</span><span class="p">):</span>
+        <span class="n">markov</span> <span class="o">=</span> <span class="n">hmm</span><span class="o">.</span><span class="n">GaussianHMM</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="n">n_components</span><span class="p">,</span>
+                                 <span class="n">covariance_type</span><span class="o">=</span><span class="n">covariance_type</span><span class="p">,</span>
+                                 <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                                 <span class="n">tol</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span>
+                                 <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span>
+                                 <span class="n">n_iter</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>\
+                    <span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">mdata</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">mdata</span><span class="p">)])</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">hmm_summary</span><span class="p">(</span><span class="n">markov</span><span class="p">,</span> <span class="n">mdata</span><span class="p">,</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">mdata</span><span class="p">)])</span>
+        <span class="c1">#print(n_components, Series(results, name=covariance_type).to_frame().T)</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;covariance_type&#39;</span><span class="p">:</span> <span class="n">covariance_type</span><span class="p">,</span>
+                       <span class="s1">&#39;n_components&#39;</span><span class="p">:</span> <span class="n">n_components</span><span class="p">})</span>
+        <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Series</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">convert_dtypes</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model is not converging.  Current: -8356.536935223692 is not greater than -8356.536922138932. Delta is -1.3084760212223046e-05
+Model is not converging.  Current: -20040.65225614991 is not greater than -20040.65225604072. Delta is -1.0919029591605067e-07
+Fitting a model with 96108 free scalar parameters with only 90480 data points will result in a degenerate solution.
+Fitting a model with 103515 free scalar parameters with only 90480 data points will result in a degenerate solution.
+Fitting a model with 110924 free scalar parameters with only 90480 data points will result in a degenerate solution.
+Model is not converging.  Current: -98907.84473039334 is not greater than -98907.84472817722. Delta is -2.216111170127988e-06
+Model is not converging.  Current: -96262.11285136703 is not greater than -96262.11280305496. Delta is -4.831206751987338e-05
+Model is not converging.  Current: -91059.2537900895 is not greater than -91059.25375594033. Delta is -3.414916864130646e-05
+Model is not converging.  Current: -90807.24961393392 is not greater than -90807.24959916719. Delta is -1.4766730600968003e-05
+Model is not converging.  Current: -89268.3968799929 is not greater than -89268.39576843736. Delta is -0.0011115555389551446
+Model is not converging.  Current: -48070.79235763028 is not greater than -48070.7923533622. Delta is -4.268076736479998e-06
+Model is not converging.  Current: -113338.9446084779 is not greater than -113338.94460542541. Delta is -3.052497049793601e-06
+Model is not converging.  Current: -112081.42704057258 is not greater than -112081.42703677774. Delta is -3.7948484532535076e-06
+Model is not converging.  Current: -108461.4527899802 is not greater than -108461.45278697292. Delta is -3.0072842491790652e-06
+Model is not converging.  Current: -107122.20983928096 is not greater than -107122.20983800037. Delta is -1.2805830920115113e-06
+Model is not converging.  Current: -102844.95197449482 is not greater than -102844.95197112675. Delta is -3.3680698834359646e-06
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Find best bic&#39;s</span>
+<span class="n">best_bic</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">covariance_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;full&quot;</span><span class="p">,</span> <span class="s2">&quot;diag&quot;</span><span class="p">,</span> <span class="s2">&quot;tied&quot;</span><span class="p">,</span> <span class="s2">&quot;spherical&quot;</span><span class="p">]:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;covariance_type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">covariance_type</span><span class="p">]</span>
+    <span class="n">argmin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;bic&#39;</span><span class="p">])</span>
+    <span class="n">best_bic</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="n">argmin</span><span class="p">]])</span>
+<span class="n">best_bic</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">best_bic</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="n">best_bic</span><span class="p">,</span> <span class="n">caption</span><span class="o">=</span><span class="s2">&quot;HMM best bic by covariance type:&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>aic</th>
+      <th>bic</th>
+      <th>parameters</th>
+      <th>NLL</th>
+      <th>covariance_type</th>
+      <th>n_components</th>
+    </tr>
+    <tr>
+      <th>HMM best bic by covariance type:</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>114858.0027</td>
+      <td>148438.3513</td>
+      <td>7260</td>
+      <td>50169.0013</td>
+      <td>full</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>205978.9381</td>
+      <td>222741.36</td>
+      <td>3624</td>
+      <td>99365.469</td>
+      <td>diag</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>114858.0027</td>
+      <td>148438.3513</td>
+      <td>7260</td>
+      <td>50169.0013</td>
+      <td>tied</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>59</th>
+      <td>210187.904</td>
+      <td>220590.4114</td>
+      <td>2249</td>
+      <td>102844.952</td>
+      <td>spherical</td>
+      <td>15</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## display estimated transition and stationary distributions of best_bic</span>
+<span class="n">n_components</span> <span class="o">=</span> <span class="n">best_bic</span><span class="p">[</span><span class="n">best_bic</span><span class="p">[</span><span class="s1">&#39;covariance_type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;diag&#39;</span><span class="p">][</span><span class="s1">&#39;n_components&#39;</span><span class="p">]</span>
+<span class="n">n_components</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_components</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">markov</span> <span class="o">=</span> <span class="n">hmm</span><span class="o">.</span><span class="n">GaussianHMM</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="n">n_components</span><span class="p">,</span>
+                         <span class="n">covariance_type</span><span class="o">=</span><span class="s1">&#39;diag&#39;</span><span class="p">,</span>
+                         <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                         <span class="n">tol</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span>
+                         <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span>
+                         <span class="n">n_iter</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>\
+            <span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">mdata</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">mdata</span><span class="p">)])</span>
+<span class="n">pred</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">markov</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">mdata</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">mdata</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">matrix</span> <span class="o">=</span> <span class="n">hmm_summary</span><span class="p">(</span><span class="n">markov</span><span class="p">,</span> <span class="n">mdata</span><span class="p">,</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">mdata</span><span class="p">)],</span> <span class="n">matrix</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s1">&#39;matrix&#39;</span><span class="p">]</span>
+<span class="n">show</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">caption</span><span class="o">=</span><span class="s2">&quot;HMM stationary and transition probabilities&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Transition Matrix:</th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>Stationary</th>
+    </tr>
+    <tr>
+      <th>HMM stationary and transition probabilities</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.8779</td>
+      <td>0.0355</td>
+      <td>0.0353</td>
+      <td>0.0512</td>
+      <td>0.0000</td>
+      <td>0.4144</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.0450</td>
+      <td>0.9053</td>
+      <td>0.0073</td>
+      <td>0.0424</td>
+      <td>0.0000</td>
+      <td>0.3638</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.3431</td>
+      <td>0.0577</td>
+      <td>0.5137</td>
+      <td>0.0855</td>
+      <td>0.0000</td>
+      <td>0.0464</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.1052</td>
+      <td>0.0980</td>
+      <td>0.0227</td>
+      <td>0.7664</td>
+      <td>0.0076</td>
+      <td>0.1740</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>1.0000</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>0.0013</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>Plot predicted states</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_states</span><span class="p">(</span><span class="n">modelname</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">labels</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">beg</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">end</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                <span class="n">series_ids</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;IPMANSICS&#39;</span><span class="p">,</span> <span class="s1">&#39;SPASTT01USM661N&#39;</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;helper to plot predicted states&quot;&quot;&quot;</span>
+
+    <span class="c1"># n_components markers</span>
+    <span class="n">n_components</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">labels</span><span class="p">))</span>
+    <span class="n">markers</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="s2">&quot;X&quot;</span><span class="p">,</span> <span class="s2">&quot;P&quot;</span><span class="p">,</span> <span class="s2">&quot;8&quot;</span><span class="p">,</span> <span class="s2">&quot;H&quot;</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;+&quot;</span><span class="p">][:</span><span class="n">n_components</span><span class="p">]</span> 
+    
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">series_ids</span><span class="p">),</span>
+                             <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                             <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">series_ids</span><span class="p">)),</span>
+                             <span class="n">num</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                             <span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">modelname</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2"> Predicted States&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;fontsize&#39;</span><span class="p">:</span><span class="mi">12</span><span class="p">})</span>
+
+    <span class="c1"># plot each selected series, with states colored</span>
+    <span class="k">for</span> <span class="n">series_id</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">series_ids</span><span class="p">,</span> <span class="n">axes</span><span class="o">.</span><span class="n">ravel</span><span class="p">()):</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">alf</span><span class="p">(</span><span class="n">series_id</span><span class="p">)</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">),</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;infer&#39;</span><span class="p">)</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="n">beg</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">&lt;=</span> <span class="n">end</span><span class="p">)]</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">marker</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n_components</span><span class="p">),</span> <span class="n">markers</span><span class="p">):</span>
+            <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">labels</span><span class="o">==</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+                                   <span class="n">style</span><span class="o">=</span><span class="n">marker</span><span class="p">,</span>
+                                   <span class="n">markersize</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                                   <span class="n">color</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;C</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                                   <span class="n">rot</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">series_id</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">alf</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="n">series_id</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                          <span class="p">{</span><span class="s1">&#39;fontsize&#39;</span><span class="p">:</span><span class="mi">8</span><span class="p">})</span>
+        <span class="k">for</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="ow">in</span> <span class="n">vspans</span><span class="p">:</span>   <span class="c1"># shade economic recession periods</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">&gt;</span> <span class="nb">min</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="nb">max</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">)):</span>
+                <span class="n">ax</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">)),</span>
+                           <span class="nb">min</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">)),</span>
+                           <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>
+                           <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot;state </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_components</span><span class="p">)],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">imgdir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">modelname</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">.jpg&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_states</span><span class="p">(</span><span class="s1">&#39;HMM&#39;</span><span class="p">,</span> <span class="n">pred</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="nb">min</span><span class="p">(</span><span class="n">pred</span><span class="o">.</span><span class="n">index</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">pred</span><span class="o">.</span><span class="n">index</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/e22afc4bdaf3551d40e2336177deb5bd2966ca6ee1176a0a5911762afb015fc3.png" src="_images/e22afc4bdaf3551d40e2336177deb5bd2966ca6ee1176a0a5911762afb015fc3.png" />
+</div>
+</div>
+</section>
+<section id="gaussian-mixture-model">
+<h2>Gaussian Mixture Model<a class="headerlink" href="#gaussian-mixture-model" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gmm</span> <span class="o">=</span> <span class="n">GaussianMixture</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="n">n_components</span><span class="p">,</span>
+                      <span class="n">covariance_type</span><span class="o">=</span><span class="s1">&#39;diag&#39;</span><span class="p">)</span>\
+                      <span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">mdata</span><span class="p">)</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">gmm</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">mdata</span><span class="p">)</span>
+<span class="n">plot_states</span><span class="p">(</span><span class="s1">&#39;GMM&#39;</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">mdata</span><span class="o">.</span><span class="n">index</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">mdata</span><span class="o">.</span><span class="n">index</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/90980a7c799cbca0b8b3ad32dd00d72794d80663f45089a6988277a3fd697a3c.png" src="_images/90980a7c799cbca0b8b3ad32dd00d72794d80663f45089a6988277a3fd697a3c.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Compare persistance of HMM and GMM</span>
+<span class="n">dist</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;Hidden Markov&#39;</span><span class="p">:</span> <span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">matrix</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+                      <span class="o">+</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">pred</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="o">==</span> <span class="n">pred</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">values</span><span class="p">)]),</span>
+    <span class="s1">&#39;Gaussian Mixture&#39;</span><span class="p">:</span> <span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">Series</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+                                <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">))</span>
+                         <span class="o">+</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">labels</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">labels</span><span class="p">[</span><span class="mi">1</span><span class="p">:])])},</span>
+                 <span class="n">index</span><span class="o">=</span><span class="p">([</span><span class="sa">f</span><span class="s1">&#39;Stationary probability of state </span><span class="si">{</span><span class="n">n_components</span><span class="o">-</span><span class="n">s</span><span class="o">-</span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span>
+                         <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_components</span><span class="p">)]</span>
+                        <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;Average persistance of states&#39;</span><span class="p">]))</span>
+<span class="n">show</span><span class="p">(</span><span class="n">dist</span><span class="p">,</span> <span class="n">caption</span><span class="o">=</span><span class="s2">&quot;Compare HMM with GMM:&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Hidden Markov</th>
+      <th>Gaussian Mixture</th>
+    </tr>
+    <tr>
+      <th>Compare HMM with GMM:</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Stationary probability of state 4</th>
+      <td>0.0013</td>
+      <td>0.0013</td>
+    </tr>
+    <tr>
+      <th>Stationary probability of state 3</th>
+      <td>0.0464</td>
+      <td>0.0451</td>
+    </tr>
+    <tr>
+      <th>Stationary probability of state 2</th>
+      <td>0.1740</td>
+      <td>0.1658</td>
+    </tr>
+    <tr>
+      <th>Stationary probability of state 1</th>
+      <td>0.3638</td>
+      <td>0.3660</td>
+    </tr>
+    <tr>
+      <th>Stationary probability of state 0</th>
+      <td>0.4144</td>
+      <td>0.4218</td>
+    </tr>
+    <tr>
+      <th>Average persistance of states</th>
+      <td>0.8526</td>
+      <td>0.8181</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Retrieve FRED-MD series and apply tcode transformations</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">df, t = fred_md(202004)        # from vintage April 2020?</span>
+<span class="sd">data = []</span>
+<span class="sd">for col in df.columns:</span>
+<span class="sd">   data.append(alf.transform(df[col], tcode=t[&#39;transform&#39;][col], freq=&#39;m&#39;))</span>
+<span class="sd">mdf = pd.concat(data, axis=1).iloc[2:]</span>
+<span class="sd">mdata = mdf[(mdf.index &gt;= beg) &amp; (mdf.index &lt;= end)].dropna(axis=1)</span>
+<span class="sd">mdata = (mdata - mdata.mean(axis=0)) / mdata.std(axis=0, ddof=0)</span>
+<span class="sd">mdata.index = pd.DatetimeIndex(mdata.index.astype(str), freq=&#39;m&#39;)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;\ndf, t = fred_md(202004)        # from vintage April 2020?\ndata = []\nfor col in df.columns:\n   data.append(alf.transform(df[col], tcode=t[&#39;transform&#39;][col], freq=&#39;m&#39;))\nmdf = pd.concat(data, axis=1).iloc[2:]\nmdata = mdf[(mdf.index &gt;= beg) &amp; (mdf.index &lt;= end)].dropna(axis=1)\nmdata = (mdata - mdata.mean(axis=0)) / mdata.std(axis=0, ddof=0)\nmdata.index = pd.DatetimeIndex(mdata.index.astype(str), freq=&#39;m&#39;)\n&quot;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="dynamic-factor-models">
+<h2>Dynamic Factor Models<a class="headerlink" href="#dynamic-factor-models" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dynamic_factors</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">seq_len</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]:</span>
+    <span class="n">mod</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">DynamicFactorMQ</span><span class="p">(</span><span class="n">endog</span><span class="o">=</span><span class="n">mdata</span><span class="p">,</span>
+                                 <span class="n">factors</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>               <span class="c1"># num factor blocks</span>
+                                 <span class="n">factor_multiplicities</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="c1"># num factors in block</span>
+                                 <span class="n">factor_orders</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>         <span class="c1"># order of factor VAR</span>
+                                 <span class="n">idiosyncratic_ar1</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># False=white noise</span>
+    <span class="n">fitted</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit_em</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+                        <span class="n">maxiter</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+                        <span class="n">full_output</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">dynamic_factors</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">fitted</span><span class="o">.</span><span class="n">factors</span><span class="o">.</span><span class="n">filtered</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">seq_len</span><span class="o">+</span><span class="mi">1</span><span class="p">:])</span>
+    <span class="n">dynamic_factors</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dynamic_factors</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span><span class="p">)))</span>
+<span class="c1">#print(fitted.summary(0))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>EM start iterations, llf=-1.166e+05
+EM converged at iteration 14, llf=-1.1573e+05, convergence criterion=9.3327e-07 &lt; tolerance=1e-06
+EM start iterations, llf=-1.1229e+05
+EM iteration 20, llf=-1.095e+05, convergence criterion=1.7942e-05
+EM iteration 40, llf=-1.0947e+05, convergence criterion=4.786e-06
+EM converged at iteration 57, llf=-1.0947e+05, convergence criterion=9.1845e-07 &lt; tolerance=1e-06
+EM start iterations, llf=-1.0663e+05
+EM iteration 20, llf=-1.044e+05, convergence criterion=1.3871e-05
+EM iteration 40, llf=-1.0438e+05, convergence criterion=3.7032e-06
+EM converged at iteration 57, llf=-1.0438e+05, convergence criterion=9.9877e-07 &lt; tolerance=1e-06
+EM start iterations, llf=-1.0269e+05
+EM iteration 20, llf=-99741, convergence criterion=1.3581e-05
+EM iteration 40, llf=-99727, convergence criterion=3.2774e-06
+EM converged at iteration 57, llf=-99724, convergence criterion=9.3062e-07 &lt; tolerance=1e-06
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Plot dynamic factors</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dynamic_factors</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span><span class="n">num</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">dynamic_factor</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">dynamic_factors</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="n">axes</span><span class="p">):</span>
+    <span class="n">dynamic_factor</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="ow">in</span> <span class="n">vspans</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">a</span> <span class="o">&gt;=</span> <span class="nb">min</span><span class="p">(</span><span class="n">dynamic_factor</span><span class="o">.</span><span class="n">index</span><span class="p">):</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">dynamic_factor</span><span class="o">.</span><span class="n">index</span><span class="p">)),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">&quot;top&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">&quot;right&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dynamic Factors = </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">dynamic_factor</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">rect</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fitted Dynamic Factors &quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">imgdir</span> <span class="o">/</span> <span class="s1">&#39;dynamic.jpg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/608bd21fce3360244d89be9604795986057fee628d47a229abc8faf58a41710c.png" src="_images/608bd21fce3360244d89be9604795986057fee628d47a229abc8faf58a41710c.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="approximate_factors.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Approximate Factor Models</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="conditional_volatility.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Conditional Volatility</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidden-markov-model">Hidden Markov Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-mixture-model">Gaussian Mixture Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-factor-models">Dynamic Factor Models</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Terence Lim
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

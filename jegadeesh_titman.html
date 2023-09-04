@@ -1,0 +1,1010 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Jegadeesh-Titman Rolling Portfolios &#8212; Financial Data Science Python Notebooks</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'jegadeesh_titman';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Fama-French Portfolio Sorts" href="fama_french.html" />
+    <link rel="prev" title="Stock prices" href="stock_prices.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="README.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Financial Data Science Python Notebooks</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="README.html">
+                    Financial Data Science Notebooks
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="stock_prices.html">Stock prices</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Jegadeesh-Titman Rolling Portfolios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fama_french.html">Fama-French Portfolio Sorts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fama_macbeth.html">Fama-Macbeth Cross-sectional Regressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weekly_reversal.html">Weekly reversal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quant_factors.html">Quant Factors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event_study.html">Event Study</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="economic_releases.html">Economic Data Revisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regression_diagnostics.html">Linear Regression Diagonostics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="econometric_forecast.html">Econometric Forecasts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="approximate_factors.html">Approximate Factor Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="economic_states.html">State Space Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional_volatility.html">Conditional Volatility</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="covariance_matrix.html">Covariance Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="term_structure.html">Term Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bond_returns.html">Bond Returns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="options_pricing.html">Options Pricing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="market_microstructure.html">Market Microstructure</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="event_risk.html">Event risk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="customer_ego.html">Principal Customers Network</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="bea_centrality.html">Graph Centrality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="industry_community.html">Community Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="link_prediction.html">Link Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spatial_regression.html">Spatial Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fomc_topics.html">Topic Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management_sentiment.html">Sentiment Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="business_description.html">10-K Business Description</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="classification_models.html">Classification for supervised learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regression_models.html">Regression for supervised learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deep_classifier.html">Deep Averaging Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="convolutional_net.html">Temporal Convolution Net</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recurrent_net.html">Recurrent Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fomc_language.html">Language Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reinforcement_learning.html">Reinforcement Learning</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/terence-lim/data-science-notebooks.git" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/terence-lim/data-science-notebooks.git/issues/new?title=Issue%20on%20page%20%2Fjegadeesh_titman.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/jegadeesh_titman.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Jegadeesh-Titman Rolling Portfolios</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#univariate-sorts">Univariate sorts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overlapping-portfolio-returns">Overlapping portfolio returns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-overlapping-portfolio-returns">Non-overlapping portfolio returns</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newey-west-correction">Newey-West correction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hypothesis-testing">Hypothesis Testing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#confidence-interval">Confidence Interval</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#power-of-test">Power of Test</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="jegadeesh-titman-rolling-portfolios">
+<h1>Jegadeesh-Titman Rolling Portfolios<a class="headerlink" href="#jegadeesh-titman-rolling-portfolios" title="Permalink to this heading">#</a></h1>
+<p><em>UNDER CONSTRUCTION</em></p>
+<ul class="simple">
+<li><p>Momentum effect</p></li>
+<li><p>Univariate spread portfolios</p></li>
+<li><p>Overlapping returns, Newey-West auto-correlation correction</p></li>
+<li><p>Hypothesis testing</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">Series</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">kurtosis</span><span class="p">,</span> <span class="n">skew</span>
+<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">from</span> <span class="nn">finds.database</span> <span class="kn">import</span> <span class="n">SQL</span><span class="p">,</span> <span class="n">RedisDB</span>
+<span class="kn">from</span> <span class="nn">finds.busday</span> <span class="kn">import</span> <span class="n">BusDay</span>
+<span class="kn">from</span> <span class="nn">finds.structured</span> <span class="kn">import</span> <span class="n">CRSP</span>
+<span class="kn">from</span> <span class="nn">finds.backtesting</span> <span class="kn">import</span> <span class="n">fractiles</span>
+<span class="kn">from</span> <span class="nn">finds.misc</span> <span class="kn">import</span> <span class="n">Show</span>
+<span class="kn">from</span> <span class="nn">finds.plots</span> <span class="kn">import</span> <span class="n">plot_date</span>
+<span class="kn">from</span> <span class="nn">secret</span> <span class="kn">import</span> <span class="n">credentials</span><span class="p">,</span> <span class="n">paths</span>
+<span class="n">show</span> <span class="o">=</span> <span class="n">Show</span><span class="p">(</span><span class="n">ndigits</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">latex</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">VERBOSE</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="c1">#%matplotlib qt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># open connections</span>
+<span class="n">sql</span> <span class="o">=</span> <span class="n">SQL</span><span class="p">(</span><span class="o">**</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;sql&#39;</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
+<span class="n">rdb</span> <span class="o">=</span> <span class="n">RedisDB</span><span class="p">(</span><span class="o">**</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;redis&#39;</span><span class="p">])</span>
+<span class="n">bd</span> <span class="o">=</span> <span class="n">BusDay</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
+<span class="n">crsp</span> <span class="o">=</span> <span class="n">CRSP</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">bd</span><span class="p">,</span> <span class="n">rdb</span><span class="o">=</span><span class="n">rdb</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
+<span class="n">imgdir</span> <span class="o">=</span> <span class="n">paths</span><span class="p">[</span><span class="s1">&#39;images&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># parameters for momentum portfolios</span>
+<span class="n">begrebal</span> <span class="o">=</span> <span class="mi">19260630</span>   <span class="c1"># first price date is 19251231</span>
+<span class="n">endrebal</span> <span class="o">=</span> <span class="mi">20221130</span>
+<span class="n">rebaldates</span> <span class="o">=</span> <span class="n">bd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">begrebal</span><span class="p">,</span> <span class="n">endrebal</span><span class="p">,</span> <span class="s1">&#39;endmo&#39;</span><span class="p">)</span>
+<span class="n">percentiles</span> <span class="o">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">80</span><span class="p">]</span>   <span class="c1"># quintile spread percentile breakpoints</span>
+<span class="n">maxhold</span> <span class="o">=</span> <span class="mi">6</span>    <span class="c1"># hold each monthly-rebalanced portfolio for 6 months</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="univariate-sorts">
+<h2>Univariate sorts<a class="headerlink" href="#univariate-sorts" title="Permalink to this heading">#</a></h2>
+<section id="overlapping-portfolio-returns">
+<h3>Overlapping portfolio returns<a class="headerlink" href="#overlapping-portfolio-returns" title="Permalink to this heading">#</a></h3>
+<p>At the end of each month t, we construct the sorting variable as the investment
+universe stocks’ past 6 months returns. We determine the 20th and 80th
+percentile of NYSE-listed stocks, then buy all stocks in top fractile
+and short all stocks in the lowest fractile. The stocks are cap-weighted
+within each fractile, while the spread portfolio is the equal-weighted
+difference of the two sub-portfolios’ returns. The spread portfolios’ returns
+over the next six months, expressed on a monthly basis by dividiving
+by six, are recorded.</p>
+<p>To be considered, a stock must be satisfy the usual investment universe criteria at the end of the rabalance month, and have non-missing month-end price six months ago.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mom</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">rebaldate</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">rebaldates</span><span class="p">):</span>
+    <span class="c1"># determine pricing dates relative to rebaldate</span>
+    <span class="n">beg</span> <span class="o">=</span> <span class="n">bd</span><span class="o">.</span><span class="n">endmo</span><span class="p">(</span><span class="n">rebaldate</span><span class="p">,</span> <span class="o">-</span><span class="mi">6</span><span class="p">)</span>   <span class="c1"># require price at beg date</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="n">bd</span><span class="o">.</span><span class="n">endmo</span><span class="p">(</span><span class="n">rebaldate</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>    <span class="c1"># require price at end date</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">bd</span><span class="o">.</span><span class="n">offset</span><span class="p">(</span><span class="n">beg</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>       <span class="c1"># starting day of momemtum signal</span>
+
+    <span class="c1"># retrieve universe, prices, and momentum signal</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="p">[</span><span class="n">crsp</span><span class="o">.</span><span class="n">get_universe</span><span class="p">(</span><span class="n">rebaldate</span><span class="p">),</span>
+         <span class="n">crsp</span><span class="o">.</span><span class="n">get_ret</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;mom&#39;</span><span class="p">),</span>
+         <span class="n">crsp</span><span class="o">.</span><span class="n">get_section</span><span class="p">(</span><span class="s1">&#39;monthly&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;prc&#39;</span><span class="p">],</span> <span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="n">beg</span><span class="p">)[</span><span class="s1">&#39;prc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;beg&#39;</span><span class="p">)]</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">join</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+
+    <span class="c1"># quintile breakpoints determined from NYSE subset</span>
+    <span class="n">tritile</span> <span class="o">=</span> <span class="n">fractiles</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;mom&#39;</span><span class="p">],</span>
+                        <span class="n">pct</span><span class="o">=</span><span class="n">percentiles</span><span class="p">,</span>
+                        <span class="n">keys</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;nyse&#39;</span><span class="p">],</span> <span class="s1">&#39;mom&#39;</span><span class="p">])</span>
+
+    <span class="c1"># construct cap-wtd tritile spread portfolios</span>
+    <span class="n">porthi</span><span class="p">,</span> <span class="n">portlo</span> <span class="o">=</span> <span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">tritile</span><span class="o">==</span><span class="n">t</span><span class="p">,</span> <span class="s1">&#39;cap&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span>
+    <span class="n">port</span> <span class="o">=</span>  <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">((</span><span class="n">porthi</span><span class="o">/</span><span class="n">porthi</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span> <span class="o">-</span><span class="n">portlo</span><span class="o">/</span><span class="n">portlo</span><span class="o">.</span><span class="n">sum</span><span class="p">()))</span>
+
+    <span class="c1"># compute and store cap-weighted average returns over (up to) maxhold periods</span>
+    <span class="n">begret</span> <span class="o">=</span> <span class="n">bd</span><span class="o">.</span><span class="n">offset</span><span class="p">(</span><span class="n">rebaldate</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">nhold</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">maxhold</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">rebaldates</span><span class="p">)</span> <span class="o">-</span> <span class="n">rebaldates</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">rebaldate</span><span class="p">))</span>
+    <span class="n">endret</span> <span class="o">=</span> <span class="n">bd</span><span class="o">.</span><span class="n">endmo</span><span class="p">(</span><span class="n">begret</span><span class="p">,</span> <span class="n">nhold</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>   <span class="c1"># if maxhold is beyond end date</span>
+    <span class="n">rets</span> <span class="o">=</span> <span class="n">crsp</span><span class="o">.</span><span class="n">get_ret</span><span class="p">(</span><span class="n">begret</span><span class="p">,</span> <span class="n">endret</span><span class="p">,</span> <span class="n">delist</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">rets</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">port</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>\
+              <span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mf">0.</span><span class="p">)</span>\
+              <span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>\
+              <span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="n">mom</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span> <span class="o">/</span> <span class="n">nhold</span><span class="p">)</span>
+<span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;mean&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">mom</span><span class="p">),</span> <span class="s1">&#39;std&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">mom</span><span class="p">)},</span>
+          <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Overlapping Returns&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 1158/1158 [14:26&lt;00:00,  1.34it/s]
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mean</th>
+      <th>std</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Overlapping Returns</th>
+      <td>0.004599</td>
+      <td>0.024366</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="non-overlapping-portfolio-returns">
+<h3>Non-overlapping portfolio returns<a class="headerlink" href="#non-overlapping-portfolio-returns" title="Permalink to this heading">#</a></h3>
+<p>At the end of each month t, a spread portfolio is constructed in the same way.
+However, the return recorded is the equal-weighted average of the following month’s
+return on six portfolios constructed between t and t-5 (inclusive). After each
+month, the stock weights on the spread portfolios are adjusted for their
+stocks’ (split-adjusted) price change over the month, i.e. “buy-and-hold” over six months.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ports</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># to roll 6 past portfolios</span>
+<span class="n">jt</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">rebaldate</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">rebaldates</span><span class="p">):</span>
+    
+    <span class="c1"># determine returns dates relative to rebaldate</span>
+    <span class="n">beg</span> <span class="o">=</span> <span class="n">bd</span><span class="o">.</span><span class="n">endmo</span><span class="p">(</span><span class="n">rebaldate</span><span class="p">,</span> <span class="o">-</span><span class="mi">6</span><span class="p">)</span>   <span class="c1"># require price at beg date</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="n">bd</span><span class="o">.</span><span class="n">endmo</span><span class="p">(</span><span class="n">rebaldate</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>    <span class="c1"># require price at end date</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">bd</span><span class="o">.</span><span class="n">offset</span><span class="p">(</span><span class="n">beg</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>       <span class="c1"># starting day of momemtum signal</span>
+    
+    <span class="c1"># retrieve universe, prices, and momentum signal</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="p">[</span><span class="n">crsp</span><span class="o">.</span><span class="n">get_universe</span><span class="p">(</span><span class="n">rebaldate</span><span class="p">),</span>
+         <span class="n">crsp</span><span class="o">.</span><span class="n">get_ret</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;mom&#39;</span><span class="p">),</span>
+         <span class="n">crsp</span><span class="o">.</span><span class="n">get_section</span><span class="p">(</span><span class="s1">&#39;monthly&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;prc&#39;</span><span class="p">],</span> <span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="n">beg</span><span class="p">)[</span><span class="s1">&#39;prc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;beg&#39;</span><span class="p">)]</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">join</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+    
+    <span class="c1"># quintile breakpoints determined from NYSE subset</span>
+    <span class="n">tritile</span> <span class="o">=</span> <span class="n">fractiles</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;mom&#39;</span><span class="p">],</span>
+                        <span class="n">pct</span><span class="o">=</span><span class="n">percentiles</span><span class="p">,</span>
+                        <span class="n">keys</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;nyse&#39;</span><span class="p">],</span> <span class="s1">&#39;mom&#39;</span><span class="p">])</span>
+
+    <span class="c1"># construct cap-wtd tritile spread portfolios</span>
+    <span class="n">porthi</span><span class="p">,</span> <span class="n">portlo</span> <span class="o">=</span> <span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">tritile</span><span class="o">==</span><span class="n">t</span><span class="p">,</span> <span class="s1">&#39;cap&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span>
+    <span class="n">port</span> <span class="o">=</span>  <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">((</span><span class="n">porthi</span><span class="o">/</span><span class="n">porthi</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span> <span class="o">-</span><span class="n">portlo</span><span class="o">/</span><span class="n">portlo</span><span class="o">.</span><span class="n">sum</span><span class="p">()))</span>
+
+    <span class="c1"># retain up to 6 prior months of monthly-rebalanced portfolios</span>
+    <span class="n">ports</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">port</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ports</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">maxhold</span><span class="p">:</span>
+        <span class="n">ports</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># compute all 6 portfolios&#39; monthly capwtd returns, and store eqlwtd average</span>
+    <span class="n">begret</span> <span class="o">=</span> <span class="n">bd</span><span class="o">.</span><span class="n">offset</span><span class="p">(</span><span class="n">rebaldate</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">endret</span> <span class="o">=</span> <span class="n">bd</span><span class="o">.</span><span class="n">endmo</span><span class="p">(</span><span class="n">begret</span><span class="p">)</span>
+    <span class="n">rets</span> <span class="o">=</span> <span class="n">crsp</span><span class="o">.</span><span class="n">get_ret</span><span class="p">(</span><span class="n">begret</span><span class="p">,</span> <span class="n">endret</span><span class="p">,</span> <span class="n">delist</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="n">rets</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>\
+                   <span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mf">0.</span><span class="p">)</span>\
+                   <span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>\
+                   <span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ports</span><span class="p">])</span>
+    <span class="n">jt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+
+    <span class="c1"># adjust stock weights by monthly capital appreciation</span>
+    <span class="n">retx</span> <span class="o">=</span> <span class="n">crsp</span><span class="o">.</span><span class="n">get_ret</span><span class="p">(</span><span class="n">begret</span><span class="p">,</span> <span class="n">endret</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;retx&#39;</span><span class="p">)</span>
+    <span class="n">ports</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">retx</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mf">0.</span><span class="p">))</span><span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ports</span><span class="p">]</span>
+
+<span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;mean&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">jt</span><span class="p">),</span> <span class="s1">&#39;std&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">jt</span><span class="p">)},</span>
+          <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Non-overlapping Returns&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 1158/1158 [14:43&lt;00:00,  1.31it/s]
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mean</th>
+      <th>std</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Non-overlapping Returns</th>
+      <td>0.004563</td>
+      <td>0.05115</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>Plot autocorrelations of portfolio returns</strong></p>
+<p>For the overlapping portfolio returns, each month’s recorded return is actually a six-month return, hence up to 5/6 of adjacements months’ returns could reflect the same month’s stock returns.  The Jegadeesh-Titman approach avoids such overlapping returns.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sm</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">plot_acf</span><span class="p">(</span><span class="n">mom</span><span class="p">,</span>
+                         <span class="n">lags</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span>
+                         <span class="n">title</span><span class="o">=</span><span class="s1">&#39;ACF of Overlapping Returns&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">imgdir</span> <span class="o">/</span> <span class="s1">&#39;overlap.jpg&#39;</span><span class="p">)</span>
+<span class="n">sm</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">plot_acf</span><span class="p">(</span><span class="n">jt</span><span class="p">,</span>
+                         <span class="n">lags</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span>
+                         <span class="n">title</span><span class="o">=</span><span class="s1">&#39;ACF of Non-Overlapping Returns&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">imgdir</span> <span class="o">/</span> <span class="s1">&#39;nonoverlap.jpg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/3dc326bdd21a1a3711885b001caed5b454ba5ac74c1fa8de2e6301dff8f7d7dd.png" src="_images/3dc326bdd21a1a3711885b001caed5b454ba5ac74c1fa8de2e6301dff8f7d7dd.png" />
+<img alt="_images/9fde202a0ba6399afd490c0f4a694d18fe032a916109493afc632970b6d5b782.png" src="_images/9fde202a0ba6399afd490c0f4a694d18fe032a916109493afc632970b6d5b782.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="newey-west-correction">
+<h2>Newey-West correction<a class="headerlink" href="#newey-west-correction" title="Permalink to this heading">#</a></h2>
+<p>Raw standard errors are understated since the standard assumption of independent observations does not apply. The Newey-West (1987) estimator requires a “maximum lag considered for the control of autocorrelation”: a common choice for <span class="math notranslate nohighlight">\(L\)</span> is the fourth root of the number of observations, e.g. Greene (Econometric Analysis, 7th edition, section 20.5.2, p. 960).</p>
+<p>The Newey-West correction almost doubles the estimate of the standard error for the overlapping case, but a tiny adjustment for non-overlapping returns.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;n =&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">mom</span><span class="p">),</span> <span class="s1">&#39;   L =&#39;</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mom</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">)))</span>
+<span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;-- Overlapping --&#39;</span><span class="p">,</span> <span class="s1">&#39;-- Non-overlapping --&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">out</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">([</span><span class="n">mom</span><span class="p">,</span> <span class="n">jt</span><span class="p">],</span> <span class="n">keys</span><span class="p">):</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ret&#39;</span><span class="p">])</span>
+
+    <span class="c1"># raw t-stats</span>
+    <span class="n">reg</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="s1">&#39;ret ~ 1&#39;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">Series</span><span class="p">({</span><span class="n">stat</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">reg</span><span class="p">,</span> <span class="n">stat</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="mi">6</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">stat</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;params&#39;</span><span class="p">,</span><span class="s1">&#39;bse&#39;</span><span class="p">,</span><span class="s1">&#39;tvalues&#39;</span><span class="p">,</span><span class="s1">&#39;pvalues&#39;</span><span class="p">]},</span>
+               <span class="n">name</span><span class="o">=</span><span class="s1">&#39;uncorrected&#39;</span><span class="p">)</span>  <span class="c1"># coef, stderr, t-value, P&gt;|z|</span>
+
+    <span class="c1"># Newey-West correct t-stats</span>
+    <span class="n">reg</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="s1">&#39;ret ~ 1&#39;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>\
+             <span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">cov_type</span><span class="o">=</span><span class="s1">&#39;HAC&#39;</span><span class="p">,</span> <span class="n">cov_kwds</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;maxlags&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">})</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">Series</span><span class="p">({</span><span class="n">stat</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">reg</span><span class="p">,</span> <span class="n">stat</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="mi">6</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">stat</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;params&#39;</span><span class="p">,</span><span class="s1">&#39;bse&#39;</span><span class="p">,</span><span class="s1">&#39;tvalues&#39;</span><span class="p">,</span><span class="s1">&#39;pvalues&#39;</span><span class="p">]},</span>
+               <span class="n">name</span><span class="o">=</span><span class="s1">&#39;NeweyWest&#39;</span><span class="p">)</span>   <span class="c1"># coef, stderr, t-value, P&gt;|z|</span>
+
+    <span class="c1"># merge into intermediate dataframe with multicolumn index</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_product</span><span class="p">([[</span><span class="n">label</span><span class="p">],</span> <span class="n">c</span><span class="o">.</span><span class="n">columns</span><span class="p">])</span>
+    <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+
+<span class="n">show</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+     <span class="n">caption</span><span class="o">=</span><span class="s1">&#39;Uncorrected and Newey-West standard errors&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n = 1158    L = 6
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="2" halign="left">-- Overlapping --</th>
+      <th colspan="2" halign="left">-- Non-overlapping --</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>uncorrected</th>
+      <th>NeweyWest</th>
+      <th>uncorrected</th>
+      <th>NeweyWest</th>
+    </tr>
+    <tr>
+      <th>Uncorrected and Newey-West standard errors</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>params</th>
+      <td>0.0046</td>
+      <td>0.0046</td>
+      <td>0.0046</td>
+      <td>0.0046</td>
+    </tr>
+    <tr>
+      <th>bse</th>
+      <td>0.0007</td>
+      <td>0.0013</td>
+      <td>0.0015</td>
+      <td>0.0015</td>
+    </tr>
+    <tr>
+      <th>tvalues</th>
+      <td>6.4204</td>
+      <td>3.5748</td>
+      <td>3.0345</td>
+      <td>3.1066</td>
+    </tr>
+    <tr>
+      <th>pvalues</th>
+      <td>0.0000</td>
+      <td>0.0004</td>
+      <td>0.0025</td>
+      <td>0.0019</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>Plot cumulative monthly average returns</strong></p>
+<ul class="simple">
+<li><p>non-overlapping Jegadeesh-Titman 6-month momentum portfolio returns</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plot_date</span><span class="p">(</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">rebaldates</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">jt</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;momentum&#39;</span><span class="p">]),</span>
+          <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+          <span class="n">ylabel1</span><span class="o">=</span><span class="s1">&#39;Cumulative Returns&#39;</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Rebalance Date&#39;</span><span class="p">,</span>
+          <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Jegadeesh-Titman 6-month momentum portfolios&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">imgdir</span> <span class="o">/</span> <span class="s1">&#39;jegadeesh_titman.jpg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/b7f95edda337d4f30c4c245119c0336f7206528681ddda9a84b26bf53439be29.png" src="_images/b7f95edda337d4f30c4c245119c0336f7206528681ddda9a84b26bf53439be29.png" />
+</div>
+</div>
+<p><strong>Plot histogram of monthly returns</strong></p>
+<ul class="simple">
+<li><p>non-overlapping Jegadeesh-Titman 6-month momentum portfolio returns</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">jt</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Histogram of monthly returns&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;6-month momentum&#39;</span><span class="p">])</span>
+<span class="n">kurt</span> <span class="o">=</span> <span class="n">kurtosis</span><span class="p">(</span><span class="n">jt</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fisher</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># excess kurtosis</span>
+<span class="n">skewness</span> <span class="o">=</span> <span class="n">skew</span><span class="p">(</span><span class="n">jt</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;skewness=</span><span class="si">{</span><span class="n">skewness</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, excess kurtosis=</span><span class="si">{</span><span class="n">kurt</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">imgdir</span> <span class="o">/</span> <span class="s1">&#39;jegadeesh_titman_hist.jpg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/1f8de9795f7aa6f89d2310bfdde3871eb8eb980ba09ecbfed2866a19a13589f9.png" src="_images/1f8de9795f7aa6f89d2310bfdde3871eb8eb980ba09ecbfed2866a19a13589f9.png" />
+</div>
+</div>
+</section>
+<section id="hypothesis-testing">
+<h2>Hypothesis Testing<a class="headerlink" href="#hypothesis-testing" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>The <em>null hypothesis</em> specifies the true value of a parameter to be tested, e.g. <span class="math notranslate nohighlight">\(H_0: \hat{\mu} = \mu_0\)</span></p></li>
+<li><p>The <em>test statistic</em> is a summary of the observed data that has a known distribution when the null hypothesis is true, e.g. <span class="math notranslate nohighlight">\(T - \dfrac{\hat{\mu} - \mu_0}{\sqrt{\sigma^2/n}} \sim N(0,1)\)</span></p></li>
+<li><p>The <em>alternative hypothesis</em> defines the range of values of the parameter where the null should be rejected, e.g. <span class="math notranslate nohighlight">\(H_a: \hat{\mu} \ne \mu_0\)</span></p>
+<ul>
+<li><p>In some testing problems, the alternative hypothesis is not the full complement of the null, for example, a <em>one-sided alternative</em> <span class="math notranslate nohighlight">\(H_a: \hat{\mu}&gt; \mu_0\)</span>, which is used whtn the outcome of interest is only above or below the value assumed by the null.</p></li>
+</ul>
+</li>
+<li><p>The <em>critical value</em> <span class="math notranslate nohighlight">\(C_{\alpha}\)</span> marks the start of a range of values where the test statistic is unlikely to fall in, if the null hypthesis were true, e.g. <span class="math notranslate nohighlight">\(C_{\alpha} = \Phi^{-1}(1 - \alpha/2) = 1.96\)</span> when <span class="math notranslate nohighlight">\(\alpha=5\%\)</span> for a two-sided test. This range is known as the <em>rejection region</em>.</p></li>
+<li><p>The <em>size</em> of the test is the probability of making a <em>Type I error</em> of rejecting null hypothesis that is actually true. A test is said to have <em>significance level</em> <span class="math notranslate nohighlight">\(\alpha\)</span> if its <em>size</em> is less than or equal to <span class="math notranslate nohighlight">\(\alpha\)</span>.</p></li>
+<li><p>The <em>p-value</em> is the probability of obtaining a test statistic at least as extreme as the one we observed from the sample, if the null hypothesis were true, e.g. <span class="math notranslate nohighlight">\(p = 2(1 - \Phi(|T|))\)</span> for a two-sided test.</p></li>
+</ul>
+<section id="confidence-interval">
+<h3>Confidence Interval<a class="headerlink" href="#confidence-interval" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>A 1 - <span class="math notranslate nohighlight">\(\alpha\)</span> <em>confidence interval</em> contains the values surrounding the test statistic that cannot be rejected when using a test size of <span class="math notranslate nohighlight">\(\alpha\)</span>, e.g. <span class="math notranslate nohighlight">\([\hat{\mu} - C_{\alpha}\dfrac{\sigma^2}{\sqrt{n}}, \hat{\mu} + C_{\alpha}\dfrac{\sigma^2}{\sqrt{n}}]\)</span> for a two-sided interval</p></li>
+</ul>
+</section>
+<section id="power-of-test">
+<h3>Power of Test<a class="headerlink" href="#power-of-test" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>A <em>Type II</em> error occurs when the alternative is true (i.e., the null is wrong), but the null is not rejected. The probability of a Type II error is denoted by <span class="math notranslate nohighlight">\(\beta\)</span>, while the <em>power</em> of a test 1 - <span class="math notranslate nohighlight">\(\beta\)</span>, specifies the probability that a false null is rejected.</p></li>
+</ul>
+<p>Unlike the size of the test, the power of a test cannot be set and depends on the sample size, the size of the test and the distance between the true and assumed value of the parameters under the null, e.g. 1 - <span class="math notranslate nohighlight">\(\beta(\alpha) = \Phi(C_{\alpha} \dfrac{\sigma^2}{\sqrt{n}}| \mu_a, \dfrac{\sigma^2}{\sqrt{n}})\)</span> for a one-sided test <span class="math notranslate nohighlight">\(H_a: \hat{\mu} &gt; \mu_0\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+<span class="n">alternative</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>    <span class="c1"># up to annualized mean = 0.01*12 = 12%</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="mf">0.0015</span>   <span class="c1"># with n=1158, annualized std dev = 0.0015*sqrt(1128 x 12) = 17.7%</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">alpha</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">]:</span>
+    <span class="n">power</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">)</span><span class="o">*</span><span class="n">sigma</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">alternative</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">sigma</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">alternative</span><span class="p">,</span> <span class="mi">100</span><span class="o">*</span><span class="n">power</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;$</span><span class="se">\\</span><span class="s2">alpha=$</span><span class="si">{</span><span class="n">alpha</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Effect of Test Size ($</span><span class="se">\\</span><span class="s2">alpha$) and True $</span><span class="se">\\</span><span class="s2">mu$ on Power&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Power (%)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;True average monthly return $</span><span class="se">\\</span><span class="s1">mu$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f2c68908850&gt;
+</pre></div>
+</div>
+<img alt="_images/d264cc504d0a8846746a0d019fc07603cb932d373b95f9d22a4bcc6194554732.png" src="_images/d264cc504d0a8846746a0d019fc07603cb932d373b95f9d22a4bcc6194554732.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="stock_prices.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Stock prices</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="fama_french.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Fama-French Portfolio Sorts</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#univariate-sorts">Univariate sorts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overlapping-portfolio-returns">Overlapping portfolio returns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-overlapping-portfolio-returns">Non-overlapping portfolio returns</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newey-west-correction">Newey-West correction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hypothesis-testing">Hypothesis Testing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#confidence-interval">Confidence Interval</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#power-of-test">Power of Test</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Terence Lim
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

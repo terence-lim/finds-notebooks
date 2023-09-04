@@ -1,0 +1,889 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Event Study &#8212; Financial Data Science Python Notebooks</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'event_study';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Economic Data Revisions" href="economic_releases.html" />
+    <link rel="prev" title="Quant Factors" href="quant_factors.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="README.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Financial Data Science Python Notebooks</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="README.html">
+                    Financial Data Science Notebooks
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="stock_prices.html">Stock prices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jegadeesh_titman.html">Jegadeesh-Titman Rolling Portfolios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fama_french.html">Fama-French Portfolio Sorts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fama_macbeth.html">Fama-Macbeth Cross-sectional Regressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weekly_reversal.html">Weekly reversal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quant_factors.html">Quant Factors</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Event Study</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="economic_releases.html">Economic Data Revisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regression_diagnostics.html">Linear Regression Diagonostics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="econometric_forecast.html">Econometric Forecasts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="approximate_factors.html">Approximate Factor Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="economic_states.html">State Space Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional_volatility.html">Conditional Volatility</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="covariance_matrix.html">Covariance Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="term_structure.html">Term Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bond_returns.html">Bond Returns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="options_pricing.html">Options Pricing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="market_microstructure.html">Market Microstructure</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="event_risk.html">Event risk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="customer_ego.html">Principal Customers Network</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="bea_centrality.html">Graph Centrality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="industry_community.html">Community Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="link_prediction.html">Link Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spatial_regression.html">Spatial Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fomc_topics.html">Topic Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management_sentiment.html">Sentiment Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="business_description.html">10-K Business Description</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="classification_models.html">Classification for supervised learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regression_models.html">Regression for supervised learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deep_classifier.html">Deep Averaging Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="convolutional_net.html">Temporal Convolution Net</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recurrent_net.html">Recurrent Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fomc_language.html">Language Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reinforcement_learning.html">Reinforcement Learning</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/terence-lim/data-science-notebooks.git" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/terence-lim/data-science-notebooks.git/issues/new?title=Issue%20on%20page%20%2Fevent_study.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/event_study.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Event Study</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Event Study</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-developments">Key developments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Event study</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-testing">Multiple Testing</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="event-study">
+<h1>Event Study<a class="headerlink" href="#event-study" title="Permalink to this heading">#</a></h1>
+<p><em>UNDER CONSTRUCTION</em></p>
+<ul class="simple">
+<li><p>event study: CAR, BHAR, post-announcement drift (Kolari 2010 and others)</p></li>
+<li><p>cross-sectional correlation: cross-correlation, convolution, FFT</p></li>
+<li><p>multiple testing: Holm FWER, Benjamin-Hochberg FDR, Bonferroni p-values</p></li>
+<li><p>S&amp;P Key Developments</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">Series</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+<span class="kn">from</span> <span class="nn">statsmodels.stats.multitest</span> <span class="kn">import</span> <span class="n">multipletests</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">from</span> <span class="nn">finds.database</span> <span class="kn">import</span> <span class="n">SQL</span>
+<span class="kn">from</span> <span class="nn">finds.busday</span> <span class="kn">import</span> <span class="n">BusDay</span>
+<span class="kn">from</span> <span class="nn">finds.structured</span> <span class="kn">import</span> <span class="n">Benchmarks</span><span class="p">,</span> <span class="n">Stocks</span><span class="p">,</span> <span class="n">CRSP</span><span class="p">,</span> <span class="n">PSTAT</span>
+<span class="kn">from</span> <span class="nn">finds.backtesting</span> <span class="kn">import</span> <span class="n">EventStudy</span>
+<span class="kn">from</span> <span class="nn">finds.misc</span> <span class="kn">import</span> <span class="n">Show</span>
+<span class="kn">from</span> <span class="nn">secret</span> <span class="kn">import</span> <span class="n">credentials</span><span class="p">,</span> <span class="n">paths</span><span class="p">,</span> <span class="n">CRSP_DATE</span>
+<span class="n">show</span> <span class="o">=</span> <span class="n">Show</span><span class="p">(</span><span class="n">ndigits</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">latex</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">VERBOSE</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="c1">#</span>
+<span class="c1">#%matplotlib qt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># open connections</span>
+<span class="n">sql</span> <span class="o">=</span> <span class="n">SQL</span><span class="p">(</span><span class="o">**</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;sql&#39;</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
+<span class="n">user</span> <span class="o">=</span> <span class="n">SQL</span><span class="p">(</span><span class="o">**</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
+<span class="n">bd</span> <span class="o">=</span> <span class="n">BusDay</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+<span class="n">keydev</span> <span class="o">=</span> <span class="n">PSTAT</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">bd</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
+<span class="n">crsp</span> <span class="o">=</span> <span class="n">CRSP</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">bd</span><span class="p">,</span> <span class="n">rdb</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
+<span class="n">bench</span> <span class="o">=</span> <span class="n">Benchmarks</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">bd</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
+<span class="n">eventstudy</span> <span class="o">=</span> <span class="n">EventStudy</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">bench</span><span class="o">=</span><span class="n">bench</span><span class="p">,</span> <span class="n">stocks</span><span class="o">=</span><span class="n">crsp</span><span class="p">,</span> <span class="n">max_date</span><span class="o">=</span><span class="n">CRSP_DATE</span><span class="p">)</span>
+<span class="n">imgdir</span> <span class="o">=</span> <span class="n">paths</span><span class="p">[</span><span class="s1">&#39;images&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="s1">&#39;events&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Last FamaFrench Date 2023-04-28 00:00:00
+</pre></div>
+</div>
+</div>
+</div>
+<section id="key-developments">
+<h2>Key developments<a class="headerlink" href="#key-developments" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sorted list of all eventids and roleids, provided in keydev class</span>
+<span class="n">events</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">keydev</span><span class="o">.</span><span class="n">_event</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="n">roles</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">keydev</span><span class="o">.</span><span class="n">_role</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># str formatter to pretty print descriptions, provided in keydev class</span>
+<span class="n">eventformat</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">e</span><span class="p">,</span> <span class="n">r</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{event}</span><span class="s2"> (</span><span class="si">{eventid}</span><span class="s2">) </span><span class="si">{role}</span><span class="s2"> [</span><span class="si">{roleid}</span><span class="s2">]&quot;</span>\
+    <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="n">keydev</span><span class="o">.</span><span class="n">_event</span><span class="p">[</span><span class="n">e</span><span class="p">],</span>
+            <span class="n">eventid</span><span class="o">=</span><span class="n">e</span><span class="p">,</span>
+            <span class="n">role</span><span class="o">=</span><span class="n">keydev</span><span class="o">.</span><span class="n">_role</span><span class="p">[</span><span class="n">r</span><span class="p">],</span>
+            <span class="n">roleid</span><span class="o">=</span><span class="n">r</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id1">
+<h2>Event study<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># event window parameters</span>
+<span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">post</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">21</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">bd</span><span class="o">.</span><span class="n">offset</span><span class="p">(</span><span class="n">CRSP_DATE</span><span class="p">,</span> <span class="n">post</span> <span class="o">-</span> <span class="n">left</span><span class="p">)</span>
+<span class="n">beg</span> <span class="o">=</span> <span class="mi">19890101</span>  <span class="c1"># 20020101</span>
+<span class="n">minobs</span> <span class="o">=</span> <span class="mi">250</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># to lookup prevailing exchange and share codes by permno and date</span>
+<span class="n">shrcd</span> <span class="o">=</span> <span class="n">crsp</span><span class="o">.</span><span class="n">build_lookup</span><span class="p">(</span><span class="s1">&#39;permno&#39;</span><span class="p">,</span> <span class="s1">&#39;shrcd&#39;</span><span class="p">)</span>
+<span class="n">exchcd</span> <span class="o">=</span> <span class="n">crsp</span><span class="o">.</span><span class="n">build_lookup</span><span class="p">(</span><span class="s1">&#39;permno&#39;</span><span class="p">,</span> <span class="s1">&#39;exchcd&#39;</span><span class="p">)</span>
+
+<span class="c1"># run event study after screening stock universe</span>
+<span class="k">def</span> <span class="nf">event_pipeline</span><span class="p">(</span><span class="n">eventstudy</span><span class="p">:</span> <span class="n">EventStudy</span><span class="p">,</span>
+                   <span class="n">stocks</span><span class="p">:</span> <span class="n">Stocks</span><span class="p">,</span>
+                   <span class="n">beg</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                   <span class="n">end</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                   <span class="n">eventid</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                   <span class="n">roleid</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                   <span class="n">left</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                   <span class="n">right</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                   <span class="n">post</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                   <span class="n">mincap</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">300000.</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;helper to merge keydev events and crsp, and screen stock universe&quot;&quot;&quot;</span>
+
+    <span class="c1"># Retrieve announcement dates for this event</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">keydev</span><span class="o">.</span><span class="n">get_linked</span><span class="p">(</span>
+        <span class="n">dataset</span><span class="o">=</span><span class="s1">&#39;keydev&#39;</span><span class="p">,</span>
+        <span class="n">date_field</span><span class="o">=</span><span class="s1">&#39;announcedate&#39;</span><span class="p">,</span>
+        <span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;keydevid&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;keydeveventtypeid&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;keydevtoobjectroletypeid&#39;</span><span class="p">],</span>
+        <span class="n">where</span><span class="o">=</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;announcedate &gt;= </span><span class="si">{</span><span class="n">beg</span><span class="si">}</span><span class="s2"> &quot;</span>
+               <span class="sa">f</span><span class="s2">&quot;  and announcedate &lt;= </span><span class="si">{</span><span class="n">end</span><span class="si">}</span><span class="s2">&quot;</span>
+               <span class="sa">f</span><span class="s2">&quot;  and keydeveventtypeid = </span><span class="si">{</span><span class="n">eventid</span><span class="si">}</span><span class="s2"> &quot;</span>
+               <span class="sa">f</span><span class="s2">&quot;  and keydevtoobjectroletypeid = </span><span class="si">{</span><span class="n">roleid</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>\
+               <span class="o">.</span><span class="n">drop_duplicates</span><span class="p">([</span><span class="s1">&#39;permno&#39;</span><span class="p">,</span> <span class="s1">&#39;announcedate&#39;</span><span class="p">])</span>\
+               <span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;permno&#39;</span><span class="p">,</span> <span class="s1">&#39;announcedate&#39;</span><span class="p">],</span> <span class="n">drop</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="c1"># Require in valid screen: &#39;cap&#39;, &#39;exchcd&#39;, &#39;shcrd&#39;</span>
+    <span class="n">stk</span> <span class="o">=</span> <span class="n">stocks</span><span class="o">.</span><span class="n">get_many</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="s1">&#39;daily&#39;</span><span class="p">,</span>
+                          <span class="n">permnos</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;permno&#39;</span><span class="p">],</span>
+                          <span class="n">date_field</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">,</span>
+                          <span class="n">dates</span><span class="o">=</span><span class="n">stocks</span><span class="o">.</span><span class="n">bd</span><span class="o">.</span><span class="n">offset</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;announcedate&#39;</span><span class="p">],</span> <span class="n">left</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span>
+                          <span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;prc&#39;</span><span class="p">,</span> <span class="s1">&#39;shrout&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;cap&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">stk</span><span class="p">[</span><span class="s1">&#39;prc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span> <span class="o">*</span> <span class="n">stk</span><span class="p">[</span><span class="s1">&#39;shrout&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;exchcd&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">exchcd</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">permno</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">date</span><span class="p">)</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">stk</span><span class="o">.</span><span class="n">itertuples</span><span class="p">()]</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;shrcd&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">shrcd</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">permno</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">date</span><span class="p">)</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">stk</span><span class="o">.</span><span class="n">itertuples</span><span class="p">()]</span>
+    <span class="n">select</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;cap&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">gt</span><span class="p">(</span><span class="n">mincap</span><span class="p">)</span>                  <span class="c1"># require cap &gt; $300M</span>
+              <span class="o">&amp;</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;exchcd&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>        <span class="c1"># primary exchange</span>
+              <span class="o">&amp;</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;shrcd&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]))</span><span class="o">.</span><span class="n">values</span>  <span class="c1"># domestic common stocks</span>
+
+    <span class="c1"># Call eventstudy to retrieve daily abnormal returns, with named label</span>
+    <span class="n">rows</span> <span class="o">=</span> <span class="n">eventstudy</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">eventid</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">roleid</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                      <span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">select</span><span class="p">],</span>
+                      <span class="n">left</span><span class="o">=</span><span class="n">left</span><span class="p">,</span>
+                      <span class="n">right</span><span class="o">=</span><span class="n">right</span><span class="p">,</span>
+                      <span class="n">post</span><span class="o">=</span><span class="n">post</span><span class="p">,</span>
+                      <span class="n">date_field</span><span class="o">=</span><span class="s1">&#39;announcedate&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">rows</span><span class="o">.</span><span class="n">to_records</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()]</span>  <span class="c1"># restrict df to rows</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Show subsample plots for selected events</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Show by market cap and half-period</span>
+<span class="n">events_list</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">150</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>  <span class="c1"># top drift</span>
+<span class="n">midcap</span> <span class="o">=</span> <span class="mi">20000000</span>   <span class="c1"># arbitrary mid market cap breakpoint</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">eventid</span><span class="p">,</span> <span class="n">roleid</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">events_list</span><span class="p">):</span>
+    <span class="c1">#eventid, roleid = 50, 1</span>
+    <span class="c1">#eventid, roleid = 83, 1</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">event_pipeline</span><span class="p">(</span><span class="n">eventstudy</span><span class="p">,</span>
+                        <span class="n">stocks</span><span class="o">=</span><span class="n">crsp</span><span class="p">,</span>
+                        <span class="n">eventid</span><span class="o">=</span><span class="n">eventid</span><span class="p">,</span>
+                        <span class="n">roleid</span><span class="o">=</span><span class="n">roleid</span><span class="p">,</span>
+                        <span class="n">beg</span><span class="o">=</span><span class="n">beg</span><span class="p">,</span>
+                        <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">,</span>
+                        <span class="n">left</span><span class="o">=</span><span class="n">left</span><span class="p">,</span>
+                        <span class="n">right</span><span class="o">=</span><span class="n">right</span><span class="p">,</span>
+                        <span class="n">post</span><span class="o">=</span><span class="n">post</span><span class="p">)</span>
+    <span class="n">halfperiod</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;announcedate&#39;</span><span class="p">])</span>
+    <span class="n">sample</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;FirstHalf&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;announcedate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">ge</span><span class="p">(</span><span class="n">halfperiod</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+              <span class="s1">&#39;SecondHalf&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;announcedate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="n">halfperiod</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+              <span class="s1">&#39;Large&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;cap&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">ge</span><span class="p">(</span><span class="n">midcap</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+              <span class="s1">&#39;Small&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;cap&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="n">midcap</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+              <span class="s1">&#39;&#39;</span><span class="p">:</span> <span class="p">[]}</span>
+    <span class="k">for</span> <span class="n">ifig</span><span class="p">,</span> <span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">rows</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sample</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+        <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+        <span class="n">bhar</span> <span class="o">=</span> <span class="n">eventstudy</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;sbhar&#39;</span><span class="p">,</span> <span class="n">rows</span><span class="o">=</span><span class="n">rows</span><span class="p">)</span>
+        <span class="n">eventstudy</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;sbhar&#39;</span><span class="p">,</span>
+                        <span class="n">title</span><span class="o">=</span><span class="n">eventformat</span><span class="p">(</span><span class="n">eventid</span><span class="p">,</span> <span class="n">roleid</span><span class="p">)</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">,</span>
+                        <span class="n">drift</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                        <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+                        <span class="n">c</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;C</span><span class="si">{</span><span class="n">i</span><span class="o">*</span><span class="mi">5</span><span class="o">+</span><span class="n">ifig</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">imgdir</span> <span class="o">/</span> <span class="p">(</span><span class="n">label</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">eventid</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">roleid</span><span class="si">}</span><span class="s2">.jpg&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/44c80fba0041fad1217bcfa3f4294c71b7e1db28c0ad86d7bbf1e365688ba1b2.png" src="_images/44c80fba0041fad1217bcfa3f4294c71b7e1db28c0ad86d7bbf1e365688ba1b2.png" />
+<img alt="_images/ec3c610ba88d6d5d8662aa9570dde3b37d8d42b57eddfe524d5a163a5c583520.png" src="_images/ec3c610ba88d6d5d8662aa9570dde3b37d8d42b57eddfe524d5a163a5c583520.png" />
+<img alt="_images/84b33fbbe0686178c6d39fa3f1332a4cb870987f98261abaca2ac38ae12d9443.png" src="_images/84b33fbbe0686178c6d39fa3f1332a4cb870987f98261abaca2ac38ae12d9443.png" />
+<img alt="_images/dfb45c991b137e9f6a68864f8504c0d30536f8ba246c995f258083a6471f20eb.png" src="_images/dfb45c991b137e9f6a68864f8504c0d30536f8ba246c995f258083a6471f20eb.png" />
+<img alt="_images/c102e4f063da3ceb931a0077f36d6893440281abd56ba27936346be994cf22ce.png" src="_images/c102e4f063da3ceb931a0077f36d6893440281abd56ba27936346be994cf22ce.png" />
+<img alt="_images/34f10c7398d3b949bf48567962a3d3c17bf9cc79d09699f13ef32d02ea49ff5e.png" src="_images/34f10c7398d3b949bf48567962a3d3c17bf9cc79d09699f13ef32d02ea49ff5e.png" />
+<img alt="_images/e6b7a7bc14be1f15d48210775325e213a3505e9b831970d63c5964e3c5403749.png" src="_images/e6b7a7bc14be1f15d48210775325e213a3505e9b831970d63c5964e3c5403749.png" />
+<img alt="_images/ef68d670c385b63ce49c8a8e92bd75f4e3008734afd33ce2d3cef816faf145ed.png" src="_images/ef68d670c385b63ce49c8a8e92bd75f4e3008734afd33ce2d3cef816faf145ed.png" />
+<img alt="_images/fbd33a9b227e56fd61b7b1ac0e82e15e8a31e6ffdf10dcf7509f31e409d77891.png" src="_images/fbd33a9b227e56fd61b7b1ac0e82e15e8a31e6ffdf10dcf7509f31e409d77891.png" />
+<img alt="_images/8ff9da2b176141ffbc35a0fdbd959a3dc87fa952e3a4ab35151c196040dcb19a.png" src="_images/8ff9da2b176141ffbc35a0fdbd959a3dc87fa952e3a4ab35151c196040dcb19a.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Show by market cap and half-period</span>
+<span class="n">events_list</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">80</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">26</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>  <span class="c1"># top announcement window</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">eventid</span><span class="p">,</span> <span class="n">roleid</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">events_list</span><span class="p">):</span>
+    <span class="c1">#eventid, roleid = 50, 1</span>
+    <span class="c1">#eventid, roleid = 83, 1</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">event_pipeline</span><span class="p">(</span><span class="n">eventstudy</span><span class="p">,</span>
+                        <span class="n">stocks</span><span class="o">=</span><span class="n">crsp</span><span class="p">,</span>
+                        <span class="n">eventid</span><span class="o">=</span><span class="n">eventid</span><span class="p">,</span>
+                        <span class="n">roleid</span><span class="o">=</span><span class="n">roleid</span><span class="p">,</span>
+                        <span class="n">beg</span><span class="o">=</span><span class="n">beg</span><span class="p">,</span>
+                        <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">,</span>
+                        <span class="n">left</span><span class="o">=</span><span class="n">left</span><span class="p">,</span>
+                        <span class="n">right</span><span class="o">=</span><span class="n">right</span><span class="p">,</span>
+                        <span class="n">post</span><span class="o">=</span><span class="n">post</span><span class="p">)</span>
+    <span class="n">halfperiod</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;announcedate&#39;</span><span class="p">])</span>
+    <span class="n">sample</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;FirstHalf&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;announcedate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">ge</span><span class="p">(</span><span class="n">halfperiod</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+              <span class="s1">&#39;SecondHalf&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;announcedate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="n">halfperiod</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+              <span class="s1">&#39;Large&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;cap&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">ge</span><span class="p">(</span><span class="n">midcap</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+              <span class="s1">&#39;Small&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;cap&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="n">midcap</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+              <span class="s1">&#39;&#39;</span><span class="p">:</span> <span class="p">[]}</span>
+    <span class="k">for</span> <span class="n">ifig</span><span class="p">,</span> <span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">rows</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sample</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+        <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+        <span class="n">bhar</span> <span class="o">=</span> <span class="n">eventstudy</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;sbhar&#39;</span><span class="p">,</span> <span class="n">rows</span><span class="o">=</span><span class="n">rows</span><span class="p">)</span>
+        <span class="n">eventstudy</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;sbhar&#39;</span><span class="p">,</span>
+                        <span class="n">title</span><span class="o">=</span><span class="n">eventformat</span><span class="p">(</span><span class="n">eventid</span><span class="p">,</span> <span class="n">roleid</span><span class="p">)</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">,</span>
+                        <span class="n">drift</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                        <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+                        <span class="n">c</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;C</span><span class="si">{</span><span class="n">i</span><span class="o">*</span><span class="mi">5</span><span class="o">+</span><span class="n">ifig</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">imgdir</span> <span class="o">/</span> <span class="p">(</span><span class="n">label</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">eventid</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">roleid</span><span class="si">}</span><span class="s2">.jpg&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/35876d2729501d8e6d59bf038ec5056f8c1b1863d5fd60d0901bd31b992af177.png" src="_images/35876d2729501d8e6d59bf038ec5056f8c1b1863d5fd60d0901bd31b992af177.png" />
+<img alt="_images/5035ddaa2fe7bca4f1638e4a486fa7c6bd21d2d5e4e9364e32871ab515324583.png" src="_images/5035ddaa2fe7bca4f1638e4a486fa7c6bd21d2d5e4e9364e32871ab515324583.png" />
+<img alt="_images/abc2ca69ac400bcae4a5ac613f612a3a71839bdce3f923522b745a4c433374c3.png" src="_images/abc2ca69ac400bcae4a5ac613f612a3a71839bdce3f923522b745a4c433374c3.png" />
+<img alt="_images/1412d666d70ac2a4eff3562d39a3c6058b4c3b2b16909de51f2b728d377ce9b3.png" src="_images/1412d666d70ac2a4eff3562d39a3c6058b4c3b2b16909de51f2b728d377ce9b3.png" />
+<img alt="_images/3bc840cb76a35e5f1668a2e61e0e4954b0c73993bcebc53c6e773725df973577.png" src="_images/3bc840cb76a35e5f1668a2e61e0e4954b0c73993bcebc53c6e773725df973577.png" />
+<img alt="_images/fcb30bfd2b535344976aa47424d27d4df8de300bd27bca93f95e2943b43ab87b.png" src="_images/fcb30bfd2b535344976aa47424d27d4df8de300bd27bca93f95e2943b43ab87b.png" />
+<img alt="_images/03e30ca33c13037deb67d2ad7e278c0b5d2a4e558be0a1bdc928a86f61e8e3d0.png" src="_images/03e30ca33c13037deb67d2ad7e278c0b5d2a4e558be0a1bdc928a86f61e8e3d0.png" />
+<img alt="_images/0c85a225575179896d26bfa2c1eac74f03d908516f3d58a1488e4aeec96568ff.png" src="_images/0c85a225575179896d26bfa2c1eac74f03d908516f3d58a1488e4aeec96568ff.png" />
+<img alt="_images/fc3e021e772d6199d7f137d354a53e7bbeb0f3234a3dbbf587887710be7f8433.png" src="_images/fc3e021e772d6199d7f137d354a53e7bbeb0f3234a3dbbf587887710be7f8433.png" />
+<img alt="_images/2914bfb09f5e2085bbc4472c7f9b37cb6a43ab0e1f1b16b9031061e3326cf05a.png" src="_images/2914bfb09f5e2085bbc4472c7f9b37cb6a43ab0e1f1b16b9031061e3326cf05a.png" />
+</div>
+</div>
+<p><strong>Compute BHAR and CAR of all events</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">restart</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">eventid</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">events</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">eventid</span> <span class="o">&lt;=</span> <span class="n">restart</span><span class="p">:</span>  <span class="c1"># kludge to resume loop</span>
+        <span class="k">continue</span>
+    <span class="k">for</span> <span class="n">roleid</span> <span class="ow">in</span> <span class="n">roles</span><span class="p">:</span>
+        <span class="c1"># retrieve all returns observations of this eventid, roleid</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">event_pipeline</span><span class="p">(</span><span class="n">eventstudy</span><span class="p">,</span>
+                            <span class="n">stocks</span><span class="o">=</span><span class="n">crsp</span><span class="p">,</span>
+                            <span class="n">beg</span><span class="o">=</span><span class="n">beg</span><span class="p">,</span>
+                            <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">,</span>
+                            <span class="n">eventid</span><span class="o">=</span><span class="n">eventid</span><span class="p">,</span>
+                            <span class="n">roleid</span><span class="o">=</span><span class="n">roleid</span><span class="p">,</span>
+                            <span class="n">left</span><span class="o">=</span><span class="n">left</span><span class="p">,</span>
+                            <span class="n">right</span><span class="o">=</span><span class="n">right</span><span class="p">,</span>
+                            <span class="n">post</span><span class="o">=</span><span class="n">post</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;announcedate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">minobs</span><span class="p">:</span>  <span class="c1"># require min number of dates</span>
+            <span class="k">continue</span>
+
+        <span class="c1"># compute both BHAR and CAR averages, then plot and save</span>
+        <span class="n">bhar</span> <span class="o">=</span> <span class="n">eventstudy</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;sbhar&#39;</span><span class="p">)</span>
+        <span class="n">car</span> <span class="o">=</span> <span class="n">eventstudy</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;scar&#39;</span><span class="p">)</span>
+        <span class="c1">#eventstudy.write()</span>
+        <span class="n">eventstudy</span><span class="o">.</span><span class="n">write_summary</span><span class="p">()</span>
+        <span class="c1">#print(eventstudy.label, eventid, roleid)</span>
+        <span class="n">show</span><span class="p">(</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">car</span> <span class="o">|</span> <span class="n">bhar</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">))</span>
+
+        <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">num</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">eventstudy</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;sbhar&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="n">eventstudy</span><span class="o">.</span><span class="n">label</span><span class="p">,</span>
+                        <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">vline</span><span class="o">=</span><span class="p">[</span><span class="n">right</span><span class="p">])</span>
+        <span class="n">eventstudy</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;scar&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+                        <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">vline</span><span class="o">=</span><span class="p">[</span><span class="n">right</span><span class="p">])</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">imgdir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">eventid</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">roleid</span><span class="si">}</span><span class="s2">.jpg&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>33it [11:47:02, 1289.68s/it]
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Summarize BHAR’s of all events</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sorted by 3-day event window abnormal returns</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">eventstudy</span><span class="o">.</span><span class="n">read_summary</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;sbhar&#39;</span><span class="p">)</span>\
+               <span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;label&#39;</span><span class="p">)</span>\
+               <span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;rho&#39;</span><span class="p">,</span> <span class="s1">&#39;tau&#39;</span><span class="p">,</span> <span class="s1">&#39;created&#39;</span><span class="p">])</span>\
+               <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;window&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># convert (eventid, roleid) to multiindex</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;days&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">500</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;post_t&#39;</span><span class="p">)</span>
+<span class="n">multiIndex</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_list</span><span class="p">())</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_frame</span><span class="p">(</span><span class="n">multiIndex</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;eventid&#39;</span><span class="p">,</span> <span class="s1">&#39;roleid&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># show summary</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;event&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">keydev</span><span class="o">.</span><span class="n">_event</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;role&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">keydev</span><span class="o">.</span><span class="n">_role</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">1</span><span class="p">)]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">show</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;event&#39;</span><span class="p">,</span> <span class="s1">&#39;role&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]),</span>
+     <span class="n">caption</span><span class="o">=</span><span class="s2">&quot;Post-Announcement Drift&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="multiple-testing">
+<h1>Multiple Testing<a class="headerlink" href="#multiple-testing" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Show actual two-sided p-values vs expected (with continuity correction)</span>
+<span class="n">pvals</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="o">-</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;post_t&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">abs</span><span class="p">())</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">argmin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">pvals</span><span class="p">)</span>
+<span class="n">header</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">argmin</span><span class="p">][[</span><span class="s1">&#39;event&#39;</span><span class="p">,</span> <span class="s1">&#39;role&#39;</span><span class="p">,</span> <span class="s1">&#39;days&#39;</span><span class="p">,</span> <span class="s1">&#39;effective&#39;</span><span class="p">,</span> <span class="s1">&#39;post_t&#39;</span><span class="p">]]</span>\
+           <span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">pvals</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">pvals</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.5</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">pvals</span><span class="p">),</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pvals</span><span class="p">)</span><span class="o">-</span><span class="mf">0.5</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">pvals</span><span class="p">)],</span> <span class="s1">&#39;r--&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Distribution of p-values&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;actual&#39;</span><span class="p">,</span> <span class="s1">&#39;expected&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">imgdir</span> <span class="o">/</span> <span class="s1">&#39;pvals.jpg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Bonferroni, Holm and Benjamin-Hochberg methods</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
+<span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">method</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;bonferroni&#39;</span><span class="p">,</span> <span class="s1">&#39;holm&#39;</span><span class="p">,</span> <span class="s1">&#39;fdr_bh&#39;</span><span class="p">]:</span>
+    <span class="n">tests</span> <span class="o">=</span>  <span class="n">multipletests</span><span class="p">(</span><span class="n">pvals</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">)</span>
+    <span class="n">results</span><span class="p">[</span><span class="n">method</span><span class="p">]</span> <span class="o">=</span> <span class="n">header</span> <span class="o">|</span> <span class="p">{</span><span class="sa">f</span><span class="s1">&#39;pval(alpha=</span><span class="si">{</span><span class="n">alpha</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">:</span> <span class="n">pvals</span><span class="p">[</span><span class="n">argmin</span><span class="p">],</span>
+                                <span class="s1">&#39;adj-pval&#39;</span><span class="p">:</span> <span class="n">tests</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">argmin</span><span class="p">]}</span>
+<span class="n">show</span><span class="p">(</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">),</span>
+     <span class="n">caption</span><span class="o">=</span><span class="s2">&quot;Multiple Testing methods&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="quant_factors.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Quant Factors</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="economic_releases.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Economic Data Revisions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Event Study</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-developments">Key developments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Event study</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-testing">Multiple Testing</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Terence Lim
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

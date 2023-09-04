@@ -1,0 +1,573 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Language Modelling &#8212; Financial Data Science Python Notebooks</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'fomc_language';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Reinforcement Learning" href="reinforcement_learning.html" />
+    <link rel="prev" title="Recurrent Neural Networks" href="recurrent_net.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="README.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Financial Data Science Python Notebooks</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="README.html">
+                    Financial Data Science Notebooks
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="stock_prices.html">Stock prices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jegadeesh_titman.html">Jegadeesh-Titman Rolling Portfolios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fama_french.html">Fama-French Portfolio Sorts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fama_macbeth.html">Fama-Macbeth Cross-sectional Regressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weekly_reversal.html">Weekly reversal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quant_factors.html">Quant Factors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event_study.html">Event Study</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="economic_releases.html">Economic Data Revisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regression_diagnostics.html">Linear Regression Diagonostics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="econometric_forecast.html">Econometric Forecasts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="approximate_factors.html">Approximate Factor Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="economic_states.html">State Space Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional_volatility.html">Conditional Volatility</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="covariance_matrix.html">Covariance Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="term_structure.html">Term Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bond_returns.html">Bond Returns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="options_pricing.html">Options Pricing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="market_microstructure.html">Market Microstructure</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="event_risk.html">Event risk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="customer_ego.html">Principal Customers Network</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="bea_centrality.html">Graph Centrality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="industry_community.html">Community Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="link_prediction.html">Link Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spatial_regression.html">Spatial Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fomc_topics.html">Topic Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management_sentiment.html">Sentiment Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="business_description.html">10-K Business Description</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="classification_models.html">Classification for supervised learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regression_models.html">Regression for supervised learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deep_classifier.html">Deep Averaging Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="convolutional_net.html">Temporal Convolution Net</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recurrent_net.html">Recurrent Neural Networks</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Language Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reinforcement_learning.html">Reinforcement Learning</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/terence-lim/data-science-notebooks.git" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/terence-lim/data-science-notebooks.git/issues/new?title=Issue%20on%20page%20%2Ffomc_language.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/fomc_language.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Language Modelling</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Language Modelling</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="language-modelling">
+<h1>Language Modelling<a class="headerlink" href="#language-modelling" title="Permalink to this heading">#</a></h1>
+<p><em>UNDER CONSTRUCTION</em></p>
+<ul class="simple">
+<li><p>Language modelling of FOMC meeting minutes</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">Series</span><span class="p">,</span> <span class="n">DataFrame</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">finds.database.mongodb</span> <span class="kn">import</span> <span class="n">MongoDB</span>
+<span class="kn">from</span> <span class="nn">finds.unstructured</span> <span class="kn">import</span> <span class="n">Unstructured</span>
+<span class="kn">from</span> <span class="nn">finds.unstructured.store</span> <span class="kn">import</span> <span class="n">Store</span>
+<span class="kn">from</span> <span class="nn">finds.readers.fomcreader</span> <span class="kn">import</span> <span class="n">FOMCReader</span>
+<span class="kn">from</span> <span class="nn">secret</span> <span class="kn">import</span> <span class="n">credentials</span><span class="p">,</span> <span class="n">paths</span>
+<span class="c1"># %matplotlib qt</span>
+<span class="n">VERBOSE</span> <span class="o">=</span> <span class="mi">1</span>      <span class="c1"># 0</span>
+<span class="n">SHOW</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">ndigits</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">latex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># None</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mongodb</span> <span class="o">=</span> <span class="n">MongoDB</span><span class="p">(</span><span class="o">**</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;mongodb&#39;</span><span class="p">])</span>
+<span class="n">fomc</span> <span class="o">=</span> <span class="n">Unstructured</span><span class="p">(</span><span class="n">mongodb</span><span class="p">,</span> <span class="s1">&#39;FOMC&#39;</span><span class="p">)</span>
+<span class="n">imgdir</span> <span class="o">=</span> <span class="n">paths</span><span class="p">[</span><span class="s1">&#39;images&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="s1">&#39;fomc&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;host&#39;: &#39;omen3080&#39;, &#39;version&#39;: &#39;5.0.20&#39;, &#39;process&#39;: &#39;mongod&#39;, &#39;pid&#39;: 4153196, &#39;uptime&#39;: 931.0, &#39;uptimeMillis&#39;: 931239, &#39;uptimeEstimate&#39;: 931, &#39;localTime&#39;: datetime.datetime(2023, 8, 31, 18, 13, 46, 746000), &#39;asserts&#39;: {&#39;regular&#39;: 0, &#39;warning&#39;: 0, &#39;msg&#39;: 0, &#39;user&#39;: 19, &#39;tripwire&#39;: 0, &#39;rollovers&#39;: 0}, &#39;catalogStats&#39;: {&#39;collections&#39;: 7, &#39;capped&#39;: 0, &#39;timeseries&#39;: 0, &#39;views&#39;: 0, &#39;internalCollections&#39;: 3, &#39;internalViews&#39;: 0}, &#39;connections&#39;: {&#39;current&#39;: 6, &#39;available&#39;: 51194, &#39;totalCreated&#39;: 8, &#39;active&#39;: 3, &#39;threaded&#39;: 6, &#39;exhaustIsMaster&#39;: 0, &#39;exhaustHello&#39;: 1, &#39;awaitingTopologyChanges&#39;: 2}, &#39;electionMetrics&#39;: {&#39;stepUpCmd&#39;: {&#39;called&#39;: 0, &#39;successful&#39;: 0}, &#39;priorityTakeover&#39;: {&#39;called&#39;: 0, &#39;successful&#39;: 0}, &#39;catchUpTakeover&#39;: {&#39;called&#39;: 0, &#39;successful&#39;: 0}, &#39;electionTimeout&#39;: {&#39;called&#39;: 0, &#39;successful&#39;: 0}, &#39;freezeTimeout&#39;: {&#39;called&#39;: 0, &#39;successful&#39;: 0}, &#39;numStepDownsCausedByHigherTerm&#39;: 0, &#39;numCatchUps&#39;: 0, &#39;numCatchUpsSucceeded&#39;: 0, &#39;numCatchUpsAlreadyCaughtUp&#39;: 0, &#39;numCatchUpsSkipped&#39;: 0, &#39;numCatchUpsTimedOut&#39;: 0, &#39;numCatchUpsFailedWithError&#39;: 0, &#39;numCatchUpsFailedWithNewTerm&#39;: 0, &#39;numCatchUpsFailedWithReplSetAbortPrimaryCatchUpCmd&#39;: 0, &#39;averageCatchUpOps&#39;: 0.0}, &#39;extra_info&#39;: {&#39;note&#39;: &#39;fields vary by platform&#39;, &#39;user_time_us&#39;: 3076896, &#39;system_time_us&#39;: 740900, &#39;maximum_resident_set_kb&#39;: 137284, &#39;input_blocks&#39;: 131336, &#39;output_blocks&#39;: 8056, &#39;page_reclaims&#39;: 22026, &#39;page_faults&#39;: 622, &#39;voluntary_context_switches&#39;: 34419, &#39;involuntary_context_switches&#39;: 250}, &#39;flowControl&#39;: {&#39;enabled&#39;: True, &#39;targetRateLimit&#39;: 1000000000, &#39;timeAcquiringMicros&#39;: 51, &#39;locksPerKiloOp&#39;: 0.0, &#39;sustainerRate&#39;: 0, &#39;isLagged&#39;: False, &#39;isLaggedCount&#39;: 0, &#39;isLaggedTimeMicros&#39;: 0}, &#39;freeMonitoring&#39;: {&#39;state&#39;: &#39;undecided&#39;}, &#39;globalLock&#39;: {&#39;totalTime&#39;: 931307000, &#39;currentQueue&#39;: {&#39;total&#39;: 0, &#39;readers&#39;: 0, &#39;writers&#39;: 0}, &#39;activeClients&#39;: {&#39;total&#39;: 0, &#39;readers&#39;: 0, &#39;writers&#39;: 0}}, &#39;indexBulkBuilder&#39;: {&#39;count&#39;: 0, &#39;resumed&#39;: 0, &#39;filesOpenedForExternalSort&#39;: 0, &#39;filesClosedForExternalSort&#39;: 0}, &#39;indexStats&#39;: {&#39;count&#39;: 8, &#39;features&#39;: {&#39;2d&#39;: {&#39;count&#39;: 0, &#39;accesses&#39;: 0}, &#39;2dsphere&#39;: {&#39;count&#39;: 0, &#39;accesses&#39;: 0}, &#39;collation&#39;: {&#39;count&#39;: 0, &#39;accesses&#39;: 0}, &#39;compound&#39;: {&#39;count&#39;: 0, &#39;accesses&#39;: 0}, &#39;hashed&#39;: {&#39;count&#39;: 0, &#39;accesses&#39;: 0}, &#39;id&#39;: {&#39;count&#39;: 7, &#39;accesses&#39;: 0}, &#39;normal&#39;: {&#39;count&#39;: 1, &#39;accesses&#39;: 0}, &#39;partial&#39;: {&#39;count&#39;: 0, &#39;accesses&#39;: 0}, &#39;single&#39;: {&#39;count&#39;: 1, &#39;accesses&#39;: 0}, &#39;sparse&#39;: {&#39;count&#39;: 0, &#39;accesses&#39;: 0}, &#39;text&#39;: {&#39;count&#39;: 0, &#39;accesses&#39;: 0}, &#39;ttl&#39;: {&#39;count&#39;: 0, &#39;accesses&#39;: 0}, &#39;unique&#39;: {&#39;count&#39;: 1, &#39;accesses&#39;: 0}, &#39;wildcard&#39;: {&#39;count&#39;: 0, &#39;accesses&#39;: 0}}}, &#39;locks&#39;: {&#39;ParallelBatchWriterMode&#39;: {&#39;acquireCount&#39;: {&#39;r&#39;: 37}}, &#39;FeatureCompatibilityVersion&#39;: {&#39;acquireCount&#39;: {&#39;r&#39;: 1887, &#39;w&#39;: 33}}, &#39;ReplicationStateTransition&#39;: {&#39;acquireCount&#39;: {&#39;w&#39;: 972}}, &#39;Global&#39;: {&#39;acquireCount&#39;: {&#39;r&#39;: 1887, &#39;w&#39;: 28, &#39;W&#39;: 5}}, &#39;Database&#39;: {&#39;acquireCount&#39;: {&#39;r&#39;: 8, &#39;w&#39;: 27, &#39;R&#39;: 1, &#39;W&#39;: 1}}, &#39;Collection&#39;: {&#39;acquireCount&#39;: {&#39;r&#39;: 16, &#39;w&#39;: 25, &#39;W&#39;: 2}}, &#39;Mutex&#39;: {&#39;acquireCount&#39;: {&#39;r&#39;: 53}}}, &#39;logicalSessionRecordCache&#39;: {&#39;activeSessionsCount&#39;: 1, &#39;sessionsCollectionJobCount&#39;: 4, &#39;lastSessionsCollectionJobDurationMillis&#39;: 0, &#39;lastSessionsCollectionJobTimestamp&#39;: datetime.datetime(2023, 8, 31, 18, 13, 15, 977000), &#39;lastSessionsCollectionJobEntriesRefreshed&#39;: 0, &#39;lastSessionsCollectionJobEntriesEnded&#39;: 0, &#39;lastSessionsCollectionJobCursorsClosed&#39;: 0, &#39;transactionReaperJobCount&#39;: 4, &#39;lastTransactionReaperJobDurationMillis&#39;: 0, &#39;lastTransactionReaperJobTimestamp&#39;: datetime.datetime(2023, 8, 31, 18, 13, 15, 977000), &#39;lastTransactionReaperJobEntriesCleanedUp&#39;: 0, &#39;sessionCatalogSize&#39;: 0}, &#39;network&#39;: {&#39;bytesIn&#39;: 276721, &#39;bytesOut&#39;: 9479574, &#39;physicalBytesIn&#39;: 264527, &#39;physicalBytesOut&#39;: 9479574, &#39;numSlowDNSOperations&#39;: 0, &#39;numSlowSSLOperations&#39;: 0, &#39;numRequests&#39;: 204, &#39;tcpFastOpen&#39;: {&#39;kernelSetting&#39;: 1, &#39;serverSupported&#39;: True, &#39;clientSupported&#39;: True, &#39;accepted&#39;: 0}, &#39;compression&#39;: {&#39;snappy&#39;: {&#39;compressor&#39;: {&#39;bytesIn&#39;: 0, &#39;bytesOut&#39;: 0}, &#39;decompressor&#39;: {&#39;bytesIn&#39;: 0, &#39;bytesOut&#39;: 0}}, &#39;zstd&#39;: {&#39;compressor&#39;: {&#39;bytesIn&#39;: 0, &#39;bytesOut&#39;: 0}, &#39;decompressor&#39;: {&#39;bytesIn&#39;: 0, &#39;bytesOut&#39;: 0}}, &#39;zlib&#39;: {&#39;compressor&#39;: {&#39;bytesIn&#39;: 0, &#39;bytesOut&#39;: 0}, &#39;decompressor&#39;: {&#39;bytesIn&#39;: 0, &#39;bytesOut&#39;: 0}}}, &#39;serviceExecutors&#39;: {&#39;passthrough&#39;: {&#39;threadsRunning&#39;: 6, &#39;clientsInTotal&#39;: 6, &#39;clientsRunning&#39;: 6, &#39;clientsWaitingForData&#39;: 0}, &#39;fixed&#39;: {&#39;threadsRunning&#39;: 1, &#39;clientsInTotal&#39;: 0, &#39;clientsRunning&#39;: 0, &#39;clientsWaitingForData&#39;: 0}}}, &#39;opLatencies&#39;: {&#39;reads&#39;: {&#39;latency&#39;: 17995, &#39;ops&#39;: 3}, &#39;writes&#39;: {&#39;latency&#39;: 2074, &#39;ops&#39;: 6}, &#39;commands&#39;: {&#39;latency&#39;: 12921, &#39;ops&#39;: 192}, &#39;transactions&#39;: {&#39;latency&#39;: 0, &#39;ops&#39;: 0}}, &#39;opcounters&#39;: {&#39;insert&#39;: 6, &#39;query&#39;: 5, &#39;update&#39;: 2, &#39;delete&#39;: 0, &#39;getmore&#39;: 1, &#39;command&#39;: 204}, &#39;opcountersRepl&#39;: {&#39;insert&#39;: 0, &#39;query&#39;: 0, &#39;update&#39;: 0, &#39;delete&#39;: 0, &#39;getmore&#39;: 0, &#39;command&#39;: 0}, &#39;readConcernCounters&#39;: {&#39;nonTransactionOps&#39;: {&#39;none&#39;: 2, &#39;noneInfo&#39;: {&#39;CWRC&#39;: {&#39;local&#39;: 0, &#39;available&#39;: 0, &#39;majority&#39;: 0}, &#39;implicitDefault&#39;: {&#39;local&#39;: 2, &#39;available&#39;: 0}}, &#39;local&#39;: 0, &#39;available&#39;: 0, &#39;majority&#39;: 0, &#39;snapshot&#39;: {&#39;withClusterTime&#39;: 0, &#39;withoutClusterTime&#39;: 0}, &#39;linearizable&#39;: 0}, &#39;transactionOps&#39;: {&#39;none&#39;: 0, &#39;noneInfo&#39;: {&#39;CWRC&#39;: {&#39;local&#39;: 0, &#39;majority&#39;: 0}, &#39;implicitDefault&#39;: {&#39;local&#39;: 0}}, &#39;local&#39;: 0, &#39;majority&#39;: 0, &#39;snapshot&#39;: {&#39;withClusterTime&#39;: 0, &#39;withoutClusterTime&#39;: 0}}}, &#39;scramCache&#39;: {&#39;SCRAM-SHA-1&#39;: {&#39;count&#39;: 0, &#39;hits&#39;: 0, &#39;misses&#39;: 0}, &#39;SCRAM-SHA-256&#39;: {&#39;count&#39;: 0, &#39;hits&#39;: 0, &#39;misses&#39;: 0}}, &#39;security&#39;: {&#39;authentication&#39;: {&#39;saslSupportedMechsReceived&#39;: 0, &#39;mechanisms&#39;: {&#39;MONGODB-X509&#39;: {&#39;speculativeAuthenticate&#39;: {&#39;received&#39;: 0, &#39;successful&#39;: 0}, &#39;clusterAuthenticate&#39;: {&#39;received&#39;: 0, &#39;successful&#39;: 0}, &#39;authenticate&#39;: {&#39;received&#39;: 0, &#39;successful&#39;: 0}}, &#39;SCRAM-SHA-1&#39;: {&#39;speculativeAuthenticate&#39;: {&#39;received&#39;: 0, &#39;successful&#39;: 0}, &#39;clusterAuthenticate&#39;: {&#39;received&#39;: 0, &#39;successful&#39;: 0}, &#39;authenticate&#39;: {&#39;received&#39;: 0, &#39;successful&#39;: 0}}, &#39;SCRAM-SHA-256&#39;: {&#39;speculativeAuthenticate&#39;: {&#39;received&#39;: 0, &#39;successful&#39;: 0}, &#39;clusterAuthenticate&#39;: {&#39;received&#39;: 0, &#39;successful&#39;: 0}, &#39;authenticate&#39;: {&#39;received&#39;: 0, &#39;successful&#39;: 0}}}}}, &#39;storageEngine&#39;: {&#39;name&#39;: &#39;wiredTiger&#39;, &#39;supportsCommittedReads&#39;: True, &#39;oldestRequiredTimestampForCrashRecovery&#39;: Timestamp(0, 0), &#39;supportsPendingDrops&#39;: True, &#39;dropPendingIdents&#39;: 0, &#39;supportsSnapshotReadConcern&#39;: True, &#39;readOnly&#39;: False, &#39;persistent&#39;: True, &#39;backupCursorOpen&#39;: False, &#39;supportsResumableIndexBuilds&#39;: True}, &#39;tcmalloc&#39;: {&#39;generic&#39;: {&#39;current_allocated_bytes&#39;: 108290160, &#39;heap_size&#39;: 151408640}, &#39;tcmalloc&#39;: {&#39;pageheap_free_bytes&#39;: 41582592, &#39;pageheap_unmapped_bytes&#39;: 0, &#39;max_total_thread_cache_bytes&#39;: 1073741824, &#39;current_total_thread_cache_bytes&#39;: 1049944, &#39;total_free_bytes&#39;: 1535888, &#39;central_cache_free_bytes&#39;: 329656, &#39;transfer_cache_free_bytes&#39;: 156288, &#39;thread_cache_free_bytes&#39;: 1049944, &#39;aggressive_memory_decommit&#39;: 0, &#39;pageheap_committed_bytes&#39;: 151408640, &#39;pageheap_scavenge_count&#39;: 0, &#39;pageheap_commit_count&#39;: 70, &#39;pageheap_total_commit_bytes&#39;: 151408640, &#39;pageheap_decommit_count&#39;: 0, &#39;pageheap_total_decommit_bytes&#39;: 0, &#39;pageheap_reserve_count&#39;: 70, &#39;pageheap_total_reserve_bytes&#39;: 151408640, &#39;spinlock_total_delay_ns&#39;: 0, &#39;release_rate&#39;: 1.0, &#39;formattedString&#39;: &#39;------------------------------------------------\nMALLOC:      108290736 (  103.3 MiB) Bytes in use by application\nMALLOC: +     41582592 (   39.7 MiB) Bytes in page heap freelist\nMALLOC: +       329656 (    0.3 MiB) Bytes in central cache freelist\nMALLOC: +       156288 (    0.1 MiB) Bytes in transfer cache freelist\nMALLOC: +      1049368 (    1.0 MiB) Bytes in thread cache freelists\nMALLOC: +      4849664 (    4.6 MiB) Bytes in malloc metadata\nMALLOC:   ------------\nMALLOC: =    156258304 (  149.0 MiB) Actual memory used (physical + swap)\nMALLOC: +            0 (    0.0 MiB) Bytes released to OS (aka unmapped)\nMALLOC:   ------------\nMALLOC: =    156258304 (  149.0 MiB) Virtual address space used\nMALLOC:\nMALLOC:           1007              Spans in use\nMALLOC:             36              Thread heaps in use\nMALLOC:           4096              Tcmalloc page size\n------------------------------------------------\nCall ReleaseFreeMemory() to release freelist memory to the OS (via madvise()).\nBytes released to the OS take up virtual address space but no physical memory.\n&#39;}}, &#39;tenantMigrations&#39;: {&#39;currentMigrationsDonating&#39;: 0, &#39;currentMigrationsReceiving&#39;: 0, &#39;totalSuccessfulMigrationsDonated&#39;: 0, &#39;totalSuccessfulMigrationsReceived&#39;: 0, &#39;totalFailedMigrationsDonated&#39;: 0, &#39;totalFailedMigrationsReceived&#39;: 0}, &#39;trafficRecording&#39;: {&#39;running&#39;: False}, &#39;transactions&#39;: {&#39;retriedCommandsCount&#39;: 0, &#39;retriedStatementsCount&#39;: 0, &#39;transactionsCollectionWriteCount&#39;: 0, &#39;currentActive&#39;: 0, &#39;currentInactive&#39;: 0, &#39;currentOpen&#39;: 0, &#39;totalAborted&#39;: 0, &#39;totalCommitted&#39;: 0, &#39;totalStarted&#39;: 0, &#39;totalPrepared&#39;: 0, &#39;totalPreparedThenCommitted&#39;: 0, &#39;totalPreparedThenAborted&#39;: 0, &#39;currentPrepared&#39;: 0}, &#39;transportSecurity&#39;: {&#39;1.0&#39;: 0, &#39;1.1&#39;: 0, &#39;1.2&#39;: 0, &#39;1.3&#39;: 0, &#39;unknown&#39;: 0}, &#39;twoPhaseCommitCoordinator&#39;: {&#39;totalCreated&#39;: 0, &#39;totalStartedTwoPhaseCommit&#39;: 0, &#39;totalAbortedTwoPhaseCommit&#39;: 0, &#39;totalCommittedTwoPhaseCommit&#39;: 0, &#39;currentInSteps&#39;: {&#39;writingParticipantList&#39;: 0, &#39;waitingForVotes&#39;: 0, &#39;writingDecision&#39;: 0, &#39;waitingForDecisionAcks&#39;: 0, &#39;deletingCoordinatorDoc&#39;: 0}}, &#39;wiredTiger&#39;: {&#39;uri&#39;: &#39;statistics:&#39;, &#39;block-manager&#39;: {&#39;block cache cached blocks updated&#39;: 0, &#39;block cache cached bytes updated&#39;: 0, &#39;block cache evicted blocks&#39;: 0, &#39;block cache file size causing bypass&#39;: 0, &#39;block cache lookups&#39;: 0, &#39;block cache number of blocks not evicted due to overhead&#39;: 0, &#39;block cache number of bypasses because no-write-allocate setting was on&#39;: 0, &#39;block cache number of bypasses due to overhead on put&#39;: 0, &#39;block cache number of bypasses on get&#39;: 0, &#39;block cache number of bypasses on put because file is too small&#39;: 0, &#39;block cache number of eviction passes&#39;: 0, &#39;block cache number of hits including existence checks&#39;: 0, &#39;block cache number of misses including existence checks&#39;: 0, &#39;block cache number of put bypasses on checkpoint I/O&#39;: 0, &#39;block cache removed blocks&#39;: 0, &#39;block cache total blocks&#39;: 0, &#39;block cache total blocks inserted on read path&#39;: 0, &#39;block cache total blocks inserted on write path&#39;: 0, &#39;block cache total bytes&#39;: 0, &#39;block cache total bytes inserted on read path&#39;: 0, &#39;block cache total bytes inserted on write path&#39;: 0, &#39;blocks pre-loaded&#39;: 107, &#39;blocks read&#39;: 154, &#39;blocks written&#39;: 126, &#39;bytes read&#39;: 4685824, &#39;bytes read via memory map API&#39;: 0, &#39;bytes read via system call API&#39;: 0, &#39;bytes written&#39;: 1167360, &#39;bytes written for checkpoint&#39;: 1167360, &#39;bytes written via memory map API&#39;: 0, &#39;bytes written via system call API&#39;: 0, &#39;mapped blocks read&#39;: 0, &#39;mapped bytes read&#39;: 0, &#39;number of times the file was remapped because it changed size via fallocate or truncate&#39;: 0, &#39;number of times the region was remapped via write&#39;: 0}, &#39;cache&#39;: {&#39;application threads page read from disk to cache count&#39;: 105, &#39;application threads page read from disk to cache time (usecs)&#39;: 11367, &#39;application threads page write from cache to disk count&#39;: 62, &#39;application threads page write from cache to disk time (usecs)&#39;: 20803, &#39;bytes allocated for updates&#39;: 307071, &#39;bytes belonging to page images in the cache&#39;: 9918765, &#39;bytes belonging to the history store table in the cache&#39;: 588, &#39;bytes currently in the cache&#39;: 10253408, &#39;bytes dirty in the cache cumulative&#39;: 986248, &#39;bytes not belonging to page images in the cache&#39;: 334643, &#39;bytes read into cache&#39;: 9184042, &#39;bytes written from cache&#39;: 907453, &#39;cache overflow score&#39;: 0, &#39;checkpoint blocked page eviction&#39;: 0, &#39;checkpoint of history store file blocked non-history store page eviction&#39;: 0, &#39;eviction calls to get a page&#39;: 29, &#39;eviction calls to get a page found queue empty&#39;: 26, &#39;eviction calls to get a page found queue empty after locking&#39;: 0, &#39;eviction currently operating in aggressive mode&#39;: 0, &#39;eviction empty score&#39;: 0, &#39;eviction gave up due to detecting an out of order on disk value behind the last update on the chain&#39;: 0, &#39;eviction gave up due to detecting an out of order tombstone ahead of the selected on disk update&#39;: 0, &#39;eviction gave up due to detecting an out of order tombstone ahead of the selected on disk update after validating the update chain&#39;: 0, &#39;eviction gave up due to detecting out of order timestamps on the update chain after the selected on disk update&#39;: 0, &#39;eviction gave up due to needing to remove a record from the history store but checkpoint is running&#39;: 0, &#39;eviction passes of a file&#39;: 0, &#39;eviction server candidate queue empty when topping up&#39;: 0, &#39;eviction server candidate queue not empty when topping up&#39;: 0, &#39;eviction server evicting pages&#39;: 0, &#39;eviction server slept, because we did not make progress with eviction&#39;: 3, &#39;eviction server unable to reach eviction goal&#39;: 0, &#39;eviction server waiting for a leaf page&#39;: 0, &#39;eviction state&#39;: 64, &#39;eviction walk most recent sleeps for checkpoint handle gathering&#39;: 0, &#39;eviction walk target pages histogram - 0-9&#39;: 0, &#39;eviction walk target pages histogram - 10-31&#39;: 0, &#39;eviction walk target pages histogram - 128 and higher&#39;: 0, &#39;eviction walk target pages histogram - 32-63&#39;: 0, &#39;eviction walk target pages histogram - 64-128&#39;: 0, &#39;eviction walk target pages reduced due to history store cache pressure&#39;: 0, &#39;eviction walk target strategy both clean and dirty pages&#39;: 0, &#39;eviction walk target strategy only clean pages&#39;: 0, &#39;eviction walk target strategy only dirty pages&#39;: 0, &#39;eviction walks abandoned&#39;: 0, &#39;eviction walks gave up because they restarted their walk twice&#39;: 0, &#39;eviction walks gave up because they saw too many pages and found no candidates&#39;: 0, &#39;eviction walks gave up because they saw too many pages and found too few candidates&#39;: 0, &#39;eviction walks reached end of tree&#39;: 0, &#39;eviction walks restarted&#39;: 0, &#39;eviction walks started from root of tree&#39;: 0, &#39;eviction walks started from saved location in tree&#39;: 0, &#39;eviction worker thread active&#39;: 4, &#39;eviction worker thread created&#39;: 0, &#39;eviction worker thread evicting pages&#39;: 3, &#39;eviction worker thread removed&#39;: 0, &#39;eviction worker thread stable number&#39;: 0, &#39;files with active eviction walks&#39;: 0, &#39;files with new eviction walks started&#39;: 0, &#39;force re-tuning of eviction workers once in a while&#39;: 0, &#39;forced eviction - history store pages failed to evict while session has history store cursor open&#39;: 0, &#39;forced eviction - history store pages selected while session has history store cursor open&#39;: 0, &#39;forced eviction - history store pages successfully evicted while session has history store cursor open&#39;: 0, &#39;forced eviction - pages evicted that were clean count&#39;: 0, &#39;forced eviction - pages evicted that were clean time (usecs)&#39;: 0, &#39;forced eviction - pages evicted that were dirty count&#39;: 0, &#39;forced eviction - pages evicted that were dirty time (usecs)&#39;: 0, &#39;forced eviction - pages selected because of a large number of updates to a single item&#39;: 0, &#39;forced eviction - pages selected because of too many deleted items count&#39;: 0, &#39;forced eviction - pages selected count&#39;: 0, &#39;forced eviction - pages selected unable to be evicted count&#39;: 0, &#39;forced eviction - pages selected unable to be evicted time&#39;: 0, &#39;hazard pointer blocked page eviction&#39;: 0, &#39;hazard pointer check calls&#39;: 3, &#39;hazard pointer check entries walked&#39;: 5, &#39;hazard pointer maximum array length&#39;: 3, &#39;history store score&#39;: 0, &#39;history store table insert calls&#39;: 0, &#39;history store table insert calls that returned restart&#39;: 0, &#39;history store table max on-disk size&#39;: 0, &#39;history store table on-disk size&#39;: 4096, &#39;history store table out-of-order resolved updates that lose their durable timestamp&#39;: 0, &#39;history store table out-of-order updates that were fixed up by reinserting with the fixed timestamp&#39;: 0, &#39;history store table reads&#39;: 0, &#39;history store table reads missed&#39;: 0, &#39;history store table reads requiring squashed modifies&#39;: 0, &#39;history store table truncation by rollback to stable to remove an unstable update&#39;: 0, &#39;history store table truncation by rollback to stable to remove an update&#39;: 0, &#39;history store table truncation to remove an update&#39;: 0, &#39;history store table truncation to remove range of updates due to key being removed from the data page during reconciliation&#39;: 0, &#39;history store table truncation to remove range of updates due to out-of-order timestamp update on data page&#39;: 0, &#39;history store table writes requiring squashed modifies&#39;: 0, &#39;in-memory page passed criteria to be split&#39;: 0, &#39;in-memory page splits&#39;: 0, &#39;internal pages evicted&#39;: 0, &#39;internal pages queued for eviction&#39;: 0, &#39;internal pages seen by eviction walk&#39;: 0, &#39;internal pages seen by eviction walk that are already queued&#39;: 0, &#39;internal pages split during eviction&#39;: 0, &#39;leaf pages split during eviction&#39;: 0, &#39;maximum bytes configured&#39;: 16098787328, &#39;maximum milliseconds spent at a single eviction&#39;: 0, &#39;maximum page size seen at eviction&#39;: 0, &#39;modified pages evicted&#39;: 3, &#39;modified pages evicted by application threads&#39;: 0, &#39;operations timed out waiting for space in cache&#39;: 0, &#39;overflow pages read into cache&#39;: 0, &#39;page split during eviction deepened the tree&#39;: 0, &#39;page written requiring history store records&#39;: 0, &#39;pages currently held in the cache&#39;: 124, &#39;pages evicted by application threads&#39;: 0, &#39;pages evicted in parallel with checkpoint&#39;: 3, &#39;pages queued for eviction&#39;: 0, &#39;pages queued for eviction post lru sorting&#39;: 0, &#39;pages queued for urgent eviction&#39;: 3, &#39;pages queued for urgent eviction during walk&#39;: 0, &#39;pages queued for urgent eviction from history store due to high dirty content&#39;: 0, &#39;pages read into cache&#39;: 116, &#39;pages read into cache after truncate&#39;: 7, &#39;pages read into cache after truncate in prepare state&#39;: 0, &#39;pages removed from the ordinary queue to be queued for urgent eviction&#39;: 0, &#39;pages requested from the cache&#39;: 965, &#39;pages seen by eviction walk&#39;: 0, &#39;pages seen by eviction walk that are already queued&#39;: 0, &#39;pages selected for eviction unable to be evicted&#39;: 0, &#39;pages selected for eviction unable to be evicted because of active children on an internal page&#39;: 0, &#39;pages selected for eviction unable to be evicted because of failure in reconciliation&#39;: 0, &#39;pages selected for eviction unable to be evicted because of race between checkpoint and out of order timestamps handling&#39;: 0, &#39;pages walked for eviction&#39;: 0, &#39;pages written from cache&#39;: 65, &#39;pages written requiring in-memory restoration&#39;: 0, &#39;percentage overhead&#39;: 8, &#39;the number of times full update inserted to history store&#39;: 0, &#39;the number of times reverse modify inserted to history store&#39;: 0, &#39;total milliseconds spent inside reentrant history store evictions in a reconciliation&#39;: 0, &#39;tracked bytes belonging to internal pages in the cache&#39;: 12950, &#39;tracked bytes belonging to leaf pages in the cache&#39;: 10240458, &#39;tracked dirty bytes in the cache&#39;: 0, &#39;tracked dirty pages in the cache&#39;: 0, &#39;unmodified pages evicted&#39;: 0}, &#39;capacity&#39;: {&#39;background fsync file handles considered&#39;: 0, &#39;background fsync file handles synced&#39;: 0, &#39;background fsync time (msecs)&#39;: 0, &#39;bytes read&#39;: 4530176, &#39;bytes written for checkpoint&#39;: 698601, &#39;bytes written for eviction&#39;: 0, &#39;bytes written for log&#39;: 1003804288, &#39;bytes written total&#39;: 1004502889, &#39;threshold to call fsync&#39;: 0, &#39;time waiting due to total capacity (usecs)&#39;: 0, &#39;time waiting during checkpoint (usecs)&#39;: 0, &#39;time waiting during eviction (usecs)&#39;: 0, &#39;time waiting during logging (usecs)&#39;: 0, &#39;time waiting during read (usecs)&#39;: 0}, &#39;checkpoint-cleanup&#39;: {&#39;pages added for eviction&#39;: 3, &#39;pages removed&#39;: 0, &#39;pages skipped during tree walk&#39;: 0, &#39;pages visited&#39;: 143}, &#39;connection&#39;: {&#39;auto adjusting condition resets&#39;: 63, &#39;auto adjusting condition wait calls&#39;: 5750, &#39;auto adjusting condition wait raced to update timeout and skipped updating&#39;: 0, &#39;detected system time went backwards&#39;: 0, &#39;files currently open&#39;: 16, &#39;hash bucket array size for data handles&#39;: 512, &#39;hash bucket array size general&#39;: 512, &#39;memory allocations&#39;: 42516, &#39;memory frees&#39;: 41098, &#39;memory re-allocations&#39;: 3128, &#39;pthread mutex condition wait calls&#39;: 15192, &#39;pthread mutex shared lock read-lock calls&#39;: 15410, &#39;pthread mutex shared lock write-lock calls&#39;: 1141, &#39;total fsync I/Os&#39;: 133, &#39;total read I/Os&#39;: 1193, &#39;total write I/Os&#39;: 190}, &#39;cursor&#39;: {&#39;Total number of entries skipped by cursor next calls&#39;: 0, &#39;Total number of entries skipped by cursor prev calls&#39;: 0, &#39;Total number of entries skipped to position the history store cursor&#39;: 0, &#39;Total number of times a search near has exited due to prefix config&#39;: 0, &#39;cached cursor count&#39;: 19, &#39;cursor bulk loaded cursor insert calls&#39;: 0, &#39;cursor close calls that result in cache&#39;: 7705, &#39;cursor create calls&#39;: 126, &#39;cursor insert calls&#39;: 72, &#39;cursor insert key and value bytes&#39;: 284145, &#39;cursor modify calls&#39;: 0, &#39;cursor modify key and value bytes affected&#39;: 0, &#39;cursor modify value bytes modified&#39;: 0, &#39;cursor next calls&#39;: 828, &#39;cursor next calls that skip due to a globally visible history store tombstone&#39;: 0, &#39;cursor next calls that skip greater than or equal to 100 entries&#39;: 0, &#39;cursor next calls that skip less than 100 entries&#39;: 826, &#39;cursor operation restarted&#39;: 0, &#39;cursor prev calls&#39;: 33, &#39;cursor prev calls that skip due to a globally visible history store tombstone&#39;: 0, &#39;cursor prev calls that skip greater than or equal to 100 entries&#39;: 0, &#39;cursor prev calls that skip less than 100 entries&#39;: 33, &#39;cursor remove calls&#39;: 1, &#39;cursor remove key bytes removed&#39;: 12, &#39;cursor reserve calls&#39;: 0, &#39;cursor reset calls&#39;: 8255, &#39;cursor search calls&#39;: 314, &#39;cursor search history store calls&#39;: 0, &#39;cursor search near calls&#39;: 50, &#39;cursor sweep buckets&#39;: 11307, &#39;cursor sweep cursors closed&#39;: 0, &#39;cursor sweep cursors examined&#39;: 108, &#39;cursor sweeps&#39;: 1126, &#39;cursor truncate calls&#39;: 0, &#39;cursor update calls&#39;: 0, &#39;cursor update key and value bytes&#39;: 0, &#39;cursor update value size change&#39;: 0, &#39;cursors reused from cache&#39;: 7686, &#39;open cursor count&#39;: 6}, &#39;data-handle&#39;: {&#39;connection data handle size&#39;: 440, &#39;connection data handles currently active&#39;: 25, &#39;connection sweep candidate became referenced&#39;: 0, &#39;connection sweep dhandles closed&#39;: 0, &#39;connection sweep dhandles removed from hash list&#39;: 17, &#39;connection sweep time-of-death sets&#39;: 155, &#39;connection sweeps&#39;: 93, &#39;connection sweeps skipped due to checkpoint gathering handles&#39;: 0, &#39;session dhandles swept&#39;: 11, &#39;session sweep attempts&#39;: 335}, &#39;lock&#39;: {&#39;checkpoint lock acquisitions&#39;: 17, &#39;checkpoint lock application thread wait time (usecs)&#39;: 0, &#39;checkpoint lock internal thread wait time (usecs)&#39;: 0, &#39;dhandle lock application thread time waiting (usecs)&#39;: 0, &#39;dhandle lock internal thread time waiting (usecs)&#39;: 0, &#39;dhandle read lock acquisitions&#39;: 3804, &#39;dhandle write lock acquisitions&#39;: 63, &#39;durable timestamp queue lock application thread time waiting (usecs)&#39;: 0, &#39;durable timestamp queue lock internal thread time waiting (usecs)&#39;: 0, &#39;durable timestamp queue read lock acquisitions&#39;: 0, &#39;durable timestamp queue write lock acquisitions&#39;: 0, &#39;metadata lock acquisitions&#39;: 16, &#39;metadata lock application thread wait time (usecs)&#39;: 0, &#39;metadata lock internal thread wait time (usecs)&#39;: 0, &#39;read timestamp queue lock application thread time waiting (usecs)&#39;: 0, &#39;read timestamp queue lock internal thread time waiting (usecs)&#39;: 0, &#39;read timestamp queue read lock acquisitions&#39;: 0, &#39;read timestamp queue write lock acquisitions&#39;: 0, &#39;schema lock acquisitions&#39;: 44, &#39;schema lock application thread wait time (usecs)&#39;: 0, &#39;schema lock internal thread wait time (usecs)&#39;: 0, &#39;table lock application thread time waiting for the table lock (usecs)&#39;: 0, &#39;table lock internal thread time waiting for the table lock (usecs)&#39;: 0, &#39;table read lock acquisitions&#39;: 0, &#39;table write lock acquisitions&#39;: 13, &#39;txn global lock application thread time waiting (usecs)&#39;: 0, &#39;txn global lock internal thread time waiting (usecs)&#39;: 0, &#39;txn global read lock acquisitions&#39;: 66, &#39;txn global write lock acquisitions&#39;: 46}, &#39;log&#39;: {&#39;busy returns attempting to switch slots&#39;: 0, &#39;force archive time sleeping (usecs)&#39;: 0, &#39;log bytes of payload data&#39;: 135688, &#39;log bytes written&#39;: 142720, &#39;log files manually zero-filled&#39;: 0, &#39;log flush operations&#39;: 9308, &#39;log force write operations&#39;: 10335, &#39;log force write operations skipped&#39;: 10308, &#39;log records compressed&#39;: 14, &#39;log records not compressed&#39;: 10, &#39;log records too small to compress&#39;: 69, &#39;log release advances write LSN&#39;: 17, &#39;log scan operations&#39;: 6, &#39;log scan records requiring two reads&#39;: 0, &#39;log server thread advances write LSN&#39;: 27, &#39;log server thread write LSN walk skipped&#39;: 1917, &#39;log sync operations&#39;: 44, &#39;log sync time duration (usecs)&#39;: 200004, &#39;log sync_dir operations&#39;: 1, &#39;log sync_dir time duration (usecs)&#39;: 8968, &#39;log write operations&#39;: 93, &#39;logging bytes consolidated&#39;: 142208, &#39;maximum log file size&#39;: 104857600, &#39;number of pre-allocated log files to create&#39;: 2, &#39;pre-allocated log files not ready and missed&#39;: 1, &#39;pre-allocated log files prepared&#39;: 2, &#39;pre-allocated log files used&#39;: 0, &#39;records processed by log scan&#39;: 15, &#39;slot close lost race&#39;: 0, &#39;slot close unbuffered waits&#39;: 0, &#39;slot closures&#39;: 44, &#39;slot join atomic update races&#39;: 0, &#39;slot join calls atomic updates raced&#39;: 0, &#39;slot join calls did not yield&#39;: 93, &#39;slot join calls found active slot closed&#39;: 0, &#39;slot join calls slept&#39;: 0, &#39;slot join calls yielded&#39;: 0, &#39;slot join found active slot closed&#39;: 0, &#39;slot joins yield time (usecs)&#39;: 0, &#39;slot transitions unable to find free slot&#39;: 0, &#39;slot unbuffered writes&#39;: 0, &#39;total in-memory size of compressed records&#39;: 279252, &#39;total log buffer size&#39;: 33554432, &#39;total size of compressed records&#39;: 127908, &#39;written slots coalesced&#39;: 0, &#39;yields waiting for previous log file close&#39;: 0}, &#39;perf&#39;: {&#39;file system read latency histogram (bucket 1) - 10-49ms&#39;: 0, &#39;file system read latency histogram (bucket 2) - 50-99ms&#39;: 0, &#39;file system read latency histogram (bucket 3) - 100-249ms&#39;: 0, &#39;file system read latency histogram (bucket 4) - 250-499ms&#39;: 0, &#39;file system read latency histogram (bucket 5) - 500-999ms&#39;: 0, &#39;file system read latency histogram (bucket 6) - 1000ms+&#39;: 0, &#39;file system write latency histogram (bucket 1) - 10-49ms&#39;: 0, &#39;file system write latency histogram (bucket 2) - 50-99ms&#39;: 0, &#39;file system write latency histogram (bucket 3) - 100-249ms&#39;: 0, &#39;file system write latency histogram (bucket 4) - 250-499ms&#39;: 0, &#39;file system write latency histogram (bucket 5) - 500-999ms&#39;: 0, &#39;file system write latency histogram (bucket 6) - 1000ms+&#39;: 0, &#39;operation read latency histogram (bucket 1) - 100-249us&#39;: 0, &#39;operation read latency histogram (bucket 2) - 250-499us&#39;: 0, &#39;operation read latency histogram (bucket 3) - 500-999us&#39;: 0, &#39;operation read latency histogram (bucket 4) - 1000-9999us&#39;: 0, &#39;operation read latency histogram (bucket 5) - 10000us+&#39;: 0, &#39;operation write latency histogram (bucket 1) - 100-249us&#39;: 0, &#39;operation write latency histogram (bucket 2) - 250-499us&#39;: 0, &#39;operation write latency histogram (bucket 3) - 500-999us&#39;: 0, &#39;operation write latency histogram (bucket 4) - 1000-9999us&#39;: 0, &#39;operation write latency histogram (bucket 5) - 10000us+&#39;: 0}, &#39;reconciliation&#39;: {&#39;approximate byte size of timestamps in pages written&#39;: 0, &#39;approximate byte size of transaction IDs in pages written&#39;: 336, &#39;fast-path pages deleted&#39;: 0, &#39;leaf-page overflow keys&#39;: 0, &#39;maximum milliseconds spent in a reconciliation call&#39;: 0, &#39;maximum milliseconds spent in building a disk image in a reconciliation&#39;: 0, &#39;maximum milliseconds spent in moving updates to the history store in a reconciliation&#39;: 0, &#39;page reconciliation calls&#39;: 71, &#39;page reconciliation calls for eviction&#39;: 3, &#39;page reconciliation calls that resulted in values with prepared transaction metadata&#39;: 0, &#39;page reconciliation calls that resulted in values with timestamps&#39;: 0, &#39;page reconciliation calls that resulted in values with transaction ids&#39;: 17, &#39;pages deleted&#39;: 9, &#39;pages written including an aggregated newest start durable timestamp &#39;: 0, &#39;pages written including an aggregated newest stop durable timestamp &#39;: 0, &#39;pages written including an aggregated newest stop timestamp &#39;: 0, &#39;pages written including an aggregated newest stop transaction ID&#39;: 0, &#39;pages written including an aggregated newest transaction ID &#39;: 0, &#39;pages written including an aggregated oldest start timestamp &#39;: 0, &#39;pages written including an aggregated prepare&#39;: 0, &#39;pages written including at least one prepare state&#39;: 0, &#39;pages written including at least one start durable timestamp&#39;: 0, &#39;pages written including at least one start timestamp&#39;: 0, &#39;pages written including at least one start transaction ID&#39;: 17, &#39;pages written including at least one stop durable timestamp&#39;: 0, &#39;pages written including at least one stop timestamp&#39;: 0, &#39;pages written including at least one stop transaction ID&#39;: 0, &#39;records written including a prepare state&#39;: 0, &#39;records written including a start durable timestamp&#39;: 0, &#39;records written including a start timestamp&#39;: 0, &#39;records written including a start transaction ID&#39;: 42, &#39;records written including a stop durable timestamp&#39;: 0, &#39;records written including a stop timestamp&#39;: 0, &#39;records written including a stop transaction ID&#39;: 0, &#39;split bytes currently awaiting free&#39;: 0, &#39;split objects currently awaiting free&#39;: 0}, &#39;session&#39;: {&#39;attempts to remove a local object and the object is in use&#39;: 0, &#39;flush_tier operation calls&#39;: 0, &#39;local objects removed&#39;: 0, &#39;open session count&#39;: 15, &#39;session query timestamp calls&#39;: 0, &#39;table alter failed calls&#39;: 0, &#39;table alter successful calls&#39;: 0, &#39;table alter triggering checkpoint calls&#39;: 0, &#39;table alter unchanged and skipped&#39;: 0, &#39;table compact failed calls&#39;: 0, &#39;table compact failed calls due to cache pressure&#39;: 0, &#39;table compact running&#39;: 0, &#39;table compact skipped as process would not reduce file size&#39;: 0, &#39;table compact successful calls&#39;: 0, &#39;table compact timeout&#39;: 0, &#39;table create failed calls&#39;: 0, &#39;table create successful calls&#39;: 1, &#39;table drop failed calls&#39;: 0, &#39;table drop successful calls&#39;: 0, &#39;table rename failed calls&#39;: 0, &#39;table rename successful calls&#39;: 0, &#39;table salvage failed calls&#39;: 0, &#39;table salvage successful calls&#39;: 0, &#39;table truncate failed calls&#39;: 0, &#39;table truncate successful calls&#39;: 0, &#39;table verify failed calls&#39;: 0, &#39;table verify successful calls&#39;: 0, &#39;tiered operations dequeued and processed&#39;: 0, &#39;tiered operations scheduled&#39;: 0, &#39;tiered storage local retention time (secs)&#39;: 0}, &#39;thread-state&#39;: {&#39;active filesystem fsync calls&#39;: 0, &#39;active filesystem read calls&#39;: 0, &#39;active filesystem write calls&#39;: 0}, &#39;thread-yield&#39;: {&#39;application thread time evicting (usecs)&#39;: 0, &#39;application thread time waiting for cache (usecs)&#39;: 0, &#39;connection close blocked waiting for transaction state stabilization&#39;: 0, &#39;connection close yielded for lsm manager shutdown&#39;: 0, &#39;data handle lock yielded&#39;: 0, &#39;get reference for page index and slot time sleeping (usecs)&#39;: 0, &#39;page access yielded due to prepare state change&#39;: 0, &#39;page acquire busy blocked&#39;: 0, &#39;page acquire eviction blocked&#39;: 0, &#39;page acquire locked blocked&#39;: 0, &#39;page acquire read blocked&#39;: 0, &#39;page acquire time sleeping (usecs)&#39;: 0, &#39;page delete rollback time sleeping for state change (usecs)&#39;: 0, &#39;page reconciliation yielded due to child modification&#39;: 0}, &#39;transaction&#39;: {&#39;Number of prepared updates&#39;: 0, &#39;Number of prepared updates committed&#39;: 0, &#39;Number of prepared updates repeated on the same key&#39;: 0, &#39;Number of prepared updates rolled back&#39;: 0, &#39;oldest pinned transaction ID rolled back for eviction&#39;: 0, &#39;prepared transactions&#39;: 0, &#39;prepared transactions committed&#39;: 0, &#39;prepared transactions currently active&#39;: 0, &#39;prepared transactions rolled back&#39;: 0, &#39;query timestamp calls&#39;: 933, &#39;race to read prepared update retry&#39;: 0, &#39;rollback to stable calls&#39;: 0, &#39;rollback to stable history store records with stop timestamps older than newer records&#39;: 0, &#39;rollback to stable inconsistent checkpoint&#39;: 0, &#39;rollback to stable keys removed&#39;: 0, &#39;rollback to stable keys restored&#39;: 0, &#39;rollback to stable pages visited&#39;: 0, &#39;rollback to stable restored tombstones from history store&#39;: 0, &#39;rollback to stable restored updates from history store&#39;: 0, &#39;rollback to stable skipping delete rle&#39;: 0, &#39;rollback to stable skipping stable rle&#39;: 0, &#39;rollback to stable sweeping history store keys&#39;: 0, &#39;rollback to stable tree walk skipping pages&#39;: 0, &#39;rollback to stable updates aborted&#39;: 0, &#39;rollback to stable updates removed from history store&#39;: 0, &#39;sessions scanned in each walk of concurrent sessions&#39;: 15795, &#39;set timestamp calls&#39;: 0, &#39;set timestamp durable calls&#39;: 0, &#39;set timestamp durable updates&#39;: 0, &#39;set timestamp oldest calls&#39;: 0, &#39;set timestamp oldest updates&#39;: 0, &#39;set timestamp stable calls&#39;: 0, &#39;set timestamp stable updates&#39;: 0, &#39;transaction begins&#39;: 47, &#39;transaction checkpoint currently running&#39;: 0, &#39;transaction checkpoint currently running for history store file&#39;: 0, &#39;transaction checkpoint generation&#39;: 17, &#39;transaction checkpoint history store file duration (usecs)&#39;: 3, &#39;transaction checkpoint max time (msecs)&#39;: 78, &#39;transaction checkpoint min time (msecs)&#39;: 31, &#39;transaction checkpoint most recent duration for gathering all handles (usecs)&#39;: 67, &#39;transaction checkpoint most recent duration for gathering applied handles (usecs)&#39;: 0, &#39;transaction checkpoint most recent duration for gathering skipped handles (usecs)&#39;: 45, &#39;transaction checkpoint most recent handles applied&#39;: 0, &#39;transaction checkpoint most recent handles skipped&#39;: 12, &#39;transaction checkpoint most recent handles walked&#39;: 25, &#39;transaction checkpoint most recent time (msecs)&#39;: 34, &#39;transaction checkpoint prepare currently running&#39;: 0, &#39;transaction checkpoint prepare max time (msecs)&#39;: 0, &#39;transaction checkpoint prepare min time (msecs)&#39;: 0, &#39;transaction checkpoint prepare most recent time (msecs)&#39;: 0, &#39;transaction checkpoint prepare total time (msecs)&#39;: 0, &#39;transaction checkpoint scrub dirty target&#39;: 0, &#39;transaction checkpoint scrub time (msecs)&#39;: 0, &#39;transaction checkpoint stop timing stress active&#39;: 0, &#39;transaction checkpoint total time (msecs)&#39;: 673, &#39;transaction checkpoints&#39;: 16, &#39;transaction checkpoints due to obsolete pages&#39;: 0, &#39;transaction checkpoints skipped because database was clean&#39;: 0, &#39;transaction fsync calls for checkpoint after allocating the transaction ID&#39;: 16, &#39;transaction fsync duration for checkpoint after allocating the transaction ID (usecs)&#39;: 9207, &#39;transaction range of IDs currently pinned&#39;: 0, &#39;transaction range of IDs currently pinned by a checkpoint&#39;: 0, &#39;transaction range of timestamps currently pinned&#39;: 0, &#39;transaction range of timestamps pinned by a checkpoint&#39;: 0, &#39;transaction range of timestamps pinned by the oldest active read timestamp&#39;: 0, &#39;transaction range of timestamps pinned by the oldest timestamp&#39;: 0, &#39;transaction read timestamp of the oldest active reader&#39;: 0, &#39;transaction rollback to stable currently running&#39;: 0, &#39;transaction walk of concurrent sessions&#39;: 1056, &#39;transactions committed&#39;: 13, &#39;transactions rolled back&#39;: 34, &#39;update conflicts&#39;: 0}, &#39;concurrentTransactions&#39;: {&#39;write&#39;: {&#39;out&#39;: 0, &#39;available&#39;: 128, &#39;totalTickets&#39;: 128}, &#39;read&#39;: {&#39;out&#39;: 0, &#39;available&#39;: 128, &#39;totalTickets&#39;: 128}}, &#39;snapshot-window-settings&#39;: {&#39;total number of SnapshotTooOld errors&#39;: 0, &#39;minimum target snapshot window size in seconds&#39;: 300, &#39;current available snapshot window size in seconds&#39;: 0, &#39;latest majority snapshot timestamp available&#39;: &#39;Dec 31 19:00:00:0&#39;, &#39;oldest majority snapshot timestamp available&#39;: &#39;Dec 31 19:00:00:0&#39;, &#39;pinned timestamp requests&#39;: 0, &#39;min pinned timestamp&#39;: Timestamp(4294967295, 4294967295)}, &#39;oplog&#39;: {&#39;visibility timestamp&#39;: Timestamp(0, 0)}}, &#39;mem&#39;: {&#39;bits&#39;: 64, &#39;resident&#39;: 134, &#39;virtual&#39;: 1563, &#39;supported&#39;: True}, &#39;metrics&#39;: {&#39;apiVersions&#39;: {&#39;&#39;: [&#39;default&#39;]}, &#39;aggStageCounters&#39;: {&#39;$_internalApplyOplogUpdate&#39;: 0, &#39;$_internalBoundedSort&#39;: 0, &#39;$_internalConvertBucketIndexStats&#39;: 0, &#39;$_internalFindAndModifyImageLookup&#39;: 0, &#39;$_internalInhibitOptimization&#39;: 0, &#39;$_internalReshardingIterateTransaction&#39;: 0, &#39;$_internalReshardingOwnershipMatch&#39;: 0, &#39;$_internalSetWindowFields&#39;: 0, &#39;$_internalSplitPipeline&#39;: 0, &#39;$_internalUnpackBucket&#39;: 0, &#39;$_unpackBucket&#39;: 0, &#39;$addFields&#39;: 0, &#39;$bucket&#39;: 0, &#39;$bucketAuto&#39;: 0, &#39;$changeStream&#39;: 0, &#39;$collStats&#39;: 0, &#39;$count&#39;: 0, &#39;$currentOp&#39;: 0, &#39;$documents&#39;: 0, &#39;$facet&#39;: 0, &#39;$geoNear&#39;: 0, &#39;$graphLookup&#39;: 0, &#39;$group&#39;: 0, &#39;$indexStats&#39;: 0, &#39;$limit&#39;: 0, &#39;$listLocalSessions&#39;: 0, &#39;$listSessions&#39;: 0, &#39;$lookup&#39;: 0, &#39;$match&#39;: 0, &#39;$merge&#39;: 0, &#39;$mergeCursors&#39;: 0, &#39;$operationMetrics&#39;: 0, &#39;$out&#39;: 0, &#39;$planCacheStats&#39;: 0, &#39;$project&#39;: 0, &#39;$queue&#39;: 0, &#39;$redact&#39;: 0, &#39;$replaceRoot&#39;: 0, &#39;$replaceWith&#39;: 0, &#39;$sample&#39;: 0, &#39;$set&#39;: 2, &#39;$setWindowFields&#39;: 0, &#39;$skip&#39;: 0, &#39;$sort&#39;: 0, &#39;$sortByCount&#39;: 0, &#39;$unionWith&#39;: 0, &#39;$unset&#39;: 0, &#39;$unwind&#39;: 0}, &#39;changeStreams&#39;: {&#39;largeEventsFailed&#39;: 0}, &#39;commands&#39;: {&#39;&lt;UNKNOWN&gt;&#39;: 0, &#39;_addShard&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_cloneCollectionOptionsFromPrimaryShard&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_configsvrAbortReshardCollection&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_configsvrAddShard&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_configsvrAddShardToZone&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_configsvrBalancerCollectionStatus&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_configsvrBalancerStart&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_configsvrBalancerStatus&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_configsvrBalancerStop&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_configsvrCleanupReshardCollection&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_configsvrClearJumboFlag&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_configsvrCommitChunkMerge&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_configsvrCommitChunkMigration&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_configsvrCommitChunkSplit&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_configsvrCommitChunksMerge&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_configsvrCommitMovePrimary&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_configsvrCommitReshardCollection&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_configsvrCreateDatabase&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_configsvrDropCollection&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_configsvrDropDatabase&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_configsvrEnableSharding&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_configsvrEnsureChunkVersionIsGreaterThan&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_configsvrMoveChunk&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_configsvrMovePrimary&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_configsvrRefineCollectionShardKey&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_configsvrRemoveChunks&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_configsvrRemoveShard&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_configsvrRemoveShardFromZone&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_configsvrRemoveTags&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_configsvrRenameCollectionMetadata&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_configsvrRepairShardedCollectionChunksHistory&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_configsvrReshardCollection&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_configsvrSetAllowMigrations&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_configsvrShardCollection&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_configsvrUpdateZoneKeyRange&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_flushDatabaseCacheUpdates&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_flushDatabaseCacheUpdatesWithWriteConcern&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_flushReshardingStateChange&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_flushRoutingTableCacheUpdates&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_flushRoutingTableCacheUpdatesWithWriteConcern&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_getNextSessionMods&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_getUserCacheGeneration&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_isSelf&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_killOperations&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_mergeAuthzCollections&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_migrateClone&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_recvChunkAbort&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_recvChunkCommit&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_recvChunkStart&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_recvChunkStatus&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_shardsvrAbortReshardCollection&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_shardsvrCleanupReshardCollection&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_shardsvrCloneCatalogData&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_shardsvrCommitReshardCollection&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_shardsvrCreateCollection&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_shardsvrCreateCollectionParticipant&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_shardsvrDropCollection&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_shardsvrDropCollectionIfUUIDNotMatching&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_shardsvrDropCollectionParticipant&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_shardsvrDropDatabase&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_shardsvrDropDatabaseParticipant&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_shardsvrMovePrimary&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_shardsvrRefineCollectionShardKey&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_shardsvrRenameCollection&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_shardsvrRenameCollectionParticipant&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_shardsvrRenameCollectionParticipantUnblock&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_shardsvrReshardCollection&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_shardsvrReshardingOperationTime&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_shardsvrSetAllowMigrations&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_shardsvrShardCollection&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;_transferMods&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;abortTransaction&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;aggregate&#39;: {&#39;allowDiskUseTrue&#39;: 0, &#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;appendOplogNote&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;applyOps&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;authenticate&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;autoSplitVector&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;availableQueryOptions&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;buildInfo&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;checkShardingIndex&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;cleanupOrphaned&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;cloneCollectionAsCapped&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;collMod&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0, &#39;validator&#39;: {&#39;failed&#39;: 0, &#39;jsonSchema&#39;: 0, &#39;total&#39;: 0}}, &#39;collStats&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;commitTransaction&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;compact&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;connPoolStats&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;connPoolSync&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;connectionStatus&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;convertToCapped&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;coordinateCommitTransaction&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;count&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;create&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0, &#39;validator&#39;: {&#39;failed&#39;: 0, &#39;jsonSchema&#39;: 0, &#39;total&#39;: 0}}, &#39;createIndexes&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;createRole&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;createUser&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;currentOp&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;dataSize&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;dbCheck&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;dbHash&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;dbStats&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;delete&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;distinct&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 1}, &#39;donorAbortMigration&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;donorForgetMigration&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;donorStartMigration&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;driverOIDTest&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;drop&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;dropAllRolesFromDatabase&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;dropAllUsersFromDatabase&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;dropConnections&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;dropDatabase&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;dropIndexes&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;dropRole&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;dropUser&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;endSessions&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;explain&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;features&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;filemd5&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;find&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 5}, &#39;findAndModify&#39;: {&#39;arrayFilters&#39;: 0, &#39;failed&#39;: 0, &#39;pipeline&#39;: 0, &#39;total&#39;: 0}, &#39;flushRouterConfig&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;fsync&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;fsyncUnlock&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;getCmdLineOpts&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;getDatabaseVersion&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;getDefaultRWConcern&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;getDiagnosticData&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;getFreeMonitoringStatus&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;getLastError&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;getLog&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;getMore&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 1}, &#39;getParameter&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;getShardMap&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;getShardVersion&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;getnonce&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;grantPrivilegesToRole&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;grantRolesToRole&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;grantRolesToUser&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;hello&#39;: {&#39;failed&#39;: 1, &#39;total&#39;: 140}, &#39;hostInfo&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;insert&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 6}, &#39;internalRenameIfOptionsAndIndexesMatch&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;invalidateUserCache&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;isMaster&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 53}, &#39;killAllSessions&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;killAllSessionsByPattern&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;killCursors&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;killOp&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;killSessions&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;listCollections&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;listCommands&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;listDatabases&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;listIndexes&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 8}, &#39;lockInfo&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;logRotate&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;logout&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;mapReduce&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;mergeChunks&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;moveChunk&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;ping&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;planCacheClear&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;planCacheClearFilters&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;planCacheListFilters&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;planCacheSetFilter&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;prepareTransaction&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;profile&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;reIndex&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;recipientForgetMigration&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;recipientSyncData&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;refreshSessions&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;renameCollection&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;replSetAbortPrimaryCatchUp&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;replSetFreeze&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;replSetGetConfig&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;replSetGetRBID&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;replSetGetStatus&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;replSetHeartbeat&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;replSetInitiate&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;replSetMaintenance&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;replSetReconfig&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;replSetRequestVotes&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;replSetResizeOplog&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;replSetStepDown&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;replSetStepDownWithForce&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;replSetStepUp&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;replSetSyncFrom&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;replSetUpdatePosition&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;revokePrivilegesFromRole&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;revokeRolesFromRole&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;revokeRolesFromUser&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;rolesInfo&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;rotateCertificates&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;saslContinue&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;saslStart&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;serverStatus&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 2}, &#39;setDefaultRWConcern&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;setFeatureCompatibilityVersion&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;setFreeMonitoring&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;setIndexCommitQuorum&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;setParameter&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;setProfilingFilterGlobally&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;setShardVersion&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;shardingState&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;shutdown&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;splitChunk&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;splitVector&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;startRecordingTraffic&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;startSession&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;stopRecordingTraffic&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;top&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;update&#39;: {&#39;arrayFilters&#39;: 0, &#39;failed&#39;: 0, &#39;pipeline&#39;: 2, &#39;total&#39;: 2}, &#39;updateRole&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;updateUser&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;usersInfo&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;validate&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;validateDBMetadata&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;voteCommitIndexBuild&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;waitForFailPoint&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}, &#39;whatsmyuri&#39;: {&#39;failed&#39;: 0, &#39;total&#39;: 0}}, &#39;cursor&#39;: {&#39;moreThanOneBatch&#39;: 1, &#39;timedOut&#39;: 0, &#39;totalOpened&#39;: 1, &#39;lifespan&#39;: {&#39;greaterThanOrEqual10Minutes&#39;: 0, &#39;lessThan10Minutes&#39;: 0, &#39;lessThan15Seconds&#39;: 0, &#39;lessThan1Minute&#39;: 0, &#39;lessThan1Second&#39;: 1, &#39;lessThan30Seconds&#39;: 0, &#39;lessThan5Seconds&#39;: 0}, &#39;open&#39;: {&#39;noTimeout&#39;: 0, &#39;pinned&#39;: 0, &#39;total&#39;: 0}}, &#39;document&#39;: {&#39;deleted&#39;: 0, &#39;inserted&#39;: 6, &#39;returned&#39;: 244, &#39;updated&#39;: 1}, &#39;dotsAndDollarsFields&#39;: {&#39;inserts&#39;: 0, &#39;updates&#39;: 0}, &#39;getLastError&#39;: {&#39;wtime&#39;: {&#39;num&#39;: 0, &#39;totalMillis&#39;: 0}, &#39;wtimeouts&#39;: 0, &#39;default&#39;: {&#39;unsatisfiable&#39;: 0, &#39;wtimeouts&#39;: 0}}, &#39;mongos&#39;: {&#39;cursor&#39;: {&#39;moreThanOneBatch&#39;: 0, &#39;totalOpened&#39;: 0}}, &#39;operation&#39;: {&#39;scanAndOrder&#39;: 0, &#39;transactionTooLargeForCacheErrors&#39;: 0, &#39;transactionTooLargeForCacheErrorsConvertedToWriteConflict&#39;: 0, &#39;writeConflicts&#39;: 0}, &#39;operatorCounters&#39;: {&#39;expressions&#39;: {&#39;$_internalJsEmit&#39;: 0, &#39;$abs&#39;: 0, &#39;$acos&#39;: 0, &#39;$acosh&#39;: 0, &#39;$add&#39;: 0, &#39;$allElementsTrue&#39;: 0, &#39;$and&#39;: 0, &#39;$anyElementTrue&#39;: 0, &#39;$arrayElemAt&#39;: 0, &#39;$arrayToObject&#39;: 0, &#39;$asin&#39;: 0, &#39;$asinh&#39;: 0, &#39;$atan&#39;: 0, &#39;$atan2&#39;: 0, &#39;$atanh&#39;: 0, &#39;$avg&#39;: 0, &#39;$binarySize&#39;: 0, &#39;$bsonSize&#39;: 0, &#39;$ceil&#39;: 0, &#39;$cmp&#39;: 0, &#39;$concat&#39;: 0, &#39;$concatArrays&#39;: 0, &#39;$cond&#39;: 0, &#39;$const&#39;: 0, &#39;$convert&#39;: 0, &#39;$cos&#39;: 0, &#39;$cosh&#39;: 0, &#39;$dateAdd&#39;: 0, &#39;$dateDiff&#39;: 0, &#39;$dateFromParts&#39;: 0, &#39;$dateFromString&#39;: 0, &#39;$dateSubtract&#39;: 0, &#39;$dateToParts&#39;: 0, &#39;$dateToString&#39;: 0, &#39;$dateTrunc&#39;: 0, &#39;$dayOfMonth&#39;: 0, &#39;$dayOfWeek&#39;: 0, &#39;$dayOfYear&#39;: 0, &#39;$degreesToRadians&#39;: 0, &#39;$divide&#39;: 0, &#39;$eq&#39;: 0, &#39;$exp&#39;: 0, &#39;$filter&#39;: 0, &#39;$first&#39;: 0, &#39;$floor&#39;: 0, &#39;$function&#39;: 0, &#39;$getField&#39;: 0, &#39;$gt&#39;: 0, &#39;$gte&#39;: 0, &#39;$hour&#39;: 0, &#39;$ifNull&#39;: 0, &#39;$in&#39;: 0, &#39;$indexOfArray&#39;: 0, &#39;$indexOfBytes&#39;: 0, &#39;$indexOfCP&#39;: 0, &#39;$isArray&#39;: 0, &#39;$isNumber&#39;: 0, &#39;$isoDayOfWeek&#39;: 0, &#39;$isoWeek&#39;: 0, &#39;$isoWeekYear&#39;: 0, &#39;$last&#39;: 0, &#39;$let&#39;: 0, &#39;$literal&#39;: 0, &#39;$ln&#39;: 0, &#39;$log&#39;: 0, &#39;$log10&#39;: 0, &#39;$lt&#39;: 0, &#39;$lte&#39;: 0, &#39;$ltrim&#39;: 0, &#39;$map&#39;: 0, &#39;$max&#39;: 0, &#39;$mergeObjects&#39;: 0, &#39;$meta&#39;: 0, &#39;$millisecond&#39;: 0, &#39;$min&#39;: 0, &#39;$minute&#39;: 0, &#39;$mod&#39;: 0, &#39;$month&#39;: 0, &#39;$multiply&#39;: 0, &#39;$ne&#39;: 0, &#39;$not&#39;: 0, &#39;$objectToArray&#39;: 0, &#39;$or&#39;: 0, &#39;$pow&#39;: 0, &#39;$radiansToDegrees&#39;: 0, &#39;$rand&#39;: 0, &#39;$range&#39;: 0, &#39;$reduce&#39;: 0, &#39;$regexFind&#39;: 0, &#39;$regexFindAll&#39;: 0, &#39;$regexMatch&#39;: 0, &#39;$replaceAll&#39;: 0, &#39;$replaceOne&#39;: 0, &#39;$reverseArray&#39;: 0, &#39;$round&#39;: 0, &#39;$rtrim&#39;: 0, &#39;$second&#39;: 0, &#39;$setDifference&#39;: 0, &#39;$setEquals&#39;: 0, &#39;$setField&#39;: 0, &#39;$setIntersection&#39;: 0, &#39;$setIsSubset&#39;: 0, &#39;$setUnion&#39;: 0, &#39;$sin&#39;: 0, &#39;$sinh&#39;: 0, &#39;$size&#39;: 0, &#39;$slice&#39;: 0, &#39;$split&#39;: 0, &#39;$sqrt&#39;: 0, &#39;$stdDevPop&#39;: 0, &#39;$stdDevSamp&#39;: 0, &#39;$strLenBytes&#39;: 0, &#39;$strLenCP&#39;: 0, &#39;$strcasecmp&#39;: 0, &#39;$substr&#39;: 0, &#39;$substrBytes&#39;: 0, &#39;$substrCP&#39;: 0, &#39;$subtract&#39;: 0, &#39;$sum&#39;: 0, &#39;$switch&#39;: 0, &#39;$tan&#39;: 0, &#39;$tanh&#39;: 0, &#39;$toBool&#39;: 0, &#39;$toDate&#39;: 0, &#39;$toDecimal&#39;: 0, &#39;$toDouble&#39;: 0, &#39;$toHashedIndexKey&#39;: 0, &#39;$toInt&#39;: 0, &#39;$toLong&#39;: 0, &#39;$toLower&#39;: 0, &#39;$toObjectId&#39;: 0, &#39;$toString&#39;: 0, &#39;$toUpper&#39;: 0, &#39;$trim&#39;: 0, &#39;$trunc&#39;: 0, &#39;$type&#39;: 0, &#39;$unsetField&#39;: 0, &#39;$week&#39;: 0, &#39;$year&#39;: 0, &#39;$zip&#39;: 0}, &#39;groupAccumulators&#39;: {&#39;$_internalJsReduce&#39;: 0, &#39;$accumulator&#39;: 0, &#39;$addToSet&#39;: 0, &#39;$avg&#39;: 0, &#39;$count&#39;: 0, &#39;$first&#39;: 0, &#39;$last&#39;: 0, &#39;$max&#39;: 0, &#39;$mergeObjects&#39;: 0, &#39;$min&#39;: 0, &#39;$push&#39;: 0, &#39;$stdDevPop&#39;: 0, &#39;$stdDevSamp&#39;: 0, &#39;$sum&#39;: 0}, &#39;match&#39;: {&#39;$all&#39;: 0, &#39;$alwaysFalse&#39;: 0, &#39;$alwaysTrue&#39;: 0, &#39;$and&#39;: 0, &#39;$bitsAllClear&#39;: 0, &#39;$bitsAllSet&#39;: 0, &#39;$bitsAnyClear&#39;: 0, &#39;$bitsAnySet&#39;: 0, &#39;$comment&#39;: 0, &#39;$elemMatch&#39;: 0, &#39;$eq&#39;: 0, &#39;$exists&#39;: 0, &#39;$expr&#39;: 0, &#39;$geoIntersects&#39;: 0, &#39;$geoWithin&#39;: 0, &#39;$gt&#39;: 0, &#39;$gte&#39;: 0, &#39;$in&#39;: 0, &#39;$jsonSchema&#39;: 0, &#39;$lt&#39;: 4, &#39;$lte&#39;: 0, &#39;$mod&#39;: 0, &#39;$ne&#39;: 0, &#39;$near&#39;: 0, &#39;$nearSphere&#39;: 0, &#39;$nin&#39;: 0, &#39;$nor&#39;: 0, &#39;$not&#39;: 0, &#39;$or&#39;: 0, &#39;$regex&#39;: 0, &#39;$sampleRate&#39;: 0, &#39;$size&#39;: 0, &#39;$text&#39;: 0, &#39;$type&#39;: 0, &#39;$where&#39;: 0}, &#39;windowAccumulators&#39;: {&#39;$addToSet&#39;: 0, &#39;$avg&#39;: 0, &#39;$count&#39;: 0, &#39;$covariancePop&#39;: 0, &#39;$covarianceSamp&#39;: 0, &#39;$denseRank&#39;: 0, &#39;$derivative&#39;: 0, &#39;$documentNumber&#39;: 0, &#39;$expMovingAvg&#39;: 0, &#39;$first&#39;: 0, &#39;$integral&#39;: 0, &#39;$last&#39;: 0, &#39;$max&#39;: 0, &#39;$min&#39;: 0, &#39;$push&#39;: 0, &#39;$rank&#39;: 0, &#39;$shift&#39;: 0, &#39;$stdDevPop&#39;: 0, &#39;$stdDevSamp&#39;: 0, &#39;$sum&#39;: 0}}, &#39;query&#39;: {&#39;deleteManyCount&#39;: 0, &#39;planCacheTotalSizeEstimateBytes&#39;: 0, &#39;updateDeleteManyDocumentsMaxCount&#39;: 0, &#39;updateDeleteManyDocumentsTotalCount&#39;: 0, &#39;updateDeleteManyDurationMaxMs&#39;: 0, &#39;updateDeleteManyDurationTotalMs&#39;: 0, &#39;updateManyCount&#39;: 0, &#39;updateOneOpStyleBroadcastWithExactIDCount&#39;: 0, &#39;multiPlanner&#39;: {&#39;classicCount&#39;: 0, &#39;classicMicros&#39;: 0, &#39;classicWorks&#39;: 0, &#39;sbeCount&#39;: 0, &#39;sbeMicros&#39;: 0, &#39;sbeNumReads&#39;: 0, &#39;histograms&#39;: {&#39;classicMicros&#39;: [{&#39;lowerBound&#39;: 0, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 1024, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 4096, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 16384, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 65536, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 262144, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 1048576, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 4194304, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 16777216, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 67108864, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 268435456, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 1073741824, &#39;count&#39;: 0}], &#39;classicNumPlans&#39;: [{&#39;lowerBound&#39;: 0, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 2, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 4, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 8, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 16, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 32, &#39;count&#39;: 0}], &#39;classicWorks&#39;: [{&#39;lowerBound&#39;: 0, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 128, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 256, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 512, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 1024, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 2048, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 4096, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 8192, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 16384, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 32768, &#39;count&#39;: 0}], &#39;sbeMicros&#39;: [{&#39;lowerBound&#39;: 0, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 1024, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 4096, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 16384, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 65536, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 262144, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 1048576, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 4194304, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 16777216, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 67108864, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 268435456, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 1073741824, &#39;count&#39;: 0}], &#39;sbeNumPlans&#39;: [{&#39;lowerBound&#39;: 0, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 2, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 4, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 8, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 16, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 32, &#39;count&#39;: 0}], &#39;sbeNumReads&#39;: [{&#39;lowerBound&#39;: 0, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 128, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 256, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 512, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 1024, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 2048, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 4096, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 8192, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 16384, &#39;count&#39;: 0}, {&#39;lowerBound&#39;: 32768, &#39;count&#39;: 0}]}}}, &#39;queryExecutor&#39;: {&#39;scanned&#39;: 1, &#39;scannedObjects&#39;: 483, &#39;collectionScans&#39;: {&#39;nonTailable&#39;: 2, &#39;total&#39;: 2}}, &#39;record&#39;: {&#39;moves&#39;: 0}, &#39;repl&#39;: {&#39;executor&#39;: {&#39;pool&#39;: {&#39;inProgressCount&#39;: 0}, &#39;queues&#39;: {&#39;networkInProgress&#39;: 0, &#39;sleepers&#39;: 0}, &#39;unsignaledEvents&#39;: 0, &#39;shuttingDown&#39;: False, &#39;networkInterface&#39;: &#39;DEPRECATED: getDiagnosticString is deprecated in NetworkInterfaceTL&#39;}, &#39;apply&#39;: {&#39;attemptsToBecomeSecondary&#39;: 0, &#39;batchSize&#39;: 0, &#39;batches&#39;: {&#39;num&#39;: 0, &#39;totalMillis&#39;: 0}, &#39;ops&#39;: 0}, &#39;buffer&#39;: {&#39;count&#39;: 0, &#39;maxSizeBytes&#39;: 0, &#39;sizeBytes&#39;: 0}, &#39;initialSync&#39;: {&#39;completed&#39;: 0, &#39;failedAttempts&#39;: 0, &#39;failures&#39;: 0}, &#39;network&#39;: {&#39;bytes&#39;: 0, &#39;getmores&#39;: {&#39;num&#39;: 0, &#39;totalMillis&#39;: 0, &#39;numEmptyBatches&#39;: 0}, &#39;notPrimaryLegacyUnacknowledgedWrites&#39;: 0, &#39;notPrimaryUnacknowledgedWrites&#39;: 0, &#39;oplogGetMoresProcessed&#39;: {&#39;num&#39;: 0, &#39;totalMillis&#39;: 0}, &#39;ops&#39;: 0, &#39;readersCreated&#39;: 0, &#39;replSetUpdatePosition&#39;: {&#39;num&#39;: 0}}, &#39;reconfig&#39;: {&#39;numAutoReconfigsForRemovalOfNewlyAddedFields&#39;: 0}, &#39;stateTransition&#39;: {&#39;lastStateTransition&#39;: &#39;&#39;, &#39;userOperationsKilled&#39;: 0, &#39;userOperationsRunning&#39;: 0}, &#39;syncSource&#39;: {&#39;numSelections&#39;: 0, &#39;numSyncSourceChangesDueToSignificantlyCloserNode&#39;: 0, &#39;numTimesChoseDifferent&#39;: 0, &#39;numTimesChoseSame&#39;: 0, &#39;numTimesCouldNotFind&#39;: 0}}, &#39;ttl&#39;: {&#39;deletedDocuments&#39;: 0, &#39;passes&#39;: 15}}, &#39;ok&#39;: 1.0}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Retrieve and preprocess text</span>
+<span class="n">dates</span> <span class="o">=</span> <span class="n">fomc</span><span class="p">[</span><span class="s1">&#39;minutes&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">distinct</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span>       <span class="c1"># check dates stored in MongoDB</span>
+<span class="n">docs</span> <span class="o">=</span> <span class="n">Series</span><span class="p">({</span><span class="n">doc</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]:</span> <span class="n">doc</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">fomc</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;minutes&#39;</span><span class="p">)},</span>
+              <span class="n">name</span><span class="o">=</span><span class="s1">&#39;minutes&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+<span class="n">DataFrame</span><span class="p">(</span><span class="n">docs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id1">
+<h2>Language Modelling<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="recurrent_net.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Recurrent Neural Networks</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="reinforcement_learning.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Reinforcement Learning</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Language Modelling</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Terence Lim
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

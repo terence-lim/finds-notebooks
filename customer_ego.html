@@ -1,0 +1,845 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Principal Customers Network &#8212; Financial Data Science Python Notebooks</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'customer_ego';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Graph Centrality" href="bea_centrality.html" />
+    <link rel="prev" title="Event risk" href="event_risk.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="README.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Financial Data Science Python Notebooks</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="README.html">
+                    Financial Data Science Notebooks
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="stock_prices.html">Stock prices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jegadeesh_titman.html">Jegadeesh-Titman Rolling Portfolios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fama_french.html">Fama-French Portfolio Sorts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fama_macbeth.html">Fama-Macbeth Cross-sectional Regressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weekly_reversal.html">Weekly reversal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quant_factors.html">Quant Factors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event_study.html">Event Study</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="economic_releases.html">Economic Data Revisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regression_diagnostics.html">Linear Regression Diagonostics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="econometric_forecast.html">Econometric Forecasts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="approximate_factors.html">Approximate Factor Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="economic_states.html">State Space Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional_volatility.html">Conditional Volatility</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="covariance_matrix.html">Covariance Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="term_structure.html">Term Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bond_returns.html">Bond Returns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="options_pricing.html">Options Pricing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="market_microstructure.html">Market Microstructure</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="event_risk.html">Event risk</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Principal Customers Network</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="bea_centrality.html">Graph Centrality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="industry_community.html">Community Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="link_prediction.html">Link Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spatial_regression.html">Spatial Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fomc_topics.html">Topic Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management_sentiment.html">Sentiment Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="business_description.html">10-K Business Description</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="classification_models.html">Classification for supervised learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regression_models.html">Regression for supervised learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deep_classifier.html">Deep Averaging Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="convolutional_net.html">Temporal Convolution Net</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recurrent_net.html">Recurrent Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fomc_language.html">Language Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reinforcement_learning.html">Reinforcement Learning</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/terence-lim/data-science-notebooks.git" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/terence-lim/data-science-notebooks.git/issues/new?title=Issue%20on%20page%20%2Fcustomer_ego.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/customer_ego.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Principal Customers Network</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Principal Customers Network</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#nodes-centrality">Nodes Centrality</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#longest-path">Longest path</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ego-graph">Ego graph</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="principal-customers-network">
+<h1>Principal Customers Network<a class="headerlink" href="#principal-customers-network" title="Permalink to this heading">#</a></h1>
+<p><em>UNDER CONSTRUCTION</em></p>
+<ul class="simple">
+<li><p>Graphs: ego network, induced subgraph</p></li>
+<li><p>Supply chain: principal customers</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">Series</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">pandas.api</span> <span class="kn">import</span> <span class="n">types</span>
+<span class="kn">import</span> <span class="nn">numpy.ma</span> <span class="k">as</span> <span class="nn">ma</span>
+<span class="kn">from</span> <span class="nn">numpy.ma</span> <span class="kn">import</span> <span class="n">masked_invalid</span> <span class="k">as</span> <span class="n">valid</span>
+<span class="kn">from</span> <span class="nn">finds.database</span> <span class="kn">import</span> <span class="n">SQL</span>
+<span class="kn">from</span> <span class="nn">finds.graph</span> <span class="kn">import</span> <span class="n">graph_info</span><span class="p">,</span> <span class="n">graph_draw</span><span class="p">,</span> <span class="n">nodes_centrality</span>
+<span class="kn">from</span> <span class="nn">finds.misc</span> <span class="kn">import</span> <span class="n">Show</span>
+<span class="kn">from</span> <span class="nn">secret</span> <span class="kn">import</span> <span class="n">paths</span><span class="p">,</span> <span class="n">credentials</span>
+<span class="c1"># %matplotlib qt</span>
+<span class="n">VERBOSE</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">show</span> <span class="o">=</span> <span class="n">Show</span><span class="p">(</span><span class="n">ndigits</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">latex</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">sql</span> <span class="o">=</span> <span class="n">SQL</span><span class="p">(</span><span class="o">**</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;sql&#39;</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
+<span class="n">imgdir</span> <span class="o">=</span> <span class="n">paths</span><span class="p">[</span><span class="s1">&#39;images&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="s1">&#39;supplychain&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Retrieve principal customers info</span>
+<span class="n">year</span> <span class="o">=</span> <span class="mi">2016</span>
+<span class="n">cust</span> <span class="o">=</span> <span class="n">sql</span><span class="o">.</span><span class="n">read_dataframe</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;select gvkey, cgvkey, stic, ctic, conm, cconm &quot;</span>
+                          <span class="sa">f</span><span class="s2">&quot;  from customer &quot;</span>
+                          <span class="sa">f</span><span class="s2">&quot;    where srcdate &gt;= </span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">0101 &quot;</span>
+                          <span class="sa">f</span><span class="s2">&quot;      and srcdate &lt;= </span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">1231&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To lookup company full name from ticker</span>
+<span class="n">lookup</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">Series</span><span class="p">(</span><span class="n">cust</span><span class="p">[</span><span class="s1">&#39;conm&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">cust</span><span class="p">[</span><span class="s1">&#39;stic&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">),</span>
+                    <span class="n">Series</span><span class="p">(</span><span class="n">cust</span><span class="p">[</span><span class="s1">&#39;cconm&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">cust</span><span class="p">[</span><span class="s1">&#39;ctic&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)])</span>\
+           <span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Construct Directed Graph</span>
+<span class="n">vertices</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">cust</span><span class="p">[</span><span class="s1">&#39;stic&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">cust</span><span class="p">[</span><span class="s1">&#39;ctic&#39;</span><span class="p">])</span>
+<span class="n">edges</span> <span class="o">=</span> <span class="n">cust</span><span class="p">[[</span><span class="s1">&#39;stic&#39;</span><span class="p">,</span> <span class="s1">&#39;ctic&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>  <span class="c1"># supplier --&gt; customer</span>
+
+<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">vertices</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">(</span><span class="n">edges</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple">
+<li><p>Show graph properties</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">graph_info</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;triad_003&#39;: 1014214260,
+ &#39;triad_012&#39;: 5493913,
+ &#39;triad_102&#39;: 1826,
+ &#39;triad_021D&#39;: 7858,
+ &#39;triad_021U&#39;: 21706,
+ &#39;triad_021C&#39;: 1036,
+ &#39;triad_111D&#39;: 0,
+ &#39;triad_111U&#39;: 2,
+ &#39;triad_030T&#39;: 59,
+ &#39;triad_030C&#39;: 0,
+ &#39;triad_201&#39;: 0,
+ &#39;triad_120D&#39;: 0,
+ &#39;triad_120U&#39;: 0,
+ &#39;triad_120C&#39;: 0,
+ &#39;triad_210&#39;: 0,
+ &#39;triad_300&#39;: 0,
+ &#39;transitivity&#39;: 0.0037252178305341582,
+ &#39;average_clustering&#39;: 0.004935791976903955,
+ &#39;weakly_connected&#39;: False,
+ &#39;weakly_connected_components&#39;: 89,
+ &#39;size_largest_weak_component&#39;: 1628,
+ &#39;strongly_connected&#39;: False,
+ &#39;strongly_connected_components&#39;: 1829,
+ &#39;size_largest_strong_component&#39;: 2,
+ &#39;directed&#39;: True,
+ &#39;weighted&#39;: False,
+ &#39;edges&#39;: 3052,
+ &#39;nodes&#39;: 1830,
+ &#39;selfloops&#39;: 11,
+ &#39;density&#39;: 0.0009118422978903937}
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Display graph</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pos</span> <span class="o">=</span> <span class="n">graph_draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span>
+                 <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span>
+                 <span class="n">savefig</span><span class="o">=</span><span class="n">imgdir</span> <span class="o">/</span> <span class="s1">&#39;graph.jpg&#39;</span><span class="p">,</span>
+                 <span class="n">font_color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span>
+                 <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/47ea46e2fec76c9129223fe6eedf3aa3dd97f8bafea1590b23477a35074cdd1f.png" src="_images/47ea46e2fec76c9129223fe6eedf3aa3dd97f8bafea1590b23477a35074cdd1f.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3. Node properties</span>
+<span class="n">G</span><span class="o">.</span><span class="n">remove_edges_from</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">selfloop_edges</span><span class="p">(</span><span class="n">G</span><span class="p">))</span>  <span class="c1"># remove self-loops, if any</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="nodes-centrality">
+<h1>Nodes Centrality<a class="headerlink" href="#nodes-centrality" title="Permalink to this heading">#</a></h1>
+<ul class="simple">
+<li><p>show top nodes’ centrality properties</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">centrality</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">nodes_centrality</span><span class="p">(</span><span class="n">G</span><span class="p">))</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">centrality</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">centrality</span><span class="p">[[</span><span class="n">c</span><span class="p">]]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[:</span><span class="n">n</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">((</span><span class="n">lookup</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">),</span> <span class="n">df</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                             name  clustering
+ODC          OIL DRI CORP AMERICA         0.5
+FORM               FORMFACTOR INC         0.5
+FVE   FIVE STAR SENIOR LIVING INC         0.5
+MKC            MCCORMICK &amp; CO INC         0.5
+PTR             PETROCHINA CO LTD         0.5
+                         name  in_degree
+WMT               WALMART INC   0.062329
+MCK             MCKESSON CORP   0.022963
+RDS.A   ROYAL DUTCH SHELL PLC   0.022963
+CAH       CARDINAL HEALTH INC   0.022417
+ABC    AMERISOURCEBERGEN CORP   0.019683
+                            name  out_degree
+AKAM     AKAMAI TECHNOLOGIES INC    0.015856
+DHX                DHI GROUP INC    0.013669
+KRG      KITE REALTY GROUP TRUST    0.011482
+NPO         ENPRO INDUSTRIES INC    0.011482
+CBL   CBL &amp; ASSOCIATES PPTYS INC    0.010935
+                       name  eigenvector
+ZIOP  ZIOPHARM ONCOLOGY INC     0.500000
+XON           INTREXON CORP     0.500000
+FCSC  FIBROCELL SCIENCE INC     0.500000
+OGEN          ORAGENICS INC     0.500000
+AET               AETNA INC     0.000835
+                    name  pagerank
+WMT          WALMART INC  0.025525
+AET            AETNA INC  0.020512
+CVS      CVS HEALTH CORP  0.019657
+MCK        MCKESSON CORP  0.011308
+CAH  CARDINAL HEALTH INC  0.010130
+                             name       hub
+KRG       KITE REALTY GROUP TRUST  0.019795
+BRX1  BRIXMOR OPERATING PRTNRS LP  0.018452
+BRX    BRIXMOR PROPERTY GROUP INC  0.018452
+DDR                      DDR CORP  0.014801
+RPT   RAMCO-GERSHENSON PROPERTIES  0.014442
+                          name  authority
+WMT                WALMART INC   0.117030
+BBY            BEST BUY CO INC   0.035143
+DKS   DICKS SPORTING GOODS INC   0.033133
+BBBY     BED BATH &amp; BEYOND INC   0.031484
+PETM              PETSMART INC   0.029829
+                            name  betweenness
+ABC       AMERISOURCEBERGEN CORP     0.000101
+CAH          CARDINAL HEALTH INC     0.000068
+CVS              CVS HEALTH CORP     0.000047
+ESRX  EXPRESS SCRIPTS HOLDING CO     0.000038
+MCK                MCKESSON CORP     0.000037
+                       name  closeness
+WMT             WALMART INC   0.063601
+MCK           MCKESSON CORP   0.040170
+CAH     CARDINAL HEALTH INC   0.036602
+CVS         CVS HEALTH CORP   0.036326
+ABC  AMERISOURCEBERGEN CORP   0.035619
+</pre></div>
+</div>
+</div>
+</div>
+<section id="longest-path">
+<h2>Longest path<a class="headerlink" href="#longest-path" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="ego-graph">
+<h2>Ego graph<a class="headerlink" href="#ego-graph" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>induce ego-graph of max betweenness node and neighbors</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="s1">&#39;betweenness&#39;</span>
+<span class="n">center</span> <span class="o">=</span> <span class="n">centrality</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">centrality</span><span class="p">[</span><span class="n">c</span><span class="p">])]</span>
+<span class="n">all_neighbors</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">all_neighbors</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">center</span><span class="p">))</span>  <span class="c1"># predecessors and successors</span>
+<span class="n">neighbors</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">neighbors</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">center</span><span class="p">))</span>          <span class="c1"># successors only</span>
+<span class="n">ego</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">subgraph</span><span class="p">([</span><span class="n">center</span><span class="p">]</span> <span class="o">+</span> <span class="n">all_neighbors</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">graph_info</span><span class="p">(</span><span class="n">ego</span><span class="p">,</span> <span class="n">fast</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;weakly_connected&#39;: True,
+ &#39;weakly_connected_components&#39;: 1,
+ &#39;size_largest_weak_component&#39;: 39,
+ &#39;strongly_connected&#39;: False,
+ &#39;strongly_connected_components&#39;: 39,
+ &#39;size_largest_strong_component&#39;: 1,
+ &#39;directed&#39;: True,
+ &#39;weighted&#39;: False,
+ &#39;edges&#39;: 41,
+ &#39;nodes&#39;: 39,
+ &#39;selfloops&#39;: 0,
+ &#39;density&#39;: 0.02766531713900135}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">node_color</span> <span class="o">=</span> <span class="p">(</span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="n">all_neighbors</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
+              <span class="o">|</span> <span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="n">neighbors</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">)</span>
+              <span class="o">|</span> <span class="p">{</span><span class="n">center</span><span class="p">:</span> <span class="s1">&#39;cyan&#39;</span><span class="p">})</span>
+
+<span class="n">labels</span> <span class="o">=</span> <span class="p">({</span><span class="n">ticker</span><span class="p">:</span> <span class="n">ticker</span> <span class="k">for</span> <span class="n">ticker</span> <span class="ow">in</span> <span class="n">ego</span><span class="o">.</span><span class="n">nodes</span><span class="p">}</span>
+          <span class="o">|</span> <span class="p">{</span><span class="n">ticker</span><span class="p">:</span> <span class="n">lookup</span><span class="p">[</span><span class="n">ticker</span><span class="p">]</span> <span class="k">for</span> <span class="n">ticker</span> <span class="ow">in</span> <span class="p">[</span><span class="n">center</span><span class="p">]</span> <span class="o">+</span> <span class="n">neighbors</span><span class="p">})</span>
+
+<span class="n">graph_draw</span><span class="p">(</span><span class="n">ego</span><span class="p">,</span>
+           <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
+           <span class="n">savefig</span><span class="o">=</span><span class="n">imgdir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">center</span><span class="si">}</span><span class="s2">,png&quot;</span><span class="p">,</span>
+           <span class="n">node_size</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+           <span class="n">width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+           <span class="n">node_color</span><span class="o">=</span><span class="n">node_color</span><span class="p">,</span>
+           <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span>
+           <span class="n">style</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span>
+           <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Ego network for node with largest </span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">center</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;SHPG&#39;: array([-0.25082933, -0.35567791]),
+ &#39;WBA&#39;: array([-1.        , -0.03256569]),
+ &#39;BMY&#39;: array([ 0.00178938, -0.52295215]),
+ &#39;LLY&#39;: array([0.43506672, 0.24086706]),
+ &#39;ACUR&#39;: array([0.17293448, 0.57909669]),
+ &#39;MRK&#39;: array([0.60701898, 0.30035638]),
+ &#39;VVUS&#39;: array([ 0.49540816, -0.40330805]),
+ &#39;PTX&#39;: array([-0.04990963,  0.67154546]),
+ &#39;IPXL&#39;: array([ 0.3459714 , -0.50353382]),
+ &#39;ENDP&#39;: array([ 0.08266948, -0.37185982]),
+ &#39;PFE&#39;: array([-0.14875308, -0.00745675]),
+ &#39;TLGT&#39;: array([ 0.69966816, -0.02100429]),
+ &#39;AMGN&#39;: array([-0.40817628,  0.61391159]),
+ &#39;ABBV&#39;: array([ 0.26554787, -0.32381893]),
+ &#39;BIIB&#39;: array([-0.60259212,  0.40572203]),
+ &#39;AMPH&#39;: array([-0.06136585, -0.24890341]),
+ &#39;AGN&#39;: array([-0.66651497,  0.13778222]),
+ &#39;ESRX&#39;: array([0.76898448, 0.56049694]),
+ &#39;PDLI&#39;: array([-0.39867019, -0.12518804]),
+ &#39;RHHBY&#39;: array([ 0.17165874, -0.51965105]),
+ &#39;SPPI&#39;: array([ 0.54197759, -0.11407883]),
+ &#39;KERX&#39;: array([0.60375536, 0.4485514 ]),
+ &#39;ANIP&#39;: array([-0.2840836 ,  0.50338873]),
+ &#39;LCI&#39;: array([-0.49590841,  0.22394769]),
+ &#39;PCRX&#39;: array([-0.29596525, -0.54054871]),
+ &#39;ACET&#39;: array([-0.13594692, -0.55326711]),
+ &#39;SGEN&#39;: array([ 0.21083251, -0.02688948]),
+ &#39;MNK&#39;: array([-0.44720782, -0.41432912]),
+ &#39;AMAG&#39;: array([-0.53428029, -0.08141577]),
+ &#39;MYL&#39;: array([0.46438575, 0.02716273]),
+ &#39;ICCC&#39;: array([-0.22462841,  0.26772037]),
+ &#39;ABC&#39;: array([-0.05812201,  0.21695896]),
+ &#39;GILD&#39;: array([ 0.36950431, -0.19184001]),
+ &#39;INSY&#39;: array([ 0.61316937, -0.23343322]),
+ &#39;MACK&#39;: array([-0.4987529,  0.1428751]),
+ &#39;AKRX&#39;: array([-0.70008699, -0.06749587]),
+ &#39;VRX&#39;: array([-0.6135401 , -0.23826206]),
+ &#39;VLRX&#39;: array([0.68409957, 0.1428459 ]),
+ &#39;ALKS&#39;: array([0.34089183, 0.41425084])}
+</pre></div>
+</div>
+<img alt="_images/782755c9800d995a5a6f820e592188ab48cb5e400b3d1c2ca5db09081a91f853.png" src="_images/782755c9800d995a5a6f820e592188ab48cb5e400b3d1c2ca5db09081a91f853.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="event_risk.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Event risk</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="bea_centrality.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Graph Centrality</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Principal Customers Network</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#nodes-centrality">Nodes Centrality</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#longest-path">Longest path</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ego-graph">Ego graph</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Terence Lim
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
