@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -19,46 +19,45 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'approximate_factors';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -73,7 +72,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -108,11 +115,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -127,6 +137,7 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="README.html">
@@ -135,60 +146,70 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     <p class="title logo__title">Financial Data Science Python Notebooks</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="README.html">
-                    Financial Data Science Notebooks
+                    FINANCIAL DATA SCIENCE
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="stock_prices.html">Stock prices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stock_prices.html">Stock Prices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jegadeesh_titman.html">Jegadeesh-Titman Rolling Portfolios</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fama_french.html">Fama-French Portfolio Sorts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fama_macbeth.html">Fama-Macbeth Cross-sectional Regressions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="weekly_reversal.html">Weekly reversal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weekly_reversal.html">Contrarian Trading</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quant_factors.html">Quant Factors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="event_study.html">Event Study</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="economic_releases.html">Economic Data Revisions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="regression_diagnostics.html">Linear Regression Diagonostics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="econometric_forecast.html">Econometric Forecasts</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Approximate Factor Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="economic_states.html">State Space Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="conditional_volatility.html">Conditional Volatility</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="term_structure.html">Term Structure of Interest Rates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bond_returns.html">Bond Returns and Risks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional_volatility.html">Conditional Volatility and VaR</a></li>
 <li class="toctree-l1"><a class="reference internal" href="covariance_matrix.html">Covariance Matrix</a></li>
-<li class="toctree-l1"><a class="reference internal" href="term_structure.html">Term Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bond_returns.html">Bond Returns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="options_pricing.html">Options Pricing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="market_microstructure.html">Market Microstructure</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="event_risk.html">Event risk</a></li>
-<li class="toctree-l1"><a class="reference internal" href="customer_ego.html">Principal Customers Network</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="bea_centrality.html">Graph Centrality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event_risk.html">Event Risk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="customer_ego.html">Principal Customers Graph</a></li>
 <li class="toctree-l1"><a class="reference internal" href="industry_community.html">Community Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bea_centrality.html">Graph Centrality</a></li>
 <li class="toctree-l1"><a class="reference internal" href="link_prediction.html">Link Prediction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="spatial_regression.html">Spatial Regression</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fomc_topics.html">Topic Modelling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="management_sentiment.html">Sentiment Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="business_description.html">10-K Business Description</a></li>
-
-
-<li class="toctree-l1"><a class="reference internal" href="classification_models.html">Classification for supervised learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="regression_models.html">Regression for supervised learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="deep_classifier.html">Deep Averaging Networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="convolutional_net.html">Temporal Convolution Net</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fomc_topics.html">FOMC Topic Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management_sentiment.html">Management Sentiment Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="business_description.html">Business Text Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classification_models.html">Classification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regression_models.html">Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deep_classifier.html">Deep Learning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="recurrent_net.html">Recurrent Neural Networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fomc_language.html">Language Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="convolutional_net.html">Convolutional Neural Networks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reinforcement_learning.html">Reinforcement Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fomc_language.html">FedSpeak Language Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sentiment_llm.html">LLM Prompting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="summarization_llm.html">LLM Text Summarization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="finetune_llm.html">LLM Finetuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rag_agent.html">LLM RAG, Chatbots and Agents</a></li>
 </ul>
 
     </div>
@@ -342,20 +363,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -382,8 +405,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fred-md">FRED-MD</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#approximate-factor-model">Approximate factor model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-order">Integration order</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#augmented-dickey-fuller-test">Augmented Dickey-Fuller test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformations">Transformations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#approximate-factor-model">Approximate factor model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bic-criterion">BIC criterion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-imputation">Data imputation</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -393,14 +424,20 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="approximate-factor-models">
 <h1>Approximate Factor Models<a class="headerlink" href="#approximate-factor-models" title="Permalink to this heading">#</a></h1>
-<p><em>UNDER CONSTRUCTION</em></p>
+<p><em>It is better to be vaguely right than precisely wrong</em> - Carveth Read</p>
 <ul class="simple">
-<li><p>PCA, EM</p></li>
-<li><p>Approximate factors and selection: Bai and Ng (2002), McCracken and Ng (2016)</p></li>
+<li><p>Integration Order</p></li>
+<li><p>Approximate factor model</p></li>
+</ul>
+<p>References:</p>
+<ul class="simple">
+<li><p>Bai, Jushan and Ng, Serena, 2002, Determining the Number of Factors in Approximate Factor Models, Econometrica 70:1, 191-2211</p></li>
+<li><p>McCracken, Michael W., and Serena Ng, 2016. FRED-MD: A monthly database for macroeconomic research, Journal of Business &amp; Economic Statistics, 34(4), 574-589.</p></li>
+<li><p>Michael W. McCracken, Serena Ng, 2020, FRED-QD: A Quarterly Database for Macroeconomic Research.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -408,699 +445,24 @@ document.write(`
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">Series</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">finds.readers.alfred</span> <span class="kn">import</span> <span class="n">Alfred</span><span class="p">,</span> <span class="n">fred_md</span><span class="p">,</span> <span class="n">fred_qd</span>
-<span class="kn">from</span> <span class="nn">finds.econs</span> <span class="kn">import</span> <span class="n">factors_em</span><span class="p">,</span> <span class="n">mrsq</span><span class="p">,</span> <span class="n">select_bai_ng</span><span class="p">,</span> <span class="n">integration_order</span>
-<span class="kn">from</span> <span class="nn">finds.filters</span> <span class="kn">import</span> <span class="n">remove_outliers</span><span class="p">,</span> <span class="n">is_outlier</span>
-<span class="kn">from</span> <span class="nn">finds.unstructured.store</span> <span class="kn">import</span> <span class="n">Store</span>
-<span class="kn">from</span> <span class="nn">finds.misc.show</span> <span class="kn">import</span> <span class="n">Show</span>
-<span class="kn">from</span> <span class="nn">secret</span> <span class="kn">import</span> <span class="n">credentials</span><span class="p">,</span> <span class="n">paths</span>
-<span class="n">show</span> <span class="o">=</span> <span class="n">Show</span><span class="p">(</span><span class="n">ndigits</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">latex</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<span class="n">VERBOSE</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="c1"># %matplotlib qt</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">imgdir</span> <span class="o">=</span> <span class="n">paths</span><span class="p">[</span><span class="s1">&#39;images&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="s1">&#39;ts&#39;</span>
-<span class="n">alf</span> <span class="o">=</span> <span class="n">Alfred</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;fred&#39;</span><span class="p">][</span><span class="s1">&#39;api_key&#39;</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">store</span> <span class="o">=</span> <span class="n">Store</span><span class="p">(</span><span class="n">paths</span><span class="p">[</span><span class="s1">&#39;scratch&#39;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
-<section id="fred-md">
-<h2>FRED-MD<a class="headerlink" href="#fred-md" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Transformation Codes</p></li>
-<li><p>Stationarity, Integration Order</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Transformation Codes, and Stationarity</span>
-<span class="n">qd_df</span><span class="p">,</span> <span class="n">qd_codes</span> <span class="o">=</span> <span class="n">fred_qd</span><span class="p">()</span> <span class="c1"># 202004</span>
-<span class="n">md_df</span><span class="p">,</span> <span class="n">md_codes</span> <span class="o">=</span> <span class="n">fred_md</span><span class="p">()</span> <span class="c1"># 201505</span>
-<span class="n">qd_date</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">qd_df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
-<span class="n">md_date</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">md_df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of series by suggested tcode transformations (</span><span class="si">{</span><span class="n">md_date</span><span class="si">}</span><span class="s2">):&quot;</span><span class="p">)</span>
-<span class="n">tcodes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">Series</span><span class="p">(</span><span class="n">alf</span><span class="o">.</span><span class="n">tcode</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
-                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">)],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">tcodes</span> <span class="o">=</span> <span class="n">tcodes</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">qd_codes</span><span class="p">[</span><span class="s1">&#39;transform&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;fred-qd&#39;</span><span class="p">))</span>\
-               <span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">md_codes</span><span class="p">[</span><span class="s1">&#39;transform&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;fred-md&#39;</span><span class="p">))</span>\
-               <span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>\
-               <span class="o">.</span><span class="n">astype</span><span class="p">({</span><span class="s1">&#39;fred-qd&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;fred-md&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">})</span>\
-               <span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;tcode&#39;</span><span class="p">)</span>
-<span class="n">show</span><span class="p">(</span><span class="n">tcodes</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>quarterly/current.csv
-monthly/current.csv
-Number of series by suggested tcode transformations (20230630):
-</pre></div>
-</div>
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>diff</th>
-      <th>log</th>
-      <th>pct_change</th>
-      <th>fred-qd</th>
-      <th>fred-md</th>
-    </tr>
-    <tr>
-      <th>tcode</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>1</th>
-      <td>0</td>
-      <td>0</td>
-      <td>False</td>
-      <td>22</td>
-      <td>11</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>1</td>
-      <td>0</td>
-      <td>False</td>
-      <td>32</td>
-      <td>19</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>2</td>
-      <td>0</td>
-      <td>False</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>0</td>
-      <td>1</td>
-      <td>False</td>
-      <td>0</td>
-      <td>10</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>1</td>
-      <td>1</td>
-      <td>False</td>
-      <td>141</td>
-      <td>53</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>2</td>
-      <td>1</td>
-      <td>False</td>
-      <td>50</td>
-      <td>33</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>1</td>
-      <td>0</td>
-      <td>True</td>
-      <td>1</td>
-      <td>1</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Verify integration order</span>
-<span class="n">out</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">transforms</span> <span class="ow">in</span> <span class="p">[[</span><span class="s1">&#39;md&#39;</span><span class="p">,</span> <span class="n">md_df</span><span class="p">,</span> <span class="n">md_codes</span><span class="p">[</span><span class="s1">&#39;transform&#39;</span><span class="p">]],</span>
-                              <span class="p">[</span><span class="s1">&#39;qd&#39;</span><span class="p">,</span> <span class="n">qd_df</span><span class="p">,</span> <span class="n">qd_codes</span><span class="p">[</span><span class="s1">&#39;transform&#39;</span><span class="p">]]]:</span>
-    <span class="n">stationary</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
-    <span class="k">for</span> <span class="n">series_id</span><span class="p">,</span> <span class="n">tcode</span> <span class="ow">in</span> <span class="n">transforms</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-        <span class="k">if</span> <span class="n">tcode</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">):</span>
-            <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">series_id</span><span class="p">])</span> <span class="k">if</span> <span class="n">tcode</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span> <span class="k">else</span> <span class="n">df</span><span class="p">[</span><span class="n">series_id</span><span class="p">]</span>
-            <span class="n">order</span> <span class="o">=</span> <span class="n">integration_order</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">dropna</span><span class="p">(),</span> <span class="n">pvalue</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
-            <span class="n">expected_order</span> <span class="o">=</span> <span class="mi">2</span> <span class="k">if</span> <span class="n">tcode</span> <span class="o">==</span> <span class="mi">7</span> <span class="k">else</span> <span class="p">((</span><span class="n">tcode</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">3</span><span class="p">)</span>
-            <span class="n">stationary</span><span class="p">[</span><span class="n">series_id</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;tcode&#39;</span><span class="p">:</span> <span class="n">tcode</span><span class="p">,</span>
-                                     <span class="s1">&#39;I(p)&#39;</span><span class="p">:</span> <span class="n">order</span><span class="p">,</span>
-                                     <span class="s1">&#39;different&#39;</span><span class="p">:</span> <span class="n">order</span> <span class="o">-</span> <span class="n">expected_order</span><span class="p">,</span>
-                                     <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="n">alf</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="n">series_id</span><span class="p">)}</span>
-<span class="c1">#            print(series_id, tcode, expected_order, order)</span>
-    <span class="n">stationary</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">stationary</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>
-    <span class="n">stationary</span> <span class="o">=</span> <span class="n">stationary</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">stationary</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">())</span>
-    <span class="n">c</span> <span class="o">=</span> <span class="n">stationary</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;tcode&#39;</span><span class="p">,</span><span class="s1">&#39;I(p)&#39;</span><span class="p">])[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-    <span class="n">out</span><span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;tcode&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;I(p)&#39;</span><span class="p">,</span>
-                         <span class="n">values</span><span class="o">=</span><span class="s1">&#39;title&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-    <span class="n">out</span><span class="p">[</span><span class="n">label</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;I(</span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="s2">)&quot;</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">out</span><span class="p">[</span><span class="n">label</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Series by tcode, transformations and estimated order of integration:&#39;</span><span class="p">)</span>
-<span class="n">results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">tcodes</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;fred-md&#39;</span><span class="p">),</span>
-                     <span class="n">out</span><span class="p">[</span><span class="s1">&#39;qd&#39;</span><span class="p">],</span>
-                     <span class="n">tcodes</span><span class="p">[</span><span class="s1">&#39;fred-md&#39;</span><span class="p">],</span>
-                     <span class="n">out</span><span class="p">[</span><span class="s1">&#39;md&#39;</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-<span class="n">show</span><span class="p">(</span><span class="n">results</span><span class="p">,</span>
-     <span class="n">caption</span><span class="o">=</span><span class="s1">&#39;FRED-MD order of integration, transformations and frequency&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Series by tcode, transformations and estimated order of integration:
-</pre></div>
-</div>
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>diff</th>
-      <th>log</th>
-      <th>pct_change</th>
-      <th>fred-qd</th>
-      <th>I(0)</th>
-      <th>I(1)</th>
-      <th>I(2)</th>
-      <th>fred-md</th>
-      <th>I(0)</th>
-      <th>I(1)</th>
-      <th>I(2)</th>
-    </tr>
-    <tr>
-      <th>FRED-MD order of integration, transformations and frequency</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>1</th>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>22</td>
-      <td>18</td>
-      <td>4</td>
-      <td>0</td>
-      <td>11</td>
-      <td>11</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>32</td>
-      <td>10</td>
-      <td>20</td>
-      <td>2</td>
-      <td>19</td>
-      <td>3</td>
-      <td>16</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>2</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>10</td>
-      <td>6</td>
-      <td>4</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-      <td>141</td>
-      <td>30</td>
-      <td>106</td>
-      <td>5</td>
-      <td>53</td>
-      <td>14</td>
-      <td>39</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>2</td>
-      <td>1</td>
-      <td>0</td>
-      <td>50</td>
-      <td>0</td>
-      <td>28</td>
-      <td>22</td>
-      <td>33</td>
-      <td>0</td>
-      <td>29</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show</span><span class="p">(</span><span class="n">stationary</span><span class="p">[</span><span class="n">stationary</span><span class="p">[</span><span class="s1">&#39;different&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">],</span>
-     <span class="n">max_colwidth</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span>
-     <span class="n">caption</span><span class="o">=</span><span class="s1">&#39;FRED-MD series with unit root after transformations&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>tcode</th>
-      <th>I(p)</th>
-      <th>different</th>
-      <th>title</th>
-    </tr>
-    <tr>
-      <th>FRED-MD series with unit root after transformations</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>NWPI</th>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>*** NWPI ***</td>
-    </tr>
-    <tr>
-      <th>TLBSNNBBDI</th>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>*** TLBSNNBBDI ***</td>
-    </tr>
-    <tr>
-      <th>TLBSNNCBBDI</th>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>*** TLBSNNCBBDI ***</td>
-    </tr>
-    <tr>
-      <th>HWI</th>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>Help Wanted Index for United States</td>
-    </tr>
-    <tr>
-      <th>GFDEBTN</th>
-      <td>2</td>
-      <td>2</td>
-      <td>1</td>
-      <td>Federal Debt: Total Public Debt</td>
-    </tr>
-    <tr>
-      <th>S&amp;P div yield</th>
-      <td>2</td>
-      <td>2</td>
-      <td>1</td>
-      <td>S&amp;P's Composite Common Stock: Dividend Yield</td>
-    </tr>
-    <tr>
-      <th>CES2000000008</th>
-      <td>5</td>
-      <td>2</td>
-      <td>1</td>
-      <td>Average Hourly Earnings of Production and Nons...</td>
-    </tr>
-    <tr>
-      <th>TLBSHNO</th>
-      <td>5</td>
-      <td>2</td>
-      <td>1</td>
-      <td>Households and Nonprofit Organizations; Total ...</td>
-    </tr>
-    <tr>
-      <th>OPHMFG</th>
-      <td>5</td>
-      <td>2</td>
-      <td>1</td>
-      <td>Manufacturing Sector: Labor Productivity (Outp...</td>
-    </tr>
-    <tr>
-      <th>SPCS20RSA</th>
-      <td>5</td>
-      <td>2</td>
-      <td>1</td>
-      <td>S&amp;P/Case-Shiller 20-City Composite Home Price ...</td>
-    </tr>
-    <tr>
-      <th>SLCE</th>
-      <td>5</td>
-      <td>2</td>
-      <td>1</td>
-      <td>State and Local Consumption Expenditures &amp; Gro...</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-</section>
-<section id="approximate-factor-model">
-<h2>Approximate factor model<a class="headerlink" href="#approximate-factor-model" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Bai and Ng, McCracken and Ng</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verify BaiNg implemention on published FRED-MD and FRED-QD reports</span>
-<span class="n">qd_df</span><span class="p">,</span> <span class="n">qd_codes</span> <span class="o">=</span> <span class="n">fred_qd</span><span class="p">(</span><span class="mi">202004</span><span class="p">)</span>
-<span class="n">md_df</span><span class="p">,</span> <span class="n">md_codes</span> <span class="o">=</span> <span class="n">fred_md</span><span class="p">(</span><span class="mi">201505</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">freq</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">transforms</span> <span class="ow">in</span> <span class="p">[[</span><span class="s1">&#39;monthly&#39;</span><span class="p">,</span> <span class="n">md_df</span><span class="p">,</span> <span class="n">md_codes</span><span class="p">[</span><span class="s1">&#39;transform&#39;</span><span class="p">]],</span>
-                             <span class="p">[</span><span class="s1">&#39;quarterly&#39;</span><span class="p">,</span> <span class="n">qd_df</span><span class="p">,</span> <span class="n">qd_codes</span><span class="p">[</span><span class="s1">&#39;transform&#39;</span><span class="p">]]]:</span>    
-    <span class="c1"># Apply tcode transformations</span>
-    <span class="n">transformed</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-        <span class="n">transformed</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">alf</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">],</span>
-                                         <span class="n">tcode</span><span class="o">=</span><span class="n">transforms</span><span class="p">[</span><span class="n">col</span><span class="p">],</span>
-                                         <span class="n">freq</span><span class="o">=</span><span class="n">freq</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">transformed</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
-    <span class="n">cols</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
-    <span class="n">sample</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">[((</span><span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span>
-                         <span class="o">|</span> <span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span> <span class="o">&lt;=</span> <span class="mi">20141231</span><span class="p">))</span>
-                        <span class="o">&amp;</span> <span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="mi">19600301</span><span class="p">)]</span>
-
-    <span class="c1"># set missing and outliers in X to NaN</span>
-    <span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sample</span><span class="p">]</span>
-    <span class="n">X</span> <span class="o">=</span> <span class="n">remove_outliers</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-
-    <span class="c1"># compute factors EM and auto select number of components, r</span>
-    <span class="n">Z</span> <span class="o">=</span> <span class="n">factors_em</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
-    <span class="n">r</span> <span class="o">=</span> <span class="n">select_bai_ng</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-    
-    <span class="c1"># show marginal R2&#39;s of series to each component</span>
-    <span class="n">mR2</span> <span class="o">=</span> <span class="n">mrsq</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
-    <span class="n">show</span><span class="p">(</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;selected&#39;</span><span class="p">:</span> <span class="n">r</span><span class="p">,</span>
-                    <span class="s1">&#39;variance explained&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">mR2</span><span class="p">[:,</span> <span class="p">:</span><span class="n">r</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)),</span>
-                    <span class="s1">&#39;start&#39;</span><span class="p">:</span> <span class="nb">min</span><span class="p">(</span><span class="n">sample</span><span class="p">),</span>
-                    <span class="s1">&#39;end&#39;</span><span class="p">:</span> <span class="nb">max</span><span class="p">(</span><span class="n">sample</span><span class="p">),</span>
-                    <span class="s1">&#39;obs&#39;</span><span class="p">:</span> <span class="n">Z</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-                    <span class="s1">&#39;series&#39;</span><span class="p">:</span> <span class="n">Z</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]},</span>
-                   <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;factors&#39;</span><span class="p">]),</span>
-         <span class="n">caption</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;FRED-</span><span class="si">{</span><span class="n">freq</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2">D </span><span class="si">{</span><span class="n">freq</span><span class="si">}</span><span class="s2"> series:&quot;</span><span class="p">)</span>
-
-    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
-        <span class="n">args</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="o">-</span><span class="n">mR2</span><span class="p">[:,</span> <span class="n">k</span><span class="p">])</span>
-        <span class="n">show</span><span class="p">(</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">({</span><span class="n">mR2</span><span class="p">[</span><span class="n">arg</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
-                                  <span class="p">{</span><span class="s1">&#39;series&#39;</span><span class="p">:</span> <span class="n">cols</span><span class="p">[</span><span class="n">arg</span><span class="p">],</span>
-                                   <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="n">alf</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="n">cols</span><span class="p">[</span><span class="n">arg</span><span class="p">])}</span>
-                                  <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span><span class="p">[:</span><span class="mi">10</span><span class="p">]},</span>
-                                 <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">),</span>
-             <span class="n">caption</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Factor:</span><span class="si">{</span><span class="mi">1</span><span class="o">+</span><span class="n">k</span><span class="si">}</span><span class="s2"> Variance Explained=</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">mR2</span><span class="p">[:,</span><span class="n">k</span><span class="p">])</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>quarterly/2020-04.csv
-monthly/2015-05.csv
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Sanity check Extract factors: SVD == PCA</span>
-<span class="c1"># pipe.fit through 20141231, pipe.transform through 20201231</span>
-
-<span class="n">df</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="n">fred_md</span><span class="p">()</span>  <span class="c1">#202104 # 201505</span>
-<span class="n">transforms</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="s1">&#39;transform&#39;</span><span class="p">]</span>
-<span class="n">sample_date</span> <span class="o">=</span> <span class="mi">20141231</span>
-<span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">alf</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">],</span> <span class="n">tcode</span><span class="o">=</span><span class="n">transforms</span><span class="p">[</span><span class="n">col</span><span class="p">],</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;m&#39;</span><span class="p">))</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
-<span class="n">cols</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
-<span class="n">sample</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">[((</span><span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="o">|</span>
-                     <span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span> <span class="o">&lt;=</span> <span class="n">sample_date</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="mi">19600301</span><span class="p">)]</span>
-<span class="n">train_sample</span> <span class="o">=</span> <span class="n">sample</span><span class="p">[</span><span class="n">sample</span> <span class="o">&lt;=</span> <span class="n">sample_date</span><span class="p">]</span>
-<span class="n">test_sample</span> <span class="o">=</span> <span class="n">sample</span><span class="p">[</span><span class="n">sample</span> <span class="o">&lt;=</span> <span class="mi">20191231</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>monthly/current.csv
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># replace missing and outliers with PCA EM and fixed number of components r=8</span>
-<span class="n">r</span> <span class="o">=</span> <span class="mi">8</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">train_sample</span><span class="p">]</span> <span class="c1"># X = np.array(data.loc[train_sample])</span>
-<span class="n">X</span><span class="p">[</span><span class="n">is_outlier</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;iq10&#39;</span><span class="p">)]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">factors_em</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">kmax</span><span class="o">=</span><span class="n">r</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extract factors with SVD</span>
-<span class="n">y</span> <span class="o">=</span> <span class="p">((</span><span class="n">x</span><span class="o">-</span><span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="o">/</span><span class="n">x</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">ddof</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
-<span class="n">u</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">vT</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">full_matrices</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="c1">#factors = DataFrame(u[:, :r], columns=np.arange(1, 1+r),</span>
-<span class="c1">#                    index=pd.DatetimeIndex(train_sample.astype(str), freq=&#39;M&#39;))</span>
-<span class="n">Series</span><span class="p">(</span><span class="n">s</span><span class="p">[:</span><span class="n">r</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">s</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">r</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;R2&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>1</th>
-      <th>2</th>
-      <th>3</th>
-      <th>4</th>
-      <th>5</th>
-      <th>6</th>
-      <th>7</th>
-      <th>8</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>R2</th>
-      <td>0.151032</td>
-      <td>0.071875</td>
-      <td>0.068792</td>
-      <td>0.056614</td>
-      <td>0.043291</td>
-      <td>0.033761</td>
-      <td>0.031713</td>
-      <td>0.027361</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Equivalent to sklearn PCA</span>
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
-<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
 <span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
-<span class="n">pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;pca&#39;</span><span class="p">,</span> <span class="n">PCA</span><span class="p">(</span><span class="n">r</span><span class="p">))])</span>
-<span class="n">pipe</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>              <span class="c1"># fit model on training data</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sample</span><span class="p">]</span>     <span class="c1"># to transform on full sample data</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">factors_em</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">kmax</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># replace missing (not outlier)</span>
-<span class="n">factors</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">pipe</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)),</span>
-                    <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">(</span><span class="n">sample</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">),</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;infer&#39;</span><span class="p">),</span>
-                    <span class="n">columns</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="n">r</span><span class="p">))</span>
-
-<span class="c1"># store approximate factors in local folder</span>
-<span class="n">store</span><span class="p">[</span><span class="s1">&#39;approximate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">factors</span><span class="o">=</span><span class="n">factors</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/terence/env3.11/lib/python3.11/site-packages/sklearn/base.py:432: UserWarning: X has feature names, but StandardScaler was fitted without feature names
-  warnings.warn(
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span> <span class="nn">finds.readers</span> <span class="kn">import</span> <span class="n">Alfred</span><span class="p">,</span> <span class="n">fred_md</span><span class="p">,</span> <span class="n">fred_qd</span>
+<span class="kn">from</span> <span class="nn">finds.recipes</span> <span class="kn">import</span> <span class="p">(</span><span class="n">approximate_factors</span><span class="p">,</span> <span class="n">mrsq</span><span class="p">,</span> <span class="n">select_baing</span><span class="p">,</span> <span class="n">integration_order</span><span class="p">,</span>
+                           <span class="n">remove_outliers</span><span class="p">,</span> <span class="n">is_outlier</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">secret</span> <span class="kn">import</span> <span class="n">credentials</span>
+<span class="n">VERBOSE</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="c1">#%matplotlib qt</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Series</span><span class="p">(</span><span class="n">pipe</span><span class="o">.</span><span class="n">named_steps</span><span class="p">[</span><span class="s1">&#39;pca&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">,</span>
-       <span class="n">index</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">r</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;R2&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>   <span class="c1"># sanity check</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alf</span> <span class="o">=</span> <span class="n">Alfred</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;fred&#39;</span><span class="p">][</span><span class="s1">&#39;api_key&#39;</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>1</th>
-      <th>2</th>
-      <th>3</th>
-      <th>4</th>
-      <th>5</th>
-      <th>6</th>
-      <th>7</th>
-      <th>8</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>R2</th>
-      <td>0.151032</td>
-      <td>0.071875</td>
-      <td>0.068792</td>
-      <td>0.056614</td>
-      <td>0.043291</td>
-      <td>0.033761</td>
-      <td>0.031713</td>
-      <td>0.027361</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1313,32 +675,853 @@ monthly/2015-05.csv
 </table>
 </div></div></div>
 </div>
+<section id="integration-order">
+<h2>Integration order<a class="headerlink" href="#integration-order" title="Permalink to this heading">#</a></h2>
+<section id="augmented-dickey-fuller-test">
+<h3>Augmented Dickey-Fuller test<a class="headerlink" href="#augmented-dickey-fuller-test" title="Permalink to this heading">#</a></h3>
+<p>The Augmented Dickey-Fuller (ADF) specification is the most widely used unit root test. An ADF test is implemented using an OLS regression where the difference of a series is regressed on its lagged level, relevant deterministic terms, and lagged differ-ences. The general form of an ADF regression is</p>
+<div class="math notranslate nohighlight">
+\[\Delta Y_t = \gamma Y_{t-1} + (\delta_o + \delta_1 t) +  \lambda_1 \Delta Y_{t-1} +  ... + \lambda_p \Delta Y_{t-p}\]</div>
+<p>The balue of <span class="math notranslate nohighlight">\(\gamma\)</span> is 0 when <span class="math notranslate nohighlight">\(Y_t\)</span> is a random walk, and so is non-stationary.  The alternative is <span class="math notranslate nohighlight">\(\gamma &lt; 0\)</span> which corresponds to the case that <span class="math notranslate nohighlight">\(Y_t\)</span> is covariance-stationary.  Note that the alternative is one-sided, since positive values of <span class="math notranslate nohighlight">\(\gamma\)</span> correspond to an AR coefficient that is larger than 1.</p>
+<p>When the null of a unit root cannot be rejected, the series should be differenced. The best practice is to repeat the ADF test on the iteratively-differenced data to ensure that it is stationary.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Plot extracted factors</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">num</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">factors</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">col</span><span class="p">)</span>
-    <span class="n">flip</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">factors</span><span class="p">[</span><span class="n">col</span><span class="p">])</span> <span class="o">+</span> <span class="nb">min</span><span class="p">(</span><span class="n">factors</span><span class="p">[</span><span class="n">col</span><span class="p">]))</span> <span class="c1"># try match sign</span>
-    <span class="p">(</span><span class="n">flip</span><span class="o">*</span><span class="n">factors</span><span class="p">[</span><span class="n">col</span><span class="p">])</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;C</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="ow">in</span> <span class="n">vspans</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">b</span> <span class="o">&gt;=</span> <span class="nb">min</span><span class="p">(</span><span class="n">factors</span><span class="o">.</span><span class="n">index</span><span class="p">):</span>
-            <span class="n">ax</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">factors</span><span class="o">.</span><span class="n">index</span><span class="p">)),</span> <span class="nb">min</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">factors</span><span class="o">.</span><span class="n">index</span><span class="p">)),</span>
-                       <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot;Factor </span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2"> Estimate&quot;</span><span class="p">,</span> <span class="s1">&#39;NBER Recession&#39;</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">&quot;top&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">&quot;right&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">rect</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Factor Estimates </span><span class="si">{</span><span class="n">factors</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">%b-%Y</span><span class="si">}</span><span class="s2">:&quot;</span>
-             <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">factors</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">%b-%Y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">imgdir</span> <span class="o">/</span> <span class="s1">&#39;approximate.jpg&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qd_df</span><span class="p">,</span> <span class="n">qd_codes</span> <span class="o">=</span> <span class="n">fred_qd</span><span class="p">()</span> <span class="c1"># 202004</span>
+<span class="n">md_df</span><span class="p">,</span> <span class="n">md_codes</span> <span class="o">=</span> <span class="n">fred_md</span><span class="p">()</span> <span class="c1"># 201505</span>
+<span class="n">qd_date</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">qd_df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">md_date</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">md_df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/74b43c1a0153cf6f4d8a798d32c2f8abd3d04b59ad799b5333a0b0517bff4539.png" src="_images/74b43c1a0153cf6f4d8a798d32c2f8abd3d04b59ad799b5333a0b0517bff4539.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FRED-QD vintage: quarterly/current.csv
+FRED-MD vintage: monthly/current.csv
+</pre></div>
 </div>
 </div>
+</div>
+</section>
+<section id="transformations">
+<h3>Transformations<a class="headerlink" href="#transformations" title="Permalink to this heading">#</a></h3>
+<p>FRED-MD and FRED-QD series are tagged by one of seven transformation codes, which suggest transformations, such as taking logs or differences, to apply to the underlying series.  The number of times differences are taken of a series should remove unit roots and transform the series to be covariance stationary.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of series by suggested tcode transformations (</span><span class="si">{</span><span class="n">md_date</span><span class="si">}</span><span class="s2">):&quot;</span><span class="p">)</span>
+<span class="n">tcodes</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">({</span><span class="n">i</span><span class="p">:</span> <span class="n">alf</span><span class="o">.</span><span class="n">tcode</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">)},</span>
+                             <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>\
+                  <span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">qd_codes</span><span class="p">[</span><span class="s1">&#39;transform&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;fred-qd&#39;</span><span class="p">))</span>\
+                  <span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">md_codes</span><span class="p">[</span><span class="s1">&#39;transform&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;fred-md&#39;</span><span class="p">))</span>\
+                  <span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>\
+                  <span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>\
+                  <span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;tcode&#39;</span><span class="p">)</span>
+<span class="n">tcodes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of series by suggested tcode transformations (20240331):
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>diff</th>
+      <th>log</th>
+      <th>pct_change</th>
+      <th>fred-qd</th>
+      <th>fred-md</th>
+    </tr>
+    <tr>
+      <th>tcode</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>22</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>32</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>140</td>
+      <td>52</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>50</td>
+      <td>33</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># For each series, compare fitted integration order with tcode</span>
+<span class="n">out</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">stationary_out</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">transforms</span> <span class="ow">in</span> <span class="p">[[</span><span class="s1">&#39;md&#39;</span><span class="p">,</span> <span class="n">md_df</span><span class="p">,</span> <span class="n">md_codes</span><span class="p">[</span><span class="s1">&#39;transform&#39;</span><span class="p">]],</span>
+                              <span class="p">[</span><span class="s1">&#39;qd&#39;</span><span class="p">,</span> <span class="n">qd_df</span><span class="p">,</span> <span class="n">qd_codes</span><span class="p">[</span><span class="s1">&#39;transform&#39;</span><span class="p">]]]:</span>
+    <span class="n">stationary</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">series_id</span><span class="p">,</span> <span class="n">tcode</span> <span class="ow">in</span> <span class="n">transforms</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="c1"># apply transformation if series tcode is valid</span>
+        <span class="k">if</span> <span class="n">tcode</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">):</span>
+            <span class="c1"># take logs of series if specified by tcode</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">series_id</span><span class="p">])</span> <span class="k">if</span> <span class="n">tcode</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span> <span class="k">else</span> <span class="n">df</span><span class="p">[</span><span class="n">series_id</span><span class="p">]</span>
+
+            <span class="c1"># estimate integration order</span>
+            <span class="n">order</span> <span class="o">=</span> <span class="n">integration_order</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">dropna</span><span class="p">(),</span> <span class="n">pvalue</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+
+            <span class="c1"># expected order specified by tcode</span>
+            <span class="n">expected_order</span> <span class="o">=</span> <span class="mi">2</span> <span class="k">if</span> <span class="n">tcode</span> <span class="o">==</span> <span class="mi">7</span> <span class="k">else</span> <span class="p">((</span><span class="n">tcode</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">3</span><span class="p">)</span>
+
+            <span class="c1"># accumulate results for this series</span>
+            <span class="n">stationary</span><span class="p">[</span><span class="n">series_id</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;tcode&#39;</span><span class="p">:</span> <span class="n">tcode</span><span class="p">,</span>
+                                     <span class="s1">&#39;I(p)&#39;</span><span class="p">:</span> <span class="n">order</span><span class="p">,</span>
+                                     <span class="s1">&#39;different&#39;</span><span class="p">:</span> <span class="n">order</span> <span class="o">-</span> <span class="n">expected_order</span><span class="p">,</span>
+                                     <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="n">alf</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="n">series_id</span><span class="p">)}</span>
+<span class="c1">#            print(series_id, tcode, expected_order, order)</span>
+
+    <span class="c1"># collect results for display</span>
+    <span class="n">stationary</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">stationary</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>
+    <span class="n">stationary</span> <span class="o">=</span> <span class="n">stationary</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">stationary</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">())</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">stationary</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;tcode&#39;</span><span class="p">,</span><span class="s1">&#39;I(p)&#39;</span><span class="p">])[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+    <span class="n">out</span><span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;tcode&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;I(p)&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;title&#39;</span><span class="p">)</span>\
+                  <span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">out</span><span class="p">[</span><span class="n">label</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;I(</span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="s2">)&quot;</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">out</span><span class="p">[</span><span class="n">label</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+    <span class="n">stationary_out</span><span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="o">=</span> <span class="n">stationary</span><span class="p">[</span><span class="n">stationary</span><span class="p">[</span><span class="s1">&#39;different&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Series by tcode, transformations and estimated order of integration:&#39;</span><span class="p">)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">tcodes</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;fred-md&#39;</span><span class="p">),</span>
+                     <span class="n">out</span><span class="p">[</span><span class="s1">&#39;qd&#39;</span><span class="p">],</span>
+                     <span class="n">tcodes</span><span class="p">[</span><span class="s1">&#39;fred-md&#39;</span><span class="p">],</span>
+                     <span class="n">out</span><span class="p">[</span><span class="s1">&#39;md&#39;</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Integration order by transformation&#39;</span><span class="p">)</span>
+<span class="n">results</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Series by tcode, transformations and estimated order of integration:
+Integration order by transformation
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>diff</th>
+      <th>log</th>
+      <th>pct_change</th>
+      <th>fred-qd</th>
+      <th>I(0)</th>
+      <th>I(1)</th>
+      <th>I(2)</th>
+      <th>fred-md</th>
+      <th>I(0)</th>
+      <th>I(1)</th>
+      <th>I(2)</th>
+    </tr>
+    <tr>
+      <th>tcode</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>22</td>
+      <td>18</td>
+      <td>4</td>
+      <td>0</td>
+      <td>11</td>
+      <td>11</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>32</td>
+      <td>11</td>
+      <td>19</td>
+      <td>2</td>
+      <td>19</td>
+      <td>4</td>
+      <td>15</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>10</td>
+      <td>6</td>
+      <td>4</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>140</td>
+      <td>30</td>
+      <td>106</td>
+      <td>4</td>
+      <td>52</td>
+      <td>14</td>
+      <td>38</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>50</td>
+      <td>0</td>
+      <td>30</td>
+      <td>20</td>
+      <td>33</td>
+      <td>0</td>
+      <td>30</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;FRED-MD Series with unit root after transformation&#39;</span><span class="p">)</span>
+<span class="n">stationary_out</span><span class="p">[</span><span class="s1">&#39;md&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FRED-MD Series with unit root after transformation
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tcode</th>
+      <th>I(p)</th>
+      <th>different</th>
+      <th>title</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>PERMITMW</th>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>New Privately-Owned Housing Units Authorized i...</td>
+    </tr>
+    <tr>
+      <th>PERMITNE</th>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>New Privately-Owned Housing Units Authorized i...</td>
+    </tr>
+    <tr>
+      <th>HOUSTMW</th>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>New Privately-Owned Housing Units Started: Tot...</td>
+    </tr>
+    <tr>
+      <th>HOUSTNE</th>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>New Privately-Owned Housing Units Started: Tot...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;FRED-QD Series with unit root after transformation&#39;</span><span class="p">)</span>
+<span class="n">stationary_out</span><span class="p">[</span><span class="s1">&#39;qd&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FRED-QD Series with unit root after transformation
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tcode</th>
+      <th>I(p)</th>
+      <th>different</th>
+      <th>title</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>NWPI</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>*** NWPI ***</td>
+    </tr>
+    <tr>
+      <th>TLBSNNBBDI</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>*** TLBSNNBBDI ***</td>
+    </tr>
+    <tr>
+      <th>TLBSNNCBBDI</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>*** TLBSNNCBBDI ***</td>
+    </tr>
+    <tr>
+      <th>HWI</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Help Wanted Index for United States</td>
+    </tr>
+    <tr>
+      <th>GFDEBTN</th>
+      <td>2</td>
+      <td>2</td>
+      <td>1</td>
+      <td>Federal Debt: Total Public Debt</td>
+    </tr>
+    <tr>
+      <th>S&amp;P div yield</th>
+      <td>2</td>
+      <td>2</td>
+      <td>1</td>
+      <td>S&amp;P's Composite Common Stock: Dividend Yield</td>
+    </tr>
+    <tr>
+      <th>CES2000000008</th>
+      <td>5</td>
+      <td>2</td>
+      <td>1</td>
+      <td>Average Hourly Earnings of Production and Nons...</td>
+    </tr>
+    <tr>
+      <th>TLBSHNO</th>
+      <td>5</td>
+      <td>2</td>
+      <td>1</td>
+      <td>Households and Nonprofit Organizations; Total ...</td>
+    </tr>
+    <tr>
+      <th>OPHMFG</th>
+      <td>5</td>
+      <td>2</td>
+      <td>1</td>
+      <td>Manufacturing Sector: Labor Productivity (Outp...</td>
+    </tr>
+    <tr>
+      <th>SPCS20RSA</th>
+      <td>5</td>
+      <td>2</td>
+      <td>1</td>
+      <td>S&amp;P CoreLogic Case-Shiller 20-City Composite H...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+<section id="approximate-factor-model">
+<h2>Approximate factor model<a class="headerlink" href="#approximate-factor-model" title="Permalink to this heading">#</a></h2>
+<p><strong>Principal component analysis</strong> finds a low-dimensional representation of a data set that contains as much as possible of the variation of its <span class="math notranslate nohighlight">\(p\)</span> features.
+Each of the dimensions found by PCA is a linear
+combination of the features. The first principal component of a set
+of features <span class="math notranslate nohighlight">\(X_1, X_2,..., X_p\)</span> is the normalized linear combination
+of the features <span class="math notranslate nohighlight">\(Z_1 = \phi_{11} X_1 + \phi_{21} X_2 + ... + \phi_{p1}                                
+X_p\)</span> that has the largest variance. We can then iteratively find the second principal
+component <span class="math notranslate nohighlight">\(Z_2\)</span> (the linear combination of features that has maximal
+variance out of all linear combinations that are uncorrelated with
+previously found components), third component <span class="math notranslate nohighlight">\(Z_3\)</span>, and so on.</p>
+<section id="bic-criterion">
+<h3>BIC criterion<a class="headerlink" href="#bic-criterion" title="Permalink to this heading">#</a></h3>
+<p>Select number of components</p>
+</section>
+<section id="data-imputation">
+<h3>Data imputation<a class="headerlink" href="#data-imputation" title="Permalink to this heading">#</a></h3>
+<p>EM algorithm</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verify BaiNg implemention on original FRED-MD and FRED-QD</span>
+<span class="n">qd_df</span><span class="p">,</span> <span class="n">qd_codes</span> <span class="o">=</span> <span class="n">fred_qd</span><span class="p">(</span><span class="mi">202004</span><span class="p">)</span>
+<span class="n">md_df</span><span class="p">,</span> <span class="n">md_codes</span> <span class="o">=</span> <span class="n">fred_md</span><span class="p">(</span><span class="mi">201505</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">freq</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">transforms</span> <span class="ow">in</span> <span class="p">[[</span><span class="s1">&#39;monthly&#39;</span><span class="p">,</span> <span class="n">md_df</span><span class="p">,</span> <span class="n">md_codes</span><span class="p">[</span><span class="s1">&#39;transform&#39;</span><span class="p">]],</span>
+                             <span class="p">[</span><span class="s1">&#39;quarterly&#39;</span><span class="p">,</span> <span class="n">qd_df</span><span class="p">,</span> <span class="n">qd_codes</span><span class="p">[</span><span class="s1">&#39;transform&#39;</span><span class="p">]]]:</span>    
+    <span class="c1"># Apply tcode transformations</span>
+    <span class="n">transformed</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="n">transformed</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">alf</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">],</span>
+                                         <span class="n">tcode</span><span class="o">=</span><span class="n">transforms</span><span class="p">[</span><span class="n">col</span><span class="p">],</span>
+                                         <span class="n">freq</span><span class="o">=</span><span class="n">freq</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">transformed</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+    <span class="n">cols</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+    <span class="n">sample</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">[((</span><span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span>
+                         <span class="o">|</span> <span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span> <span class="o">&lt;=</span> <span class="mi">20141231</span><span class="p">))</span>
+                        <span class="o">&amp;</span> <span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="mi">19600301</span><span class="p">)]</span>
+
+    <span class="c1"># set missing and outliers to NaN</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sample</span><span class="p">]</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">remove_outliers</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>    <span class="c1"># default fence &#39;iq10&#39; is 10 times IQ </span>
+
+    <span class="c1"># compute factors EM and auto select number of components, r</span>
+    <span class="n">Z</span> <span class="o">=</span> <span class="n">approximate_factors</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">select_baing</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="c1"># show marginal R2&#39;s of series to each component</span>
+    <span class="n">mR2</span> <span class="o">=</span> <span class="n">mrsq</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;FRED-</span><span class="si">{</span><span class="n">freq</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2">D </span><span class="si">{</span><span class="n">freq</span><span class="si">}</span><span class="s2"> series:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;selected&#39;</span><span class="p">:</span> <span class="n">r</span><span class="p">,</span>
+                     <span class="s1">&#39;variance explained&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">mR2</span><span class="p">[:,</span> <span class="p">:</span><span class="n">r</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)),</span>
+                     <span class="s1">&#39;start&#39;</span><span class="p">:</span> <span class="nb">min</span><span class="p">(</span><span class="n">sample</span><span class="p">),</span>
+                     <span class="s1">&#39;end&#39;</span><span class="p">:</span> <span class="nb">max</span><span class="p">(</span><span class="n">sample</span><span class="p">),</span>
+                     <span class="s1">&#39;obs&#39;</span><span class="p">:</span> <span class="n">Z</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                     <span class="s1">&#39;series&#39;</span><span class="p">:</span> <span class="n">Z</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]},</span>
+                    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;factors&#39;</span><span class="p">]))</span>
+
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+        <span class="n">args</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="o">-</span><span class="n">mR2</span><span class="p">[:,</span> <span class="n">k</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Factor:</span><span class="si">{</span><span class="mi">1</span><span class="o">+</span><span class="n">k</span><span class="si">}</span><span class="s2"> Variance Explained=</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">mR2</span><span class="p">[:,</span><span class="n">k</span><span class="p">])</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">({</span><span class="n">mR2</span><span class="p">[</span><span class="n">arg</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+                                   <span class="p">{</span><span class="s1">&#39;series&#39;</span><span class="p">:</span> <span class="n">cols</span><span class="p">[</span><span class="n">arg</span><span class="p">],</span>
+                                    <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="n">alf</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="n">cols</span><span class="p">[</span><span class="n">arg</span><span class="p">])}</span>
+                                   <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span><span class="p">[:</span><span class="mi">10</span><span class="p">]},</span>
+                                  <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FRED-QD vintage: quarterly/2020-04.csv
+FRED-MD vintage: monthly/2015-05.csv
+FRED-MD monthly series:
+         selected  variance explained     start       end  obs  series
+factors         8            0.484228  19600331  20141231  658     133
+Factor:1 Variance Explained=0.1625
+           series                                 description
+0.7426     USGOOD              All Employees, Goods-Producing
+0.7236     PAYEMS                All Employees, Total Nonfarm
+0.6999     MANEMP                All Employees, Manufacturing
+0.6563       NAPM                                *** NAPM ***
+0.6538  IPMANSICS  Industrial Production: Manufacturing (SIC)
+0.6510    DMANEMP                All Employees, Durable Goods
+0.6312     INDPRO          Industrial Production: Total Index
+0.6036    NAPMNOI                             *** NAPMNOI ***
+0.6024     NAPMPI                              *** NAPMPI ***
+0.5601     CUMFNS   Capacity Utilization: Manufacturing (SIC)
+Factor:2 Variance Explained=0.0705
+          series                                        description
+0.5960   T10YFFM  10-Year Treasury Constant Maturity Minus Feder...
+0.5881    AAAFFM  Moody&#39;s Seasoned Aaa Corporate Bond Minus Fede...
+0.5576    BAAFFM  Moody&#39;s Seasoned Baa Corporate Bond Minus Fede...
+0.5543    T5YFFM  5-Year Treasury Constant Maturity Minus Federa...
+0.4591  TB6SMFFM     6-Month Treasury Bill Minus Federal Funds Rate
+0.4569  TB3SMFFM     3-Month Treasury Bill Minus Federal Funds Rate
+0.4137    T1YFFM  1-Year Treasury Constant Maturity Minus Federa...
+0.2385  COMPAPFF            3-Month Commercial Paper Minus FEDFUNDS
+0.2098    BUSINV                         Total Business Inventories
+0.1803    M2REAL                                Real M2 Money Stock
+Factor:3 Variance Explained=0.0652
+                 series                                        description
+0.6899      CUSR0000SAC  Consumer Price Index for All Urban Consumers: ...
+0.6791  DNDGRG3M086SBEA  Personal consumption expenditures: Nondurable ...
+0.6448         CPIAUCSL  Consumer Price Index for All Urban Consumers: ...
+0.6157    CUSR0000SA0L5  Consumer Price Index for All Urban Consumers: ...
+0.5871    CUUR0000SA0L2  Consumer Price Index for All Urban Consumers: ...
+0.5680            PCEPI  Personal Consumption Expenditures: Chain-type ...
+0.5635         CPITRNSL  Consumer Price Index for All Urban Consumers: ...
+0.5241         CPIULFSL  Consumer Price Index for All Urban Consumers: ...
+0.4626           PPIFCG  Producer Price Index by Commodity for Finished...
+0.4539           PPIITM  Producer Price Index by Commodity Intermediate...
+Factor:4 Variance Explained=0.0543
+        series                                        description
+0.4458     GS1  Market Yield on U.S. Treasury Securities at 1-...
+0.4383     GS5  Market Yield on U.S. Treasury Securities at 5-...
+0.4236     AAA          Moody&#39;s Seasoned Aaa Corporate Bond Yield
+0.4163   TB6MS  6-Month Treasury Bill Secondary Market Rate, D...
+0.4028    GS10  Market Yield on U.S. Treasury Securities at 10...
+0.3767     BAA          Moody&#39;s Seasoned Baa Corporate Bond Yield
+0.3340   TB3MS  3-Month Treasury Bill Secondary Market Rate, D...
+0.3257    CP3M        3-Month AA Financial Commercial Paper Rates
+0.2521   HOUST  New Privately-Owned Housing Units Started: Tot...
+0.2448  HOUSTW  New Privately-Owned Housing Units Started: Tot...
+Factor:5 Variance Explained=0.0428
+          series                                        description
+0.2489   PERMITW  New Privately-Owned Housing Units Authorized i...
+0.2380    PERMIT  New Privately-Owned Housing Units Authorized i...
+0.2325    HOUSTW  New Privately-Owned Housing Units Started: Tot...
+0.2199       GS5  Market Yield on U.S. Treasury Securities at 5-...
+0.2193       GS1  Market Yield on U.S. Treasury Securities at 1-...
+0.2155     HOUST  New Privately-Owned Housing Units Started: Tot...
+0.2005      GS10  Market Yield on U.S. Treasury Securities at 10...
+0.1971    T1YFFM  1-Year Treasury Constant Maturity Minus Federa...
+0.1963  PERMITMW  New Privately-Owned Housing Units Authorized i...
+0.1904     TB6MS  6-Month Treasury Bill Secondary Market Rate, D...
+Factor:6 Variance Explained=0.0364
+          series                                        description
+0.2481   IPCONGD              Industrial Production: Consumer Goods
+0.1904    NAPMEI                                     *** NAPMEI ***
+0.1831  IPDCONGD      Industrial Production: Durable Consumer Goods
+0.1820   ISRATIO         Total Business: Inventories to Sales Ratio
+0.1784   IPFINAL              Industrial Production: Final Products
+0.1547   IPFPNSS  Industrial Production: Final Products and Noni...
+0.1538    NAPMII                                     *** NAPMII ***
+0.1526      NAPM                                       *** NAPM ***
+0.1436  TB6SMFFM     6-Month Treasury Bill Minus Federal Funds Rate
+0.1419    AWHMAN  Average Weekly Hours of Production and Nonsupe...
+Factor:7 Variance Explained=0.0266
+                 series                                        description
+0.4509         TWEXMMTH  Nominal Major Currencies U.S. Dollar Index (Go...
+0.2293           EXSZUS     Swiss Francs to U.S. Dollar Spot Exchange Rate
+0.1660           EXUSUK  U.S. Dollars to U.K. Pound Sterling Spot Excha...
+0.1656           EXJPUS     Japanese Yen to U.S. Dollar Spot Exchange Rate
+0.1482           SRVPRD                   All Employees, Service-Providing
+0.1286    CES3000000008  Average Hourly Earnings of Production and Nons...
+0.1228    CES0600000008  Average Hourly Earnings of Production and Nons...
+0.1199          USTRADE                        All Employees, Retail Trade
+0.1042  DPCERA3M086SBEA  Real personal consumption expenditures (chain-...
+0.1026          UMCSENT         University of Michigan: Consumer Sentiment
+Factor:8 Variance Explained=0.0259
+               series                                        description
+0.3414        S&amp;P 500          S&amp;P&#39;s Common Stock Price Index: Composite
+0.2753  S&amp;P div yield       S&amp;P&#39;s Composite Common Stock: Dividend Yield
+0.2028   S&amp;P PE ratio  S&amp;P&#39;s Composite Common Stock: Price-Earnings R...
+0.1817         EXCAUS  Canadian Dollars to U.S. Dollar Spot Exchange ...
+0.1222        UMCSENT         University of Michigan: Consumer Sentiment
+0.1175       TWEXMMTH  Nominal Major Currencies U.S. Dollar Index (Go...
+0.1042      NONBORRES   Reserves of Depository Institutions, Nonborrowed
+0.0986       IPNCONGD  Industrial Production: Non-Durable Consumer Goods
+0.0950        IPCONGD              Industrial Production: Consumer Goods
+0.0828          AMBSL    St. Louis Adjusted Monetary Base (DISCONTINUED)
+FRED-QD quarterly series:
+         selected  variance explained     start       end  obs  series
+factors         7            0.497416  19600331  20191231  240     247
+Factor:1 Variance Explained=0.2018
+           series                                        description
+0.8403     USPRIV                       All Employees, Total Private
+0.8208     USGOOD                     All Employees, Goods-Producing
+0.8142     PAYEMS                       All Employees, Total Nonfarm
+0.8122  IPMANSICS         Industrial Production: Manufacturing (SIC)
+0.8109      OUTMS  Manufacturing Sector: Real Sectoral Output for...
+0.8058     INDPRO                 Industrial Production: Total Index
+0.7781     MANEMP                       All Employees, Manufacturing
+0.7722     HOANBS  Nonfarm Business Sector: Hours Worked for All ...
+0.7693    DMANEMP                       All Employees, Durable Goods
+0.7661     UNRATE                                  Unemployment Rate
+Factor:2 Variance Explained=0.0818
+          series                                        description
+0.5122    AAAFFM  Moody&#39;s Seasoned Aaa Corporate Bond Minus Fede...
+0.4907    T5YFFM  5-Year Treasury Constant Maturity Minus Federa...
+0.4545    PERMIT  New Privately-Owned Housing Units Authorized i...
+0.4419    BUSINV                         Total Business Inventories
+0.4180     HOUST  New Privately-Owned Housing Units Started: Tot...
+0.4001   PERMITS  New Privately-Owned Housing Units Authorized i...
+0.3814       TCU                  Capacity Utilization: Total Index
+0.3755   MZMREAL                Real MZM Money Stock (DISCONTINUED)
+0.3733  TB3SMFFM     3-Month Treasury Bill Minus Federal Funds Rate
+0.3719  GS10TB3M                                   *** GS10TB3M ***
+Factor:3 Variance Explained=0.0730
+                 series                                        description
+0.7561    CUSR0000SA0L2  Consumer Price Index for All Urban Consumers: ...
+0.7420      CUSR0000SAC  Consumer Price Index for All Urban Consumers: ...
+0.7370  DGDSRG3Q086SBEA  Personal consumption expenditures: Goods (chai...
+0.7165          PCECTPI  Personal Consumption Expenditures: Chain-type ...
+0.7092         CPITRNSL  Consumer Price Index for All Urban Consumers: ...
+0.6989  DNDGRG3Q086SBEA  Personal consumption expenditures: Nondurable ...
+0.6733    CUSR0000SA0L5  Consumer Price Index for All Urban Consumers: ...
+0.6636         CPIAUCSL  Consumer Price Index for All Urban Consumers: ...
+0.6523          WPSID61  Producer Price Index by Commodity: Intermediat...
+0.6285           PPIIDC  Producer Price Index by Commodity: Industrial ...
+Factor:4 Variance Explained=0.0468
+               series                                        description
+0.3966          IMFSL    Institutional Money Market Funds (DISCONTINUED)
+0.3490  CES9093000001                    All Employees, Local Government
+0.3283  CES9092000001                    All Employees, State Government
+0.2499         USGOVT                          All Employees, Government
+0.2313        GFDEBTN                    Federal Debt: Total Public Debt
+0.2276        REVOLSL    Revolving Consumer Credit Owned and Securitized
+0.2274         EXUSEU            U.S. Dollars to Euro Spot Exchange Rate
+0.2194        COMPRMS  Manufacturing Sector: Real Hourly Compensation...
+0.2173         USSERV                      All Employees, Other Services
+0.2145           NWPI                                       *** NWPI ***
+Factor:5 Variance Explained=0.0376
+             series                                        description
+0.3689       OPHMFG  Manufacturing Sector: Labor Productivity (Outp...
+0.3003          HWI                Help Wanted Index for United States
+0.2973         NWPI                                       *** NWPI ***
+0.2960       AWHMAN  Average Weekly Hours of Production and Nonsupe...
+0.2725       OPHPBS  Business Sector: Labor Productivity (Output pe...
+0.2355       OPHNFB  Nonfarm Business Sector: Labor Productivity (O...
+0.2347     UNRATELT                                   *** UNRATELT ***
+0.2281      UNLPNBS  Nonfarm Business Sector: Unit Nonlabor Payment...
+0.2158       ULCMFG  Manufacturing Sector: Unit Labor Costs for All...
+0.1965  TLBSNNCBBDI                                *** TLBSNNCBBDI ***
+Factor:6 Variance Explained=0.0301
+                 series                                        description
+0.2739            ULCBS  Business Sector: Unit Labor Costs for All Workers
+0.2704           ULCNFB  Nonfarm Business Sector: Unit Labor Costs for ...
+0.2515           CONSPI    Nonrevolving consumer credit to Personal Income
+0.2465           EXUSEU            U.S. Dollars to Euro Spot Exchange Rate
+0.2169           AHETPI  Average Hourly Earnings of Production and Nons...
+0.1946         CONSUMER               Consumer Loans, All Commercial Banks
+0.1775         NONREVSL  Nonrevolving Consumer Credit Owned and Securit...
+0.1480          TOTALSL        Total Consumer Credit Owned and Securitized
+0.1417          UMCSENT         University of Michigan: Consumer Sentiment
+0.1399  B021RE1Q156NBEA  Shares of gross domestic product: Imports of g...
+Factor:7 Variance Explained=0.0264
+            series                                        description
+0.2817  USEPUINDXM  Economic Policy Uncertainty Index for United S...
+0.2304    TNWBSHNO  Households and Nonprofit Organizations; Net Wo...
+0.2199     TABSHNO  Households and Nonprofit Organizations; Total ...
+0.2087   TFAABSHNO  Households and Nonprofit Organizations; Total ...
+0.2081      TARESA                                     *** TARESA ***
+0.2028     S&amp;P 500          S&amp;P&#39;s Common Stock Price Index: Composite
+0.1928   NASDAQCOM                             NASDAQ Composite Index
+0.1498    GS10TB3M                                   *** GS10TB3M ***
+0.1492      TB6M3M                                     *** TB6M3M ***
+0.1331    PCEPILFE  Personal Consumption Expenditures Excluding Fo...
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute approximate factors from current FRED-MD</span>
+<span class="n">data</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="n">fred_md</span><span class="p">()</span>    <span class="c1"># fetch dataframe of current fred-md and transform codes</span>
+<span class="n">data</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">transforms</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="s1">&#39;transform&#39;</span><span class="p">]</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">alf</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">col</span><span class="p">],</span> <span class="n">tcode</span><span class="o">=</span><span class="n">transforms</span><span class="p">[</span><span class="n">col</span><span class="p">],</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;m&#39;</span><span class="p">)</span>
+                  <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">],</span>  <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># remove outliers and impute using Bai-Ng approach</span>
+<span class="n">r</span> <span class="o">=</span> <span class="mi">8</span>   <span class="c1"># fix number of factors = 8</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">remove_outliers</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;farout&#39;</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">approximate_factors</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">kmax</span><span class="o">=</span><span class="n">r</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FRED-MD vintage: monthly/current.csv
+</pre></div>
+</div>
+</div>
+</div>
+<p>Recover factors as the projections from PCA</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extract factors from PCA projections on imputed data</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="n">r</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="n">factors</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">pca</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="n">r</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot extracted factors</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">axes</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">factors</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">axes</span><span class="p">):</span>
+    <span class="n">flip</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">factors</span><span class="p">[</span><span class="n">col</span><span class="p">])</span> <span class="o">+</span> <span class="nb">min</span><span class="p">(</span><span class="n">factors</span><span class="p">[</span><span class="n">col</span><span class="p">]))</span> <span class="c1"># try match sign</span>
+    <span class="p">(</span><span class="n">flip</span><span class="o">*</span><span class="n">factors</span><span class="p">[</span><span class="n">col</span><span class="p">])</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;C</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="ow">in</span> <span class="n">vspans</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">b</span> <span class="o">&gt;=</span> <span class="nb">min</span><span class="p">(</span><span class="n">factors</span><span class="o">.</span><span class="n">index</span><span class="p">):</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">factors</span><span class="o">.</span><span class="n">index</span><span class="p">)),</span>
+                       <span class="nb">min</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">factors</span><span class="o">.</span><span class="n">index</span><span class="p">)),</span>
+                       <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span>
+                       <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">&quot;top&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">&quot;right&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot;Factor </span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2"> Estimate&quot;</span><span class="p">,</span> <span class="s1">&#39;NBER Recession&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">rect</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Factor Estimates </span><span class="si">{</span><span class="n">factors</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">%b-%Y</span><span class="si">}</span><span class="s2">:&quot;</span>
+             <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">factors</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">%b-%Y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;x-large&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/fde7a1ce694792fbe8f4add639422eb2d6a3edf5813aeac4718c947972b48b1d.png" src="_images/fde7a1ce694792fbe8f4add639422eb2d6a3edf5813aeac4718c947972b48b1d.png" />
+</div>
+</div>
+</section>
 </section>
 </section>
 
@@ -1367,11 +1550,10 @@ monthly/2015-05.csv
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="econometric_forecast.html"
@@ -1391,10 +1573,7 @@ monthly/2015-05.csv
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1403,14 +1582,23 @@ monthly/2015-05.csv
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fred-md">FRED-MD</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#approximate-factor-model">Approximate factor model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-order">Integration order</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#augmented-dickey-fuller-test">Augmented Dickey-Fuller test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformations">Transformations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#approximate-factor-model">Approximate factor model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bic-criterion">BIC criterion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-imputation">Data imputation</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
@@ -1432,9 +1620,10 @@ By Terence Lim
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -1458,8 +1647,8 @@ By Terence Lim
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

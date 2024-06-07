@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -19,51 +19,48 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'bea_centrality';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Community Detection" href="industry_community.html" />
-    <link rel="prev" title="Principal Customers Network" href="customer_ego.html" />
+    <link rel="next" title="Link Prediction" href="link_prediction.html" />
+    <link rel="prev" title="Community Detection" href="industry_community.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -73,7 +70,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -108,11 +113,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -127,6 +135,7 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="README.html">
@@ -135,60 +144,70 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     <p class="title logo__title">Financial Data Science Python Notebooks</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="README.html">
-                    Financial Data Science Notebooks
+                    FINANCIAL DATA SCIENCE
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="stock_prices.html">Stock prices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stock_prices.html">Stock Prices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jegadeesh_titman.html">Jegadeesh-Titman Rolling Portfolios</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fama_french.html">Fama-French Portfolio Sorts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fama_macbeth.html">Fama-Macbeth Cross-sectional Regressions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="weekly_reversal.html">Weekly reversal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weekly_reversal.html">Contrarian Trading</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quant_factors.html">Quant Factors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="event_study.html">Event Study</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="economic_releases.html">Economic Data Revisions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="regression_diagnostics.html">Linear Regression Diagonostics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="econometric_forecast.html">Econometric Forecasts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="approximate_factors.html">Approximate Factor Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="economic_states.html">State Space Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="conditional_volatility.html">Conditional Volatility</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="term_structure.html">Term Structure of Interest Rates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bond_returns.html">Bond Returns and Risks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional_volatility.html">Conditional Volatility and VaR</a></li>
 <li class="toctree-l1"><a class="reference internal" href="covariance_matrix.html">Covariance Matrix</a></li>
-<li class="toctree-l1"><a class="reference internal" href="term_structure.html">Term Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bond_returns.html">Bond Returns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="options_pricing.html">Options Pricing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="market_microstructure.html">Market Microstructure</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="event_risk.html">Event risk</a></li>
-<li class="toctree-l1"><a class="reference internal" href="customer_ego.html">Principal Customers Network</a></li>
-
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Graph Centrality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event_risk.html">Event Risk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="customer_ego.html">Principal Customers Graph</a></li>
 <li class="toctree-l1"><a class="reference internal" href="industry_community.html">Community Detection</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Graph Centrality</a></li>
 <li class="toctree-l1"><a class="reference internal" href="link_prediction.html">Link Prediction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="spatial_regression.html">Spatial Regression</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fomc_topics.html">Topic Modelling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="management_sentiment.html">Sentiment Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="business_description.html">10-K Business Description</a></li>
-
-
-<li class="toctree-l1"><a class="reference internal" href="classification_models.html">Classification for supervised learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="regression_models.html">Regression for supervised learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="deep_classifier.html">Deep Averaging Networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="convolutional_net.html">Temporal Convolution Net</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fomc_topics.html">FOMC Topic Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management_sentiment.html">Management Sentiment Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="business_description.html">Business Text Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classification_models.html">Classification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regression_models.html">Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deep_classifier.html">Deep Learning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="recurrent_net.html">Recurrent Neural Networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fomc_language.html">Language Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="convolutional_net.html">Convolutional Neural Networks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reinforcement_learning.html">Reinforcement Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fomc_language.html">FedSpeak Language Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sentiment_llm.html">LLM Prompting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="summarization_llm.html">LLM Text Summarization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="finetune_llm.html">LLM Finetuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rag_agent.html">LLM RAG, Chatbots and Agents</a></li>
 </ul>
 
     </div>
@@ -342,24 +361,28 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
+
 
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -375,6 +398,15 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#centrality-measures">Centrality measures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bea-input-output-use-tables">BEA Input-Output Use Tables</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -382,63 +414,125 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="graph-centrality">
 <h1>Graph Centrality<a class="headerlink" href="#graph-centrality" title="Permalink to this heading">#</a></h1>
-<p><em>UNDER CONSTRUCTION</em></p>
+<p><em>And so we all matter - maybe less then a lot but always more than none</em> - John Green</p>
+<p>Concepts:</p>
 <ul class="simple">
-<li><p>Centrality: eigenvector, hub, authority, pagerank,</p></li>
-<li><p>BEA: Input-Output Use Table, e.g. Choi and Foerster (2017)</p></li>
+<li><p>BEA Input-Output Use Table</p></li>
+<li><p>Centrality</p></li>
+</ul>
+<p>References:</p>
+<ul class="simple">
+<li><p>Jason Choi &amp; Andrew T. Foerster, 2017. “The Changing Input-Output Network Structure of the U.S. Economy,” Economic Review, Federal Reserve Bank of Kansas City, issue Q II, pages 23-49</p></li>
+<li><p><a class="reference external" href="https://www.bea.gov/industry/input-output-accounts-data">https://www.bea.gov/industry/input-output-accounts-data</a></p></li>
+<li><p><a class="reference external" href="https://www.bea.gov/information-updates-national-economic-accounts">https://www.bea.gov/information-updates-national-economic-accounts</a></p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">Series</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
 <span class="kn">from</span> <span class="nn">finds.database</span> <span class="kn">import</span> <span class="n">RedisDB</span>
-<span class="kn">from</span> <span class="nn">finds.readers</span> <span class="kn">import</span> <span class="n">Sectoring</span><span class="p">,</span> <span class="n">BEA</span>
-<span class="kn">from</span> <span class="nn">finds.graph</span> <span class="kn">import</span> <span class="n">graph_info</span><span class="p">,</span> <span class="n">nodes_centrality</span><span class="p">,</span> <span class="n">graph_draw</span>
-<span class="kn">from</span> <span class="nn">finds.misc</span> <span class="kn">import</span> <span class="n">Show</span>
-<span class="kn">from</span> <span class="nn">secret</span> <span class="kn">import</span> <span class="n">credentials</span><span class="p">,</span> <span class="n">paths</span>
+<span class="kn">from</span> <span class="nn">finds.readers</span> <span class="kn">import</span> <span class="n">BEA</span>
+<span class="kn">from</span> <span class="nn">finds.recipes</span> <span class="kn">import</span> <span class="n">graph_info</span><span class="p">,</span> <span class="n">graph_draw</span>
+<span class="kn">from</span> <span class="nn">secret</span> <span class="kn">import</span> <span class="n">credentials</span>
 <span class="c1"># %matplotlib qt</span>
 <span class="n">VERBOSE</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">show</span> <span class="o">=</span> <span class="n">Show</span><span class="p">(</span><span class="n">ndigits</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">latex</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_colwidth&#39;</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">LAST_YEAR</span> <span class="o">=</span> <span class="mi">2021</span>
-<span class="n">years</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1947</span><span class="p">,</span> <span class="n">LAST_YEAR</span><span class="p">)</span> 
-<span class="n">vintages</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1997</span><span class="p">,</span> <span class="mi">1963</span><span class="p">,</span> <span class="mi">1947</span><span class="p">]</span>   <span class="c1"># when sectoring schemes were revised</span>
-<span class="n">rdb</span> <span class="o">=</span> <span class="n">RedisDB</span><span class="p">(</span><span class="o">**</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;redis&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rdb</span> <span class="o">=</span> <span class="n">RedisDB</span><span class="p">(</span><span class="o">**</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;redis&#39;</span><span class="p">])</span>
 <span class="n">bea</span> <span class="o">=</span> <span class="n">BEA</span><span class="p">(</span><span class="n">rdb</span><span class="p">,</span> <span class="o">**</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;bea&#39;</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
-<span class="n">imgdir</span> <span class="o">=</span> <span class="n">paths</span><span class="p">[</span><span class="s1">&#39;images&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="s1">&#39;bea&#39;</span>
+<span class="n">years</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1947</span><span class="p">,</span> <span class="mi">2022</span><span class="p">]</span>
+<span class="n">vintages</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1997</span><span class="p">,</span> <span class="mi">1963</span><span class="p">,</span> <span class="mi">1947</span><span class="p">]</span>   <span class="c1"># when sectoring schemes were revised</span>
+<span class="n">vintage</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">vintages</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Read IOUse tables from BEA website</p>
+<section id="centrality-measures">
+<h2>Centrality measures<a class="headerlink" href="#centrality-measures" title="Permalink to this heading">#</a></h2>
+<p>Measures of graph centrality quantify the importance of nodes
+within a graph.</p>
+<ul class="simple">
+<li><p><strong>Degree Centrality</strong> measures the number of edges connected to a node.</p></li>
+<li><p><strong>Betweenness Centrality</strong> quantifies the extent to which a node lies
+on the shortest paths between other nodes in the graph.</p></li>
+<li><p><strong>Closeness Centrality</strong> measures how close a node is to all other
+nodes in the graph in terms of shortest path lengths.</p></li>
+<li><p><strong>Eigenvector Centrality</strong> evaluates the centrality of a node based
+on the centrality of its neighbors, Nodes with higher eigenvector
+centrality are connected to other highly central nodes.</p></li>
+<li><p><strong>PageRank Centrality</strong> was originally developed for ranking web
+pages by importance.  It can be viewed as a random walk
+process on the graph, representing the long-term likelihood of
+visitation of each node by randomly following edges.</p></li>
+<li><p>A <strong>Hub</strong> is a node that has many out-edge to other nodes. It acts as as a facilitator of flows other parts of the graph</p></li>
+<li><p>An <strong>Authority</strong> is a node that has many in-edges from other nodes.  It can be regarded as highly influential in that many other nodes reference it.</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ioUses</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">vintage</span> <span class="ow">in</span> <span class="n">vintages</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="p">[</span><span class="n">y</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">years</span> <span class="k">if</span> <span class="n">y</span> <span class="o">&gt;=</span> <span class="n">vintage</span><span class="p">]:</span>
-        <span class="n">df</span> <span class="o">=</span> <span class="n">bea</span><span class="o">.</span><span class="n">read_ioUse</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">vintage</span><span class="o">=</span><span class="n">vintage</span><span class="p">)</span>
-        <span class="n">ioUses</span><span class="p">[(</span><span class="n">vintage</span><span class="p">,</span> <span class="n">year</span><span class="p">)]</span> <span class="o">=</span> <span class="n">df</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">ioUses</span><span class="p">)</span><span class="si">}</span><span class="s2"> tables through sectoring vintage year </span><span class="si">{</span><span class="n">vintage</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Helper to compute centrality measures</span>
+<span class="k">def</span> <span class="nf">nodes_centrality</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="n">cost</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.99</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return dict of vertex centrality measures                                     </span>
+<span class="sd">                                                                                     </span>
+<span class="sd">    Args:                                                                            </span>
+<span class="sd">        G: Graph may be directed or indirected, weighted or unweighted               </span>
+<span class="sd">        weight: name of edge attribute for weights, Set to None for unweighted       </span>
+<span class="sd">        cost: If True, then weights are costs; else weights are importances          </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="c1"># Degree centrality, for directed and undirected graphs</span>
+    <span class="k">if</span> <span class="n">nx</span><span class="o">.</span><span class="n">is_directed</span><span class="p">(</span><span class="n">G</span><span class="p">):</span>
+        <span class="n">out</span><span class="p">[</span><span class="s1">&#39;in_degree&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">in_degree_centrality</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+        <span class="n">out</span><span class="p">[</span><span class="s1">&#39;out_degree&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">out_degree_centrality</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">out</span><span class="p">[</span><span class="s1">&#39;degree&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">degree_centrality</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+
+    <span class="c1"># Hubs and Authorities</span>
+    <span class="n">out</span><span class="p">[</span><span class="s1">&#39;hub&#39;</span><span class="p">],</span> <span class="n">out</span><span class="p">[</span><span class="s1">&#39;authority&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">hits</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+
+    <span class="c1"># if weights are costs, then Eigenvector and Pagerank ignore weights </span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">cost</span> <span class="ow">and</span> <span class="n">nx</span><span class="o">.</span><span class="n">is_weighted</span><span class="p">(</span><span class="n">G</span><span class="p">):</span>
+        <span class="n">out</span><span class="p">[</span><span class="s1">&#39;eigenvector&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">eigenvector_centrality</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="n">weight</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+        <span class="n">out</span><span class="p">[</span><span class="s1">&#39;pagerank&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">pagerank</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="n">weight</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">out</span><span class="p">[</span><span class="s1">&#39;eigenvector&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">eigenvector_centrality</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+        <span class="n">out</span><span class="p">[</span><span class="s1">&#39;pagerank&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">pagerank</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+
+    <span class="c1"># if weights are importances, then Betweeness and Closeness ignore weights </span>
+    <span class="k">if</span> <span class="n">cost</span> <span class="ow">and</span> <span class="n">nx</span><span class="o">.</span><span class="n">is_weighted</span><span class="p">(</span><span class="n">G</span><span class="p">):</span>
+        <span class="n">out</span><span class="p">[</span><span class="s1">&#39;betweenness&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">betweenness_centrality</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="n">weight</span><span class="p">)</span>
+        <span class="n">out</span><span class="p">[</span><span class="s1">&#39;closeness&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">closeness_centrality</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">distance</span><span class="o">=</span><span class="n">weight</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">out</span><span class="p">[</span><span class="s1">&#39;betweenness&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">betweenness_centrality</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+        <span class="n">out</span><span class="p">[</span><span class="s1">&#39;closeness&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">closeness_centrality</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">out</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>24 tables through sectoring vintage year 1997
-82 tables through sectoring vintage year 1963
-156 tables through sectoring vintage year 1947
+</div>
+</section>
+<section id="bea-input-output-use-tables">
+<h2>BEA Input-Output Use Tables<a class="headerlink" href="#bea-input-output-use-tables" title="Permalink to this heading">#</a></h2>
+<p>Input-output analysis is a type of economic model used to study
+the interdependencies between different sectors of an economy. It
+typically involves constructing an input-output table that records the
+flows of goods and services between sectors. This
+quantifies the relationships between inputs and outputs among various
+sectors, showing how changes in one sector can affect others.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read IOUse tables from BEA website</span>
+<span class="n">ioUses</span> <span class="o">=</span> <span class="p">{</span><span class="n">year</span><span class="p">:</span> <span class="n">bea</span><span class="o">.</span><span class="n">read_ioUse</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="n">year</span><span class="p">,</span> <span class="n">vintage</span><span class="o">=</span><span class="n">vintage</span><span class="p">)</span> <span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="n">years</span><span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -451,53 +545,46 @@ document.write(`
 <span class="n">head</span> <span class="o">=</span> <span class="s1">&#39;rowcode&#39;</span>   
 <span class="n">drop</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;F&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">,</span><span class="s1">&#39;V&#39;</span><span class="p">,</span><span class="s1">&#39;Other&#39;</span><span class="p">)</span>  <span class="c1"># drop these codes</span>
 <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;lightgrey&#39;</span><span class="p">,</span> <span class="s1">&#39;darkgreen&#39;</span><span class="p">,</span> <span class="s1">&#39;lightgreen&#39;</span><span class="p">]</span>    
-<span class="n">yearc</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># collect annual table</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Populate and plot graph of first and last table years</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ifig</span><span class="p">,</span> <span class="n">year</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1947</span>
-<span class="n">vintage</span> <span class="o">=</span> <span class="mi">1947</span>
-<span class="n">year0</span> <span class="o">=</span> <span class="mi">1947</span>
-<span class="c1">#vintage = 1997</span>
-<span class="c1">#year0 = 2019</span>
-<span class="n">year1</span> <span class="o">=</span> <span class="mi">2020</span>
-<span class="k">for</span> <span class="n">ifig</span><span class="p">,</span> <span class="n">year</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="n">year0</span><span class="p">,</span> <span class="n">year1</span><span class="p">]):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Populate and plot graph of first and last table years</span>
+<span class="k">for</span> <span class="n">ifig</span><span class="p">,</span> <span class="n">year</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">years</span><span class="p">):</span>
     <span class="c1"># keep year, drop invalid rows</span>
-    <span class="n">ioUse</span> <span class="o">=</span> <span class="n">ioUses</span><span class="p">[(</span><span class="n">vintage</span><span class="p">,</span> <span class="n">year</span><span class="p">)]</span>
+    <span class="n">ioUse</span> <span class="o">=</span> <span class="n">ioUses</span><span class="p">[</span><span class="n">year</span><span class="p">]</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">ioUse</span><span class="p">[(</span><span class="o">~</span><span class="n">ioUse</span><span class="p">[</span><span class="s1">&#39;rowcode&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">drop</span><span class="p">)</span> <span class="o">&amp;</span>
                   <span class="o">~</span><span class="n">ioUse</span><span class="p">[</span><span class="s1">&#39;colcode&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">drop</span><span class="p">))]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
     <span class="c1"># create master table of industries and measurements</span>
-    <span class="n">master</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;rowcode&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;colcode&#39;</span><span class="p">]][[</span><span class="s1">&#39;rowcode&#39;</span><span class="p">,</span><span class="s1">&#39;datavalue&#39;</span><span class="p">]]</span>\
-             <span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;rowcode&#39;</span><span class="p">)</span>\
-             <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;datavalue&#39;</span><span class="p">:</span> <span class="s1">&#39;self&#39;</span><span class="p">})</span>
-
+    <span class="n">master</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;rowcode&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;colcode&#39;</span><span class="p">]][[</span><span class="s1">&#39;rowcode&#39;</span><span class="p">,</span><span class="s1">&#39;datavalue&#39;</span><span class="p">]]</span>\
+        <span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;rowcode&#39;</span><span class="p">)</span>\
+        <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;datavalue&#39;</span><span class="p">:</span> <span class="s1">&#39;self&#39;</span><span class="p">})</span>
+    
     <span class="c1"># extract cross data; generate and load edges (as tuples) to graph</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;colcode&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;rowcode&#39;</span><span class="p">])]</span>
     <span class="n">data</span><span class="p">[</span><span class="s1">&#39;weights&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;datavalue&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;datavalue&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-    <span class="n">edges</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;weights&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span>
-                     <span class="p">[</span><span class="n">tail</span><span class="p">,</span> <span class="n">head</span><span class="p">,</span> <span class="s1">&#39;weights&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+    <span class="n">edges</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;weights&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="n">tail</span><span class="p">,</span> <span class="n">head</span><span class="p">,</span> <span class="s1">&#39;weights&#39;</span><span class="p">]]</span>\
+                <span class="o">.</span><span class="n">values</span>\
+                <span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
     
     <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
     <span class="n">G</span><span class="o">.</span><span class="n">add_weighted_edges_from</span><span class="p">(</span><span class="n">edges</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">)</span>
-    <span class="n">nx_labels</span> <span class="o">=</span> <span class="n">BEA</span><span class="o">.</span><span class="n">bea_industry_</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">)]</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+    <span class="n">nx_labels</span> <span class="o">=</span> <span class="n">BEA</span><span class="o">.</span><span class="n">short_desc</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">)]</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
 
     <span class="c1"># update master table industry flow values</span>
-    <span class="n">master</span> <span class="o">=</span> <span class="n">master</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;colcode&#39;</span><span class="p">])[</span><span class="s1">&#39;datavalue&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
-                         <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;datavalue&#39;</span><span class="p">:</span> <span class="s1">&#39;user&#39;</span><span class="p">})</span>
-    <span class="n">master</span> <span class="o">=</span> <span class="n">master</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;rowcode&#39;</span><span class="p">])[</span><span class="s1">&#39;datavalue&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
-                         <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;datavalue&#39;</span><span class="p">:</span> <span class="s1">&#39;maker&#39;</span><span class="p">})</span>
+    <span class="n">master</span> <span class="o">=</span> <span class="n">master</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;colcode&#39;</span><span class="p">])[</span><span class="s1">&#39;datavalue&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">)</span>\
+                   <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;datavalue&#39;</span><span class="p">:</span> <span class="s1">&#39;user&#39;</span><span class="p">})</span>
+    <span class="n">master</span> <span class="o">=</span> <span class="n">master</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;rowcode&#39;</span><span class="p">])[</span><span class="s1">&#39;datavalue&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">)</span>\
+                   <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;datavalue&#39;</span><span class="p">:</span> <span class="s1">&#39;maker&#39;</span><span class="p">})</span>
     <span class="n">master</span> <span class="o">=</span> <span class="n">master</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    
     <span class="c1"># inweight~supply~authority~eigenvector~pagerank, outweight~demand~hub</span>
-
-    <span class="n">centrality</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">nodes_centrality</span><span class="p">(</span><span class="n">G</span><span class="p">))</span>
+    <span class="n">centrality</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">nodes_centrality</span><span class="p">(</span><span class="n">G</span><span class="p">))</span>   <span class="c1"># compute centrality metrics</span>
     <span class="n">master</span> <span class="o">=</span> <span class="n">master</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">centrality</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
-    <span class="n">master</span><span class="p">[</span><span class="s1">&#39;bea&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">BEA</span><span class="o">.</span><span class="n">bea_industry_</span><span class="p">[</span><span class="n">master</span><span class="o">.</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
-    <span class="n">yearc</span><span class="p">[</span><span class="n">year</span><span class="p">]</span> <span class="o">=</span> <span class="n">master</span><span class="p">[[</span><span class="s1">&#39;pagerank&#39;</span><span class="p">,</span> <span class="s1">&#39;bea&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;bea&#39;</span><span class="p">)</span>
+    <span class="n">master</span><span class="p">[</span><span class="s1">&#39;bea&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">BEA</span><span class="o">.</span><span class="n">short_desc</span><span class="p">[</span><span class="n">master</span><span class="o">.</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
 
     <span class="c1"># visualize graph</span>
     <span class="n">score</span> <span class="o">=</span> <span class="n">centrality</span><span class="p">[</span><span class="s1">&#39;pagerank&#39;</span><span class="p">]</span>
@@ -521,400 +608,22 @@ document.write(`
                      <span class="n">font_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
                      <span class="n">font_weight</span><span class="o">=</span><span class="s1">&#39;semibold&#39;</span><span class="p">,</span>
                      <span class="n">labels</span><span class="o">=</span><span class="n">master</span><span class="p">[</span><span class="s1">&#39;bea&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(),</span>
-                     <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;By Pagerank: </span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2"> IO-Use (</span><span class="si">{</span><span class="n">vintage</span><span class="si">}</span><span class="s2"> vintage)&quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">imgdir</span><span class="p">:</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">imgdir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">.jpg&quot;</span><span class="p">)</span>
+                     <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Top 5 Nodes By Pagerank in </span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">vintage</span><span class="si">}</span><span class="s2">-sectors)&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/84bcfdad0cbdbddf172de2fb18e80061fa2077211e7cde415602686f286c2363.png" src="_images/84bcfdad0cbdbddf172de2fb18e80061fa2077211e7cde415602686f286c2363.png" />
-<img alt="_images/f0cbac1ca54e15528585209302519daf7046539ee445523ea0c914028f669be2.png" src="_images/f0cbac1ca54e15528585209302519daf7046539ee445523ea0c914028f669be2.png" />
+<img alt="_images/9d33c3b2276235742d54c11abbba43bd24677a1048b2ef0312a47d2ea688f5ec.png" src="_images/9d33c3b2276235742d54c11abbba43bd24677a1048b2ef0312a47d2ea688f5ec.png" />
+<img alt="_images/baac12d6449697ced537accdbc39ea88882d0caad58f64232b5ed80c34dfab8e.png" src="_images/baac12d6449697ced537accdbc39ea88882d0caad58f64232b5ed80c34dfab8e.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Display node centrality</span>
-<span class="n">c</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">yearc</span><span class="p">[</span><span class="n">year0</span><span class="p">]</span><span class="o">.</span><span class="n">rank</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">),</span>
-               <span class="n">yearc</span><span class="p">[</span><span class="n">year1</span><span class="p">]</span><span class="o">.</span><span class="n">rank</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)],</span>
-              <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">c</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_product</span><span class="p">([[</span><span class="n">year0</span><span class="p">,</span> <span class="n">year1</span><span class="p">],</span> <span class="n">yearc</span><span class="p">[</span><span class="n">year0</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span><span class="p">])</span>
-<span class="n">c</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead tr th {
-        text-align: left;
-    }
-
-    .dataframe thead tr:last-of-type th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr>
-      <th></th>
-      <th>1947</th>
-      <th>2020</th>
-    </tr>
-    <tr>
-      <th></th>
-      <th>pagerank</th>
-      <th>pagerank</th>
-    </tr>
-    <tr>
-      <th>bea</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Farms</th>
-      <td>4</td>
-      <td>27</td>
-    </tr>
-    <tr>
-      <th>Forestry,fishing</th>
-      <td>27</td>
-      <td>32</td>
-    </tr>
-    <tr>
-      <th>Oil, gas</th>
-      <td>16</td>
-      <td>13</td>
-    </tr>
-    <tr>
-      <th>Mining</th>
-      <td>12</td>
-      <td>21</td>
-    </tr>
-    <tr>
-      <th>Support mining</th>
-      <td>31</td>
-      <td>38</td>
-    </tr>
-    <tr>
-      <th>Utilities</th>
-      <td>20</td>
-      <td>9</td>
-    </tr>
-    <tr>
-      <th>Construction</th>
-      <td>14</td>
-      <td>17</td>
-    </tr>
-    <tr>
-      <th>Food</th>
-      <td>5</td>
-      <td>25</td>
-    </tr>
-    <tr>
-      <th>Textile</th>
-      <td>18</td>
-      <td>36</td>
-    </tr>
-    <tr>
-      <th>Apparel</th>
-      <td>39</td>
-      <td>43</td>
-    </tr>
-    <tr>
-      <th>Wood</th>
-      <td>21</td>
-      <td>29</td>
-    </tr>
-    <tr>
-      <th>Paper</th>
-      <td>19</td>
-      <td>23</td>
-    </tr>
-    <tr>
-      <th>Printing</th>
-      <td>42</td>
-      <td>33</td>
-    </tr>
-    <tr>
-      <th>Petroleum, coal</th>
-      <td>10</td>
-      <td>14</td>
-    </tr>
-    <tr>
-      <th>Chemical</th>
-      <td>13</td>
-      <td>7</td>
-    </tr>
-    <tr>
-      <th>Plastics, rubber</th>
-      <td>33</td>
-      <td>19</td>
-    </tr>
-    <tr>
-      <th>Nonmetallic</th>
-      <td>28</td>
-      <td>26</td>
-    </tr>
-    <tr>
-      <th>Metals</th>
-      <td>6</td>
-      <td>10</td>
-    </tr>
-    <tr>
-      <th>Fabricated metal</th>
-      <td>8</td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <th>Machinery</th>
-      <td>26</td>
-      <td>18</td>
-    </tr>
-    <tr>
-      <th>Computer</th>
-      <td>38</td>
-      <td>12</td>
-    </tr>
-    <tr>
-      <th>Electrical</th>
-      <td>35</td>
-      <td>22</td>
-    </tr>
-    <tr>
-      <th>Motor vehicles</th>
-      <td>24</td>
-      <td>24</td>
-    </tr>
-    <tr>
-      <th>Transport equip</th>
-      <td>32</td>
-      <td>42</td>
-    </tr>
-    <tr>
-      <th>Furniture</th>
-      <td>40</td>
-      <td>40</td>
-    </tr>
-    <tr>
-      <th>Manufacturing</th>
-      <td>30</td>
-      <td>39</td>
-    </tr>
-    <tr>
-      <th>Wholesale</th>
-      <td>3</td>
-      <td>30</td>
-    </tr>
-    <tr>
-      <th>Retail</th>
-      <td>25</td>
-      <td>45</td>
-    </tr>
-    <tr>
-      <th>Transportation</th>
-      <td>1</td>
-      <td>15</td>
-    </tr>
-    <tr>
-      <th>Warehousing, storage</th>
-      <td>34</td>
-      <td>28</td>
-    </tr>
-    <tr>
-      <th>Information</th>
-      <td>22</td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <th>Finance,insurance</th>
-      <td>11</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>Real estate</th>
-      <td>7</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>Rental</th>
-      <td>29</td>
-      <td>11</td>
-    </tr>
-    <tr>
-      <th>Professional services</th>
-      <td>2</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>Management</th>
-      <td>9</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>Administrative and waste management</th>
-      <td>36</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>Educational</th>
-      <td>45</td>
-      <td>41</td>
-    </tr>
-    <tr>
-      <th>Healthcare</th>
-      <td>44</td>
-      <td>44</td>
-    </tr>
-    <tr>
-      <th>Arts, entertainment, recreation</th>
-      <td>41</td>
-      <td>31</td>
-    </tr>
-    <tr>
-      <th>Accommodation</th>
-      <td>37</td>
-      <td>34</td>
-    </tr>
-    <tr>
-      <th>Food services</th>
-      <td>17</td>
-      <td>20</td>
-    </tr>
-    <tr>
-      <th>Other services</th>
-      <td>15</td>
-      <td>16</td>
-    </tr>
-    <tr>
-      <th>Federal enterprises</th>
-      <td>23</td>
-      <td>35</td>
-    </tr>
-    <tr>
-      <th>General government</th>
-      <td>46</td>
-      <td>46</td>
-    </tr>
-    <tr>
-      <th>State local enterprises</th>
-      <td>43</td>
-      <td>37</td>
-    </tr>
-    <tr>
-      <th>State local general</th>
-      <td>46</td>
-      <td>46</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Display correlation of centrality ranks</span>
-<span class="n">c</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead tr th {
-        text-align: left;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr>
-      <th></th>
-      <th></th>
-      <th>1947</th>
-      <th>2020</th>
-    </tr>
-    <tr>
-      <th></th>
-      <th></th>
-      <th>pagerank</th>
-      <th>pagerank</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>1947</th>
-      <th>pagerank</th>
-      <td>1.00</td>
-      <td>0.62</td>
-    </tr>
-    <tr>
-      <th>2020</th>
-      <th>pagerank</th>
-      <td>0.62</td>
-      <td>1.00</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Display latest graph and node centrality</span>
-<span class="n">year</span> <span class="o">=</span> <span class="n">LAST_YEAR</span> <span class="o">-</span> <span class="mi">1</span>
-<span class="n">ioUse</span> <span class="o">=</span> <span class="n">ioUses</span><span class="p">[(</span><span class="mi">1997</span><span class="p">,</span> <span class="n">year</span><span class="p">)]</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">ioUse</span><span class="p">[(</span><span class="o">~</span><span class="n">ioUse</span><span class="p">[</span><span class="s1">&#39;rowcode&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">drop</span><span class="p">)</span> <span class="o">&amp;</span>
-              <span class="o">~</span><span class="n">ioUse</span><span class="p">[</span><span class="s1">&#39;colcode&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">drop</span><span class="p">))]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## extract cross data; generate and load edges (as tuples) to graph</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;colcode&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;rowcode&#39;</span><span class="p">])]</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;weights&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;datavalue&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;datavalue&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-<span class="n">edges</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;weights&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="n">tail</span><span class="p">,</span> <span class="n">head</span><span class="p">,</span> <span class="s1">&#39;weights&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
-<span class="n">G</span><span class="o">.</span><span class="n">add_weighted_edges_from</span><span class="p">(</span><span class="n">edges</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## update master table industry flow values and graph centrality measures</span>
-<span class="n">master</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">((</span><span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;rowcode&#39;</span><span class="p">]</span>
-                         <span class="o">==</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;colcode&#39;</span><span class="p">]][[</span><span class="s1">&#39;rowcode&#39;</span><span class="p">,</span><span class="s1">&#39;datavalue&#39;</span><span class="p">]]</span>\
-                    <span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;rowcode&#39;</span><span class="p">)</span>\
-                    <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;datavalue&#39;</span><span class="p">:</span> <span class="s1">&#39;self&#39;</span><span class="p">}),</span>
-                    <span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;colcode&#39;</span><span class="p">])[</span><span class="s1">&#39;datavalue&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>\
-                    <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">),</span>
-                    <span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;rowcode&#39;</span><span class="p">])[</span><span class="s1">&#39;datavalue&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>\
-                    <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;maker&#39;</span><span class="p">)),</span>
-                   <span class="n">join</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">,</span>
-                   <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-<span class="n">master</span> <span class="o">=</span> <span class="n">master</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">nodes_centrality</span><span class="p">(</span><span class="n">G</span><span class="p">)),</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
-<span class="n">master</span><span class="p">[</span><span class="s1">&#39;bea&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">BEA</span><span class="o">.</span><span class="n">bea_industry_</span><span class="p">[</span><span class="n">master</span><span class="o">.</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
-<span class="n">show</span><span class="p">(</span><span class="n">master</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;self&#39;</span><span class="p">,</span> <span class="s1">&#39;clustering&#39;</span><span class="p">]),</span>
-     <span class="n">ndigits</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
-     <span class="n">caption</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Centrality of BEA Input-Output Use Table </span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compare 1947 and 1997 sectors (BEA &quot;summary&quot;-level industry groups)</span>
+<span class="n">v1947</span> <span class="o">=</span> <span class="n">BEA</span><span class="o">.</span><span class="n">sectoring</span><span class="p">(</span><span class="mi">1947</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s1">&#39;1947&#39;</span><span class="p">})</span>
+<span class="n">v1997</span> <span class="o">=</span> <span class="n">BEA</span><span class="o">.</span><span class="n">sectoring</span><span class="p">(</span><span class="mi">1997</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s1">&#39;1997&#39;</span><span class="p">})</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">v1947</span><span class="p">[[</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;1947&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">v1997</span><span class="p">[</span><span class="s1">&#39;1997&#39;</span><span class="p">])</span>
+<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;1947&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;1997&#39;</span><span class="p">]]</span>  <span class="c1"># changes in the sectoring scheme</span>
 </pre></div>
 </div>
 </div>
@@ -937,28 +646,12 @@ document.write(`
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>user</th>
-      <th>maker</th>
-      <th>in_degree</th>
-      <th>out_degree</th>
-      <th>eigenvector</th>
-      <th>pagerank</th>
-      <th>hub</th>
-      <th>authority</th>
-      <th>betweenness</th>
-      <th>closeness</th>
-      <th>bea</th>
+      <th>title</th>
+      <th>1947</th>
+      <th>1997</th>
     </tr>
     <tr>
-      <th>Centrality of BEA Input-Output Use Table 2020</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>code</th>
       <th></th>
       <th></th>
       <th></th>
@@ -966,189 +659,1495 @@ document.write(`
   </thead>
   <tbody>
     <tr>
-      <th>111CA</th>
-      <td>194547</td>
-      <td>286362</td>
-      <td>0.4203</td>
-      <td>0.6232</td>
-      <td>0.0500</td>
-      <td>0.0088</td>
-      <td>0.0103</td>
-      <td>0.0133</td>
-      <td>0.0008</td>
-      <td>0.6330</td>
-      <td>Farms</td>
+      <th>441000</th>
+      <td>Motor vehicle and parts dealers</td>
+      <td>RETAIL TRADE</td>
+      <td>Motor vehicle and parts dealers</td>
     </tr>
     <tr>
-      <th>113FF</th>
-      <td>5057</td>
-      <td>70809</td>
-      <td>0.3913</td>
-      <td>0.5362</td>
-      <td>0.0124</td>
-      <td>0.0061</td>
-      <td>0.0003</td>
-      <td>0.0020</td>
-      <td>0.0006</td>
-      <td>0.6216</td>
-      <td>Forestry,fishing</td>
+      <th>442000</th>
+      <td>All other retail</td>
+      <td>RETAIL TRADE</td>
+      <td>Other retail</td>
     </tr>
     <tr>
-      <th>211</th>
-      <td>114812</td>
-      <td>262906</td>
-      <td>0.4203</td>
-      <td>0.5942</td>
-      <td>0.0809</td>
-      <td>0.0229</td>
-      <td>0.0064</td>
-      <td>0.0046</td>
-      <td>0.0161</td>
-      <td>0.6330</td>
-      <td>Oil, gas</td>
+      <th>443000</th>
+      <td>All other retail</td>
+      <td>RETAIL TRADE</td>
+      <td>Other retail</td>
     </tr>
     <tr>
-      <th>212</th>
-      <td>34128</td>
-      <td>88125</td>
-      <td>0.7246</td>
-      <td>0.6522</td>
-      <td>0.0352</td>
-      <td>0.0139</td>
-      <td>0.0020</td>
-      <td>0.0050</td>
-      <td>0.0052</td>
-      <td>0.7841</td>
-      <td>Mining</td>
+      <th>444000</th>
+      <td>Building material and garden equipment and supplies dealers</td>
+      <td>RETAIL TRADE</td>
+      <td>Other retail</td>
     </tr>
     <tr>
-      <th>213</th>
-      <td>27222</td>
-      <td>11272</td>
-      <td>0.0580</td>
-      <td>0.5942</td>
-      <td>0.0029</td>
-      <td>0.0027</td>
-      <td>0.0019</td>
-      <td>0.0002</td>
-      <td>0.0000</td>
-      <td>0.5149</td>
-      <td>Support mining</td>
+      <th>445000</th>
+      <td>Food and beverage stores</td>
+      <td>RETAIL TRADE</td>
+      <td>Food and beverage stores</td>
     </tr>
     <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
+      <th>446000</th>
+      <td>Health and personal care stores</td>
+      <td>RETAIL TRADE</td>
+      <td>Other retail</td>
     </tr>
     <tr>
-      <th>GFE</th>
-      <td>20912</td>
-      <td>61973</td>
-      <td>0.7826</td>
-      <td>0.6812</td>
-      <td>0.0155</td>
-      <td>0.0039</td>
-      <td>0.0015</td>
-      <td>0.0047</td>
-      <td>0.0065</td>
-      <td>0.8214</td>
-      <td>Federal enterprises</td>
+      <th>447000</th>
+      <td>Gasoline stations</td>
+      <td>RETAIL TRADE</td>
+      <td>Other retail</td>
     </tr>
     <tr>
-      <th>GFGD</th>
-      <td>276183</td>
-      <td>0</td>
-      <td>0.0000</td>
-      <td>0.6957</td>
-      <td>0.0000</td>
-      <td>0.0001</td>
-      <td>0.0181</td>
-      <td>-0.0000</td>
-      <td>0.0000</td>
-      <td>0.0000</td>
-      <td>Defense</td>
+      <th>448000</th>
+      <td>Clothing and clothing accessories stores</td>
+      <td>RETAIL TRADE</td>
+      <td>Other retail</td>
     </tr>
     <tr>
-      <th>GFGN</th>
-      <td>164988</td>
-      <td>0</td>
-      <td>0.0000</td>
-      <td>0.7826</td>
-      <td>0.0000</td>
-      <td>0.0001</td>
-      <td>0.0125</td>
-      <td>0.0000</td>
-      <td>0.0000</td>
-      <td>0.0000</td>
-      <td>Nondefense</td>
+      <th>451000</th>
+      <td>All other retail</td>
+      <td>RETAIL TRADE</td>
+      <td>Other retail</td>
     </tr>
     <tr>
-      <th>GSLE</th>
-      <td>186131</td>
-      <td>33750</td>
-      <td>0.8841</td>
-      <td>0.6812</td>
-      <td>0.0123</td>
-      <td>0.0031</td>
-      <td>0.0139</td>
-      <td>0.0023</td>
-      <td>0.0031</td>
-      <td>0.8961</td>
-      <td>State local enterprises</td>
+      <th>452000</th>
+      <td>General merchandise stores</td>
+      <td>RETAIL TRADE</td>
+      <td>General merchandise stores</td>
     </tr>
     <tr>
-      <th>GSLG</th>
-      <td>809034</td>
-      <td>0</td>
-      <td>0.0000</td>
-      <td>0.8116</td>
-      <td>0.0000</td>
-      <td>0.0001</td>
-      <td>0.0509</td>
-      <td>0.0000</td>
-      <td>0.0000</td>
-      <td>0.0000</td>
-      <td>State local general</td>
+      <th>453000</th>
+      <td>All other retail</td>
+      <td>RETAIL TRADE</td>
+      <td>Other retail</td>
+    </tr>
+    <tr>
+      <th>454000</th>
+      <td>Nonstore retailers</td>
+      <td>RETAIL TRADE</td>
+      <td>Other retail</td>
+    </tr>
+    <tr>
+      <th>481000</th>
+      <td>Air transportation</td>
+      <td>Transportation</td>
+      <td>Air transportation</td>
+    </tr>
+    <tr>
+      <th>482000</th>
+      <td>Rail transportation</td>
+      <td>Transportation</td>
+      <td>Rail transportation</td>
+    </tr>
+    <tr>
+      <th>483000</th>
+      <td>Water transportation</td>
+      <td>Transportation</td>
+      <td>Water transportation</td>
+    </tr>
+    <tr>
+      <th>484000</th>
+      <td>Truck transportation</td>
+      <td>Transportation</td>
+      <td>Truck transportation</td>
+    </tr>
+    <tr>
+      <th>485000</th>
+      <td>Transit and ground passenger transportation</td>
+      <td>Transportation</td>
+      <td>Transit and ground passenger transportation</td>
+    </tr>
+    <tr>
+      <th>486000</th>
+      <td>Pipeline transportation</td>
+      <td>Transportation</td>
+      <td>Pipeline transportation</td>
+    </tr>
+    <tr>
+      <th>487000</th>
+      <td>Scenic and sightseeing transportation and support activities</td>
+      <td>Transportation</td>
+      <td>Other transportation and support activities</td>
+    </tr>
+    <tr>
+      <th>488000</th>
+      <td>Scenic and sightseeing transportation and support activities</td>
+      <td>Transportation</td>
+      <td>Other transportation and support activities</td>
+    </tr>
+    <tr>
+      <th>492000</th>
+      <td>Couriers and messengers</td>
+      <td>Transportation</td>
+      <td>Other transportation and support activities</td>
+    </tr>
+    <tr>
+      <th>511000</th>
+      <td>Publishing industries, except internet (includes software)</td>
+      <td>INFORMATION</td>
+      <td>Publishing industries, except internet (includes software)</td>
+    </tr>
+    <tr>
+      <th>511110</th>
+      <td>Newspaper publishers</td>
+      <td>INFORMATION</td>
+      <td>Publishing industries, except internet (includes software)</td>
+    </tr>
+    <tr>
+      <th>511120</th>
+      <td>Periodical publishers</td>
+      <td>INFORMATION</td>
+      <td>Publishing industries, except internet (includes software)</td>
+    </tr>
+    <tr>
+      <th>511130</th>
+      <td>Book publishers</td>
+      <td>INFORMATION</td>
+      <td>Publishing industries, except internet (includes software)</td>
+    </tr>
+    <tr>
+      <th>511140</th>
+      <td>Directory, mailing list, and other publishers</td>
+      <td>INFORMATION</td>
+      <td>Publishing industries, except internet (includes software)</td>
+    </tr>
+    <tr>
+      <th>511190</th>
+      <td>Directory, mailing list, and other publishers</td>
+      <td>INFORMATION</td>
+      <td>Publishing industries, except internet (includes software)</td>
+    </tr>
+    <tr>
+      <th>511210</th>
+      <td>Software publishers</td>
+      <td>INFORMATION</td>
+      <td>Publishing industries, except internet (includes software)</td>
+    </tr>
+    <tr>
+      <th>512000</th>
+      <td>Motion picture and sound recording industries</td>
+      <td>INFORMATION</td>
+      <td>Motion picture and sound recording industries</td>
+    </tr>
+    <tr>
+      <th>512100</th>
+      <td>Motion picture and video industries</td>
+      <td>INFORMATION</td>
+      <td>Motion picture and sound recording industries</td>
+    </tr>
+    <tr>
+      <th>512200</th>
+      <td>Sound recording industries</td>
+      <td>INFORMATION</td>
+      <td>Motion picture and sound recording industries</td>
+    </tr>
+    <tr>
+      <th>513000</th>
+      <td>Broadcasting and telecommunications</td>
+      <td>INFORMATION</td>
+      <td>Broadcasting and telecommunications</td>
+    </tr>
+    <tr>
+      <th>514000</th>
+      <td>Data processing, internet publishing, and other information services</td>
+      <td>INFORMATION</td>
+      <td>Data processing, internet publishing, and other information services</td>
+    </tr>
+    <tr>
+      <th>515100</th>
+      <td>Radio and television broadcasting</td>
+      <td>INFORMATION</td>
+      <td>Broadcasting and telecommunications</td>
+    </tr>
+    <tr>
+      <th>515200</th>
+      <td>Cable and other subscription programming</td>
+      <td>INFORMATION</td>
+      <td>Broadcasting and telecommunications</td>
+    </tr>
+    <tr>
+      <th>517100</th>
+      <td>Wired telecommunications carriers</td>
+      <td>INFORMATION</td>
+      <td>Broadcasting and telecommunications</td>
+    </tr>
+    <tr>
+      <th>517200</th>
+      <td>Wireless telecommunications carriers (except satellite)</td>
+      <td>INFORMATION</td>
+      <td>Broadcasting and telecommunications</td>
+    </tr>
+    <tr>
+      <th>517400</th>
+      <td>Satellite, telecommunications resellers, and all other telecommunications</td>
+      <td>INFORMATION</td>
+      <td>Broadcasting and telecommunications</td>
+    </tr>
+    <tr>
+      <th>518200</th>
+      <td>Data processing, hosting, and related services</td>
+      <td>INFORMATION</td>
+      <td>Data processing, internet publishing, and other information services</td>
+    </tr>
+    <tr>
+      <th>519110</th>
+      <td>News syndicates, libraries, archives and all other information services</td>
+      <td>INFORMATION</td>
+      <td>Data processing, internet publishing, and other information services</td>
+    </tr>
+    <tr>
+      <th>519130</th>
+      <td>Internet publishing and broadcasting and Web search portals</td>
+      <td>INFORMATION</td>
+      <td>Data processing, internet publishing, and other information services</td>
+    </tr>
+    <tr>
+      <th>521000</th>
+      <td>Monetary authorities and depository credit intermediation</td>
+      <td>FINANCE AND INSURANCE</td>
+      <td>Federal Reserve banks, credit intermediation, and related activities</td>
+    </tr>
+    <tr>
+      <th>522100</th>
+      <td>Monetary authorities and depository credit intermediation</td>
+      <td>FINANCE AND INSURANCE</td>
+      <td>Federal Reserve banks, credit intermediation, and related activities</td>
+    </tr>
+    <tr>
+      <th>522200</th>
+      <td>Nondepository credit intermediation and related activities</td>
+      <td>FINANCE AND INSURANCE</td>
+      <td>Federal Reserve banks, credit intermediation, and related activities</td>
+    </tr>
+    <tr>
+      <th>523000</th>
+      <td>Securities, commodity contracts, and investments</td>
+      <td>FINANCE AND INSURANCE</td>
+      <td>Securities, commodity contracts, and investments</td>
+    </tr>
+    <tr>
+      <th>523100</th>
+      <td>Securities and commodity contracts intermediation and brokerage</td>
+      <td>FINANCE AND INSURANCE</td>
+      <td>Securities, commodity contracts, and investments</td>
+    </tr>
+    <tr>
+      <th>523900</th>
+      <td>Other financial investment activities</td>
+      <td>FINANCE AND INSURANCE</td>
+      <td>Securities, commodity contracts, and investments</td>
+    </tr>
+    <tr>
+      <th>524000</th>
+      <td>Insurance carriers and related activities</td>
+      <td>FINANCE AND INSURANCE</td>
+      <td>Insurance carriers and related activities</td>
+    </tr>
+    <tr>
+      <th>524113</th>
+      <td>Direct life insurance carriers</td>
+      <td>FINANCE AND INSURANCE</td>
+      <td>Insurance carriers and related activities</td>
+    </tr>
+    <tr>
+      <th>524114</th>
+      <td>Insurance carriers, except direct life</td>
+      <td>FINANCE AND INSURANCE</td>
+      <td>Insurance carriers and related activities</td>
+    </tr>
+    <tr>
+      <th>524120</th>
+      <td>Insurance carriers, except direct life</td>
+      <td>FINANCE AND INSURANCE</td>
+      <td>Insurance carriers and related activities</td>
+    </tr>
+    <tr>
+      <th>524130</th>
+      <td>Insurance carriers, except direct life</td>
+      <td>FINANCE AND INSURANCE</td>
+      <td>Insurance carriers and related activities</td>
+    </tr>
+    <tr>
+      <th>524200</th>
+      <td>Insurance agencies, brokerages, and related activities</td>
+      <td>FINANCE AND INSURANCE</td>
+      <td>Insurance carriers and related activities</td>
+    </tr>
+    <tr>
+      <th>525000</th>
+      <td>Funds, trusts, and other financial vehicles</td>
+      <td>FINANCE AND INSURANCE</td>
+      <td>Funds, trusts, and other financial vehicles</td>
+    </tr>
+    <tr>
+      <th>541100</th>
+      <td>Legal services</td>
+      <td>PROFESSIONAL AND TECHNICAL SERVICES</td>
+      <td>Legal services</td>
+    </tr>
+    <tr>
+      <th>541200</th>
+      <td>Accounting, tax preparation, bookkeeping, and payroll services</td>
+      <td>PROFESSIONAL AND TECHNICAL SERVICES</td>
+      <td>Miscellaneous professional, scientific, and technical services</td>
+    </tr>
+    <tr>
+      <th>541300</th>
+      <td>Architectural, engineering, and related services</td>
+      <td>PROFESSIONAL AND TECHNICAL SERVICES</td>
+      <td>Miscellaneous professional, scientific, and technical services</td>
+    </tr>
+    <tr>
+      <th>541400</th>
+      <td>Specialized design services</td>
+      <td>PROFESSIONAL AND TECHNICAL SERVICES</td>
+      <td>Miscellaneous professional, scientific, and technical services</td>
+    </tr>
+    <tr>
+      <th>541500</th>
+      <td>Computer systems design and related services</td>
+      <td>PROFESSIONAL AND TECHNICAL SERVICES</td>
+      <td>Computer systems design and related services</td>
+    </tr>
+    <tr>
+      <th>541511</th>
+      <td>Custom computer programming services</td>
+      <td>PROFESSIONAL AND TECHNICAL SERVICES</td>
+      <td>Computer systems design and related services</td>
+    </tr>
+    <tr>
+      <th>541512</th>
+      <td>Computer systems design services</td>
+      <td>PROFESSIONAL AND TECHNICAL SERVICES</td>
+      <td>Computer systems design and related services</td>
+    </tr>
+    <tr>
+      <th>541513</th>
+      <td>Other computer related services, including facilities management</td>
+      <td>PROFESSIONAL AND TECHNICAL SERVICES</td>
+      <td>Computer systems design and related services</td>
+    </tr>
+    <tr>
+      <th>541519</th>
+      <td>Other computer related services, including facilities management</td>
+      <td>PROFESSIONAL AND TECHNICAL SERVICES</td>
+      <td>Computer systems design and related services</td>
+    </tr>
+    <tr>
+      <th>541610</th>
+      <td>Management consulting services</td>
+      <td>PROFESSIONAL AND TECHNICAL SERVICES</td>
+      <td>Miscellaneous professional, scientific, and technical services</td>
+    </tr>
+    <tr>
+      <th>541620</th>
+      <td>Environmental and other technical consulting services</td>
+      <td>PROFESSIONAL AND TECHNICAL SERVICES</td>
+      <td>Miscellaneous professional, scientific, and technical services</td>
+    </tr>
+    <tr>
+      <th>541690</th>
+      <td>Environmental and other technical consulting services</td>
+      <td>PROFESSIONAL AND TECHNICAL SERVICES</td>
+      <td>Miscellaneous professional, scientific, and technical services</td>
+    </tr>
+    <tr>
+      <th>541700</th>
+      <td>Scientific research and development services</td>
+      <td>PROFESSIONAL AND TECHNICAL SERVICES</td>
+      <td>Miscellaneous professional, scientific, and technical services</td>
+    </tr>
+    <tr>
+      <th>541800</th>
+      <td>Advertising, public relations, and related services</td>
+      <td>PROFESSIONAL AND TECHNICAL SERVICES</td>
+      <td>Miscellaneous professional, scientific, and technical services</td>
+    </tr>
+    <tr>
+      <th>541910</th>
+      <td>All other miscellaneous professional, scientific, and technical services</td>
+      <td>PROFESSIONAL AND TECHNICAL SERVICES</td>
+      <td>Miscellaneous professional, scientific, and technical services</td>
+    </tr>
+    <tr>
+      <th>541920</th>
+      <td>Photographic services</td>
+      <td>PROFESSIONAL AND TECHNICAL SERVICES</td>
+      <td>Miscellaneous professional, scientific, and technical services</td>
+    </tr>
+    <tr>
+      <th>541930</th>
+      <td>All other miscellaneous professional, scientific, and technical services</td>
+      <td>PROFESSIONAL AND TECHNICAL SERVICES</td>
+      <td>Miscellaneous professional, scientific, and technical services</td>
+    </tr>
+    <tr>
+      <th>541940</th>
+      <td>Veterinary services</td>
+      <td>PROFESSIONAL AND TECHNICAL SERVICES</td>
+      <td>Miscellaneous professional, scientific, and technical services</td>
+    </tr>
+    <tr>
+      <th>541990</th>
+      <td>All other miscellaneous professional, scientific, and technical services</td>
+      <td>PROFESSIONAL AND TECHNICAL SERVICES</td>
+      <td>Miscellaneous professional, scientific, and technical services</td>
+    </tr>
+    <tr>
+      <th>561000</th>
+      <td>Administrative and support services</td>
+      <td>ADMINISTRATIVE AND WASTE SERVICES</td>
+      <td>Administrative and support services</td>
+    </tr>
+    <tr>
+      <th>561100</th>
+      <td>Office administrative services</td>
+      <td>ADMINISTRATIVE AND WASTE SERVICES</td>
+      <td>Administrative and support services</td>
+    </tr>
+    <tr>
+      <th>561200</th>
+      <td>Facilities support services</td>
+      <td>ADMINISTRATIVE AND WASTE SERVICES</td>
+      <td>Administrative and support services</td>
+    </tr>
+    <tr>
+      <th>561300</th>
+      <td>Employment services</td>
+      <td>ADMINISTRATIVE AND WASTE SERVICES</td>
+      <td>Administrative and support services</td>
+    </tr>
+    <tr>
+      <th>561400</th>
+      <td>Business support services</td>
+      <td>ADMINISTRATIVE AND WASTE SERVICES</td>
+      <td>Administrative and support services</td>
+    </tr>
+    <tr>
+      <th>561500</th>
+      <td>Travel arrangement and reservation services</td>
+      <td>ADMINISTRATIVE AND WASTE SERVICES</td>
+      <td>Administrative and support services</td>
+    </tr>
+    <tr>
+      <th>561600</th>
+      <td>Investigation and security services</td>
+      <td>ADMINISTRATIVE AND WASTE SERVICES</td>
+      <td>Administrative and support services</td>
+    </tr>
+    <tr>
+      <th>561700</th>
+      <td>Services to buildings and dwellings</td>
+      <td>ADMINISTRATIVE AND WASTE SERVICES</td>
+      <td>Administrative and support services</td>
+    </tr>
+    <tr>
+      <th>561900</th>
+      <td>Other support services</td>
+      <td>ADMINISTRATIVE AND WASTE SERVICES</td>
+      <td>Administrative and support services</td>
+    </tr>
+    <tr>
+      <th>562000</th>
+      <td>Waste management and remediation services</td>
+      <td>ADMINISTRATIVE AND WASTE SERVICES</td>
+      <td>Waste management and remediation services</td>
+    </tr>
+    <tr>
+      <th>621000</th>
+      <td>Ambulatory health care services</td>
+      <td>HEALTH CARE AND SOCIAL ASSISTANCE</td>
+      <td>Ambulatory health care services</td>
+    </tr>
+    <tr>
+      <th>621100</th>
+      <td>Offices of physicians</td>
+      <td>HEALTH CARE AND SOCIAL ASSISTANCE</td>
+      <td>Ambulatory health care services</td>
+    </tr>
+    <tr>
+      <th>621200</th>
+      <td>Offices of dentists</td>
+      <td>HEALTH CARE AND SOCIAL ASSISTANCE</td>
+      <td>Ambulatory health care services</td>
+    </tr>
+    <tr>
+      <th>621300</th>
+      <td>Offices of other health practitioners</td>
+      <td>HEALTH CARE AND SOCIAL ASSISTANCE</td>
+      <td>Ambulatory health care services</td>
+    </tr>
+    <tr>
+      <th>621400</th>
+      <td>Outpatient care centers</td>
+      <td>HEALTH CARE AND SOCIAL ASSISTANCE</td>
+      <td>Ambulatory health care services</td>
+    </tr>
+    <tr>
+      <th>621500</th>
+      <td>Medical and diagnostic laboratories</td>
+      <td>HEALTH CARE AND SOCIAL ASSISTANCE</td>
+      <td>Ambulatory health care services</td>
+    </tr>
+    <tr>
+      <th>621600</th>
+      <td>Home health care services</td>
+      <td>HEALTH CARE AND SOCIAL ASSISTANCE</td>
+      <td>Ambulatory health care services</td>
+    </tr>
+    <tr>
+      <th>621900</th>
+      <td>Other ambulatory health care services</td>
+      <td>HEALTH CARE AND SOCIAL ASSISTANCE</td>
+      <td>Ambulatory health care services</td>
+    </tr>
+    <tr>
+      <th>622000</th>
+      <td>Hospitals</td>
+      <td>HEALTH CARE AND SOCIAL ASSISTANCE</td>
+      <td>Hospitals</td>
+    </tr>
+    <tr>
+      <th>623000</th>
+      <td>Nursing and residential care facilities</td>
+      <td>HEALTH CARE AND SOCIAL ASSISTANCE</td>
+      <td>Nursing and residential care facilities</td>
+    </tr>
+    <tr>
+      <th>623100</th>
+      <td>Nursing and community care facilities</td>
+      <td>HEALTH CARE AND SOCIAL ASSISTANCE</td>
+      <td>Nursing and residential care facilities</td>
+    </tr>
+    <tr>
+      <th>623200</th>
+      <td>Residential mental health, substance abuse, and other residential care facilities</td>
+      <td>HEALTH CARE AND SOCIAL ASSISTANCE</td>
+      <td>Nursing and residential care facilities</td>
+    </tr>
+    <tr>
+      <th>623300</th>
+      <td>Nursing and community care facilities</td>
+      <td>HEALTH CARE AND SOCIAL ASSISTANCE</td>
+      <td>Nursing and residential care facilities</td>
+    </tr>
+    <tr>
+      <th>623900</th>
+      <td>Residential mental health, substance abuse, and other residential care facilities</td>
+      <td>HEALTH CARE AND SOCIAL ASSISTANCE</td>
+      <td>Nursing and residential care facilities</td>
+    </tr>
+    <tr>
+      <th>624000</th>
+      <td>Social assistance</td>
+      <td>HEALTH CARE AND SOCIAL ASSISTANCE</td>
+      <td>Social assistance</td>
+    </tr>
+    <tr>
+      <th>624100</th>
+      <td>Individual and family services</td>
+      <td>HEALTH CARE AND SOCIAL ASSISTANCE</td>
+      <td>Social assistance</td>
+    </tr>
+    <tr>
+      <th>624200</th>
+      <td>Community food, housing, and other relief services, including vocational rehabilitation services</td>
+      <td>HEALTH CARE AND SOCIAL ASSISTANCE</td>
+      <td>Social assistance</td>
+    </tr>
+    <tr>
+      <th>624400</th>
+      <td>Child day care services</td>
+      <td>HEALTH CARE AND SOCIAL ASSISTANCE</td>
+      <td>Social assistance</td>
+    </tr>
+    <tr>
+      <th>711000</th>
+      <td>Performing arts, spectator sports, museums, and related activities</td>
+      <td>ARTS, ENTERTAINMENT, AND RECREATION</td>
+      <td>Performing arts, spectator sports, museums, and related activities</td>
+    </tr>
+    <tr>
+      <th>711100</th>
+      <td>Performing arts companies</td>
+      <td>ARTS, ENTERTAINMENT, AND RECREATION</td>
+      <td>Performing arts, spectator sports, museums, and related activities</td>
+    </tr>
+    <tr>
+      <th>711200</th>
+      <td>Spectator sports</td>
+      <td>ARTS, ENTERTAINMENT, AND RECREATION</td>
+      <td>Performing arts, spectator sports, museums, and related activities</td>
+    </tr>
+    <tr>
+      <th>711300</th>
+      <td>Promoters of performing arts and sports and agents for public figures</td>
+      <td>ARTS, ENTERTAINMENT, AND RECREATION</td>
+      <td>Performing arts, spectator sports, museums, and related activities</td>
+    </tr>
+    <tr>
+      <th>711500</th>
+      <td>Independent artists, writers, and performers</td>
+      <td>ARTS, ENTERTAINMENT, AND RECREATION</td>
+      <td>Performing arts, spectator sports, museums, and related activities</td>
+    </tr>
+    <tr>
+      <th>712000</th>
+      <td>Museums, historical sites, zoos, and parks</td>
+      <td>ARTS, ENTERTAINMENT, AND RECREATION</td>
+      <td>Performing arts, spectator sports, museums, and related activities</td>
+    </tr>
+    <tr>
+      <th>713000</th>
+      <td>Amusements, gambling, and recreation industries</td>
+      <td>ARTS, ENTERTAINMENT, AND RECREATION</td>
+      <td>Amusements, gambling, and recreation industries</td>
+    </tr>
+    <tr>
+      <th>713100</th>
+      <td>Amusement parks and arcades</td>
+      <td>ARTS, ENTERTAINMENT, AND RECREATION</td>
+      <td>Amusements, gambling, and recreation industries</td>
+    </tr>
+    <tr>
+      <th>713200</th>
+      <td>Gambling industries (except casino hotels)</td>
+      <td>ARTS, ENTERTAINMENT, AND RECREATION</td>
+      <td>Amusements, gambling, and recreation industries</td>
+    </tr>
+    <tr>
+      <th>713900</th>
+      <td>Other amusement and recreation industries</td>
+      <td>ARTS, ENTERTAINMENT, AND RECREATION</td>
+      <td>Amusements, gambling, and recreation industries</td>
     </tr>
   </tbody>
 </table>
-<p>70 rows × 11 columns</p>
 </div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Series</span><span class="p">(</span><span class="n">graph_info</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">fast</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Display node centrality measures from latest year</span>
+<span class="n">ioUse</span> <span class="o">=</span> <span class="n">ioUses</span><span class="p">[</span><span class="nb">max</span><span class="p">(</span><span class="n">years</span><span class="p">)]</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">ioUse</span><span class="p">[(</span><span class="o">~</span><span class="n">ioUse</span><span class="p">[</span><span class="s1">&#39;rowcode&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">drop</span><span class="p">)</span> <span class="o">&amp;</span>
+              <span class="o">~</span><span class="n">ioUse</span><span class="p">[</span><span class="s1">&#39;colcode&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">drop</span><span class="p">))]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># extract cross data; generate and load edges (as tuples) to graph</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;colcode&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;rowcode&#39;</span><span class="p">])]</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;weights&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;datavalue&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;datavalue&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">edges</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;weights&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="n">tail</span><span class="p">,</span> <span class="n">head</span><span class="p">,</span> <span class="s1">&#39;weights&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_weighted_edges_from</span><span class="p">(</span><span class="n">edges</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">)</span>
+
+<span class="c1"># Display graph properties</span>
+<span class="n">Series</span><span class="p">(</span><span class="n">graph_info</span><span class="p">(</span><span class="n">G</span><span class="p">))</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;Properties&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>weakly_connected                     True
-weakly_connected_components             1
-size_largest_weak_component            70
-strongly_connected                  False
-strongly_connected_components          10
-size_largest_strong_component          61
-directed                             True
-weighted                             True
-negatively_weighted                 False
-edges                                3235
-nodes                                  70
-selfloops                               0
-density                          0.669772
-dtype: object
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Properties</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>weakly_connected</th>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>weakly_connected_components</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>size_largest_weak_component</th>
+      <td>47</td>
+    </tr>
+    <tr>
+      <th>strongly_connected</th>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>strongly_connected_components</th>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>size_largest_strong_component</th>
+      <td>44</td>
+    </tr>
+    <tr>
+      <th>directed</th>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>weighted</th>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>negatively_weighted</th>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>edges</th>
+      <td>1694</td>
+    </tr>
+    <tr>
+      <th>nodes</th>
+      <td>47</td>
+    </tr>
+    <tr>
+      <th>selfloops</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>density</th>
+      <td>0.783534</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># show industry flow values and graph centrality measures</span>
+<span class="n">master</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;rowcode&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;colcode&#39;</span><span class="p">]][[</span><span class="s1">&#39;rowcode&#39;</span><span class="p">,</span> <span class="s1">&#39;datavalue&#39;</span><span class="p">]]</span>\
+     <span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;rowcode&#39;</span><span class="p">)</span>\
+     <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;datavalue&#39;</span><span class="p">:</span> <span class="s1">&#39;self&#39;</span><span class="p">}),</span>
+     <span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;colcode&#39;</span><span class="p">])[</span><span class="s1">&#39;datavalue&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">),</span>
+     <span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;rowcode&#39;</span><span class="p">])[</span><span class="s1">&#39;datavalue&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;maker&#39;</span><span class="p">)),</span>
+    <span class="n">join</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">master</span> <span class="o">=</span> <span class="n">master</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">nodes_centrality</span><span class="p">(</span><span class="n">G</span><span class="p">)),</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+<span class="n">master</span><span class="p">[</span><span class="s1">&#39;bea&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">BEA</span><span class="o">.</span><span class="n">short_desc</span><span class="p">[</span><span class="n">master</span><span class="o">.</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Node Centrality of BEA Input-Output Use Table </span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">master</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;self&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Node Centrality of BEA Input-Output Use Table 2022
+</pre></div>
 </div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>user</th>
+      <th>maker</th>
+      <th>in_degree</th>
+      <th>out_degree</th>
+      <th>hub</th>
+      <th>authority</th>
+      <th>eigenvector</th>
+      <th>pagerank</th>
+      <th>betweenness</th>
+      <th>closeness</th>
+      <th>bea</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>111CA</th>
+      <td>184284</td>
+      <td>451556</td>
+      <td>0.478</td>
+      <td>0.783</td>
+      <td>0.006</td>
+      <td>0.009</td>
+      <td>0.051</td>
+      <td>0.019</td>
+      <td>0.001</td>
+      <td>0.657</td>
+      <td>Farms</td>
+    </tr>
+    <tr>
+      <th>113FF</th>
+      <td>9386</td>
+      <td>91911</td>
+      <td>0.543</td>
+      <td>0.652</td>
+      <td>0.001</td>
+      <td>0.002</td>
+      <td>0.010</td>
+      <td>0.008</td>
+      <td>0.001</td>
+      <td>0.687</td>
+      <td>Forestry,fishing</td>
+    </tr>
+    <tr>
+      <th>211</th>
+      <td>249074</td>
+      <td>617352</td>
+      <td>0.674</td>
+      <td>0.674</td>
+      <td>0.012</td>
+      <td>0.010</td>
+      <td>0.124</td>
+      <td>0.034</td>
+      <td>0.004</td>
+      <td>0.754</td>
+      <td>Oil, gas</td>
+    </tr>
+    <tr>
+      <th>212</th>
+      <td>48300</td>
+      <td>122150</td>
+      <td>0.870</td>
+      <td>0.804</td>
+      <td>0.002</td>
+      <td>0.003</td>
+      <td>0.023</td>
+      <td>0.019</td>
+      <td>0.008</td>
+      <td>0.885</td>
+      <td>Mining</td>
+    </tr>
+    <tr>
+      <th>213</th>
+      <td>26920</td>
+      <td>23522</td>
+      <td>0.087</td>
+      <td>0.652</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.005</td>
+      <td>0.004</td>
+      <td>0.000</td>
+      <td>0.523</td>
+      <td>Support mining</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>203222</td>
+      <td>473707</td>
+      <td>1.000</td>
+      <td>0.717</td>
+      <td>0.014</td>
+      <td>0.030</td>
+      <td>0.102</td>
+      <td>0.033</td>
+      <td>0.003</td>
+      <td>1.000</td>
+      <td>Utilities</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>1039108</td>
+      <td>367652</td>
+      <td>1.000</td>
+      <td>0.739</td>
+      <td>0.036</td>
+      <td>0.027</td>
+      <td>0.117</td>
+      <td>0.020</td>
+      <td>0.003</td>
+      <td>1.000</td>
+      <td>Construction</td>
+    </tr>
+    <tr>
+      <th>311FT</th>
+      <td>603053</td>
+      <td>372818</td>
+      <td>0.630</td>
+      <td>0.804</td>
+      <td>0.013</td>
+      <td>0.022</td>
+      <td>0.046</td>
+      <td>0.015</td>
+      <td>0.001</td>
+      <td>0.730</td>
+      <td>Food</td>
+    </tr>
+    <tr>
+      <th>313TT</th>
+      <td>24087</td>
+      <td>60100</td>
+      <td>0.870</td>
+      <td>0.761</td>
+      <td>0.001</td>
+      <td>0.003</td>
+      <td>0.005</td>
+      <td>0.003</td>
+      <td>0.002</td>
+      <td>0.885</td>
+      <td>Textile</td>
+    </tr>
+    <tr>
+      <th>315AL</th>
+      <td>6468</td>
+      <td>20431</td>
+      <td>0.543</td>
+      <td>0.674</td>
+      <td>0.000</td>
+      <td>0.001</td>
+      <td>0.002</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.687</td>
+      <td>Apparel</td>
+    </tr>
+    <tr>
+      <th>321</th>
+      <td>61185</td>
+      <td>197254</td>
+      <td>0.957</td>
+      <td>0.804</td>
+      <td>0.002</td>
+      <td>0.011</td>
+      <td>0.043</td>
+      <td>0.008</td>
+      <td>0.003</td>
+      <td>0.958</td>
+      <td>Wood</td>
+    </tr>
+    <tr>
+      <th>322</th>
+      <td>75976</td>
+      <td>181304</td>
+      <td>0.978</td>
+      <td>0.739</td>
+      <td>0.003</td>
+      <td>0.008</td>
+      <td>0.034</td>
+      <td>0.013</td>
+      <td>0.002</td>
+      <td>0.979</td>
+      <td>Paper</td>
+    </tr>
+    <tr>
+      <th>323</th>
+      <td>43001</td>
+      <td>86246</td>
+      <td>0.739</td>
+      <td>0.804</td>
+      <td>0.002</td>
+      <td>0.008</td>
+      <td>0.024</td>
+      <td>0.004</td>
+      <td>0.003</td>
+      <td>0.793</td>
+      <td>Printing</td>
+    </tr>
+    <tr>
+      <th>324</th>
+      <td>675113</td>
+      <td>669702</td>
+      <td>1.000</td>
+      <td>0.761</td>
+      <td>0.012</td>
+      <td>0.037</td>
+      <td>0.104</td>
+      <td>0.032</td>
+      <td>0.002</td>
+      <td>1.000</td>
+      <td>Petroleum, coal</td>
+    </tr>
+    <tr>
+      <th>325</th>
+      <td>206855</td>
+      <td>683053</td>
+      <td>1.000</td>
+      <td>0.804</td>
+      <td>0.009</td>
+      <td>0.033</td>
+      <td>0.129</td>
+      <td>0.049</td>
+      <td>0.003</td>
+      <td>1.000</td>
+      <td>Chemical</td>
+    </tr>
+    <tr>
+      <th>326</th>
+      <td>183307</td>
+      <td>367073</td>
+      <td>1.000</td>
+      <td>0.783</td>
+      <td>0.007</td>
+      <td>0.019</td>
+      <td>0.066</td>
+      <td>0.020</td>
+      <td>0.003</td>
+      <td>1.000</td>
+      <td>Plastics, rubber</td>
+    </tr>
+    <tr>
+      <th>327</th>
+      <td>60399</td>
+      <td>234086</td>
+      <td>0.957</td>
+      <td>0.761</td>
+      <td>0.002</td>
+      <td>0.011</td>
+      <td>0.055</td>
+      <td>0.012</td>
+      <td>0.002</td>
+      <td>0.958</td>
+      <td>Nonmetallic</td>
+    </tr>
+    <tr>
+      <th>331</th>
+      <td>71633</td>
+      <td>361595</td>
+      <td>0.891</td>
+      <td>0.717</td>
+      <td>0.003</td>
+      <td>0.005</td>
+      <td>0.060</td>
+      <td>0.042</td>
+      <td>0.001</td>
+      <td>0.902</td>
+      <td>Metals</td>
+    </tr>
+    <tr>
+      <th>332</th>
+      <td>210277</td>
+      <td>513487</td>
+      <td>1.000</td>
+      <td>0.761</td>
+      <td>0.006</td>
+      <td>0.019</td>
+      <td>0.110</td>
+      <td>0.036</td>
+      <td>0.002</td>
+      <td>1.000</td>
+      <td>Fabricated metal</td>
+    </tr>
+    <tr>
+      <th>333</th>
+      <td>213396</td>
+      <td>249624</td>
+      <td>1.000</td>
+      <td>0.761</td>
+      <td>0.006</td>
+      <td>0.009</td>
+      <td>0.058</td>
+      <td>0.019</td>
+      <td>0.003</td>
+      <td>1.000</td>
+      <td>Machinery</td>
+    </tr>
+    <tr>
+      <th>334</th>
+      <td>58016</td>
+      <td>363419</td>
+      <td>0.978</td>
+      <td>0.717</td>
+      <td>0.004</td>
+      <td>0.021</td>
+      <td>0.088</td>
+      <td>0.022</td>
+      <td>0.001</td>
+      <td>0.979</td>
+      <td>Computer</td>
+    </tr>
+    <tr>
+      <th>335</th>
+      <td>76638</td>
+      <td>206688</td>
+      <td>1.000</td>
+      <td>0.717</td>
+      <td>0.002</td>
+      <td>0.008</td>
+      <td>0.052</td>
+      <td>0.013</td>
+      <td>0.002</td>
+      <td>1.000</td>
+      <td>Electrical</td>
+    </tr>
+    <tr>
+      <th>3361MV</th>
+      <td>336886</td>
+      <td>195265</td>
+      <td>0.978</td>
+      <td>0.783</td>
+      <td>0.009</td>
+      <td>0.010</td>
+      <td>0.044</td>
+      <td>0.014</td>
+      <td>0.003</td>
+      <td>0.979</td>
+      <td>Motor vehicles</td>
+    </tr>
+    <tr>
+      <th>3364OT</th>
+      <td>101642</td>
+      <td>79386</td>
+      <td>0.391</td>
+      <td>0.717</td>
+      <td>0.004</td>
+      <td>0.003</td>
+      <td>0.004</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.622</td>
+      <td>Transport equip</td>
+    </tr>
+    <tr>
+      <th>337</th>
+      <td>46531</td>
+      <td>59315</td>
+      <td>0.565</td>
+      <td>0.717</td>
+      <td>0.001</td>
+      <td>0.004</td>
+      <td>0.017</td>
+      <td>0.002</td>
+      <td>0.001</td>
+      <td>0.697</td>
+      <td>Furniture</td>
+    </tr>
+    <tr>
+      <th>339</th>
+      <td>70223</td>
+      <td>128923</td>
+      <td>0.935</td>
+      <td>0.804</td>
+      <td>0.003</td>
+      <td>0.012</td>
+      <td>0.012</td>
+      <td>0.003</td>
+      <td>0.003</td>
+      <td>0.939</td>
+      <td>Manufacturing</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>1188638</td>
+      <td>71846</td>
+      <td>0.848</td>
+      <td>0.848</td>
+      <td>0.093</td>
+      <td>0.004</td>
+      <td>0.010</td>
+      <td>0.007</td>
+      <td>0.004</td>
+      <td>0.868</td>
+      <td>Wholesale</td>
+    </tr>
+    <tr>
+      <th>44RT</th>
+      <td>1080120</td>
+      <td>0</td>
+      <td>0.000</td>
+      <td>0.913</td>
+      <td>0.087</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>Retail</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>553698</td>
+      <td>390771</td>
+      <td>1.000</td>
+      <td>0.848</td>
+      <td>0.033</td>
+      <td>0.033</td>
+      <td>0.097</td>
+      <td>0.021</td>
+      <td>0.006</td>
+      <td>1.000</td>
+      <td>Transportation</td>
+    </tr>
+    <tr>
+      <th>493</th>
+      <td>62616</td>
+      <td>184456</td>
+      <td>0.913</td>
+      <td>0.696</td>
+      <td>0.004</td>
+      <td>0.017</td>
+      <td>0.025</td>
+      <td>0.007</td>
+      <td>0.001</td>
+      <td>0.920</td>
+      <td>Warehousing, storage</td>
+    </tr>
+    <tr>
+      <th>51</th>
+      <td>734393</td>
+      <td>638594</td>
+      <td>1.000</td>
+      <td>0.848</td>
+      <td>0.067</td>
+      <td>0.044</td>
+      <td>0.222</td>
+      <td>0.040</td>
+      <td>0.005</td>
+      <td>1.000</td>
+      <td>Information</td>
+    </tr>
+    <tr>
+      <th>52</th>
+      <td>526941</td>
+      <td>1102224</td>
+      <td>1.000</td>
+      <td>0.674</td>
+      <td>0.052</td>
+      <td>0.087</td>
+      <td>0.397</td>
+      <td>0.074</td>
+      <td>0.002</td>
+      <td>1.000</td>
+      <td>Finance,insurance</td>
+    </tr>
+    <tr>
+      <th>531</th>
+      <td>1067551</td>
+      <td>1352230</td>
+      <td>1.000</td>
+      <td>0.739</td>
+      <td>0.087</td>
+      <td>0.100</td>
+      <td>0.345</td>
+      <td>0.072</td>
+      <td>0.003</td>
+      <td>1.000</td>
+      <td>Real estate</td>
+    </tr>
+    <tr>
+      <th>532RL</th>
+      <td>239390</td>
+      <td>449819</td>
+      <td>1.000</td>
+      <td>0.717</td>
+      <td>0.019</td>
+      <td>0.028</td>
+      <td>0.141</td>
+      <td>0.033</td>
+      <td>0.002</td>
+      <td>1.000</td>
+      <td>Rental</td>
+    </tr>
+    <tr>
+      <th>54</th>
+      <td>785265</td>
+      <td>1958497</td>
+      <td>1.000</td>
+      <td>0.913</td>
+      <td>0.049</td>
+      <td>0.145</td>
+      <td>0.516</td>
+      <td>0.114</td>
+      <td>0.017</td>
+      <td>1.000</td>
+      <td>Professional services</td>
+    </tr>
+    <tr>
+      <th>55</th>
+      <td>272563</td>
+      <td>726281</td>
+      <td>0.891</td>
+      <td>0.870</td>
+      <td>0.026</td>
+      <td>0.050</td>
+      <td>0.167</td>
+      <td>0.047</td>
+      <td>0.010</td>
+      <td>0.902</td>
+      <td>Management</td>
+    </tr>
+    <tr>
+      <th>56</th>
+      <td>544761</td>
+      <td>1207073</td>
+      <td>1.000</td>
+      <td>0.913</td>
+      <td>0.039</td>
+      <td>0.096</td>
+      <td>0.455</td>
+      <td>0.079</td>
+      <td>0.011</td>
+      <td>1.000</td>
+      <td>Administrative and waste management</td>
+    </tr>
+    <tr>
+      <th>61</th>
+      <td>113082</td>
+      <td>20555</td>
+      <td>0.348</td>
+      <td>0.848</td>
+      <td>0.009</td>
+      <td>0.001</td>
+      <td>0.001</td>
+      <td>0.001</td>
+      <td>0.001</td>
+      <td>0.605</td>
+      <td>Educational</td>
+    </tr>
+    <tr>
+      <th>62</th>
+      <td>1091749</td>
+      <td>14862</td>
+      <td>0.130</td>
+      <td>0.848</td>
+      <td>0.081</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.535</td>
+      <td>Healthcare</td>
+    </tr>
+    <tr>
+      <th>71</th>
+      <td>154598</td>
+      <td>132038</td>
+      <td>1.000</td>
+      <td>0.913</td>
+      <td>0.014</td>
+      <td>0.010</td>
+      <td>0.058</td>
+      <td>0.009</td>
+      <td>0.011</td>
+      <td>1.000</td>
+      <td>Arts, entertain, rec</td>
+    </tr>
+    <tr>
+      <th>721</th>
+      <td>105815</td>
+      <td>76041</td>
+      <td>0.978</td>
+      <td>0.826</td>
+      <td>0.006</td>
+      <td>0.006</td>
+      <td>0.043</td>
+      <td>0.007</td>
+      <td>0.004</td>
+      <td>0.979</td>
+      <td>Accommodation</td>
+    </tr>
+    <tr>
+      <th>722</th>
+      <td>562141</td>
+      <td>284931</td>
+      <td>1.000</td>
+      <td>0.848</td>
+      <td>0.035</td>
+      <td>0.024</td>
+      <td>0.116</td>
+      <td>0.019</td>
+      <td>0.004</td>
+      <td>1.000</td>
+      <td>Food services</td>
+    </tr>
+    <tr>
+      <th>81</th>
+      <td>311845</td>
+      <td>304730</td>
+      <td>1.000</td>
+      <td>0.913</td>
+      <td>0.024</td>
+      <td>0.022</td>
+      <td>0.088</td>
+      <td>0.018</td>
+      <td>0.011</td>
+      <td>1.000</td>
+      <td>Other services</td>
+    </tr>
+    <tr>
+      <th>GFE</th>
+      <td>38866</td>
+      <td>76333</td>
+      <td>0.761</td>
+      <td>0.739</td>
+      <td>0.002</td>
+      <td>0.007</td>
+      <td>0.018</td>
+      <td>0.004</td>
+      <td>0.004</td>
+      <td>0.807</td>
+      <td>Federal enterprises</td>
+    </tr>
+    <tr>
+      <th>GFG</th>
+      <td>459174</td>
+      <td>0</td>
+      <td>0.000</td>
+      <td>0.848</td>
+      <td>0.030</td>
+      <td>-0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>General government</td>
+    </tr>
+    <tr>
+      <th>GSLE</th>
+      <td>276831</td>
+      <td>37227</td>
+      <td>0.891</td>
+      <td>0.783</td>
+      <td>0.016</td>
+      <td>0.003</td>
+      <td>0.010</td>
+      <td>0.002</td>
+      <td>0.004</td>
+      <td>0.902</td>
+      <td>State local enterprises</td>
+    </tr>
+    <tr>
+      <th>GSLG</th>
+      <td>1151110</td>
+      <td>0</td>
+      <td>0.000</td>
+      <td>0.870</td>
+      <td>0.067</td>
+      <td>-0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>State local general</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1176,39 +2175,51 @@ dtype: object
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="customer_ego.html"
+       href="industry_community.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Principal Customers Network</p>
+        <p class="prev-next-title">Community Detection</p>
       </div>
     </a>
     <a class="right-next"
-       href="industry_community.html"
+       href="link_prediction.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Community Detection</p>
+        <p class="prev-next-title">Link Prediction</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#centrality-measures">Centrality measures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bea-input-output-use-tables">BEA Input-Output Use Tables</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
@@ -1226,9 +2237,10 @@ By Terence Lim
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -1252,8 +2264,8 @@ By Terence Lim
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

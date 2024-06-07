@@ -3,13 +3,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Bond Returns &#8212; Financial Data Science Python Notebooks</title>
+    <title>Bond Returns and Risks &#8212; Financial Data Science Python Notebooks</title>
   
   
   
@@ -19,51 +19,50 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'bond_returns';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Options Pricing" href="options_pricing.html" />
-    <link rel="prev" title="Term Structure" href="term_structure.html" />
+    <link rel="next" title="Conditional Volatility and VaR" href="conditional_volatility.html" />
+    <link rel="prev" title="Term Structure of Interest Rates" href="term_structure.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -73,7 +72,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -108,11 +115,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -127,6 +137,7 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="README.html">
@@ -135,60 +146,70 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     <p class="title logo__title">Financial Data Science Python Notebooks</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="README.html">
-                    Financial Data Science Notebooks
+                    FINANCIAL DATA SCIENCE
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="stock_prices.html">Stock prices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stock_prices.html">Stock Prices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jegadeesh_titman.html">Jegadeesh-Titman Rolling Portfolios</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fama_french.html">Fama-French Portfolio Sorts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fama_macbeth.html">Fama-Macbeth Cross-sectional Regressions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="weekly_reversal.html">Weekly reversal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weekly_reversal.html">Contrarian Trading</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quant_factors.html">Quant Factors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="event_study.html">Event Study</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="economic_releases.html">Economic Data Revisions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="regression_diagnostics.html">Linear Regression Diagonostics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="econometric_forecast.html">Econometric Forecasts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="approximate_factors.html">Approximate Factor Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="economic_states.html">State Space Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="conditional_volatility.html">Conditional Volatility</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="term_structure.html">Term Structure of Interest Rates</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Bond Returns and Risks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional_volatility.html">Conditional Volatility and VaR</a></li>
 <li class="toctree-l1"><a class="reference internal" href="covariance_matrix.html">Covariance Matrix</a></li>
-<li class="toctree-l1"><a class="reference internal" href="term_structure.html">Term Structure</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Bond Returns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="options_pricing.html">Options Pricing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="market_microstructure.html">Market Microstructure</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="event_risk.html">Event risk</a></li>
-<li class="toctree-l1"><a class="reference internal" href="customer_ego.html">Principal Customers Network</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="bea_centrality.html">Graph Centrality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event_risk.html">Event Risk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="customer_ego.html">Principal Customers Graph</a></li>
 <li class="toctree-l1"><a class="reference internal" href="industry_community.html">Community Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bea_centrality.html">Graph Centrality</a></li>
 <li class="toctree-l1"><a class="reference internal" href="link_prediction.html">Link Prediction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="spatial_regression.html">Spatial Regression</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fomc_topics.html">Topic Modelling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="management_sentiment.html">Sentiment Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="business_description.html">10-K Business Description</a></li>
-
-
-<li class="toctree-l1"><a class="reference internal" href="classification_models.html">Classification for supervised learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="regression_models.html">Regression for supervised learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="deep_classifier.html">Deep Averaging Networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="convolutional_net.html">Temporal Convolution Net</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fomc_topics.html">FOMC Topic Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management_sentiment.html">Management Sentiment Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="business_description.html">Business Text Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classification_models.html">Classification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regression_models.html">Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deep_classifier.html">Deep Learning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="recurrent_net.html">Recurrent Neural Networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fomc_language.html">Language Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="convolutional_net.html">Convolutional Neural Networks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reinforcement_learning.html">Reinforcement Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fomc_language.html">FedSpeak Language Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sentiment_llm.html">LLM Prompting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="summarization_llm.html">LLM Text Summarization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="finetune_llm.html">LLM Finetuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rag_agent.html">LLM RAG, Chatbots and Agents</a></li>
 </ul>
 
     </div>
@@ -342,24 +363,28 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
+
 
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -370,11 +395,30 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Bond Returns</h1>
+    <h1>Bond Returns and Risks</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#term-structure-changes">Term structure changes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#duration">Duration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dv01">DV01</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convexity">Convexity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#barbells-and-bullets">Barbells and bullets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-rate-shifts">Key rate shifts</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bond-risk-factors">Bond risk factors</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explainability-of-statistical-factors">Explainability of Statistical Factors</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -382,33 +426,394 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="bond-returns">
-<h1>Bond Returns<a class="headerlink" href="#bond-returns" title="Permalink to this heading">#</a></h1>
-<p><em>UNDER CONSTRUCTION</em></p>
+  <section class="tex2jax_ignore mathjax_ignore" id="bond-returns-and-risks">
+<h1>Bond Returns and Risks<a class="headerlink" href="#bond-returns-and-risks" title="Permalink to this heading">#</a></h1>
+<p><em>The essence of investment management is the management of risks, not the management of returns</em> - Benjamin Graham</p>
+<p>Concepts</p>
 <ul class="simple">
-<li><p>PCA</p></li>
-<li><p>bond portfolio returns</p></li>
+<li><p>Term structure changes</p></li>
+<li><p>Bond risk factors</p></li>
+</ul>
+<p>References:</p>
+<ul class="simple">
+<li><p>FRM Part I Exam Book Valuation and Risk Models Ch12-13</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">Series</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
 <span class="kn">from</span> <span class="nn">finds.readers</span> <span class="kn">import</span> <span class="n">Alfred</span>
-<span class="kn">from</span> <span class="nn">finds.misc</span> <span class="kn">import</span> <span class="n">Show</span>
-<span class="kn">from</span> <span class="nn">secret</span> <span class="kn">import</span> <span class="n">credentials</span><span class="p">,</span> <span class="n">paths</span>
+<span class="kn">from</span> <span class="nn">finds.recipes</span> <span class="kn">import</span> <span class="n">bond_price</span>
+<span class="kn">from</span> <span class="nn">secret</span> <span class="kn">import</span> <span class="n">credentials</span>
 <span class="c1"># %matplotlib qt</span>
 <span class="n">VERBOSE</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">show</span> <span class="o">=</span> <span class="n">Show</span><span class="p">(</span><span class="n">ndigits</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">latex</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<span class="n">imgdir</span> <span class="o">=</span> <span class="n">paths</span><span class="p">[</span><span class="s1">&#39;images&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="s1">&#39;ts&#39;</span>
 </pre></div>
 </div>
 </div>
 </div>
+<section id="term-structure-changes">
+<h2>Term structure changes<a class="headerlink" href="#term-structure-changes" title="Permalink to this heading">#</a></h2>
+<section id="duration">
+<h3>Duration<a class="headerlink" href="#duration" title="Permalink to this heading">#</a></h3>
+<p>Duration, or Macaulay Durection, measures the change in bond price P with
+a instataneous change in its yield y.</p>
+<p>Consider a bond with price <span class="math notranslate nohighlight">\(P\)</span> and yield <span class="math notranslate nohighlight">\(y\)</span>. Because it leads to a simpler duration formula, we first measure the yield with continuous compounding. The present value relationship between <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(y\)</span> is <span class="math notranslate nohighlight">\(P = \sum_{t=1}^{n} c_t e^{-yt}\)</span>.  Then after differentiating: <span class="math notranslate nohighlight">\(\Delta P = -\sum_{t=1}^{n} c_t t e^{-yt} \Delta y\)</span></p>
+<p>We define the yield-based duration as the proportional change in the
+bond price for a small change in the yield:</p>
+<div class="math notranslate nohighlight">
+\[D = \dfrac{\Delta P}{P \Delta y} = \sum_{t=1}^{n} t \dfrac{c_t e^{-yt}}{P}\]</div>
+<p>This formulation gives us another interpretation of duration. It
+can be calculated by taking an average of the times when cash flows
+are received weighted by the proportion of the bond’s value received
+at each time. Duration is therefore a measure of how long an
+investor has to wait to receive cash flows. (This explains why the
+word “duration” was chosen to describe the sensitivity of proportional
+changes to yield).</p>
+<p>Modified duration: If the yield on the bond is measured with
+semi-annual compounding rather than continuous compounding, the
+expression for (Macaulay) duration must be divided by <span class="math notranslate nohighlight">\((1 + y_2/2)\)</span>
+(or <span class="math notranslate nohighlight">\(1 + y_m/m\)</span> for m’thly compounding).</p>
+<p>Effective duration describes the percentage change in the price of a
+bond with embedded options due to a small change in all rates.</p>
+</section>
+<section id="dv01">
+<h3>DV01<a class="headerlink" href="#dv01" title="Permalink to this heading">#</a></h3>
+<p>DV01 describes the impact of a one-basis-point change in interest
+rates on the value of a portfolio.</p>
+<div class="math notranslate nohighlight">
+\[DV01 = -\dfrac{\Delta P}{\Delta r}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\Delta r\)</span> is the size of a small parallel shift
+in the interest rate term structure (measured in basis points).</p>
+</section>
+<section id="convexity">
+<h3>Convexity<a class="headerlink" href="#convexity" title="Permalink to this heading">#</a></h3>
+<p>Bond duration and convexity are in the first two terms of the
+derivative of a bond’s price with respect to interest rates in a Taylor
+expansion. Convexity measures the curvature of
+the bond price-interest rate relationship. It indicates how much the
+bond’s duration changes as interest rates change. While duration helps
+estimate bond price changes for small interest rate movements,
+convexity accounts for larger changes, providing a more accurate
+prediction of bond price behavior</p>
+<p>Yield-based convexity when yields are expressed with continuous compounding is</p>
+<div class="math notranslate nohighlight">
+\[C = \frac{1}{P}\frac{1}{(1+r/m)^2}\sum_{t=1}^{T}(t/2m +(t/m)^2)\frac{C_t}{(1+r/m)^t}\]</div>
+<p>It is a weighted average of the squared time to maturity. When yields
+are expressed with semi-annual compounding, these expressions must be
+divided by <span class="math notranslate nohighlight">\((1 + y_2/2)^2\)</span> (or <span class="math notranslate nohighlight">\((1 + y_m/2)^2\)</span> with m’thly compounding)
+and the result is referred to as modified convexity.
+Effective convexity measures the sensitivity of the duration measure
+to changes in interest rates.</p>
+<div class="math notranslate nohighlight">
+\[C = \dfrac{1}{P}[\dfrac{P^+ + P^- - 2P}{(\Delta r)^2}]\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Helpers to calculate duration and convexity</span>
+<span class="k">def</span> <span class="nf">macaulay_duration</span><span class="p">(</span><span class="n">coupon</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">m</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">price</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> 
+                      <span class="n">yields</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span> <span class="n">par</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Compute macaulay duration of a bond given spot rates or yield-to-maturity</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">      coupon : Annual coupon rate</span>
+<span class="sd">      n : Number of remaining coupons</span>
+<span class="sd">      m : Number of compounding periods per year</span>
+<span class="sd">      price : current market price of bond</span>
+<span class="sd">      yields : Simple annual yield-to-maturity or spot rates each period</span>
+<span class="sd">      par : face or par value of bond</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">      Macaulay duration</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">pd</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">is_list_like</span><span class="p">(</span><span class="n">yields</span><span class="p">):</span>
+        <span class="n">yields</span> <span class="o">=</span> <span class="p">[</span><span class="n">yields</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>        <span class="c1"># same spot rate every period</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">yields</span><span class="p">)</span> <span class="o">==</span> <span class="n">n</span><span class="p">,</span> <span class="s2">&quot;Number of spot rates must equal number of couponds&quot;</span>
+    <span class="n">pv</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">yields</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">m</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">t</span><span class="o">/</span><span class="n">m</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">coupon</span><span class="o">/</span><span class="n">m</span> <span class="o">+</span> <span class="n">par</span><span class="o">*</span><span class="p">(</span><span class="n">t</span> <span class="o">==</span> <span class="n">n</span><span class="p">))</span>
+          <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>    <span class="c1"># discount every period&#39;s time-weighted payment</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">pv</span><span class="p">)</span> <span class="o">/</span> <span class="n">price</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">modified_duration</span><span class="p">(</span><span class="n">coupon</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">m</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">price</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> 
+                      <span class="n">yields</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span> <span class="n">par</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Compute modified duration of a bond given spot rates or yield-to-maturity</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">      coupon : Annual coupon rate</span>
+<span class="sd">      n : Number of remaining coupons</span>
+<span class="sd">      m : Number of compounding periods per year</span>
+<span class="sd">      price : current market price of bond</span>
+<span class="sd">      yields : Simple annual yield-to-maturity or spot rates each period</span>
+<span class="sd">      par : face or par value of bond</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">      Modified duration</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">pd</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">is_list_like</span><span class="p">(</span><span class="n">yields</span><span class="p">),</span> <span class="s2">&quot;Not Implemented&quot;</span>
+    <span class="n">ytm</span> <span class="o">=</span> <span class="n">yields</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">macaulay_duration</span><span class="p">(</span><span class="n">coupon</span><span class="o">=</span><span class="n">coupon</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">,</span> <span class="n">price</span><span class="o">=</span><span class="n">price</span><span class="p">,</span> <span class="n">yields</span><span class="o">=</span><span class="n">yields</span><span class="p">,</span> <span class="n">par</span><span class="o">=</span><span class="n">par</span><span class="p">)</span>
+            <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">ytm</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">modified_convexity</span><span class="p">(</span><span class="n">coupon</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">m</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">price</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> 
+                       <span class="n">yields</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span> <span class="n">par</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Compute mocified convexity of a bond given spot rates or yield-to-maturity</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">      coupon : Annual coupon rate</span>
+<span class="sd">      n : Number of remaining coupons</span>
+<span class="sd">      m : Number of compounding periods per year</span>
+<span class="sd">      price : current market price of bond</span>
+<span class="sd">      yields : Simple annual yield-to-maturity or spot rates each period</span>
+<span class="sd">      par : face or par value of bond</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">      Modified convexity</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">pd</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">is_list_like</span><span class="p">(</span><span class="n">yields</span><span class="p">),</span> <span class="s2">&quot;Not Implemented&quot;</span>
+    <span class="n">ytm</span> <span class="o">=</span> <span class="n">yields</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">pd</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">is_list_like</span><span class="p">(</span><span class="n">yields</span><span class="p">):</span>
+        <span class="n">yields</span> <span class="o">=</span> <span class="p">[</span><span class="n">yields</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>        <span class="c1"># same spot rate every period</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">yields</span><span class="p">)</span> <span class="o">==</span> <span class="n">n</span><span class="p">,</span> <span class="s2">&quot;Number of spot rates must equal number of coupons&quot;</span>
+    <span class="n">pv</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">yields</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">m</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="p">((</span><span class="n">t</span><span class="o">/</span><span class="n">m</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">t</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="n">coupon</span><span class="o">/</span><span class="n">m</span> <span class="o">+</span> <span class="n">par</span><span class="o">*</span><span class="p">(</span><span class="n">t</span> <span class="o">==</span> <span class="n">n</span><span class="p">))</span>
+          <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>    <span class="c1"># discount every period&#39;s time-weighted payment</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">pv</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">price</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">ytm</span><span class="o">/</span><span class="n">m</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="barbells-and-bullets">
+<h3>Barbells and bullets<a class="headerlink" href="#barbells-and-bullets" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute prices, duration and convexity for 3 bonds (FRM Valuation and Risk Models 12.7)</span>
+<span class="n">bond5Y</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">coupon</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="mi">5</span><span class="p">,</span> <span class="n">par</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">yields</span><span class="o">=</span><span class="mf">0.04</span><span class="p">)</span>
+<span class="n">bond10Y</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">coupon</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="mi">10</span><span class="p">,</span> <span class="n">par</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">yields</span><span class="o">=</span><span class="mf">0.04</span><span class="p">)</span>
+<span class="n">bond20Y</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">coupon</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="mi">20</span><span class="p">,</span> <span class="n">par</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">yields</span><span class="o">=</span><span class="mf">0.04</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">bond</span> <span class="ow">in</span> <span class="p">[</span><span class="n">bond5Y</span><span class="p">,</span> <span class="n">bond10Y</span><span class="p">,</span> <span class="n">bond20Y</span><span class="p">]:</span>
+    <span class="n">bond</span> <span class="o">|=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">price</span><span class="o">=</span><span class="n">bond_price</span><span class="p">(</span><span class="o">**</span><span class="n">bond</span><span class="p">))</span>
+    <span class="n">bond</span> <span class="o">|=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">duration</span><span class="o">=</span><span class="n">modified_duration</span><span class="p">(</span><span class="o">**</span><span class="n">bond</span><span class="p">))</span>
+    <span class="n">bond</span> <span class="o">|=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">convexity</span><span class="o">=</span><span class="n">modified_convexity</span><span class="p">(</span><span class="o">**</span><span class="n">bond</span><span class="p">))</span>
+<span class="n">bonds</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span>
+    <span class="p">{</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">b</span><span class="p">[</span><span class="s1">&#39;n&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">b</span><span class="p">[</span><span class="s1">&#39;m&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">-year, </span><span class="si">{</span><span class="n">b</span><span class="p">[</span><span class="s1">&#39;coupon&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">% coupon&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="n">b</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">b</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">],</span> <span class="n">b</span><span class="p">[</span><span class="s1">&#39;convexity&#39;</span><span class="p">]]</span>
+     <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="p">[</span><span class="n">bond5Y</span><span class="p">,</span> <span class="n">bond10Y</span><span class="p">,</span> <span class="n">bond20Y</span><span class="p">]},</span>
+    <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">,</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Value&#39;</span><span class="p">,</span> <span class="s1">&#39;Effective Duration&#39;</span><span class="p">,</span> <span class="s1">&#39;Effective Convexity&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Table 12.4 Effective Durations and Convexities of Three Bonds&quot;</span><span class="p">)</span>
+<span class="n">bonds</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Table 12.4 Effective Durations and Convexities of Three Bonds
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Value</th>
+      <th>Effective Duration</th>
+      <th>Effective Convexity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>5-year, 2% coupon</th>
+      <td>91.0174</td>
+      <td>4.6764</td>
+      <td>24.8208</td>
+    </tr>
+    <tr>
+      <th>10-year, 4% coupon</th>
+      <td>100.0000</td>
+      <td>8.1757</td>
+      <td>78.8979</td>
+    </tr>
+    <tr>
+      <th>20-year, 6% coupon</th>
+      <td>127.3555</td>
+      <td>12.6233</td>
+      <td>212.4587</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute 5Y and 20Y weights of barbell portfolio, with same duration as bullet 10Y</span>
+<span class="n">barbell</span> <span class="o">=</span> <span class="p">((</span><span class="n">bond10Y</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">bond20Y</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">])</span> <span class="o">/</span>
+           <span class="p">(</span><span class="n">bond5Y</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">bond20Y</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Barbell: weight in 5Y = </span><span class="si">{</span><span class="n">barbell</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, weight in 20Y = </span><span class="si">{</span><span class="mi">1</span><span class="o">-</span><span class="n">barbell</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Barbell: weight in 5Y = 0.5597, weight in 20Y = 0.4403
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compare durations and convexities</span>
+<span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">Bullet</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">bonds</span><span class="p">),</span>
+                         <span class="n">Barbell</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">barbell</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="o">-</span><span class="n">barbell</span><span class="p">])</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">bonds</span><span class="p">)),</span>
+                    <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">bonds</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>\
+                    <span class="p">[[</span><span class="s1">&#39;Effective Duration&#39;</span><span class="p">,</span> <span class="s1">&#39;Effective Convexity&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Effective Duration</th>
+      <th>Effective Convexity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Bullet</th>
+      <td>8.175717</td>
+      <td>78.897925</td>
+    </tr>
+    <tr>
+      <th>Barbell</th>
+      <td>8.175717</td>
+      <td>107.444902</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>A <strong>positive convexity</strong> improves the bond holder’s position when there is
+a parallel shift in interest rates. While both strategies provide a yield of 4%
+and a duration of 8.1758, the barbell strategy always produces a
+better result when there is a parallel shift in the yield curve.
+An opportunity for arbitrageurs:</p>
+<ul class="simple">
+<li><p>Invest a certain USD amount in the barbell, and</p></li>
+<li><p>Short the same USD amount of the bullet</p></li>
+</ul>
+<p>This would be profitable if shifts in the term structure were always parallel.</p>
+</section>
+<section id="key-rate-shifts">
+<h3>Key rate shifts<a class="headerlink" href="#key-rate-shifts" title="Permalink to this heading">#</a></h3>
+<p>Suppose we consider three spot rates: the two-year rate, the five-year
+rate, and the ten-year rate. Each of these can affect spot rates in
+their neighborhoods, and the combined effect of all three key rate
+shifts is a one-basis-point shift in all rates. Shifts in each of
+those spot rates can be defined as shown belo.  These shift are
+sometimes referred to as <strong>key rate shifts</strong>, and providea way of
+splitting the DV01 measure into three separate measures.</p>
+<p>The impact of the shifts are called <strong>partial 01s</strong> or <strong>key rate 01s</strong> (KR01s), e.g.:</p>
+<ul class="simple">
+<li><p>KR01<span class="math notranslate nohighlight">\(_1\)</span>: The reduction in a portfolio’s value from a one-basis-point increase
+in the two-year spot rate</p></li>
+<li><p>KR01<span class="math notranslate nohighlight">\(_2\)</span>: The reduction in a portfolio’s value from a one-basis-point increase
+in the five-year spot rate</p></li>
+<li><p>KR01<span class="math notranslate nohighlight">\(_3\)</span>: The reduction in a portfolio’s value from a one-basis-point increase
+in the ten-year spot rate</p></li>
+</ul>
+<p>It follows that: <span class="math notranslate nohighlight">\(DV01 = KR01_1 + KR01_2 + KR01_3\)</span>.  A bond
+investor can estimate portfolio values under, or hedge against, a wider
+range of (small) term structure movements.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">KR</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="n">DV01</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">maturity</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">maturity</span> <span class="o">&lt;=</span> <span class="n">KR</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+        <span class="n">changes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="n">maturity</span> <span class="o">&gt;=</span> <span class="n">KR</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span>
+        <span class="n">changes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="n">maturity</span> <span class="o">&lt;</span> <span class="n">KR</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="n">diff</span> <span class="o">=</span> <span class="p">(</span><span class="n">maturity</span> <span class="o">-</span> <span class="n">KR</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="n">KR</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">KR</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">changes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="o">-</span> <span class="n">diff</span><span class="p">,</span> <span class="n">diff</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">diff</span> <span class="o">=</span> <span class="p">(</span><span class="n">KR</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">maturity</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">KR</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">KR</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">changes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">diff</span><span class="p">,</span> <span class="mi">1</span><span class="o">-</span><span class="n">diff</span><span class="p">]</span>
+    <span class="n">DV01</span><span class="p">[</span><span class="n">maturity</span><span class="p">]</span> <span class="o">=</span> <span class="n">changes</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">DV01</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">Y-rate&quot;</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">KR</span><span class="p">])</span>\
+         <span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Changes in all rates when key rate is increased by one basis point&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Rate increase (bp)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Maturity (years)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">top</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/9ebdce2aad14465231c8b0f3941ce96e664ebeab938e7bb9b6855eaac21b2c61.png" src="_images/9ebdce2aad14465231c8b0f3941ce96e664ebeab938e7bb9b6855eaac21b2c61.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="bond-risk-factors">
+<h2>Bond risk factors<a class="headerlink" href="#bond-risk-factors" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alf</span> <span class="o">=</span> <span class="n">Alfred</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;fred&#39;</span><span class="p">][</span><span class="s1">&#39;api_key&#39;</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
@@ -416,95 +821,39 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Bond Return Components</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## get Merrill Lynch bond indexes</span>
-<span class="n">c</span> <span class="o">=</span> <span class="n">alf</span><span class="o">.</span><span class="n">get_category</span><span class="p">(</span><span class="mi">32413</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span> <span class="n">c</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">Series</span><span class="p">({</span><span class="n">s</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]:</span> <span class="n">s</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">c</span><span class="p">[</span><span class="s1">&#39;series&#39;</span><span class="p">]})</span>
-<span class="n">t</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get Merrill Lynch bond indexes</span>
+<span class="n">freq</span> <span class="o">=</span> <span class="s1">&#39;D&#39;</span>    <span class="c1"># periodicity &#39;M&#39; or &#39;D&#39;</span>
+<span class="n">cat</span> <span class="o">=</span> <span class="n">alf</span><span class="o">.</span><span class="n">get_category</span><span class="p">(</span><span class="mi">32413</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cat</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span> <span class="n">cat</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://api.stlouisfed.org/fred/category?category_id=32413&amp;api_key=eb428f329807459fa7bee89be4ebbc3b&amp;file_type=json
-https://api.stlouisfed.org/fred/category/children?category_id=32413&amp;api_key=eb428f329807459fa7bee89be4ebbc3b&amp;file_type=json
-https://api.stlouisfed.org/fred/category/series?category_id=32413&amp;api_key=eb428f329807459fa7bee89be4ebbc3b&amp;file_type=json&amp;offset=0
-https://api.stlouisfed.org/fred/category/series?category_id=32413&amp;api_key=eb428f329807459fa7bee89be4ebbc3b&amp;file_type=json&amp;offset=1000
-32413 BofA Merrill Lynch Total Bond Return Index Values
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BAMLCC0A0CMTRIV             ICE BofA US Corporate Index Total Return Index...
-BAMLCC0A1AAATRIV            ICE BofA AAA US Corporate Index Total Return I...
-BAMLCC0A2AATRIV             ICE BofA AA US Corporate Index Total Return In...
-BAMLCC0A3ATRIV              ICE BofA Single-A US Corporate Index Total Ret...
-BAMLCC0A4BBBTRIV            ICE BofA BBB US Corporate Index Total Return I...
-BAMLCC1A013YTRIV            ICE BofA 1-3 Year US Corporate Index Total Ret...
-BAMLCC2A035YTRIV            ICE BofA 3-5 Year US Corporate Index Total Ret...
-BAMLCC3A057YTRIV            ICE BofA 5-7 Year US Corporate Index Total Ret...
-BAMLCC4A0710YTRIV           ICE BofA 7-10 Year US Corporate Index Total Re...
-BAMLCC7A01015YTRIV          ICE BofA 10-15 Year US Corporate Index Total R...
-BAMLCC8A015PYTRIV           ICE BofA 15+ Year US Corporate Index Total Ret...
-BAMLEM1BRRAAA2ACRPITRIV     ICE BofA AAA-A Emerging Markets Corporate Plus...
-BAMLEM1RAAA2ALCRPIUSTRIV    ICE BofA AAA-A US Emerging Markets Liquid Corp...
-BAMLEM2BRRBBBCRPITRIV       ICE BofA BBB Emerging Markets Corporate Plus I...
-BAMLEM2RBBBLCRPIUSTRIV      ICE BofA BBB US Emerging Markets Liquid Corpor...
-BAMLEM3BRRBBCRPITRIV        ICE BofA BB Emerging Markets Corporate Plus In...
-BAMLEM3RBBLCRPIUSTRIV       ICE BofA BB US Emerging Markets Liquid Corpora...
-BAMLEM4BRRBLCRPITRIV        ICE BofA B &amp; Lower Emerging Markets Corporate ...
-BAMLEM4RBLLCRPIUSTRIV       ICE BofA B &amp; Lower US Emerging Markets Liquid ...
-BAMLEM5BCOCRPITRIV          ICE BofA Crossover Emerging Markets Corporate ...
-BAMLEMALLCRPIASIAUSTRIV     ICE BofA Asia US Emerging Markets Liquid Corpo...
-BAMLEMCBPITRIV              ICE BofA Emerging Markets Corporate Plus Index...
-BAMLEMCLLCRPIUSTRIV         ICE BofA US Emerging Markets Liquid Corporate ...
-BAMLEMEBCRPIETRIV           ICE BofA Euro Emerging Markets Corporate Plus ...
-BAMLEMELLCRPIEMEAUSTRIV     ICE BofA EMEA US Emerging Markets Liquid Corpo...
-BAMLEMFLFLCRPIUSTRIV        ICE BofA Financial US Emerging Markets Liquid ...
-BAMLEMFSFCRPITRIV           ICE BofA Private Sector Financial Emerging Mar...
-BAMLEMHBHYCRPITRIV          ICE BofA High Yield Emerging Markets Corporate...
-BAMLEMHGHGLCRPIUSTRIV       ICE BofA High Grade US Emerging Markets Liquid...
-BAMLEMHYHYLCRPIUSTRIV       ICE BofA High Yield US Emerging Markets Liquid...
-BAMLEMIBHGCRPITRIV          ICE BofA High Grade Emerging Markets Corporate...
-BAMLEMLLLCRPILAUSTRIV       ICE BofA Latin America US Emerging Markets Liq...
-BAMLEMNFNFLCRPIUSTRIV       ICE BofA Non-Financial US Emerging Markets Liq...
-BAMLEMNSNFCRPITRIV          ICE BofA Non-Financial Emerging Markets Corpor...
-BAMLEMPBPUBSICRPITRIV       ICE BofA Public Sector Issuers Emerging Market...
-BAMLEMPTPRVICRPITRIV        ICE BofA Private Sector Issuers Emerging Marke...
-BAMLEMPUPUBSLCRPIUSTRIV     ICE BofA Public Sector Issuers US Emerging Mar...
-BAMLEMPVPRIVSLCRPIUSTRIV    ICE BofA Private Sector Issuers US Emerging Ma...
-BAMLEMRACRPIASIATRIV        ICE BofA Asia Emerging Markets Corporate Plus ...
-BAMLEMRECRPIEMEATRIV        ICE BofA EMEA Emerging Markets Corporate Plus ...
-BAMLEMRLCRPILATRIV          ICE BofA Latin America Emerging Markets Corpor...
-BAMLEMUBCRPIUSTRIV          ICE BofA US Emerging Markets Corporate Plus In...
-BAMLEMXOCOLCRPIUSTRIV       ICE BofA Crossover US Emerging Markets Liquid ...
-BAMLHE00EHYITRIV            ICE BofA Euro High Yield Index Total Return In...
-BAMLHYH0A0HYM2TRIV          ICE BofA US High Yield Index Total Return Inde...
-BAMLHYH0A1BBTRIV            ICE BofA BB US High Yield Index Total Return I...
-BAMLHYH0A2BTRIV             ICE BofA Single-B US High Yield Index Total Re...
-BAMLHYH0A3CMTRIV            ICE BofA CCC &amp; Lower US High Yield Index Total...
-dtype: object
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>32413 BofA Merrill Lynch Total Bond Return Index Values
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="p">[]</span>   <span class="c1"># accumulate bond returns</span>
-<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
-    <span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">alf</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">19961231</span><span class="p">)</span> <span class="p">)</span>
-<span class="n">bonds</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get bond index returns</span>
+<span class="n">bonds</span> <span class="o">=</span> <span class="p">[]</span>   <span class="c1"># to accumulate bond returns</span>
+<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">cat</span><span class="p">[</span><span class="s1">&#39;series&#39;</span><span class="p">]:</span>
+    <span class="n">bonds</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">alf</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span> <span class="n">start</span><span class="o">=</span><span class="mi">19961231</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="n">freq</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">bonds_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">bonds</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Show blocks of data available</span>
-<span class="n">v</span> <span class="o">=</span> <span class="n">bonds</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
-<span class="n">v</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">v</span><span class="p">,</span> <span class="p">(</span><span class="n">v</span> <span class="o">!=</span> <span class="n">v</span><span class="o">.</span><span class="n">shift</span><span class="p">())</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;notna&#39;</span><span class="p">)],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">g</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;notna&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">])[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s1">&#39;first&#39;</span><span class="p">,</span><span class="s1">&#39;last&#39;</span><span class="p">])</span>
-<span class="n">g</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># show blocks of data availability</span>
+<span class="n">counts</span> <span class="o">=</span> <span class="n">bonds_df</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
+<span class="n">counts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">counts</span><span class="p">,</span> <span class="p">(</span><span class="n">counts</span> <span class="o">!=</span> <span class="n">counts</span><span class="o">.</span><span class="n">shift</span><span class="p">())</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;notna&#39;</span><span class="p">)],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">counts</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;notna&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">])[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s1">&#39;first&#39;</span><span class="p">,</span><span class="s1">&#39;last&#39;</span><span class="p">])</span>
+<span class="n">counts</span>
 </pre></div>
 </div>
 </div>
@@ -573,7 +922,7 @@ dtype: object
       <th>6</th>
       <th>48</th>
       <td>20181112</td>
-      <td>20230829</td>
+      <td>20240418</td>
     </tr>
   </tbody>
 </table>
@@ -581,20 +930,365 @@ dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">start_date</span> <span class="o">=</span> <span class="mi">19981231</span>
-<span class="n">rets</span> <span class="o">=</span> <span class="n">bonds</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">bonds</span><span class="o">.</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="n">start_date</span><span class="p">,</span>
-                 <span class="n">bonds</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">start_date</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># choose start date with good data availability</span>
+<span class="n">start_date</span> <span class="o">=</span> <span class="mi">19981231</span>
+<span class="n">rets</span> <span class="o">=</span> <span class="n">bonds_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">bonds_df</span><span class="o">.</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="n">start_date</span><span class="p">,</span>
+                    <span class="n">bonds_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">start_date</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">rets</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">alf</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">rets</span><span class="p">[</span><span class="n">col</span><span class="p">],</span> <span class="n">log</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">diff</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-                  <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">rets</span><span class="o">.</span><span class="n">columns</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">show</span><span class="p">(</span><span class="n">Series</span><span class="p">(</span><span class="n">alf</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="n">rets</span><span class="o">.</span><span class="n">columns</span><span class="p">),</span>
-            <span class="n">index</span><span class="o">=</span><span class="n">rets</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
-            <span class="n">name</span><span class="o">=</span><span class="s1">&#39;title&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span><span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="s1">&#39;series&#39;</span><span class="p">),</span>
-     <span class="n">max_colwidth</span><span class="o">=</span><span class="mi">88</span><span class="p">,</span>
-     <span class="n">caption</span><span class="o">=</span><span class="s2">&quot;Bond Index Total Returns&quot;</span><span class="p">)</span>
+                  <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">rets</span><span class="o">.</span><span class="n">columns</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">rets</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>BAMLCC0A0CMTRIV</th>
+      <th>BAMLCC0A1AAATRIV</th>
+      <th>BAMLCC0A2AATRIV</th>
+      <th>BAMLCC0A3ATRIV</th>
+      <th>BAMLCC0A4BBBTRIV</th>
+      <th>BAMLCC1A013YTRIV</th>
+      <th>BAMLCC2A035YTRIV</th>
+      <th>BAMLCC3A057YTRIV</th>
+      <th>BAMLCC4A0710YTRIV</th>
+      <th>BAMLCC7A01015YTRIV</th>
+      <th>...</th>
+      <th>BAMLEMPTPRVICRPITRIV</th>
+      <th>BAMLEMRACRPIASIATRIV</th>
+      <th>BAMLEMRECRPIEMEATRIV</th>
+      <th>BAMLEMRLCRPILATRIV</th>
+      <th>BAMLEMUBCRPIUSTRIV</th>
+      <th>BAMLHE00EHYITRIV</th>
+      <th>BAMLHYH0A0HYM2TRIV</th>
+      <th>BAMLHYH0A1BBTRIV</th>
+      <th>BAMLHYH0A2BTRIV</th>
+      <th>BAMLHYH0A3CMTRIV</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>19990104</th>
+      <td>-0.001053</td>
+      <td>-0.001421</td>
+      <td>-0.000660</td>
+      <td>-0.001166</td>
+      <td>-0.000995</td>
+      <td>0.000076</td>
+      <td>0.000473</td>
+      <td>0.000534</td>
+      <td>-0.000519</td>
+      <td>-0.001209</td>
+      <td>...</td>
+      <td>0.001599</td>
+      <td>-0.000700</td>
+      <td>-0.005616</td>
+      <td>0.002297</td>
+      <td>0.001099</td>
+      <td>0.000195</td>
+      <td>0.001490</td>
+      <td>0.000250</td>
+      <td>0.001999</td>
+      <td>0.003234</td>
+    </tr>
+    <tr>
+      <th>19990105</th>
+      <td>-0.003846</td>
+      <td>-0.004194</td>
+      <td>-0.003500</td>
+      <td>-0.003857</td>
+      <td>-0.003952</td>
+      <td>-0.000844</td>
+      <td>-0.002452</td>
+      <td>-0.003343</td>
+      <td>-0.004276</td>
+      <td>-0.004990</td>
+      <td>...</td>
+      <td>0.002692</td>
+      <td>0.000400</td>
+      <td>0.008113</td>
+      <td>0.002392</td>
+      <td>0.002394</td>
+      <td>0.012287</td>
+      <td>0.000674</td>
+      <td>-0.000834</td>
+      <td>0.000781</td>
+      <td>0.005428</td>
+    </tr>
+    <tr>
+      <th>19990106</th>
+      <td>0.002388</td>
+      <td>0.002099</td>
+      <td>0.002102</td>
+      <td>0.002495</td>
+      <td>0.002419</td>
+      <td>0.000466</td>
+      <td>0.000901</td>
+      <td>0.001695</td>
+      <td>0.001967</td>
+      <td>0.002537</td>
+      <td>...</td>
+      <td>0.007144</td>
+      <td>0.003395</td>
+      <td>0.009135</td>
+      <td>0.006251</td>
+      <td>0.006060</td>
+      <td>0.000577</td>
+      <td>0.001487</td>
+      <td>0.001583</td>
+      <td>0.001041</td>
+      <td>0.003480</td>
+    </tr>
+    <tr>
+      <th>19990107</th>
+      <td>-0.002694</td>
+      <td>-0.002813</td>
+      <td>-0.002413</td>
+      <td>-0.002573</td>
+      <td>-0.002996</td>
+      <td>0.000101</td>
+      <td>-0.000853</td>
+      <td>-0.001561</td>
+      <td>-0.002662</td>
+      <td>-0.003371</td>
+      <td>...</td>
+      <td>-0.001484</td>
+      <td>-0.003095</td>
+      <td>0.007386</td>
+      <td>0.000198</td>
+      <td>-0.000694</td>
+      <td>0.003932</td>
+      <td>-0.000112</td>
+      <td>-0.001250</td>
+      <td>0.000520</td>
+      <td>0.001005</td>
+    </tr>
+    <tr>
+      <th>19990108</th>
+      <td>-0.002583</td>
+      <td>-0.002941</td>
+      <td>-0.002419</td>
+      <td>-0.002658</td>
+      <td>-0.002504</td>
+      <td>-0.000920</td>
+      <td>-0.002006</td>
+      <td>-0.003309</td>
+      <td>-0.003773</td>
+      <td>-0.004368</td>
+      <td>...</td>
+      <td>-0.000594</td>
+      <td>0.001998</td>
+      <td>0.000392</td>
+      <td>-0.002079</td>
+      <td>-0.000892</td>
+      <td>0.000000</td>
+      <td>0.001737</td>
+      <td>-0.000918</td>
+      <td>0.002509</td>
+      <td>0.007643</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>20240411</th>
+      <td>-0.001330</td>
+      <td>-0.001659</td>
+      <td>-0.001234</td>
+      <td>-0.001240</td>
+      <td>-0.001418</td>
+      <td>0.000582</td>
+      <td>-0.000040</td>
+      <td>-0.000588</td>
+      <td>-0.001859</td>
+      <td>-0.001963</td>
+      <td>...</td>
+      <td>-0.001561</td>
+      <td>-0.000714</td>
+      <td>-0.003072</td>
+      <td>-0.003734</td>
+      <td>-0.002164</td>
+      <td>-0.001999</td>
+      <td>-0.001882</td>
+      <td>-0.001767</td>
+      <td>-0.001925</td>
+      <td>-0.002184</td>
+    </tr>
+    <tr>
+      <th>20240412</th>
+      <td>0.001673</td>
+      <td>0.001828</td>
+      <td>0.001822</td>
+      <td>0.001739</td>
+      <td>0.001592</td>
+      <td>0.000727</td>
+      <td>0.001509</td>
+      <td>0.002151</td>
+      <td>0.001789</td>
+      <td>0.002657</td>
+      <td>...</td>
+      <td>0.001016</td>
+      <td>0.001856</td>
+      <td>0.000311</td>
+      <td>-0.000522</td>
+      <td>0.000781</td>
+      <td>-0.000229</td>
+      <td>-0.001196</td>
+      <td>-0.000885</td>
+      <td>-0.001148</td>
+      <td>-0.002668</td>
+    </tr>
+    <tr>
+      <th>20240415</th>
+      <td>-0.006152</td>
+      <td>-0.008150</td>
+      <td>-0.006125</td>
+      <td>-0.006174</td>
+      <td>-0.006110</td>
+      <td>-0.000410</td>
+      <td>-0.002345</td>
+      <td>-0.004446</td>
+      <td>-0.006793</td>
+      <td>-0.008662</td>
+      <td>...</td>
+      <td>-0.002430</td>
+      <td>-0.002237</td>
+      <td>-0.003116</td>
+      <td>-0.004952</td>
+      <td>-0.003309</td>
+      <td>-0.000858</td>
+      <td>-0.002717</td>
+      <td>-0.002836</td>
+      <td>-0.002138</td>
+      <td>-0.003969</td>
+    </tr>
+    <tr>
+      <th>20240416</th>
+      <td>-0.004341</td>
+      <td>-0.004776</td>
+      <td>-0.003966</td>
+      <td>-0.004142</td>
+      <td>-0.004571</td>
+      <td>-0.001117</td>
+      <td>-0.002740</td>
+      <td>-0.003974</td>
+      <td>-0.004730</td>
+      <td>-0.005714</td>
+      <td>...</td>
+      <td>-0.002959</td>
+      <td>-0.002457</td>
+      <td>-0.002725</td>
+      <td>-0.004515</td>
+      <td>-0.003117</td>
+      <td>-0.004533</td>
+      <td>-0.004080</td>
+      <td>-0.003503</td>
+      <td>-0.004105</td>
+      <td>-0.006513</td>
+    </tr>
+    <tr>
+      <th>20240417</th>
+      <td>0.004802</td>
+      <td>0.006168</td>
+      <td>0.004689</td>
+      <td>0.004873</td>
+      <td>0.004725</td>
+      <td>0.001034</td>
+      <td>0.002748</td>
+      <td>0.004275</td>
+      <td>0.005568</td>
+      <td>0.006826</td>
+      <td>...</td>
+      <td>0.001567</td>
+      <td>0.002147</td>
+      <td>0.001095</td>
+      <td>0.001602</td>
+      <td>0.001795</td>
+      <td>0.001092</td>
+      <td>0.000397</td>
+      <td>0.000712</td>
+      <td>0.000162</td>
+      <td>-0.000130</td>
+    </tr>
+  </tbody>
+</table>
+<p>6603 rows × 33 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_colwidth&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bond Index Total Returns&quot;</span><span class="p">)</span>
+<span class="n">Series</span><span class="p">(</span><span class="n">alf</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="n">rets</span><span class="o">.</span><span class="n">columns</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">rets</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;title&#39;</span><span class="p">)</span>\
+    <span class="o">.</span><span class="n">to_frame</span><span class="p">()</span><span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="s1">&#39;series&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bond Index Total Returns
+</pre></div>
+</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -616,142 +1310,142 @@ dtype: object
       <th>title</th>
     </tr>
     <tr>
-      <th>Bond Index Total Returns</th>
+      <th>series</th>
       <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>BAMLCC0A0CMTRIV</th>
-      <td>ICE BofA US Corporate Index Total Return Index...</td>
+      <td>ICE BofA US Corporate Index Total Return Index Value</td>
     </tr>
     <tr>
       <th>BAMLCC0A1AAATRIV</th>
-      <td>ICE BofA AAA US Corporate Index Total Return I...</td>
+      <td>ICE BofA AAA US Corporate Index Total Return Index Value</td>
     </tr>
     <tr>
       <th>BAMLCC0A2AATRIV</th>
-      <td>ICE BofA AA US Corporate Index Total Return In...</td>
+      <td>ICE BofA AA US Corporate Index Total Return Index Value</td>
     </tr>
     <tr>
       <th>BAMLCC0A3ATRIV</th>
-      <td>ICE BofA Single-A US Corporate Index Total Ret...</td>
+      <td>ICE BofA Single-A US Corporate Index Total Return Index Value</td>
     </tr>
     <tr>
       <th>BAMLCC0A4BBBTRIV</th>
-      <td>ICE BofA BBB US Corporate Index Total Return I...</td>
+      <td>ICE BofA BBB US Corporate Index Total Return Index Value</td>
     </tr>
     <tr>
       <th>BAMLCC1A013YTRIV</th>
-      <td>ICE BofA 1-3 Year US Corporate Index Total Ret...</td>
+      <td>ICE BofA 1-3 Year US Corporate Index Total Return Index Value</td>
     </tr>
     <tr>
       <th>BAMLCC2A035YTRIV</th>
-      <td>ICE BofA 3-5 Year US Corporate Index Total Ret...</td>
+      <td>ICE BofA 3-5 Year US Corporate Index Total Return Index Value</td>
     </tr>
     <tr>
       <th>BAMLCC3A057YTRIV</th>
-      <td>ICE BofA 5-7 Year US Corporate Index Total Ret...</td>
+      <td>ICE BofA 5-7 Year US Corporate Index Total Return Index Value</td>
     </tr>
     <tr>
       <th>BAMLCC4A0710YTRIV</th>
-      <td>ICE BofA 7-10 Year US Corporate Index Total Re...</td>
+      <td>ICE BofA 7-10 Year US Corporate Index Total Return Index Value</td>
     </tr>
     <tr>
       <th>BAMLCC7A01015YTRIV</th>
-      <td>ICE BofA 10-15 Year US Corporate Index Total R...</td>
+      <td>ICE BofA 10-15 Year US Corporate Index Total Return Index Value</td>
     </tr>
     <tr>
       <th>BAMLCC8A015PYTRIV</th>
-      <td>ICE BofA 15+ Year US Corporate Index Total Ret...</td>
+      <td>ICE BofA 15+ Year US Corporate Index Total Return Index Value</td>
     </tr>
     <tr>
       <th>BAMLEM1BRRAAA2ACRPITRIV</th>
-      <td>ICE BofA AAA-A Emerging Markets Corporate Plus...</td>
+      <td>ICE BofA AAA-A Emerging Markets Corporate Plus Index Total Return Index Value</td>
     </tr>
     <tr>
       <th>BAMLEM2BRRBBBCRPITRIV</th>
-      <td>ICE BofA BBB Emerging Markets Corporate Plus I...</td>
+      <td>ICE BofA BBB Emerging Markets Corporate Plus Index Total Return Index Value</td>
     </tr>
     <tr>
       <th>BAMLEM3BRRBBCRPITRIV</th>
-      <td>ICE BofA BB Emerging Markets Corporate Plus In...</td>
+      <td>ICE BofA BB Emerging Markets Corporate Plus Index Total Return Index Value</td>
     </tr>
     <tr>
       <th>BAMLEM4BRRBLCRPITRIV</th>
-      <td>ICE BofA B &amp; Lower Emerging Markets Corporate ...</td>
+      <td>ICE BofA B &amp; Lower Emerging Markets Corporate Plus Index Total Return Index Value</td>
     </tr>
     <tr>
       <th>BAMLEM5BCOCRPITRIV</th>
-      <td>ICE BofA Crossover Emerging Markets Corporate ...</td>
+      <td>ICE BofA Crossover Emerging Markets Corporate Plus Index Total Return Index Value</td>
     </tr>
     <tr>
       <th>BAMLEMCBPITRIV</th>
-      <td>ICE BofA Emerging Markets Corporate Plus Index...</td>
+      <td>ICE BofA Emerging Markets Corporate Plus Index Total Return Index Value</td>
     </tr>
     <tr>
       <th>BAMLEMEBCRPIETRIV</th>
-      <td>ICE BofA Euro Emerging Markets Corporate Plus ...</td>
+      <td>ICE BofA Euro Emerging Markets Corporate Plus Index Total Return Index Value</td>
     </tr>
     <tr>
       <th>BAMLEMFSFCRPITRIV</th>
-      <td>ICE BofA Private Sector Financial Emerging Mar...</td>
+      <td>ICE BofA Private Sector Financial Emerging Markets Corporate Plus Index Total Return Index Value</td>
     </tr>
     <tr>
       <th>BAMLEMHBHYCRPITRIV</th>
-      <td>ICE BofA High Yield Emerging Markets Corporate...</td>
+      <td>ICE BofA High Yield Emerging Markets Corporate Plus Index Total Return Index Value</td>
     </tr>
     <tr>
       <th>BAMLEMIBHGCRPITRIV</th>
-      <td>ICE BofA High Grade Emerging Markets Corporate...</td>
+      <td>ICE BofA High Grade Emerging Markets Corporate Plus Index Total Return Index Value</td>
     </tr>
     <tr>
       <th>BAMLEMNSNFCRPITRIV</th>
-      <td>ICE BofA Non-Financial Emerging Markets Corpor...</td>
+      <td>ICE BofA Non-Financial Emerging Markets Corporate Plus Index Total Return Index Value</td>
     </tr>
     <tr>
       <th>BAMLEMPBPUBSICRPITRIV</th>
-      <td>ICE BofA Public Sector Issuers Emerging Market...</td>
+      <td>ICE BofA Public Sector Issuers Emerging Markets Corporate Plus Index Total Return Index Value</td>
     </tr>
     <tr>
       <th>BAMLEMPTPRVICRPITRIV</th>
-      <td>ICE BofA Private Sector Issuers Emerging Marke...</td>
+      <td>ICE BofA Private Sector Issuers Emerging Markets Corporate Plus Index Total Return Index Value</td>
     </tr>
     <tr>
       <th>BAMLEMRACRPIASIATRIV</th>
-      <td>ICE BofA Asia Emerging Markets Corporate Plus ...</td>
+      <td>ICE BofA Asia Emerging Markets Corporate Plus Index Total Return Index Value</td>
     </tr>
     <tr>
       <th>BAMLEMRECRPIEMEATRIV</th>
-      <td>ICE BofA EMEA Emerging Markets Corporate Plus ...</td>
+      <td>ICE BofA EMEA Emerging Markets Corporate Plus Index Total Return Index Value</td>
     </tr>
     <tr>
       <th>BAMLEMRLCRPILATRIV</th>
-      <td>ICE BofA Latin America Emerging Markets Corpor...</td>
+      <td>ICE BofA Latin America Emerging Markets Corporate Plus Index Total Return Index Value</td>
     </tr>
     <tr>
       <th>BAMLEMUBCRPIUSTRIV</th>
-      <td>ICE BofA US Emerging Markets Corporate Plus In...</td>
+      <td>ICE BofA US Emerging Markets Corporate Plus Index Total Return Index Value</td>
     </tr>
     <tr>
       <th>BAMLHE00EHYITRIV</th>
-      <td>ICE BofA Euro High Yield Index Total Return In...</td>
+      <td>ICE BofA Euro High Yield Index Total Return Index Value</td>
     </tr>
     <tr>
       <th>BAMLHYH0A0HYM2TRIV</th>
-      <td>ICE BofA US High Yield Index Total Return Inde...</td>
+      <td>ICE BofA US High Yield Index Total Return Index Value</td>
     </tr>
     <tr>
       <th>BAMLHYH0A1BBTRIV</th>
-      <td>ICE BofA BB US High Yield Index Total Return I...</td>
+      <td>ICE BofA BB US High Yield Index Total Return Index Value</td>
     </tr>
     <tr>
       <th>BAMLHYH0A2BTRIV</th>
-      <td>ICE BofA Single-B US High Yield Index Total Re...</td>
+      <td>ICE BofA Single-B US High Yield Index Total Return Index Value</td>
     </tr>
     <tr>
       <th>BAMLHYH0A3CMTRIV</th>
-      <td>ICE BofA CCC &amp; Lower US High Yield Index Total...</td>
+      <td>ICE BofA CCC &amp; Lower US High Yield Index Total Return Index Value</td>
     </tr>
   </tbody>
 </table>
@@ -759,110 +1453,148 @@ dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Marginal Variance Explained</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">rets</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
-<span class="n">d</span> <span class="o">=</span> <span class="n">rets</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
-<span class="n">c</span> <span class="o">=</span> <span class="n">rets</span><span class="o">.</span><span class="n">columns</span>
-<span class="n">r</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">from finds.alfred import marginalRsq</span>
-<span class="sd">mR2 = marginalRsq(x, standardize=True)</span>
-<span class="sd">print(f&quot;Explained by {r} factors: {np.sum(np.mean(mR2[:r,:], axis=1)):.3f}&quot;</span>
-<span class="sd">      f&quot; ({len(x)} obs)&quot;)</span>
-<span class="sd">df = DataFrame({&#39;explained&#39;: np.mean(mR2, axis=1)},</span>
-<span class="sd">               index=np.arange(1, len(mR2) + 1))</span>
-<span class="sd">df.iloc[4]</span>
-<span class="sd">&quot;&quot;&quot;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;\nfrom finds.alfred import marginalRsq\nmR2 = marginalRsq(x, standardize=True)\nprint(f&quot;Explained by {r} factors: {np.sum(np.mean(mR2[:r,:], axis=1)):.3f}&quot;\n      f&quot; ({len(x)} obs)&quot;)\ndf = DataFrame({\&#39;explained\&#39;: np.mean(mR2, axis=1)},\n               index=np.arange(1, len(mR2) + 1))\ndf.iloc[4]\n&#39;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Same calculation with sklearn</span>
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
-<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
-<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extract principal components of bond index returns</span>
 <span class="n">pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;pca&#39;</span><span class="p">,</span> <span class="n">PCA</span><span class="p">())])</span>
-<span class="n">pipe</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">pipe</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">rets</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">pipe</span><span class="o">.</span><span class="n">named_steps</span><span class="p">[</span><span class="s1">&#39;pca&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">)</span>  <span class="c1"># sanity check</span>
 <span class="n">scree</span> <span class="o">=</span> <span class="n">Series</span><span class="p">(</span><span class="n">pipe</span><span class="o">.</span><span class="n">named_steps</span><span class="p">[</span><span class="s1">&#39;pca&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">,</span>
-               <span class="n">index</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+               <span class="n">index</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">rets</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">DataFrame</span><span class="p">(</span><span class="n">scree</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;Cumulative Variance Ratio Explained&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[5.86789902e-01 1.86999891e-01 7.70507495e-02 2.31692776e-02
- 2.09236720e-02 1.74466819e-02 1.59969576e-02 1.11997496e-02
- 1.08857821e-02 9.62694118e-03 7.23593993e-03 5.86580950e-03
- 5.18815697e-03 4.67376507e-03 4.08324626e-03 2.59381179e-03
- 2.45324538e-03 2.30697359e-03 1.37010289e-03 9.79850816e-04
- 8.05769526e-04 6.38160060e-04 4.08352451e-04 3.82511512e-04
- 3.14728492e-04 2.77963772e-04 9.32990978e-05 8.59047248e-05
- 5.50770945e-05 4.00939820e-05 3.59304585e-05 1.58570390e-05
- 5.84577715e-06]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[5.90633015e-01 1.84670310e-01 7.66846462e-02 2.31249861e-02
+ 2.08709778e-02 1.73997768e-02 1.59048070e-02 1.11428201e-02
+ 1.08065948e-02 9.53333795e-03 7.17195056e-03 5.80339671e-03
+ 5.13102872e-03 4.61504627e-03 3.95216602e-03 2.55170452e-03
+ 2.42215195e-03 2.22998793e-03 1.31893510e-03 9.51987980e-04
+ 7.84773755e-04 6.15732469e-04 3.99797350e-04 3.69901192e-04
+ 3.07591420e-04 2.74143218e-04 9.27920937e-05 8.50594135e-05
+ 5.40645899e-05 3.96089404e-05 3.55645916e-05 1.55810718e-05
+ 5.76269423e-06]
 </pre></div>
 </div>
-</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Cumulative Variance Ratio Explained</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>0.590633</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.775303</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.851988</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.875113</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.895984</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0.913384</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0.929289</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>0.940431</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>0.951238</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>0.960771</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Scree plot</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">num</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">scree</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">rot</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">.8</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Scree plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">num</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">scree</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">rot</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">.8</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Scree Plot: PCA of FRED BofA Bond Return Indexes&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Percent Variance Explained&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Principal Component&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">imgdir</span> <span class="o">/</span> <span class="s1">&#39;scree.jpg&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/445458536c524c5895520141b8c7090055e6a2e4010ff42d2d8fa565e60823f2.png" src="_images/445458536c524c5895520141b8c7090055e6a2e4010ff42d2d8fa565e60823f2.png" />
+<img alt="_images/b25e1de679157d5432e39428c5c4387e2772d1a538415a00495be1c9db11432f.png" src="_images/b25e1de679157d5432e39428c5c4387e2772d1a538415a00495be1c9db11432f.png" />
 </div>
 </div>
+<section id="explainability-of-statistical-factors">
+<h3>Explainability of Statistical Factors<a class="headerlink" href="#explainability-of-statistical-factors" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Rsquare of components explained by Interest Rate Indicators</span>
-<span class="n">rates</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;BAA10Y&#39;</span><span class="p">,</span> <span class="s1">&#39;T10Y2Y&#39;</span><span class="p">,</span> <span class="s1">&#39;DGS10&#39;</span><span class="p">]</span>  <span class="c1"># compare rate levels</span>
-<span class="n">rates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">alf</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">rates</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><span class="o">.</span><span class="n">pad</span><span class="p">()</span>
-<span class="n">rates</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">(</span><span class="n">rates</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">),</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;infer&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_4082727/620974196.py:3: FutureWarning: DataFrame.pad/Series.pad is deprecated. Use DataFrame.ffill/Series.ffill instead
-  rates = pd.concat([alf(s) for s in rates], axis=1).reindex(d).pad()
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">factors</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">pipe</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">x</span><span class="p">)[:,</span> <span class="p">:</span><span class="mi">3</span><span class="p">],</span>
-                    <span class="n">columns</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
-                    <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">),</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;infer&#39;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extract factor returns from bond indexes with PCA projection</span>
+<span class="n">K</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">factors</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">pipe</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">rets</span><span class="p">)[:,</span> <span class="p">:</span><span class="n">K</span><span class="p">],</span>
+                    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;PC</span><span class="si">{</span><span class="n">c</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">K</span><span class="p">)],</span>
+                    <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">(</span><span class="n">rets</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">),</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;infer&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>Construct changes in interest rate spreads:</p>
+<ul class="simple">
+<li><p>level: average of 2-year and 10-year treasury rates</p></li>
+<li><p>slope: 10-year minus 2-year rates</p></li>
+<li><p>twist: (10-year minus 5-year) minus (5-year minus 2-year)</p></li>
+<li><p>credit: BAA minus 10-year treasury rates</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rsq</span> <span class="o">=</span> <span class="p">[</span><span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">factors</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(),</span> <span class="n">rates</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">rsquared</span>
-       <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">factors</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
-<span class="n">res</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Rsq of rate levels&#39;</span><span class="p">:</span> <span class="n">rsq</span><span class="p">},</span> <span class="n">index</span><span class="o">=</span><span class="n">factors</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
-<span class="n">res</span><span class="p">[</span><span class="s1">&#39;Rsq of rate changes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">factors</span><span class="p">[</span><span class="n">col</span><span class="p">],</span>
-                                      <span class="n">rates</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>\
-                               <span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">rsquared</span>
-                               <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">factors</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
-<span class="n">show</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">max_colwidth</span><span class="o">=</span><span class="mi">75</span><span class="p">,</span> 
-     <span class="n">caption</span><span class="o">=</span><span class="s2">&quot;R-squared of each PC explained by Interest Rate Indicators&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Construct interest rate spread changes</span>
+<span class="n">spreads</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">alf</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="n">freq</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;BAA10Y&#39;</span><span class="p">,</span> <span class="s1">&#39;DGS10&#39;</span><span class="p">,</span> <span class="s1">&#39;DGS5&#39;</span><span class="p">,</span> <span class="s1">&#39;DGS2&#39;</span><span class="p">]],</span>
+                     <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>\
+            <span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+<span class="n">spreads</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">(</span><span class="n">spreads</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">),</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;infer&#39;</span><span class="p">)</span>
+<span class="n">spreads</span><span class="p">[</span><span class="s1">&#39;level&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">spreads</span><span class="p">[</span><span class="s1">&#39;DGS2&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">spreads</span><span class="p">[</span><span class="s1">&#39;DGS10&#39;</span><span class="p">])</span>
+<span class="n">spreads</span><span class="p">[</span><span class="s1">&#39;credit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">spreads</span><span class="p">[</span><span class="s1">&#39;BAA10Y&#39;</span><span class="p">]</span>
+<span class="n">spreads</span><span class="p">[</span><span class="s1">&#39;slope&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">spreads</span><span class="p">[</span><span class="s1">&#39;DGS10&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">spreads</span><span class="p">[</span><span class="s1">&#39;DGS2&#39;</span><span class="p">]</span>
+<span class="n">spreads</span><span class="p">[</span><span class="s1">&#39;twist&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">spreads</span><span class="p">[</span><span class="s1">&#39;DGS10&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">spreads</span><span class="p">[</span><span class="s1">&#39;DGS5&#39;</span><span class="p">])</span> <span class="o">-</span>
+                    <span class="p">(</span><span class="n">spreads</span><span class="p">[</span><span class="s1">&#39;DGS5&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">spreads</span><span class="p">[</span><span class="s1">&#39;DGS2&#39;</span><span class="p">]))</span>
+<span class="n">spreads</span> <span class="o">=</span> <span class="n">spreads</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;BAA10Y&#39;</span><span class="p">,</span> <span class="s1">&#39;DGS10&#39;</span><span class="p">,</span> <span class="s1">&#39;DGS5&#39;</span><span class="p">,</span> <span class="s1">&#39;DGS2&#39;</span><span class="p">])</span>\
+                 <span class="o">.</span><span class="n">ffill</span><span class="p">()</span>\
+                 <span class="o">.</span><span class="n">diff</span><span class="p">()</span>\
+                 <span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">spreads</span>
 </pre></div>
 </div>
 </div>
@@ -885,64 +1617,252 @@ dtype: object
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Rsq of rate levels</th>
-      <th>Rsq of rate changes</th>
+      <th>level</th>
+      <th>credit</th>
+      <th>slope</th>
+      <th>twist</th>
     </tr>
     <tr>
-      <th>R-squared of each PC explained by Interest Rate Indicators</th>
+      <th>date</th>
+      <th></th>
+      <th></th>
       <th></th>
       <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>1</th>
-      <td>0.7131</td>
-      <td>0.5263</td>
+      <th>1986-01-03</th>
+      <td>0.010</td>
+      <td>-0.04</td>
+      <td>1.776357e-15</td>
+      <td>1.776357e-15</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>0.2942</td>
-      <td>0.5016</td>
+      <th>1986-01-06</th>
+      <td>0.015</td>
+      <td>-0.01</td>
+      <td>1.000000e-02</td>
+      <td>-1.000000e-02</td>
     </tr>
     <tr>
-      <th>3</th>
-      <td>0.9211</td>
-      <td>0.0499</td>
+      <th>1986-01-07</th>
+      <td>-0.100</td>
+      <td>0.06</td>
+      <td>-6.000000e-02</td>
+      <td>-8.881784e-16</td>
+    </tr>
+    <tr>
+      <th>1986-01-08</th>
+      <td>0.155</td>
+      <td>-0.14</td>
+      <td>7.000000e-02</td>
+      <td>3.000000e-02</td>
+    </tr>
+    <tr>
+      <th>1986-01-09</th>
+      <td>0.160</td>
+      <td>-0.05</td>
+      <td>-4.000000e-02</td>
+      <td>-8.000000e-02</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2024-04-12</th>
+      <td>-0.055</td>
+      <td>0.04</td>
+      <td>-1.000000e-02</td>
+      <td>3.000000e-02</td>
+    </tr>
+    <tr>
+      <th>2024-04-15</th>
+      <td>0.090</td>
+      <td>0.01</td>
+      <td>8.000000e-02</td>
+      <td>-4.000000e-02</td>
+    </tr>
+    <tr>
+      <th>2024-04-16</th>
+      <td>0.040</td>
+      <td>0.00</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <th>2024-04-17</th>
+      <td>-0.060</td>
+      <td>0.02</td>
+      <td>-4.000000e-02</td>
+      <td>2.000000e-02</td>
+    </tr>
+    <tr>
+      <th>2024-04-18</th>
+      <td>0.050</td>
+      <td>-0.01</td>
+      <td>-8.881784e-16</td>
+      <td>-2.000000e-02</td>
     </tr>
   </tbody>
 </table>
+<p>9580 rows × 4 columns</p>
 </div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot of cumulative components and interest rates levels</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="n">num</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">isub</span><span class="p">,</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">factors</span><span class="o">.</span><span class="n">columns</span><span class="p">):</span>
-    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">col</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="n">flip</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="k">if</span> <span class="n">col</span> <span class="o">==</span> <span class="mi">3</span> <span class="k">else</span> <span class="mi">1</span>
-    <span class="p">(</span><span class="n">flip</span><span class="o">*</span><span class="n">factors</span><span class="p">[</span><span class="n">col</span><span class="p">])</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot;PC</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2">  (r-square=</span><span class="si">{</span><span class="n">rsq</span><span class="p">[</span><span class="n">isub</span><span class="p">]</span><span class="si">:</span><span class="s2">.3</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_tick_params</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">isub</span><span class="p">:</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Bond Returns Components (cumulated)&#39;</span><span class="p">)</span>
-        
-    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">isub</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
-    <span class="n">rates</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="n">isub</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">rates</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">isub</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_tick_params</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">isub</span><span class="p">:</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Selected Interest Rates&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">alf</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="n">rates</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">isub</span><span class="p">])[:</span><span class="mi">80</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">imgdir</span> <span class="o">/</span> <span class="s1">&#39;components.jpg&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show correlations between bond factor returns and spread changes</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">spreads</span><span class="p">,</span> <span class="n">factors</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">join</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span>
+<span class="n">corr</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+<span class="c1">#plt.imshow(corr**2, vmin=0, vmax=1, cmap=&#39;Purples&#39;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;seismic&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">corr</span><span class="p">)),</span> <span class="n">corr</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">corr</span><span class="p">)),</span> <span class="n">corr</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Correlation of bond factors and interest rate spread changes&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/36a5b03166faaf883b8fbba4f3ffc3077eff15147b98828aacd3867b3acb3e34.png" src="_images/36a5b03166faaf883b8fbba4f3ffc3077eff15147b98828aacd3867b3acb3e34.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Correlation of bond factors and interest rate spread changes&#39;)
+</pre></div>
+</div>
+<img alt="_images/8d191a3d4b30e2e5f523063e85d1086b2b55e32d022f5859900a8be488facf2a.png" src="_images/8d191a3d4b30e2e5f523063e85d1086b2b55e32d022f5859900a8be488facf2a.png" />
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show regression fits</span>
+<span class="k">for</span> <span class="n">pc</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">K</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;PC</span><span class="si">{</span><span class="n">pc</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2"> ~ credit + level + slope + twist&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>\
+          <span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">cov_type</span><span class="o">=</span><span class="s1">&#39;HAC&#39;</span><span class="p">,</span> <span class="n">cov_kwds</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;maxlags&#39;</span><span class="p">:</span> <span class="mi">63</span><span class="p">})</span>\
+          <span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                    PC1   R-squared:                       0.540
+Model:                            OLS   Adj. R-squared:                  0.540
+Method:                 Least Squares   F-statistic:                     422.9
+Date:                Sun, 21 Apr 2024   Prob (F-statistic):          2.47e-323
+Time:                        13:15:12   Log-Likelihood:                -16027.
+No. Observations:                6318   AIC:                         3.206e+04
+Df Residuals:                    6313   BIC:                         3.210e+04
+Df Model:                           4                                         
+Covariance Type:                  HAC                                         
+==============================================================================
+                 coef    std err          z      P&gt;|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept      0.0222      0.091      0.245      0.807      -0.156       0.200
+credit        66.9094     10.707      6.249      0.000      45.923      87.895
+level         66.9367      3.158     21.195      0.000      60.747      73.127
+slope          9.1005      2.491      3.653      0.000       4.218      13.983
+twist        -13.9458      2.207     -6.319      0.000     -18.271      -9.620
+==============================================================================
+Omnibus:                     4119.817   Durbin-Watson:                   1.162
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):           216965.568
+Skew:                           2.469   Prob(JB):                         0.00
+Kurtosis:                      31.281   Cond. No.                         40.5
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity and autocorrelation robust (HAC) using 63 lags and without small sample correction
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                    PC2   R-squared:                       0.492
+Model:                            OLS   Adj. R-squared:                  0.492
+Method:                 Least Squares   F-statistic:                     273.9
+Date:                Sun, 21 Apr 2024   Prob (F-statistic):          1.99e-217
+Time:                        13:15:12   Log-Likelihood:                -12670.
+No. Observations:                6318   AIC:                         2.535e+04
+Df Residuals:                    6313   BIC:                         2.538e+04
+Df Model:                           4                                         
+Covariance Type:                  HAC                                         
+==============================================================================
+                 coef    std err          z      P&gt;|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept      0.0038      0.049      0.079      0.937      -0.092       0.099
+credit         7.9067      3.362      2.352      0.019       1.318      14.496
+level        -28.0466      1.680    -16.695      0.000     -31.339     -24.754
+slope        -14.4437      1.191    -12.131      0.000     -16.777     -12.110
+twist          0.1590      1.291      0.123      0.902      -2.372       2.690
+==============================================================================
+Omnibus:                     4046.973   Durbin-Watson:                   1.259
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):           201753.832
+Skew:                           2.419   Prob(JB):                         0.00
+Kurtosis:                      30.258   Cond. No.                         40.5
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity and autocorrelation robust (HAC) using 63 lags and without small sample correction
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                    PC3   R-squared:                       0.049
+Model:                            OLS   Adj. R-squared:                  0.048
+Method:                 Least Squares   F-statistic:                     9.627
+Date:                Sun, 21 Apr 2024   Prob (F-statistic):           9.28e-08
+Time:                        13:15:12   Log-Likelihood:                -11869.
+No. Observations:                6318   AIC:                         2.375e+04
+Df Residuals:                    6313   BIC:                         2.378e+04
+Df Model:                           4                                         
+Covariance Type:                  HAC                                         
+==============================================================================
+                 coef    std err          z      P&gt;|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept     -0.0046      0.025     -0.181      0.857      -0.054       0.045
+credit       -12.9168      2.346     -5.507      0.000     -17.514      -8.319
+level         -2.0945      1.339     -1.564      0.118      -4.719       0.530
+slope          1.7102      1.241      1.378      0.168      -0.722       4.143
+twist          0.3878      1.103      0.352      0.725      -1.773       2.549
+==============================================================================
+Omnibus:                     3422.015   Durbin-Watson:                   1.565
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):           498792.470
+Skew:                           1.565   Prob(JB):                         0.00
+Kurtosis:                      46.416   Cond. No.                         40.5
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity and autocorrelation robust (HAC) using 63 lags and without small sample correction
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                    PC4   R-squared:                       0.024
+Model:                            OLS   Adj. R-squared:                  0.023
+Method:                 Least Squares   F-statistic:                     12.35
+Date:                Sun, 21 Apr 2024   Prob (F-statistic):           5.27e-10
+Time:                        13:15:12   Log-Likelihood:                -8150.9
+No. Observations:                6318   AIC:                         1.631e+04
+Df Residuals:                    6313   BIC:                         1.635e+04
+Df Model:                           4                                         
+Covariance Type:                  HAC                                         
+==============================================================================
+                 coef    std err          z      P&gt;|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept     -0.0015      0.013     -0.111      0.911      -0.027       0.024
+credit         2.6211      1.654      1.585      0.113      -0.620       5.862
+level          0.6178      0.766      0.807      0.420      -0.883       2.119
+slope          2.7265      0.431      6.329      0.000       1.882       3.571
+twist          1.6352      0.454      3.606      0.000       0.746       2.524
+==============================================================================
+Omnibus:                     2609.560   Durbin-Watson:                   1.953
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):           152469.248
+Skew:                           1.171   Prob(JB):                         0.00
+Kurtosis:                      26.952   Cond. No.                         40.5
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity and autocorrelation robust (HAC) using 63 lags and without small sample correction
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -970,11 +1890,10 @@ dtype: object
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="term_structure.html"
@@ -982,27 +1901,50 @@ dtype: object
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Term Structure</p>
+        <p class="prev-next-title">Term Structure of Interest Rates</p>
       </div>
     </a>
     <a class="right-next"
-       href="options_pricing.html"
+       href="conditional_volatility.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Options Pricing</p>
+        <p class="prev-next-title">Conditional Volatility and VaR</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#term-structure-changes">Term structure changes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#duration">Duration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dv01">DV01</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convexity">Convexity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#barbells-and-bullets">Barbells and bullets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-rate-shifts">Key rate shifts</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bond-risk-factors">Bond risk factors</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explainability-of-statistical-factors">Explainability of Statistical Factors</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
@@ -1020,9 +1962,10 @@ By Terence Lim
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -1046,8 +1989,8 @@ By Terence Lim
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

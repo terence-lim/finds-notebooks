@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -19,46 +19,45 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'regression_diagnostics';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -73,7 +72,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -108,11 +115,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -127,6 +137,7 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="README.html">
@@ -135,60 +146,70 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     <p class="title logo__title">Financial Data Science Python Notebooks</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="README.html">
-                    Financial Data Science Notebooks
+                    FINANCIAL DATA SCIENCE
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="stock_prices.html">Stock prices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stock_prices.html">Stock Prices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jegadeesh_titman.html">Jegadeesh-Titman Rolling Portfolios</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fama_french.html">Fama-French Portfolio Sorts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fama_macbeth.html">Fama-Macbeth Cross-sectional Regressions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="weekly_reversal.html">Weekly reversal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weekly_reversal.html">Contrarian Trading</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quant_factors.html">Quant Factors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="event_study.html">Event Study</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="economic_releases.html">Economic Data Revisions</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Linear Regression Diagonostics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="econometric_forecast.html">Econometric Forecasts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="approximate_factors.html">Approximate Factor Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="economic_states.html">State Space Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="conditional_volatility.html">Conditional Volatility</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="term_structure.html">Term Structure of Interest Rates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bond_returns.html">Bond Returns and Risks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional_volatility.html">Conditional Volatility and VaR</a></li>
 <li class="toctree-l1"><a class="reference internal" href="covariance_matrix.html">Covariance Matrix</a></li>
-<li class="toctree-l1"><a class="reference internal" href="term_structure.html">Term Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bond_returns.html">Bond Returns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="options_pricing.html">Options Pricing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="market_microstructure.html">Market Microstructure</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="event_risk.html">Event risk</a></li>
-<li class="toctree-l1"><a class="reference internal" href="customer_ego.html">Principal Customers Network</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="bea_centrality.html">Graph Centrality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event_risk.html">Event Risk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="customer_ego.html">Principal Customers Graph</a></li>
 <li class="toctree-l1"><a class="reference internal" href="industry_community.html">Community Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bea_centrality.html">Graph Centrality</a></li>
 <li class="toctree-l1"><a class="reference internal" href="link_prediction.html">Link Prediction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="spatial_regression.html">Spatial Regression</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fomc_topics.html">Topic Modelling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="management_sentiment.html">Sentiment Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="business_description.html">10-K Business Description</a></li>
-
-
-<li class="toctree-l1"><a class="reference internal" href="classification_models.html">Classification for supervised learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="regression_models.html">Regression for supervised learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="deep_classifier.html">Deep Averaging Networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="convolutional_net.html">Temporal Convolution Net</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fomc_topics.html">FOMC Topic Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management_sentiment.html">Management Sentiment Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="business_description.html">Business Text Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classification_models.html">Classification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regression_models.html">Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deep_classifier.html">Deep Learning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="recurrent_net.html">Recurrent Neural Networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fomc_language.html">Language Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="convolutional_net.html">Convolutional Neural Networks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reinforcement_learning.html">Reinforcement Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fomc_language.html">FedSpeak Language Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sentiment_llm.html">LLM Prompting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="summarization_llm.html">LLM Text Summarization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="finetune_llm.html">LLM Finetuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rag_agent.html">LLM RAG, Chatbots and Agents</a></li>
 </ul>
 
     </div>
@@ -342,20 +363,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -382,8 +405,19 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression">Linear regression</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#residual-plots">Residual plots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-assumptions">Model assumptions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#heteroskedasity-and-hac-robust-errors">Heteroskedasity and HAC robust errors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multicollinearity-and-variance-inflation-factors">Multicollinearity and variance inflation factors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#omitted-variables">Omitted variables</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#residual-plots">Residual plots</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#residuals-vs-fitted-plot">Residuals vs fitted plot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#qq-plot-of-residuals">QQ plot of residuals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scale-of-residuals">Scale of residuals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#leverage-and-influential-points">Leverage and influential points</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -393,15 +427,25 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="linear-regression-diagonostics">
 <h1>Linear Regression Diagonostics<a class="headerlink" href="#linear-regression-diagonostics" title="Permalink to this heading">#</a></h1>
-<p><em>UNDER CONSTRUCTION</em></p>
+<p><em>The only thing we know about the future is that it will be different</em> - Peter Drucker</p>
+<p>Concepts:</p>
 <ul class="simple">
-<li><p>Linear regression diagnostics, HAC robust standard errors</p></li>
-<li><p>Residual analysis: outliers, leverage, influential points</p></li>
-<li><p>Multicollinearity, variance inflation factor</p></li>
+<li><p>Linear regression diagnostics</p></li>
+<li><p>HAC robust standard errors</p></li>
+<li><p>Multicollinearity</p></li>
+<li><p>Residual analysis</p></li>
+<li><p>Consumer and Produced Prices Indices</p></li>
+</ul>
+<p>References:</p>
+<ul class="simple">
+<li><p>White, Halbert (1980). “A Heteroskedasticity-Consistent Covariance Matrix Estimator and a Direct Test for Heteroskedasticity”. Econometrica. 48 (4): 817–838.</p></li>
+<li><p>Newey, Whitney K., and Kenneth D. West. 1987. “A Simple, Positive Semi-Definite, Heteroskedasticity and Autocorrelation Consistent Covariance Matrix.” Econometrica 55: 703–8.</p></li>
+<li><p><a class="reference external" href="https://library.virginia.edu/data/articles/diagnostic-plots">https://library.virginia.edu/data/articles/diagnostic-plots</a></p></li>
+<li><p>FRM Part I Exam Book Quantitative Analysis Ch 9</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -410,17 +454,12 @@ document.write(`
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">Series</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span> 
 <span class="kn">import</span> <span class="nn">patsy</span>
 <span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
 <span class="kn">from</span> <span class="nn">statsmodels.stats.outliers_influence</span> <span class="kn">import</span> <span class="n">variance_inflation_factor</span>
 <span class="kn">from</span> <span class="nn">finds.readers</span> <span class="kn">import</span> <span class="n">Alfred</span>
-<span class="kn">from</span> <span class="nn">finds.plots</span> <span class="kn">import</span> <span class="n">plot_fitted</span><span class="p">,</span> <span class="n">plot_leverage</span><span class="p">,</span> <span class="n">plot_scale</span><span class="p">,</span> <span class="n">plot_qq</span>
-<span class="kn">from</span> <span class="nn">finds.misc</span> <span class="kn">import</span> <span class="n">Show</span>
-<span class="kn">from</span> <span class="nn">secret</span> <span class="kn">import</span> <span class="n">credentials</span><span class="p">,</span> <span class="n">paths</span>
-<span class="n">show</span> <span class="o">=</span> <span class="n">Show</span><span class="p">(</span><span class="n">ndigits</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">latex</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">finds.utils</span> <span class="kn">import</span> <span class="n">plot_fitted</span><span class="p">,</span> <span class="n">plot_leverage</span><span class="p">,</span> <span class="n">plot_scale</span><span class="p">,</span> <span class="n">plot_qq</span>
+<span class="kn">from</span> <span class="nn">secret</span> <span class="kn">import</span> <span class="n">credentials</span>
 <span class="n">VERBOSE</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="c1"># matplotlib qt</span>
 </pre></div>
@@ -429,193 +468,23 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">imgdir</span> <span class="o">=</span> <span class="n">paths</span><span class="p">[</span><span class="s1">&#39;images&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="s1">&#39;ts&#39;</span>
-<span class="n">alf</span> <span class="o">=</span> <span class="n">Alfred</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;fred&#39;</span><span class="p">][</span><span class="s1">&#39;api_key&#39;</span><span class="p">],</span>
-             <span class="n">savefile</span><span class="o">=</span><span class="n">paths</span><span class="p">[</span><span class="s1">&#39;scratch&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="s1">&#39;alfred.pkl&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alf</span> <span class="o">=</span> <span class="n">Alfred</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;fred&#39;</span><span class="p">][</span><span class="s1">&#39;api_key&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>Retrieve monthly Consumer Price Index as the endogeneous variable, and Producer Price Index as the exogeneous. We use the monthly differences of logs of both series.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># difference of logs of CPI and PPI monthly series from FRED</span>
 <span class="n">series_id</span><span class="p">,</span> <span class="n">freq</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="s1">&#39;CPIAUCSL&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="mi">0</span>   <span class="c1">#19740101</span>
 <span class="n">exog_id</span> <span class="o">=</span> <span class="s1">&#39;WPSFD4131&#39;</span>
-<span class="c1">#exog_id = &#39;INDPRO&#39;</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">alf</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="p">[</span><span class="n">series_id</span><span class="p">,</span> <span class="n">exog_id</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">data</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">))</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>  <span class="c1"># model changes in logs of the series</span>
-</pre></div>
-</div>
-</div>
-</div>
-<section id="linear-regression">
-<h2>Linear regression<a class="headerlink" href="#linear-regression" title="Permalink to this heading">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Run Linear Regression (with one lag)</span>
-<span class="n">dmf</span> <span class="o">=</span> <span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">series_id</span><span class="si">}</span><span class="s1"> ~ </span><span class="si">{</span><span class="n">series_id</span><span class="si">}</span><span class="s1">.shift(1) &#39;</span><span class="p">)</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="o">=</span><span class="n">dmf</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
-==============================================================================
-Dep. Variable:               CPIAUCSL   R-squared:                       0.435
-Model:                            OLS   Adj. R-squared:                  0.434
-Method:                 Least Squares   F-statistic:                     454.7
-Date:                Wed, 30 Aug 2023   Prob (F-statistic):           2.93e-75
-Time:                        10:00:03   Log-Likelihood:                 2720.3
-No. Observations:                 593   AIC:                            -5437.
-Df Residuals:                     591   BIC:                            -5428.
-Df Model:                           1                                         
-Covariance Type:            nonrobust                                         
-=====================================================================================
-                        coef    std err          t      P&gt;|t|      [0.025      0.975]
--------------------------------------------------------------------------------------
-Intercept             0.0011      0.000      7.609      0.000       0.001       0.001
-CPIAUCSL.shift(1)     0.6566      0.031     21.323      0.000       0.596       0.717
-==============================================================================
-Omnibus:                       62.951   Durbin-Watson:                   2.031
-Prob(Omnibus):                  0.000   Jarque-Bera (JB):              210.870
-Skew:                          -0.459   Prob(JB):                     1.62e-46
-Kurtosis:                       5.774   Cond. No.                         304.
-==============================================================================
-
-Notes:
-[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Run Linear Regression (with 2 lags)</span>
-<span class="n">dmf</span> <span class="o">=</span> <span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">series_id</span><span class="si">}</span><span class="s1"> ~ </span><span class="si">{</span><span class="n">series_id</span><span class="si">}</span><span class="s1">.shift(1) + </span><span class="si">{</span><span class="n">series_id</span><span class="si">}</span><span class="s1">.shift(2)&#39;</span><span class="p">)</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="o">=</span><span class="n">dmf</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
-==============================================================================
-Dep. Variable:               CPIAUCSL   R-squared:                       0.431
-Model:                            OLS   Adj. R-squared:                  0.429
-Method:                 Least Squares   F-statistic:                     223.2
-Date:                Wed, 30 Aug 2023   Prob (F-statistic):           6.98e-73
-Time:                        10:00:03   Log-Likelihood:                 2715.9
-No. Observations:                 592   AIC:                            -5426.
-Df Residuals:                     589   BIC:                            -5413.
-Df Model:                           2                                         
-Covariance Type:            nonrobust                                         
-=====================================================================================
-                        coef    std err          t      P&gt;|t|      [0.025      0.975]
--------------------------------------------------------------------------------------
-Intercept             0.0011      0.000      7.134      0.000       0.001       0.001
-CPIAUCSL.shift(1)     0.6401      0.041     15.550      0.000       0.559       0.721
-CPIAUCSL.shift(2)     0.0206      0.041      0.503      0.615      -0.060       0.101
-==============================================================================
-Omnibus:                       64.147   Durbin-Watson:                   2.005
-Prob(Omnibus):                  0.000   Jarque-Bera (JB):              220.795
-Skew:                          -0.461   Prob(JB):                     1.13e-48
-Kurtosis:                       5.846   Cond. No.                         521.
-==============================================================================
-
-Notes:
-[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Run Linear Regression (with exog and lag)</span>
-<span class="n">dmf</span> <span class="o">=</span> <span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">series_id</span><span class="si">}</span><span class="s1"> ~ </span><span class="si">{</span><span class="n">series_id</span><span class="si">}</span><span class="s1">.shift(1) + </span><span class="si">{</span><span class="n">exog_id</span><span class="si">}</span><span class="s1">.shift(1)&#39;</span><span class="p">)</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="o">=</span><span class="n">dmf</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
-==============================================================================
-Dep. Variable:               CPIAUCSL   R-squared:                       0.462
-Model:                            OLS   Adj. R-squared:                  0.460
-Method:                 Least Squares   F-statistic:                     253.1
-Date:                Wed, 30 Aug 2023   Prob (F-statistic):           4.20e-80
-Time:                        10:00:03   Log-Likelihood:                 2734.8
-No. Observations:                 593   AIC:                            -5464.
-Df Residuals:                     590   BIC:                            -5451.
-Df Model:                           2                                         
-Covariance Type:            nonrobust                                         
-======================================================================================
-                         coef    std err          t      P&gt;|t|      [0.025      0.975]
---------------------------------------------------------------------------------------
-Intercept              0.0009      0.000      5.960      0.000       0.001       0.001
-CPIAUCSL.shift(1)      0.5632      0.035     16.262      0.000       0.495       0.631
-WPSFD4131.shift(1)     0.1893      0.035      5.440      0.000       0.121       0.258
-==============================================================================
-Omnibus:                      114.640   Durbin-Watson:                   2.024
-Prob(Omnibus):                  0.000   Jarque-Bera (JB):              562.787
-Skew:                          -0.763   Prob(JB):                    6.20e-123
-Kurtosis:                       7.522   Cond. No.                         429.
-==============================================================================
-
-Notes:
-[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Heteroskedasity and HAC robust errors</span>
-<span class="n">robust</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">get_robustcov_results</span><span class="p">(</span><span class="n">cov_type</span><span class="o">=</span><span class="s1">&#39;HAC&#39;</span><span class="p">,</span> <span class="n">use_t</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">maxlags</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">robust</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
-==============================================================================
-Dep. Variable:               CPIAUCSL   R-squared:                       0.462
-Model:                            OLS   Adj. R-squared:                  0.460
-Method:                 Least Squares   F-statistic:                     173.6
-Date:                Wed, 30 Aug 2023   Prob (F-statistic):           4.98e-60
-Time:                        10:00:03   Log-Likelihood:                 2734.8
-No. Observations:                 593   AIC:                            -5464.
-Df Residuals:                     590   BIC:                            -5451.
-Df Model:                           2                                         
-Covariance Type:                  HAC                                         
-======================================================================================
-                         coef    std err          t      P&gt;|t|      [0.025      0.975]
---------------------------------------------------------------------------------------
-Intercept              0.0009      0.000      5.474      0.000       0.001       0.001
-CPIAUCSL.shift(1)      0.5632      0.065      8.609      0.000       0.435       0.692
-WPSFD4131.shift(1)     0.1893      0.055      3.443      0.001       0.081       0.297
-==============================================================================
-Omnibus:                      114.640   Durbin-Watson:                   2.024
-Prob(Omnibus):                  0.000   Jarque-Bera (JB):              562.787
-Skew:                          -0.763   Prob(JB):                    6.20e-123
-Kurtosis:                       7.522   Cond. No.                         429.
-==============================================================================
-
-Notes:
-[1] Standard Errors are heteroscedasticity and autocorrelation robust (HAC) using 0 lags and without small sample correction
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Y</span><span class="p">,</span> <span class="n">X</span> <span class="o">=</span> <span class="n">patsy</span><span class="o">.</span><span class="n">dmatrices</span><span class="p">(</span><span class="n">dmf</span> <span class="o">+</span> <span class="s1">&#39; - 1&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>  <span class="c1"># exclude intercept term  </span>
-<span class="n">show</span><span class="p">(</span><span class="n">Series</span><span class="p">({</span><span class="n">X</span><span class="o">.</span><span class="n">design_info</span><span class="o">.</span><span class="n">column_names</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span> <span class="n">variance_inflation_factor</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
-             <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])},</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;VIF&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_frame</span><span class="p">(),</span>
-     <span class="n">caption</span><span class="o">=</span><span class="s2">&quot;Variance Inflation Factors&quot;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>  <span class="c1"># model the changes in logs of the series</span>
+<span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">({</span><span class="n">s</span><span class="p">:</span> <span class="n">alf</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="p">[</span><span class="n">series_id</span><span class="p">,</span> <span class="n">exog_id</span><span class="p">]},</span>
+                    <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Description&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -638,43 +507,218 @@ Notes:
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>VIF</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>CPIAUCSL</th>
+      <td>Consumer Price Index for All Urban Consumers: ...</td>
     </tr>
     <tr>
-      <th>Variance Inflation Factors</th>
+      <th>WPSFD4131</th>
+      <td>Producer Price Index by Commodity: Final Deman...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<section id="model-assumptions">
+<h2>Model assumptions<a class="headerlink" href="#model-assumptions" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(E[y_i] = b_0 + b_1 x_{i1} + ... + b_k x_{ik}\)</span>. &amp;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\{x_{i1} ,...,x_{ik} \}\)</span> are non-stochastic variables. &amp;</p></li>
+<li><p><span class="math notranslate nohighlight">\(Var(y_i) = \sigma^2\)</span>. &amp;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\{ y_i \}\)</span> are independent random variables. &amp;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\{ y_i \}\)</span> are normally distributed.  &amp;</p></li>
+</ol>
+<p>Under assumptions 1-4, the least squares regression estimator
+<span class="math notranslate nohighlight">\(b = (X' X)^{-1} X' y\)</span> is an unbiased estimator of the parameter
+vector <span class="math notranslate nohighlight">\(b\)</span>;</p>
+<ul class="simple">
+<li><p>has variance-covariance matrix <span class="math notranslate nohighlight">\(Var(b) = \sigma^2 (X' X)^{-1}\)</span>,</p></li>
+<li><p>and standard error <span class="math notranslate nohighlight">\(b_j\)</span> <span class="math notranslate nohighlight">\(se(b_j) = \sigma \sqrt{(X' X)^{-1}_{[j+1,j+1]}}\)</span>.</p></li>
+<li><p>Under assumptions 1-5, the least squares stimator is normally distributed.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run Linear Regression (with exog and 2 lags)</span>
+<span class="n">dmf</span> <span class="o">=</span> <span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">series_id</span><span class="si">}</span><span class="s1"> ~ </span><span class="si">{</span><span class="n">series_id</span><span class="si">}</span><span class="s1">.shift(1) + </span><span class="si">{</span><span class="n">series_id</span><span class="si">}</span><span class="s1">.shift(2) + </span><span class="si">{</span><span class="n">exog_id</span><span class="si">}</span><span class="s1">.shift(1)&#39;</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="o">=</span><span class="n">dmf</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:               CPIAUCSL   R-squared:                       0.455
+Model:                            OLS   Adj. R-squared:                  0.452
+Method:                 Least Squares   F-statistic:                     165.4
+Date:                Tue, 09 Apr 2024   Prob (F-statistic):           5.95e-78
+Time:                        08:59:07   Log-Likelihood:                 2761.8
+No. Observations:                 599   AIC:                            -5516.
+Df Residuals:                     595   BIC:                            -5498.
+Df Model:                           3                                         
+Covariance Type:            nonrobust                                         
+======================================================================================
+                         coef    std err          t      P&gt;|t|      [0.025      0.975]
+--------------------------------------------------------------------------------------
+Intercept              0.0009      0.000      6.203      0.000       0.001       0.001
+CPIAUCSL.shift(1)      0.5815      0.041     14.049      0.000       0.500       0.663
+CPIAUCSL.shift(2)     -0.0454      0.041     -1.103      0.271      -0.126       0.035
+WPSFD4131.shift(1)     0.2001      0.036      5.549      0.000       0.129       0.271
+==============================================================================
+Omnibus:                      113.351   Durbin-Watson:                   2.052
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              548.449
+Skew:                          -0.750   Prob(JB):                    8.05e-120
+Kurtosis:                       7.442   Cond. No.                         520.
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</pre></div>
+</div>
+</div>
+</div>
+<section id="heteroskedasity-and-hac-robust-errors">
+<h3>Heteroskedasity and HAC robust errors<a class="headerlink" href="#heteroskedasity-and-hac-robust-errors" title="Permalink to this heading">#</a></h3>
+<p>When the variances of residuals are not constant, than the variance of the coefficients is not given by the standard OLS estimate <span class="math notranslate nohighlight">\(\sigma^2 (X' X)^{-1}\)</span>. The coefficient estimates are consistent, but their covariance matrix is of the form
+<span class="math notranslate nohighlight">\((X' X)^{-1}(X' \Omega X)(X' X)^{-1}\)</span> where a number of choices have been proposed for the choice <span class="math notranslate nohighlight">\(\Omega\)</span>.  When estimated as the diagonal of squared residuals, this provides White’s (1980) estimator, often referred to as the heteroskedasticity-consistent or sandwich estimator. Other estimators take into account the effect of leverage points in the design matrix.</p>
+<p>If the error terms are serially correlated, then statistical inference using the usual heteroskedasticity-robust standard errors can be misleading. Newy and West (1987) proposed
+the Heteroskedasticity and Autocorrelation Consistent (HAC) estimator which adjusts for serially correlated errors by applying a weighting scheme to estimates of <span class="math notranslate nohighlight">\(m-1\)</span> autocorrelation coefficients. A rule of thumb for choosing the truncation parameter is <span class="math notranslate nohighlight">\(m = 0.75 T^{1/3}\)</span>, where the autocorrelation coefficients are weighted with <span class="math notranslate nohighlight">\(1 + 2 \sum_{j=1}^{m-1} \dfrac{m-j}{m} \hat{\rho_j}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">robust</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">get_robustcov_results</span><span class="p">(</span><span class="n">cov_type</span><span class="o">=</span><span class="s1">&#39;HAC&#39;</span><span class="p">,</span> <span class="n">use_t</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">maxlags</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">robust</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:               CPIAUCSL   R-squared:                       0.455
+Model:                            OLS   Adj. R-squared:                  0.452
+Method:                 Least Squares   F-statistic:                     111.5
+Date:                Tue, 09 Apr 2024   Prob (F-statistic):           2.75e-57
+Time:                        08:59:07   Log-Likelihood:                 2761.8
+No. Observations:                 599   AIC:                            -5516.
+Df Residuals:                     595   BIC:                            -5498.
+Df Model:                           3                                         
+Covariance Type:                  HAC                                         
+======================================================================================
+                         coef    std err          t      P&gt;|t|      [0.025      0.975]
+--------------------------------------------------------------------------------------
+Intercept              0.0009      0.000      5.739      0.000       0.001       0.001
+CPIAUCSL.shift(1)      0.5815      0.074      7.876      0.000       0.437       0.727
+CPIAUCSL.shift(2)     -0.0454      0.053     -0.849      0.396      -0.150       0.060
+WPSFD4131.shift(1)     0.2001      0.055      3.628      0.000       0.092       0.308
+==============================================================================
+Omnibus:                      113.351   Durbin-Watson:                   2.052
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              548.449
+Skew:                          -0.750   Prob(JB):                    8.05e-120
+Kurtosis:                       7.442   Cond. No.                         520.
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity and autocorrelation robust (HAC) using 0 lags and without small sample correction
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="multicollinearity-and-variance-inflation-factors">
+<h3>Multicollinearity and variance inflation factors<a class="headerlink" href="#multicollinearity-and-variance-inflation-factors" title="Permalink to this heading">#</a></h3>
+<p>Multicollinearity or numerical scaling issues may cause the design matrix to have a high condition number.</p>
+<p>The Variance Inflation Factor (VIF) measures the extent to which the variance of an estimated regression coefficient is increased due to multicollinearity in a multiple regression analysis. The VIF for each predictor variable <span class="math notranslate nohighlight">\(X_i\)</span> is derived from the <span class="math notranslate nohighlight">\(R^2\)</span> value obtained by regressing <span class="math notranslate nohighlight">\(X_i\)</span> against all other predictor variables.</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{VIF_i} = \dfrac{1}{1-R^2_i}\]</div>
+<p>One recommendation is that if VIF is greater than 5 or 10, then the explanatory
+variable is highly collinear with the other explanatory variables, and the parameter estimates will have large standard errors because of this.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Y</span><span class="p">,</span> <span class="n">X</span> <span class="o">=</span> <span class="n">patsy</span><span class="o">.</span><span class="n">dmatrices</span><span class="p">(</span><span class="n">dmf</span> <span class="o">+</span> <span class="s1">&#39; - 1&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>  <span class="c1"># exclude intercept term  </span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Variance Inflation Factors&quot;</span><span class="p">)</span>
+<span class="n">Series</span><span class="p">({</span><span class="n">X</span><span class="o">.</span><span class="n">design_info</span><span class="o">.</span><span class="n">column_names</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span> <span class="n">variance_inflation_factor</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])},</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;VIF&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Variance Inflation Factors
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
       <th></th>
+      <th>VIF</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>CPIAUCSL.shift(1)</th>
-      <td>2.0559</td>
+      <td>3.424302</td>
+    </tr>
+    <tr>
+      <th>CPIAUCSL.shift(2)</th>
+      <td>3.408784</td>
     </tr>
     <tr>
       <th>WPSFD4131.shift(1)</th>
-      <td>2.0559</td>
+      <td>2.283663</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
 </section>
+<section id="omitted-variables">
+<h3>Omitted variables<a class="headerlink" href="#omitted-variables" title="Permalink to this heading">#</a></h3>
+<p>Omitting a variable with a non-zero coefficient in the true model generating the data has two effects.</p>
+<ol class="arabic simple">
+<li><p>The remaining variables absorb the effects of the omitted variable attributable to common variation. This changes the regression coefficients on the included variables so that they do not consistently estimate the effect of a change in the explanatory variable on the dependent variable. If the variables are highly correlated, then the bias is large.  But if the omitted variable is not correlated to the other variables, then those other coefficients can be estimated consistently.</p></li>
+<li><p>The estimated residuals are larger in magnitude than the true shocks. This is because the residuals contain both the true shock and any effect of the omitted variable that cannot be captured by the included variable.</p></li>
+</ol>
+<p>An extraneous (also known as a superfluous or irrelevant) variable is one that is included in the model but is not needed. This type of variable has a true coefficient of 0 and is consistently estimated to be 0 in large samples.  However, standard errors of the relevant variables grows as their correlation with the extraneous variables increases.</p>
+</section>
+</section>
 <section id="residual-plots">
 <h2>Residual plots<a class="headerlink" href="#residual-plots" title="Permalink to this heading">#</a></h2>
+<p>Residual plots are standard methods used to detect deficiencies in a model specification. An ideal model would have residuals that are not systematically related to any of the included explanatory variables. Standardized residuals may alternatively be used so that the magnitude of deviation is more apparent. Both outliers and model specification problems can be detected in residual plots.</p>
+<section id="residuals-vs-fitted-plot">
+<h3>Residuals vs fitted plot<a class="headerlink" href="#residuals-vs-fitted-plot" title="Permalink to this heading">#</a></h3>
+<p>The Residuals vs Fitted plot shows if residuals have non-linear patterns: the residual data points should be evenly spread around a flat fitted line.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Plot residuals and identify outliers</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot residuals and identify outliers</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
 <span class="n">z</span> <span class="o">=</span> <span class="n">plot_fitted</span><span class="p">(</span><span class="n">fitted</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">fittedvalues</span><span class="p">,</span>
                 <span class="n">resid</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">resid</span><span class="p">,</span>
                 <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">imgdir</span> <span class="o">/</span> <span class="s1">&#39;outliers.jpg&#39;</span><span class="p">)</span>
-<span class="n">show</span><span class="p">(</span><span class="n">z</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">caption</span><span class="o">=</span><span class="s2">&quot;Residual Outliers&quot;</span><span class="p">)</span>
-<span class="c1">#plt.show()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Residual Outliers&quot;</span><span class="p">)</span>
+<span class="n">z</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Residual Outliers
+</pre></div>
+</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -697,33 +741,28 @@ Notes:
       <th>2008-10-31</th>
       <th>2008-11-30</th>
     </tr>
-    <tr>
-      <th>Residual Outliers</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
   </thead>
   <tbody>
     <tr>
       <th>outliers</th>
-      <td>0.0092</td>
-      <td>-0.0109</td>
-      <td>-0.0156</td>
+      <td>0.00935</td>
+      <td>-0.011058</td>
+      <td>-0.015598</td>
     </tr>
   </tbody>
 </table>
-</div></div><img alt="_images/57e1b466876cf77350003553a8653e1cb5e1947ad2bf603c1578410a3e8171dc.png" src="_images/57e1b466876cf77350003553a8653e1cb5e1947ad2bf603c1578410a3e8171dc.png" />
+</div></div><img alt="_images/068e378a0c6392efec9aa32c4dfd9f7a7b0fbd2877b5519c22ccd0c4907072be.png" src="_images/068e378a0c6392efec9aa32c4dfd9f7a7b0fbd2877b5519c22ccd0c4907072be.png" />
 </div>
 </div>
+</section>
+<section id="qq-plot-of-residuals">
+<h3>QQ plot of residuals<a class="headerlink" href="#qq-plot-of-residuals" title="Permalink to this heading">#</a></h3>
+<p>The Normal Q-Q plot shows if residuals are normally distributed: the standardized data points should lie along the 45-degree line representing the theoretical quantiles of the standard normal distribution.</p>
+<p><strong>Outliers</strong>, or data points that differ significantly from the others, may indicate some measurement error or anomaly, or that the population has a non-normal heavy-tailed distribution.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## QQ Plot of residuals and identify outliers</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
-<span class="n">z</span> <span class="o">=</span> <span class="n">plot_qq</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">resid</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">imgdir</span> <span class="o">/</span> <span class="s1">&#39;qq.jpg&#39;</span><span class="p">)</span>
-<span class="c1">#plt.show()</span>
-<span class="n">z</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="n">plot_qq</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">resid</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -762,76 +801,97 @@ Notes:
   <tbody>
     <tr>
       <th>2008-11-30</th>
-      <td>-0.015636</td>
-      <td>-6.505301</td>
+      <td>-0.015598</td>
+      <td>-6.482161</td>
     </tr>
     <tr>
       <th>2008-10-31</th>
-      <td>-0.010866</td>
-      <td>-4.521038</td>
+      <td>-0.011058</td>
+      <td>-4.595524</td>
     </tr>
     <tr>
       <th>2022-07-31</th>
-      <td>-0.009155</td>
-      <td>-3.809182</td>
+      <td>-0.009212</td>
+      <td>-3.828462</td>
     </tr>
     <tr>
       <th>2006-09-30</th>
-      <td>-0.008979</td>
-      <td>-3.735893</td>
+      <td>-0.008912</td>
+      <td>-3.703545</td>
     </tr>
     <tr>
       <th>2005-10-31</th>
-      <td>-0.007286</td>
-      <td>-3.031274</td>
-    </tr>
-    <tr>
-      <th>2008-08-31</th>
-      <td>-0.007255</td>
-      <td>-3.018455</td>
-    </tr>
-    <tr>
-      <th>1980-07-31</th>
-      <td>-0.007105</td>
-      <td>-2.955960</td>
+      <td>-0.007328</td>
+      <td>-3.045586</td>
     </tr>
     <tr>
       <th>2013-03-31</th>
-      <td>-0.007025</td>
-      <td>-2.922866</td>
+      <td>-0.007109</td>
+      <td>-2.954440</td>
+    </tr>
+    <tr>
+      <th>2008-08-31</th>
+      <td>-0.007021</td>
+      <td>-2.917872</td>
+    </tr>
+    <tr>
+      <th>1980-07-31</th>
+      <td>-0.007007</td>
+      <td>-2.911938</td>
     </tr>
     <tr>
       <th>2005-09-30</th>
-      <td>0.009246</td>
-      <td>3.846821</td>
+      <td>0.009350</td>
+      <td>3.885717</td>
     </tr>
   </tbody>
 </table>
-</div></div><img alt="_images/82bd77e612836c91fa641ee5604c22c1b797379f1b073afa3d31d5df803f4f7d.png" src="_images/82bd77e612836c91fa641ee5604c22c1b797379f1b073afa3d31d5df803f4f7d.png" />
+</div></div><img alt="_images/d9aea4db9b73338ed7d11578cd791c1919f23b33b070f864318d276d5f6c778a.png" src="_images/d9aea4db9b73338ed7d11578cd791c1919f23b33b070f864318d276d5f6c778a.png" />
 </div>
 </div>
+</section>
+<section id="scale-of-residuals">
+<h3>Scale of residuals<a class="headerlink" href="#scale-of-residuals" title="Permalink to this heading">#</a></h3>
+<p>The Scale-Location plot shows if residuals are spread equally
+along the range of predictors, around a flat fitted line: it checks
+the assumption of equal variance or homoscedasticity.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Plot scale of residuals with outliers</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
 <span class="n">plot_scale</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">fittedvalues</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">resid</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">imgdir</span> <span class="o">/</span> <span class="s1">&#39;scale.jpg&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5fb20dee4062e6c0bd00d6f4de034f8d090e4d20f2aafbf711cd8897ca8ff810.png" src="_images/5fb20dee4062e6c0bd00d6f4de034f8d090e4d20f2aafbf711cd8897ca8ff810.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([377, 414, 415])
+</pre></div>
+</div>
+<img alt="_images/8d7cb7070c8ebb4c51513762ce2d334451a7b141e36e38d7d430ac44a17f3dc8.png" src="_images/8d7cb7070c8ebb4c51513762ce2d334451a7b141e36e38d7d430ac44a17f3dc8.png" />
 </div>
 </div>
+</section>
+<section id="leverage-and-influential-points">
+<h3>Leverage and influential points<a class="headerlink" href="#leverage-and-influential-points" title="Permalink to this heading">#</a></h3>
+<p>The projection matrix from the least squares estimator <span class="math notranslate nohighlight">\(H = X(X^T)^{-1} X^T\)</span> is also called
+the <strong>hat matrix</strong> in statistics, and the <span class="math notranslate nohighlight">\(i\)</span>-th diagonal element of <span class="math notranslate nohighlight">\(H\)</span>, given by
+<span class="math notranslate nohighlight">\(h_{ii} = x_{i}^T (X^T)^{-1} x_{i}\)</span>, is the <strong>leverage</strong> of the <span class="math notranslate nohighlight">\(i\)</span>-th observation.</p>
+<p>Even though the data may have extreme leverage or outlier values, they
+might not be influential on the regression fit.  <strong>Cook’s Distance</strong> can be expressed using the leverage and the squared internally studentized residual
+$<span class="math notranslate nohighlight">\(D_i = \frac{1}{p} t_i^2 \frac{h_{ii}}{1 - h_{ii}}\)</span>$</p>
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(p\)</span> is the number of regression model parameters,</p></li>
+<li><p><span class="math notranslate nohighlight">\(t_i = \frac{\hat{\epsilon}_i}{\hat{\sigma} (1-h_{ii})}\)</span>, also known as the <strong>studentized residual</strong>, which accounts for the estimated residuals having unequal variances (even though the true errors have equal variance).</p></li>
+<li><p>and <span class="math notranslate nohighlight">\(\hat{\sigma} = \sqrt{\sum_{j=1}^n \hat{\epsilon}_j^2/n}\)</span>.</p></li>
+</ul>
+<p>A threshold of <span class="math notranslate nohighlight">\(D_i &gt; 1\)</span> is often suggested to identify influential observations.
+The Residuals vs Leverage plot helps us to find influential outliers.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Plot leverage and identify influential points                 </span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
-<span class="n">z</span> <span class="o">=</span> <span class="n">plot_leverage</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">resid</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">get_influence</span><span class="p">()</span><span class="o">.</span><span class="n">hat_matrix_diag</span><span class="p">,</span>
-                  <span class="n">model</span><span class="o">.</span><span class="n">get_influence</span><span class="p">()</span><span class="o">.</span><span class="n">cooks_distance</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-                  <span class="n">ddof</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">params</span><span class="p">),</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">imgdir</span> <span class="o">/</span> <span class="s1">&#39;leverage.jpg&#39;</span><span class="p">)</span>
-<span class="n">z</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="n">plot_leverage</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">resid</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">get_influence</span><span class="p">()</span><span class="o">.</span><span class="n">hat_matrix_diag</span><span class="p">,</span>
+              <span class="n">model</span><span class="o">.</span><span class="n">get_influence</span><span class="p">()</span><span class="o">.</span><span class="n">cooks_distance</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+              <span class="n">ddof</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">params</span><span class="p">),</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -868,9 +928,10 @@ Notes:
   <tbody>
   </tbody>
 </table>
-</div></div><img alt="_images/c11e658371bd0cb6fa7c2533993558349abbe5584352f9fc0fbaa1f39995e622.png" src="_images/c11e658371bd0cb6fa7c2533993558349abbe5584352f9fc0fbaa1f39995e622.png" />
+</div></div><img alt="_images/754fe015fb58c5ee7d6607bb29a69cfda8cec50ee735bcb375e11781d11bf336.png" src="_images/754fe015fb58c5ee7d6607bb29a69cfda8cec50ee735bcb375e11781d11bf336.png" />
 </div>
 </div>
+</section>
 </section>
 </section>
 
@@ -899,11 +960,10 @@ Notes:
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="economic_releases.html"
@@ -923,10 +983,7 @@ Notes:
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -935,14 +992,26 @@ Notes:
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression">Linear regression</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#residual-plots">Residual plots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-assumptions">Model assumptions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#heteroskedasity-and-hac-robust-errors">Heteroskedasity and HAC robust errors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multicollinearity-and-variance-inflation-factors">Multicollinearity and variance inflation factors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#omitted-variables">Omitted variables</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#residual-plots">Residual plots</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#residuals-vs-fitted-plot">Residuals vs fitted plot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#qq-plot-of-residuals">QQ plot of residuals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scale-of-residuals">Scale of residuals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#leverage-and-influential-points">Leverage and influential points</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
@@ -964,9 +1033,10 @@ By Terence Lim
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -990,8 +1060,8 @@ By Terence Lim
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

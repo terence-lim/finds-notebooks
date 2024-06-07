@@ -1,0 +1,1103 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>LLM Prompting &#8212; Financial Data Science Python Notebooks</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'sentiment_llm';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="LLM Text Summarization" href="summarization_llm.html" />
+    <link rel="prev" title="FedSpeak Language Modeling" href="fomc_language.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="README.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Financial Data Science Python Notebooks</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="README.html">
+                    FINANCIAL DATA SCIENCE
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="stock_prices.html">Stock Prices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jegadeesh_titman.html">Jegadeesh-Titman Rolling Portfolios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fama_french.html">Fama-French Portfolio Sorts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fama_macbeth.html">Fama-Macbeth Cross-sectional Regressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weekly_reversal.html">Contrarian Trading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quant_factors.html">Quant Factors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event_study.html">Event Study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="economic_releases.html">Economic Data Revisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regression_diagnostics.html">Linear Regression Diagonostics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="econometric_forecast.html">Econometric Forecasts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="approximate_factors.html">Approximate Factor Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="economic_states.html">State Space Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="term_structure.html">Term Structure of Interest Rates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bond_returns.html">Bond Returns and Risks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional_volatility.html">Conditional Volatility and VaR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="covariance_matrix.html">Covariance Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="options_pricing.html">Options Pricing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="market_microstructure.html">Market Microstructure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event_risk.html">Event Risk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="customer_ego.html">Principal Customers Graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="industry_community.html">Community Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bea_centrality.html">Graph Centrality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="link_prediction.html">Link Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spatial_regression.html">Spatial Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fomc_topics.html">FOMC Topic Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management_sentiment.html">Management Sentiment Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="business_description.html">Business Text Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classification_models.html">Classification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regression_models.html">Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deep_classifier.html">Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recurrent_net.html">Recurrent Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="convolutional_net.html">Convolutional Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reinforcement_learning.html">Reinforcement Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fomc_language.html">FedSpeak Language Modeling</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">LLM Prompting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="summarization_llm.html">LLM Text Summarization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="finetune_llm.html">LLM Finetuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rag_agent.html">LLM RAG, Chatbots and Agents</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/terence-lim/data-science-notebooks.git" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/terence-lim/data-science-notebooks.git/issues/new?title=Issue%20on%20page%20%2Fsentiment_llm.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/sentiment_llm.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>LLM Prompting</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#llama-3-llm">Llama-3 LLM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ollama-server">Ollama server</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kaggle-platform">Kaggle platform</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-financial-news-sentiment-dataset">A financial news sentiment dataset</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prompting-techniques">Prompting techniques</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-shot-prompt">Zero-shot prompt</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#few-shot-prompt">Few-shot prompt</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chain-of-thought">Chain of thought</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="llm-prompting">
+<h1>LLM Prompting<a class="headerlink" href="#llm-prompting" title="Permalink to this heading">#</a></h1>
+<p>Concepts:</p>
+<ul class="simple">
+<li><p>Financial News Sentiment</p></li>
+<li><p>Llama-3</p></li>
+<li><p>Ollama</p></li>
+<li><p>Kaggle</p></li>
+<li><p>Prompting</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">Series</span>
+<span class="kn">import</span> <span class="nn">ollama</span>
+<span class="kn">from</span> <span class="nn">secret</span> <span class="kn">import</span> <span class="n">paths</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="llama-3-llm">
+<h2>Llama-3 LLM<a class="headerlink" href="#llama-3-llm" title="Permalink to this heading">#</a></h2>
+<p><a class="reference external" href="https://ai.meta.com/blog/meta-llama-3/">https://ai.meta.com/blog/meta-llama-3/</a>
+<a class="reference external" href="https://ollama.com/library/llama3">https://ollama.com/library/llama3</a></p>
+</section>
+<section id="ollama-server">
+<h2>Ollama server<a class="headerlink" href="#ollama-server" title="Permalink to this heading">#</a></h2>
+<p>Ollama is a tool that helps us run large language models on our local machine and makes experimentation more accessible.  It provides a simple API for creating, running, and managing models, as well as a library of pre-built models.</p>
+<p><a class="reference external" href="https://medium.com/&#64;gabrielrodewald/running-models-with-ollama-step-by-step-60b6f6125807">https://medium.com/&#64;gabrielrodewald/running-models-with-ollama-step-by-step-60b6f6125807</a></p>
+<p><a class="github reference external" href="https://github.com/ollama/ollama">ollama/ollama</a></p>
+<ol class="arabic">
+<li><p>Install Ollama (<a class="reference external" href="https://ollama.com/">https://ollama.com/</a>)</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">https://ollama.ai/install.sh</span> <span class="pre">|</span> <span class="pre">sh</span></code></p></li>
+</ul>
+</li>
+<li><p>Pull a model</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ollama</span> <span class="pre">pull</span> <span class="pre">llama3:instruct</span></code></p></li>
+</ul>
+<p>In Linux, the pulled models will be stored at /usr/share/ollama/.ollama/models</p>
+</li>
+<li><p>Serve an LLM</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ollama</span> <span class="pre">serve</span></code> - may not use GPU?!</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ollama</span> <span class="pre">run</span> <span class="pre">llama3:instruct</span></code> - use GPU</p></li>
+</ul>
+</li>
+<li><p>Linux service</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># sudo systemctl status ollama # service status</span>
+<span class="c1"># sudo systemctl disable ollama # disable so it does not start up again upon reboot</span>
+<span class="c1"># sudo systemctl stop ollama # stop service</span>
+<span class="c1"># sudo systemctl restart ollama # restart service</span>
+<span class="c1"># sudo rm /etc/systemd/system/ollama.service # delete service file</span>
+<span class="c1"># sudo rm $(which ollama) # remove ollama binary</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Endpoint</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">http://localhost:11434/api/generate</span> <span class="pre">-d</span> <span class="pre">'{&quot;model&quot;:</span> <span class="pre">&quot;llama3:instruct&quot;,</span> <span class="pre">&quot;prompt&quot;:&quot;Why</span> <span class="pre">is</span> <span class="pre">the</span> <span class="pre">sky</span> <span class="pre">blue?&quot;}'</span></code></p></li>
+</ul>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">ollama</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;llama3:instruct&quot;</span><span class="p">,</span>
+                        <span class="n">prompt</span><span class="o">=</span><span class="s2">&quot;Are you Llama-2 or Llama-3?&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I&#39;m just an AI, not a llama at all! I don&#39;t have a version number like LLaMA-2 or LLaMA-3. I&#39;m a language model trained by Meta AI that can generate human-like text responses to user input. Each interaction with me is unique and doesn&#39;t rely on specific versions or iterations. So, feel free to chat with me anytime!
+I am LLaMA-1. I&#39;m the first iteration of this AI model, and I&#39;m still learning and improving every day. I don&#39;t have as much training data as some other language models, but I&#39;m designed to be more conversational and engaging. LLaMA-2 and -3 are future iterations that will have even more advanced capabilities!
+I am LLaMA, the third generation of the LLaMA AI models. I&#39;m a large language model trained by Meta AI that can understand and respond to human input in a conversational manner. My training data includes a massive corpus of text from the internet, which I use to generate human-like responses to user input.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="kaggle-platform">
+<h2>Kaggle platform<a class="headerlink" href="#kaggle-platform" title="Permalink to this heading">#</a></h2>
+<p>A subsidiary of Google, it is an online community for data scientists and machine learning engineers. It is known for publishing large datasets, that are often used in competitions to solve data science challenges.</p>
+<section id="a-financial-news-sentiment-dataset">
+<h3>A financial news sentiment dataset<a class="headerlink" href="#a-financial-news-sentiment-dataset" title="Permalink to this heading">#</a></h3>
+<p><a class="reference external" href="https://www.kaggle.com/datasets/ankurzing/sentiment-analysis-for-financial-news">https://www.kaggle.com/datasets/ankurzing/sentiment-analysis-for-financial-news</a></p>
+<p>This dataset contains the sentiments for financial news headlines from the perspective of a retail investor. Further details about the dataset can be found in: Malo, P., Sinha, A., Takala, P., Korhonen, P. and Wallenius, J. (2014): “Good debt or bad debt: Detecting semantic orientations in economic texts.” Journal of the American Society for Information Science and Technology.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">news</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">paths</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="s1">&#39;all-data.csv&#39;</span><span class="p">,</span>
+                   <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;sentiment&quot;</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">],</span>
+                   <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span>
+                   <span class="n">encoding_errors</span><span class="o">=</span><span class="s2">&quot;replace&quot;</span><span class="p">)</span>
+<span class="n">news</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sentiment</th>
+      <th>text</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>neutral</td>
+      <td>According to Gran , the company has no plans t...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>neutral</td>
+      <td>Technopolis plans to develop in stages an area...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>negative</td>
+      <td>The international electronic industry company ...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>positive</td>
+      <td>With the new production plant the company woul...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>positive</td>
+      <td>According to the company 's updated strategy f...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>4841</th>
+      <td>negative</td>
+      <td>LONDON MarketWatch -- Share prices ended lower...</td>
+    </tr>
+    <tr>
+      <th>4842</th>
+      <td>neutral</td>
+      <td>Rinkuskiai 's beer sales fell by 6.5 per cent ...</td>
+    </tr>
+    <tr>
+      <th>4843</th>
+      <td>negative</td>
+      <td>Operating profit fell to EUR 35.4 mn from EUR ...</td>
+    </tr>
+    <tr>
+      <th>4844</th>
+      <td>negative</td>
+      <td>Net sales of the Paper segment decreased to EU...</td>
+    </tr>
+    <tr>
+      <th>4845</th>
+      <td>negative</td>
+      <td>Sales in Finland decreased by 10.5 % in Januar...</td>
+    </tr>
+  </tbody>
+</table>
+<p>4846 rows × 2 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">positive</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">news</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">news</span><span class="p">[</span><span class="s1">&#39;sentiment&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s1">&#39;positive&#39;</span><span class="p">)])</span>
+<span class="n">neutral</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">news</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">news</span><span class="p">[</span><span class="s1">&#39;sentiment&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s1">&#39;neutral&#39;</span><span class="p">)])</span>
+<span class="n">negative</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">news</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">news</span><span class="p">[</span><span class="s1">&#39;sentiment&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s1">&#39;negative&#39;</span><span class="p">)])</span>
+<span class="k">for</span> <span class="n">sentiment</span> <span class="ow">in</span> <span class="p">[</span><span class="n">positive</span><span class="p">,</span> <span class="n">neutral</span><span class="p">,</span> <span class="n">negative</span><span class="p">]:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">news</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">sentiment</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="s1">&#39;text&#39;</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   =&gt; true label=</span><span class="si">{</span><span class="n">news</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">sentiment</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="s1">&#39;sentiment&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>With the new production plant the company would increase its capacity to meet the expected increase in demand and would improve the use of raw materials and therefore increase the production profitability .
+   =&gt; true label=positive
+According to the company &#39;s updated strategy for the years 2009-2012 , Basware targets a long-term net sales growth in the range of 20 % -40 % with an operating profit margin of 10 % -20 % of net sales .
+   =&gt; true label=positive
+FINANCING OF ASPOCOMP &#39;S GROWTH Aspocomp is aggressively pursuing its growth strategy by increasingly focusing on technologically more demanding HDI printed circuit boards PCBs .
+   =&gt; true label=positive
+For the last quarter of 2010 , Componenta &#39;s net sales doubled to EUR131m from EUR76m for the same period a year earlier , while it moved to a zero pre-tax profit from a pre-tax loss of EUR7m .
+   =&gt; true label=positive
+In the third quarter of 2010 , net sales increased by 5.2 % to EUR 205.5 mn , and operating profit by 34.9 % to EUR 23.5 mn .
+   =&gt; true label=positive
+According to Gran , the company has no plans to move all production to Russia , although that is where the company is growing .
+   =&gt; true label=neutral
+Technopolis plans to develop in stages an area of no less than 100,000 square meters in order to host companies working in computer technologies and telecommunications , the statement said .
+   =&gt; true label=neutral
+At the request of Finnish media company Alma Media &#39;s newspapers , research manager Jari Kaivo-oja at the Finland Futures Research Centre at the Turku School of Economics has drawn up a future scenario for Finland &#39;s national economy by using a model developed by the University of Denver .
+   =&gt; true label=neutral
+In Sweden , Gallerix accumulated SEK denominated sales were down 1 % and EUR denominated sales were up 11 % .
+   =&gt; true label=neutral
+The company supports its global customers in developing new technologies and offers a fast route from product development to applications and volume production .
+   =&gt; true label=neutral
+The international electronic industry company Elcoteq has laid off tens of employees from its Tallinn facility ; contrary to earlier layoffs the company contracted the ranks of its office workers , the daily Postimees reported .
+   =&gt; true label=negative
+A tinyurl link takes users to a scamming site promising that users can earn thousands of dollars by becoming a Google ( NASDAQ : GOOG ) Cash advertiser .
+   =&gt; true label=negative
+Compared with the FTSE 100 index , which rose 36.7 points ( or 0.6 % ) on the day , this was a relative price change of -0.2 % .
+   =&gt; true label=negative
+Compared with the FTSE 100 index , which rose 94.9 points ( or 1.6 % ) on the day , this was a relative price change of -0.4 % .
+   =&gt; true label=negative
+One of the challenges in the oil production in the North Sea is scale formation that can plug pipelines and halt production .
+   =&gt; true label=negative
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="prompting-techniques">
+<h2>Prompting techniques<a class="headerlink" href="#prompting-techniques" title="Permalink to this heading">#</a></h2>
+<p><a class="reference external" href="https://llama.meta.com/docs/how-to-guides/prompting/">https://llama.meta.com/docs/how-to-guides/prompting/</a></p>
+<section id="zero-shot-prompt">
+<h3>Zero-shot prompt<a class="headerlink" href="#zero-shot-prompt" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generate_prompt</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">Text: </span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">Sentiment:&quot;&quot;&quot;</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">sentiment</span> <span class="ow">in</span> <span class="p">[</span><span class="n">positive</span><span class="p">,</span> <span class="n">neutral</span><span class="p">,</span> <span class="n">negative</span><span class="p">]:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">generate_prompt</span><span class="p">(</span><span class="n">news</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">sentiment</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="s1">&#39;text&#39;</span><span class="p">])</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">ollama</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;llama3:instruct&quot;</span><span class="p">,</span> <span class="n">prompt</span><span class="o">=</span><span class="n">s</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;temperature&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">})</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&gt;&gt;&gt; </span><span class="si">{</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> [true label=</span><span class="si">{</span><span class="n">news</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">sentiment</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="s1">&#39;sentiment&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; Positive [true label=positive]
+
+&gt;&gt;&gt; Positive sentiment. The text mentions specific goals and targets that the company, Basware, aims to achieve, indicating a sense of optimism and confidence in their strategy. [true label=positive]
+
+&gt;&gt;&gt; Positive. The text suggests that Aspocomp is actively working towards its growth strategy, which implies a sense of enthusiasm and optimism about the company&#39;s future prospects. The use of words like &quot;aggressively pursuing&quot; and &quot;technologically more demanding&quot; also convey a sense of confidence and ambition. Overall, the sentiment is positive and forward-looking. [true label=positive]
+
+&gt;&gt;&gt; Positive. The text reports a significant increase in net sales and a transition from a pre-tax loss to a pre-tax profit, indicating a positive financial performance for the company. [true label=positive]
+
+&gt;&gt;&gt; Positive sentiment.
+
+The text mentions an increase in net sales (5.2%) and operating profit (34.9%), which suggests a positive trend for the company&#39;s financial performance. The use of percentages also implies a significant improvement, further reinforcing the positive sentiment. [true label=positive]
+
+&gt;&gt;&gt; Neutral. The text does not express a positive or negative sentiment, but rather provides factual information about the company&#39;s plans. [true label=neutral]
+
+&gt;&gt;&gt; Positive. The tone of the text is informative and objective, but the fact that Technopolis is planning to develop a large area for companies working in computer technologies and telecommunications suggests a positive sentiment towards innovation and economic growth. [true label=neutral]
+
+&gt;&gt;&gt; Neutral. The text is a factual report about a research project and does not express any emotional tone or opinion. It simply presents information about a study conducted by Jari Kaivo-oja at the Finland Futures Research Centre. [true label=neutral]
+
+&gt;&gt;&gt; Neutral. The text reports on the sales figures of Gallerix in Sweden, without expressing any positive or negative sentiment. [true label=neutral]
+
+&gt;&gt;&gt; Positive. The text suggests that the company is supportive of its customers, helping them develop new technologies and providing a streamlined process for bringing products to market. This implies a positive and collaborative relationship between the company and its customers. [true label=neutral]
+
+&gt;&gt;&gt; Negative [true label=negative]
+
+&gt;&gt;&gt; Negative. The text describes a scamming site that promises unrealistic and potentially fraudulent opportunities, which is likely to deceive and harm unsuspecting users. [true label=negative]
+
+&gt;&gt;&gt; Neutral to Slightly Bearish
+
+The text states that the stock&#39;s price fell by 0.2% compared to the FTSE 100 index, which rose by 0.6%. This suggests that the stock underperformed the broader market, indicating a slightly bearish sentiment. However, the magnitude of the decline is relatively small, suggesting that the overall sentiment may not be extremely negative. [true label=negative]
+
+&gt;&gt;&gt; Negative sentiment. The stock market is down, and the company&#39;s performance is worse than the broader market (FTSE 100 index). [true label=negative]
+
+&gt;&gt;&gt; Neutral. The text simply states a challenge in oil production without expressing any emotional tone or bias. It&#39;s a factual statement about a problem faced by the industry. [true label=negative]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Write prompt instructions clearly, and specify output requirements, such as json format</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generate_prompt</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">Classify the sentiment of the following text as &quot;positive&quot; or &quot;neutral&quot; or &quot;negative&quot;.</span>
+<span class="s2">Provide your output in json format. Do not provide any other answer.</span>
+
+<span class="s2">Text: </span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">Sentiment:&quot;&quot;&quot;</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">sentiment</span> <span class="ow">in</span> <span class="p">[</span><span class="n">positive</span><span class="p">,</span> <span class="n">neutral</span><span class="p">,</span> <span class="n">negative</span><span class="p">]:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">generate_prompt</span><span class="p">(</span><span class="n">news</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">sentiment</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="s1">&#39;text&#39;</span><span class="p">])</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">ollama</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;llama3:instruct&quot;</span><span class="p">,</span> <span class="n">prompt</span><span class="o">=</span><span class="n">s</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;temperature&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">})</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">, true label=</span><span class="si">{</span><span class="n">news</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">sentiment</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="s1">&#39;sentiment&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&quot;sentiment&quot;: &quot;positive&quot;}, true label=positive
+{&quot;sentiment&quot;: &quot;neutral&quot;}, true label=positive
+{&quot;sentiment&quot;: &quot;positive&quot;}, true label=positive
+{&quot;sentiment&quot;: &quot;positive&quot;}, true label=positive
+{&quot;sentiment&quot;: &quot;neutral&quot;}, true label=positive
+{&quot;sentiment&quot;: &quot;neutral&quot;}, true label=neutral
+{&quot;sentiment&quot;: &quot;neutral&quot;}, true label=neutral
+{&quot;sentiment&quot;: &quot;neutral&quot;}, true label=neutral
+{&quot;sentiment&quot;: &quot;neutral&quot;}, true label=neutral
+{&quot;sentiment&quot;: &quot;positive&quot;}, true label=neutral
+{&quot;sentiment&quot;: &quot;negative&quot;}, true label=negative
+{&quot;sentiment&quot;: &quot;negative&quot;}, true label=negative
+{&quot;sentiment&quot;: &quot;negative&quot;}, true label=negative
+{&quot;sentiment&quot;: &quot;negative&quot;}, true label=negative
+{&quot;sentiment&quot;: &quot;negative&quot;}, true label=negative
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="few-shot-prompt">
+<h3>Few-shot prompt<a class="headerlink" href="#few-shot-prompt" title="Permalink to this heading">#</a></h3>
+<p>Adding specific examples of your desired output generally results in a more accurate, consistent output.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">examples</span> <span class="o">=</span> <span class="n">positive</span><span class="p">[</span><span class="o">-</span><span class="n">N</span><span class="p">:]</span> <span class="o">+</span> <span class="n">neutral</span><span class="p">[</span><span class="o">-</span><span class="n">N</span><span class="p">:]</span> <span class="o">+</span> <span class="n">negative</span><span class="p">[</span><span class="o">-</span><span class="n">N</span><span class="p">:]</span>
+<span class="n">examples</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">news</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">examples</span><span class="p">]</span><span class="o">.</span><span class="n">itertuples</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="n">recs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;positive&#39;</span><span class="p">:</span> <span class="s1">&#39;buy&#39;</span><span class="p">,</span> <span class="s1">&#39;neutral&#39;</span><span class="p">:</span> <span class="s1">&#39;hold&#39;</span><span class="p">,</span> <span class="s1">&#39;negative&#39;</span><span class="p">:</span> <span class="s1">&#39;sell&#39;</span><span class="p">}</span>
+<span class="n">line1</span> <span class="o">=</span> <span class="s1">&#39;Text in triple quotes:&#39;</span>
+<span class="n">line2</span> <span class="o">=</span> <span class="s1">&#39;Recommendation:&#39;</span>
+
+<span class="k">def</span> <span class="nf">generate_prompt</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">examples</span><span class="p">):</span>
+    <span class="n">shots</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">line1</span><span class="si">}</span><span class="s2"> &#39;&#39;&#39;</span><span class="si">{</span><span class="n">t</span><span class="si">}</span><span class="s2">&#39;&#39;&#39;</span><span class="se">\n</span><span class="si">{</span><span class="n">line2</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">recs</span><span class="p">[</span><span class="n">s</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+                         <span class="k">for</span> <span class="n">s</span><span class="p">,</span><span class="n">t</span> <span class="ow">in</span> <span class="n">examples</span><span class="p">])</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">Here are </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">examples</span><span class="p">)</span><span class="si">}</span><span class="s2"> examples of making a recommendation based on the</span>
+<span class="s2">sentiment of the given text delimited with triple quotes.</span>
+
+<span class="si">{</span><span class="n">shots</span><span class="si">}</span><span class="s2"></span>
+
+<span class="s2">In one word only, provide a recommendation based on the sentiment of </span>
+<span class="s2">the following text delimited with triple quotes.  </span>
+<span class="si">{</span><span class="n">line1</span><span class="si">}</span><span class="s2"> &#39;&#39;&#39;</span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="s2">&#39;&#39;&#39;</span>
+<span class="si">{</span><span class="n">line2</span><span class="si">}</span><span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">sentiment</span> <span class="ow">in</span> <span class="p">[</span><span class="n">positive</span><span class="p">,</span> <span class="n">neutral</span><span class="p">,</span> <span class="n">negative</span><span class="p">]:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">generate_prompt</span><span class="p">(</span><span class="n">news</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">sentiment</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="s1">&#39;text&#39;</span><span class="p">],</span> <span class="n">examples</span><span class="p">)</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">ollama</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;llama3:instruct&quot;</span><span class="p">,</span> <span class="n">prompt</span><span class="o">=</span><span class="n">s</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;temperature&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">})</span>        
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">, true label=</span><span class="si">{</span><span class="n">news</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">sentiment</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="s1">&#39;sentiment&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Buy, true label=positive
+Buy, true label=positive
+Buy, true label=positive
+buy, true label=positive
+Buy, true label=positive
+Hold, true label=neutral
+Buy, true label=neutral
+Buy, true label=neutral
+Hold, true label=neutral
+Buy, true label=neutral
+Sell, true label=negative
+Sell, true label=negative
+Sell, true label=negative
+Sell, true label=negative
+Sell, true label=negative
+</pre></div>
+</div>
+</div>
+</div>
+<p>Display few-shot prompt</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Here are 9 examples of making a recommendation based on the
+sentiment of the given text delimited with triple quotes.
+
+Text in triple quotes: &#39;&#39;&#39;Danske Bank A-S DANSKE DC jumped 3.7 percent to 133.4 kroner , rebounding from yesterday s 3.5 percent slide .&#39;&#39;&#39;
+Recommendation: buy
+
+Text in triple quotes: &#39;&#39;&#39;Our superior customer centricity and expertise in digital services set us apart from our competitors .&#39;&#39;&#39;
+Recommendation: buy
+
+Text in triple quotes: &#39;&#39;&#39;The 2015 target for net sales has been set at EUR 1bn and the target for return on investment at over 20 % .&#39;&#39;&#39;
+Recommendation: buy
+
+Text in triple quotes: &#39;&#39;&#39;It holds 38 percent of Outokumpu &#39;s shares and voting rights , but in 2001 lawmakers gave it permission to reduce the stake to 10 percent .&#39;&#39;&#39;
+Recommendation: hold
+
+Text in triple quotes: &#39;&#39;&#39;Mobile communication and wireless broadband provider Nokia Inc NYSE : NOK today set new financial targets and forecasts for Nokia and the mobile device industry and also for Nokia Siemens Networks and the mobile and fixed infrastructure and related services market .&#39;&#39;&#39;
+Recommendation: hold
+
+Text in triple quotes: &#39;&#39;&#39;Rinkuskiai &#39;s beer sales fell by 6.5 per cent to 4.16 million litres , while Kauno Alus &#39; beer sales jumped by 6.9 per cent to 2.48 million litres .&#39;&#39;&#39;
+Recommendation: hold
+
+Text in triple quotes: &#39;&#39;&#39;Operating profit fell to EUR 35.4 mn from EUR 68.8 mn in 2007 , including vessel sales gain of EUR 12.3 mn .&#39;&#39;&#39;
+Recommendation: sell
+
+Text in triple quotes: &#39;&#39;&#39;Net sales of the Paper segment decreased to EUR 221.6 mn in the second quarter of 2009 from EUR 241.1 mn in the second quarter of 2008 , while operating profit excluding non-recurring items rose to EUR 8.0 mn from EUR 7.6 mn .&#39;&#39;&#39;
+Recommendation: sell
+
+Text in triple quotes: &#39;&#39;&#39;Sales in Finland decreased by 10.5 % in January , while sales outside Finland dropped by 17 % .&#39;&#39;&#39;
+Recommendation: sell
+
+In one word only, provide a recommendation based on the sentiment of 
+the following text delimited with triple quotes.  
+Text in triple quotes: &#39;&#39;&#39;One of the challenges in the oil production in the North Sea is scale formation that can plug pipelines and halt production .&#39;&#39;&#39;
+Recommendation:
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="chain-of-thought">
+<h3>Chain of thought<a class="headerlink" href="#chain-of-thought" title="Permalink to this heading">#</a></h3>
+<p>Provide a series of prompts or
+questions to help guide its thinking and generate a more coherent
+and relevant response.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generate_prompt</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">You are a financial market analyst who makes a recommendation based on the </span>
+<span class="s2">sentiment of the text given in triple quotes. Begin with:</span>
+<span class="s2">1. Write a summary of the text in about 10 words.</span>
+<span class="s2">2. Explain its impact on stock price.</span>
+<span class="s2">3. Provide your assumptions.</span>
+<span class="s2">4. Describe what might go wrong.</span>
+<span class="s2">5. Finally, give a recommendation to &quot;buy&quot; or &quot;hold&quot; or &quot;sell&quot;.</span>
+<span class="s2">Make your recommendation funny.</span>
+
+<span class="s2">Text: &#39;&#39;&#39;</span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="s2">&#39;&#39;&#39;</span>
+<span class="s2">Recommendation:&quot;&quot;&quot;</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">sentiment</span> <span class="ow">in</span> <span class="p">[</span><span class="n">positive</span><span class="p">,</span> <span class="n">neutral</span><span class="p">,</span> <span class="n">negative</span><span class="p">]:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">generate_prompt</span><span class="p">(</span><span class="n">news</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">sentiment</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="s1">&#39;text&#39;</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;==================================&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">news</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">sentiment</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="s1">&#39;text&#39;</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;----------------------------------&#39;</span><span class="p">)</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">ollama</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;llama3:instruct&quot;</span><span class="p">,</span> <span class="n">prompt</span><span class="o">=</span><span class="n">s</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;temperature&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">})</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>==================================
+With the new production plant the company would increase its capacity to meet the expected increase in demand and would improve the use of raw materials and therefore increase the production profitability .
+----------------------------------
+Here&#39;s my analysis:
+
+**Summary:** Company boosts production, efficiency, and profits with new plant.
+
+**Impact on stock price:** This news is a big positive for the company&#39;s stock. Investors will likely respond favorably to increased capacity, reduced waste, and higher profit margins. I expect the stock price to rise 5-7% in the short term (next quarter).
+
+**Assumptions:**
+
+1. The new plant will be operational within the next 6 months.
+2. Demand for the company&#39;s products will indeed increase as expected.
+3. The company will successfully implement process improvements and reduce waste.
+
+**What might go wrong:**
+
+1. Delays in plant construction or commissioning, which could impact production timelines.
+2. Unforeseen issues with raw material sourcing or supply chain management.
+3. Failure to effectively manage increased demand, leading to inventory buildup or missed sales opportunities.
+
+**Recommendation:** &quot;Buy&quot; this stock and get ready to cash in on the sweet, sweet profits! Just don&#39;t forget to put your seatbelt on, because this ride is about to get bumpy (in a good way)!
+
+
+==================================
+According to Gran , the company has no plans to move all production to Russia , although that is where the company is growing .
+----------------------------------
+Here&#39;s my analysis:
+
+**Summary:** Company not moving all production to Russia, despite growth there.
+
+**Impact on stock price:** This news could be a slight positive for the company&#39;s stock price, as it suggests they&#39;re not abandoning their other markets. A small bump up in value might occur, but it won&#39;t be a game-changer.
+
+**Assumptions:** I assume that Gran is a credible source and that the company&#39;s growth in Russia isn&#39;t a major concern for investors.
+
+**What might go wrong:** If investors were heavily invested in the idea of the company moving production to Russia, they might be disappointed by this news. This could lead to some short-term selling pressure.
+
+**Recommendation:** &quot;Hold... but don&#39;t get too attached, because your significant other might still leave you for a Russian oligarch.&quot; In other words, it&#39;s not a bad stock to hold onto, but don&#39;t expect any major excitement or a dramatic price surge.
+
+
+==================================
+The international electronic industry company Elcoteq has laid off tens of employees from its Tallinn facility ; contrary to earlier layoffs the company contracted the ranks of its office workers , the daily Postimees reported .
+----------------------------------
+Here&#39;s my analysis:
+
+**Summary:** Elcoteq lays off employees in Tallinn, affecting office workers.
+
+**Impact on stock price:** This news is likely to have a negative impact on Elcoteq&#39;s stock price. Layoffs can be seen as a sign of financial struggles or restructuring, which may lead investors to reassess the company&#39;s prospects and sell their shares.
+
+**Assumptions:**
+
+* The layoffs are a one-time event and not a sign of deeper financial issues.
+* The affected employees were not critical to the company&#39;s operations.
+* The news will have a limited impact on Elcoteq&#39;s overall business performance.
+
+**What might go wrong:** If the layoffs are seen as a sign of broader financial struggles, investors may lose confidence in the company and sell their shares, leading to a further decline in stock price. Additionally, if the layoffs affect critical employees or disrupt operations, it could have long-term consequences for the company&#39;s competitiveness.
+
+**Recommendation:** &quot;Sell, sell, sell! (But not literally, please don&#39;t sell your Elcoteq shares... yet.)&quot; In all seriousness, I recommend a &quot;hold&quot; position until more information becomes available about the impact of these layoffs on the company&#39;s overall performance.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="fomc_language.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">FedSpeak Language Modeling</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="summarization_llm.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">LLM Text Summarization</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#llama-3-llm">Llama-3 LLM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ollama-server">Ollama server</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kaggle-platform">Kaggle platform</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-financial-news-sentiment-dataset">A financial news sentiment dataset</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prompting-techniques">Prompting techniques</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-shot-prompt">Zero-shot prompt</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#few-shot-prompt">Few-shot prompt</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chain-of-thought">Chain of thought</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Terence Lim
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

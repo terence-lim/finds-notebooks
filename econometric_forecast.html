@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -19,45 +19,42 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -75,7 +72,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -110,11 +115,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -129,6 +137,7 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="README.html">
@@ -137,60 +146,70 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     <p class="title logo__title">Financial Data Science Python Notebooks</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="README.html">
-                    Financial Data Science Notebooks
+                    FINANCIAL DATA SCIENCE
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="stock_prices.html">Stock prices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stock_prices.html">Stock Prices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jegadeesh_titman.html">Jegadeesh-Titman Rolling Portfolios</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fama_french.html">Fama-French Portfolio Sorts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fama_macbeth.html">Fama-Macbeth Cross-sectional Regressions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="weekly_reversal.html">Weekly reversal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weekly_reversal.html">Contrarian Trading</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quant_factors.html">Quant Factors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="event_study.html">Event Study</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="economic_releases.html">Economic Data Revisions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="regression_diagnostics.html">Linear Regression Diagonostics</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Econometric Forecasts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="approximate_factors.html">Approximate Factor Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="economic_states.html">State Space Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="conditional_volatility.html">Conditional Volatility</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="term_structure.html">Term Structure of Interest Rates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bond_returns.html">Bond Returns and Risks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional_volatility.html">Conditional Volatility and VaR</a></li>
 <li class="toctree-l1"><a class="reference internal" href="covariance_matrix.html">Covariance Matrix</a></li>
-<li class="toctree-l1"><a class="reference internal" href="term_structure.html">Term Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bond_returns.html">Bond Returns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="options_pricing.html">Options Pricing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="market_microstructure.html">Market Microstructure</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="event_risk.html">Event risk</a></li>
-<li class="toctree-l1"><a class="reference internal" href="customer_ego.html">Principal Customers Network</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="bea_centrality.html">Graph Centrality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event_risk.html">Event Risk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="customer_ego.html">Principal Customers Graph</a></li>
 <li class="toctree-l1"><a class="reference internal" href="industry_community.html">Community Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bea_centrality.html">Graph Centrality</a></li>
 <li class="toctree-l1"><a class="reference internal" href="link_prediction.html">Link Prediction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="spatial_regression.html">Spatial Regression</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fomc_topics.html">Topic Modelling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="management_sentiment.html">Sentiment Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="business_description.html">10-K Business Description</a></li>
-
-
-<li class="toctree-l1"><a class="reference internal" href="classification_models.html">Classification for supervised learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="regression_models.html">Regression for supervised learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="deep_classifier.html">Deep Averaging Networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="convolutional_net.html">Temporal Convolution Net</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fomc_topics.html">FOMC Topic Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management_sentiment.html">Management Sentiment Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="business_description.html">Business Text Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classification_models.html">Classification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regression_models.html">Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deep_classifier.html">Deep Learning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="recurrent_net.html">Recurrent Neural Networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fomc_language.html">Language Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="convolutional_net.html">Convolutional Neural Networks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reinforcement_learning.html">Reinforcement Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fomc_language.html">FedSpeak Language Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sentiment_llm.html">LLM Prompting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="summarization_llm.html">LLM Text Summarization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="finetune_llm.html">LLM Finetuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rag_agent.html">LLM RAG, Chatbots and Agents</a></li>
 </ul>
 
     </div>
@@ -344,20 +363,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -385,12 +406,26 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seasonality">Seasonality</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#autocorrelation">Autocorrelation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stationarity">Stationarity</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ar-arma-sarimax">AR, ARMA, SARIMAX</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forecasting">Forecasting</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#granger-causality">Granger Causality</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-autoregression">Vector Autoregression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#autocorrelation">Autocorrelation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series">Time Series</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ar-models">AR models</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ma-models">MA models</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arma-models">ARMA models</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lag-lengths">Lag lengths</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seasonal-component">Seasonal component</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-roots">Unit Roots</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sarimax-model">SARIMAX model</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forecasting">Forecasting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ar-lag-order">AR lag order</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#one-step-forecast">One-step forecast</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-step-forecast">Multi-step forecast</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#granger-causality">Granger Causality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#impulse-response-function">Impulse Response Function</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -400,17 +435,17 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="econometric-forecasts">
 <h1>Econometric Forecasts<a class="headerlink" href="#econometric-forecasts" title="Permalink to this heading">#</a></h1>
-<p><em>UNDER CONSTRUCTION</em></p>
+<p><em>In economics, the majority is always wrong</em> - John Kenneth Galbraith</p>
 <ul class="simple">
-<li><p>Trends: seasonality</p></li>
-<li><p>Autocorrelation Function: AR, MA, SARIMAX</p></li>
-<li><p>Unit root: integration order</p></li>
+<li><p>Trends: seasonality, random walk, unit root</p></li>
+<li><p>Autocovariance: stationarity, AR, MA, SARIMAX</p></li>
 <li><p>Forecasting: single-step, multi-step</p></li>
 <li><p>Granger casuality, impulse response function, Vector Autoregression</p></li>
+<li><p>Industrial Production</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -418,23 +453,17 @@ document.write(`
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">Series</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span> 
 <span class="kn">from</span> <span class="nn">statsmodels.tsa.ar_model</span> <span class="kn">import</span> <span class="n">AutoReg</span><span class="p">,</span> <span class="n">ar_select_order</span>
 <span class="kn">from</span> <span class="nn">statsmodels.graphics.tsaplots</span> <span class="kn">import</span> <span class="n">plot_acf</span><span class="p">,</span> <span class="n">plot_pacf</span><span class="p">,</span> <span class="n">acf</span>
 <span class="kn">from</span> <span class="nn">statsmodels.tsa.seasonal</span> <span class="kn">import</span> <span class="n">seasonal_decompose</span>
 <span class="kn">from</span> <span class="nn">statsmodels.tsa.statespace.sarimax</span> <span class="kn">import</span> <span class="n">SARIMAX</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tsa.stattools</span> <span class="kn">import</span> <span class="n">grangercausalitytests</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa.stattools</span> <span class="kn">import</span> <span class="n">grangercausalitytests</span><span class="p">,</span> <span class="n">adfuller</span>
 <span class="kn">from</span> <span class="nn">statsmodels.tsa.api</span> <span class="kn">import</span> <span class="n">VAR</span>
 <span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>        
 <span class="kn">from</span> <span class="nn">finds.readers</span> <span class="kn">import</span> <span class="n">Alfred</span>
-<span class="kn">from</span> <span class="nn">finds.busday</span> <span class="kn">import</span> <span class="n">BusDay</span>
-<span class="kn">from</span> <span class="nn">finds.econs</span> <span class="kn">import</span> <span class="n">integration_order</span>
-<span class="kn">from</span> <span class="nn">finds.misc</span> <span class="kn">import</span> <span class="n">Show</span>
-<span class="kn">from</span> <span class="nn">secret</span> <span class="kn">import</span> <span class="n">paths</span><span class="p">,</span> <span class="n">credentials</span>
-<span class="n">show</span> <span class="o">=</span> <span class="n">Show</span><span class="p">(</span><span class="n">ndigits</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">latex</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">secret</span> <span class="kn">import</span> <span class="n">credentials</span>
 <span class="n">VERBOSE</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="c1"># %matplotlib qt</span>
 </pre></div>
@@ -443,24 +472,25 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">imgdir</span> <span class="o">=</span> <span class="n">paths</span><span class="p">[</span><span class="s1">&#39;images&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="s1">&#39;ts&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">series_id</span><span class="p">,</span> <span class="n">freq</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="s1">&#39;IPB50001N&#39;</span><span class="p">,</span> <span class="s1">&#39;ME&#39;</span><span class="p">,</span> <span class="mi">0</span>  <span class="c1"># not seasonally adjusted</span>
 <span class="n">alf</span> <span class="o">=</span> <span class="n">Alfred</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;fred&#39;</span><span class="p">][</span><span class="s1">&#39;api_key&#39;</span><span class="p">])</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">alf</span><span class="p">(</span><span class="n">series_id</span><span class="p">,</span> <span class="n">log</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="n">freq</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">freq</span> <span class="o">=</span> <span class="n">freq</span>               <span class="c1"># set index to datetime type with &#39;M frequency</span>
+<span class="n">alf</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="n">series_id</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">series_id</span><span class="p">,</span> <span class="n">freq</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="s1">&#39;CPIAUCNS&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="mi">0</span> <span class="c1">#19620101  # not seasonally adjusted</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">alf</span><span class="p">(</span><span class="n">series_id</span><span class="p">,</span> <span class="n">log</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="n">freq</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
-<span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">BusDay</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Industrial Production: Total Index&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <section id="seasonality">
 <h2>Seasonality<a class="headerlink" href="#seasonality" title="Permalink to this heading">#</a></h2>
+<p>A time series can be decomposed into three distinct components: the trend, which captures the changes in the level of the time series over time; the seasonal component, which captures predictable changes in the time series according to the time of year; and the cyclical component, which captures the cycles in the data.</p>
+<p>Suppose that <span class="math notranslate nohighlight">\(Y_t\)</span> is a seasonal time series that has a different mean in each period. The seasonality repeats each <span class="math notranslate nohighlight">\(s\)</span> periods (e.g. every 3 in a quarterly series or 12 in a monthly series). Such deterministic seasonalities produce differences in the mean of a time series that are simple to model using dummy variables.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Seasonality Decomposition Plot</span>
@@ -473,56 +503,41 @@ document.write(`
 <span class="n">result</span><span class="o">.</span><span class="n">resid</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;m&#39;</span><span class="p">,</span>
                   <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Residual&#39;</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">imgdir</span> <span class="o">/</span> <span class="s1">&#39;seasonal.jpg&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/9fdd01cba7a8e1c374e0ed163e989d7a0a78806ff58c62281c88731ec35376d9.png" src="_images/9fdd01cba7a8e1c374e0ed163e989d7a0a78806ff58c62281c88731ec35376d9.png" />
-</div>
-</div>
-</section>
-<section id="autocorrelation">
-<h2>Autocorrelation<a class="headerlink" href="#autocorrelation" title="Permalink to this heading">#</a></h2>
-<p>Plot ACF and PACF</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">values</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
-<span class="n">plot_acf</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">lags</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">plot_pacf</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">lags</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;ywm&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">pad</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">imgdir</span> <span class="o">/</span> <span class="s1">&#39;acf.jpg&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/88d8cdb2d3b71c2531c890f4a24bb5d5379699ecb02dd5354a6c9216e465ae35.png" src="_images/88d8cdb2d3b71c2531c890f4a24bb5d5379699ecb02dd5354a6c9216e465ae35.png" />
+<img alt="_images/377e8c4b1c673f741795fb89289348aece0046b8e7fd40163ffc2308bdef02ca.png" src="_images/377e8c4b1c673f741795fb89289348aece0046b8e7fd40163ffc2308bdef02ca.png" />
 </div>
 </div>
 </section>
 <section id="stationarity">
 <h2>Stationarity<a class="headerlink" href="#stationarity" title="Permalink to this heading">#</a></h2>
-<p>Integration Order: Log CPI (Seasonally Adjusted)</p>
+<p>Covariance stationarity depends on the first two moments of a time series: the mean and the autocovariances.</p>
+<p>Autocovariance is defined as the covariance between a time series observations at different points in time. Its definition is the time-series analog of the covariance between two random variables. The <span class="math notranslate nohighlight">\(h\)</span> th autocovariance is defined as:
+<span class="math notranslate nohighlight">\(\gamma_{t,h} = E[(Y_t - E[Y_t])(Y_{t-h} - E[Y_{t-h}])]\)</span></p>
+<p>A time series is covariance-stationary if its first two moments satisfy three key properties.</p>
+<ol class="arabic simple">
+<li><p>The mean is constant and does not change over time (i.e., <span class="math notranslate nohighlight">\(E[Y_t] = m\)</span> for all t).</p></li>
+<li><p>The variance is finite and does not change over time (i.e., <span class="math notranslate nohighlight">\(V[Y_t] = \gamma_0 &lt; \infty\)</span> for all <span class="math notranslate nohighlight">\(t\)</span>).</p></li>
+<li><p>The autocovariance is finite, does not change over time, and only depends on the distance between observation <span class="math notranslate nohighlight">\(h\)</span> (i.e., <span class="math notranslate nohighlight">\(Cov[Y_t, Y_{t-h}] = \gamma_h\)</span> for all <span class="math notranslate nohighlight">\(t\)</span>).</p></li>
+</ol>
+<p>Covariance stationarity is important when modeling and forecasting time series. A covariance-stationary time series has constant relationships over time.</p>
+<p>The null hypothesis of the Augmented Dickey-Fuller is that there is a unit
+root, with the alternative that there is no unit root. If the pvalue is
+less than a critical size, then we can reject that there is a unit root.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">series_id</span> <span class="o">=</span> <span class="s1">&#39;CPIAUCSL&#39;</span> <span class="c1">#19620101  # seasonally adjusted</span>
-<span class="c1">#series_id = &#39;GDPC1&#39;</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">alf</span><span class="p">(</span><span class="n">series_id</span><span class="p">,</span> <span class="n">log</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
-<span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">BusDay</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
-<span class="n">p</span> <span class="o">=</span> <span class="n">integration_order</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">noprint</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">pvalue</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
-<span class="n">Series</span><span class="p">({</span><span class="n">series_id</span><span class="p">:</span> <span class="n">p</span><span class="p">},</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;I(p)&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">values</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+<span class="n">adf</span> <span class="o">=</span> <span class="n">adfuller</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+<span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">({</span><span class="s2">&quot;I(1)&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">adf</span><span class="p">[:</span><span class="mi">4</span><span class="p">])</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">adf</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">())},</span>
+                    <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">,</span>
+                    <span class="n">columns</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;Test Statistic&#39;</span><span class="p">,</span> <span class="s1">&#39;p-value&#39;</span><span class="p">,</span> <span class="s1">&#39;Lags Used&#39;</span><span class="p">,</span> <span class="s1">&#39;Obs Used&#39;</span><span class="p">]</span> <span class="o">+</span>
+                             <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;critical(</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">)&quot;</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">adf</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()]))</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Augmented Dickey-Fuller unit root test:
-      Test Statistic   p-value  Lags Used  Obs Used  Critical Value (1%)  Critical Value (5%)  Critical Value (10%)
-I(0)       -0.154936  0.943684       15.0     903.0            -3.437612            -2.864746             -2.568477
-      Test Statistic   p-value  Lags Used  Obs Used  Critical Value (1%)  Critical Value (5%)  Critical Value (10%)
-I(1)       -4.575503  0.000143       14.0     903.0            -3.437612            -2.864746             -2.568477
-</pre></div>
-</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -541,104 +556,159 @@ I(1)       -4.575503  0.000143       14.0     903.0            -3.437612        
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>I(p)</th>
+      <th>Test Statistic</th>
+      <th>p-value</th>
+      <th>Lags Used</th>
+      <th>Obs Used</th>
+      <th>critical(1%)</th>
+      <th>critical(5%)</th>
+      <th>critical(10%)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>CPIAUCSL</th>
-      <td>1</td>
+      <th>I(1)</th>
+      <td>-7.235</td>
+      <td>0.0</td>
+      <td>23</td>
+      <td>1237</td>
+      <td>-3.436</td>
+      <td>-2.864</td>
+      <td>-2.568</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
-<p>Histogram Plot and Kernel Density Estimate</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(),</span>
-             <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
-             <span class="n">lw</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-             <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-             <span class="c1">#line_kws={&quot;color&quot;: &quot;r&quot;},</span>
-             <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Histogram Plot and Kernel Density Estimate</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Density Plot of log(</span><span class="si">{</span><span class="n">series_id</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;diff log </span><span class="si">{</span><span class="n">series_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">),</span>
-             <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
-             <span class="n">lw</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-             <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-             <span class="c1">#line_kws={&quot;color&quot;: &quot;r&quot;},</span>
-             <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+             <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="c1">#line_kws={&quot;color&quot;: &quot;r&quot;}</span>
 <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Density Plot of diff log(</span><span class="si">{</span><span class="n">series_id</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">imgdir</span> <span class="o">/</span> <span class="s1">&#39;order.jpg&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">pad</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e57747e1f0cfe7853e3ad272cb2040cb4347de942dc3ac2012ab4fb3daf590e7.png" src="_images/e57747e1f0cfe7853e3ad272cb2040cb4347de942dc3ac2012ab4fb3daf590e7.png" />
+<img alt="_images/ef4cc16fbeb41a2a29fd33c2e973cfc3b27a5b65d6819af68bf0cadcdc8071e3.png" src="_images/ef4cc16fbeb41a2a29fd33c2e973cfc3b27a5b65d6819af68bf0cadcdc8071e3.png" />
 </div>
 </div>
 </section>
-<section id="ar-arma-sarimax">
-<h2>AR, ARMA, SARIMAX<a class="headerlink" href="#ar-arma-sarimax" title="Permalink to this heading">#</a></h2>
+<section id="autocorrelation">
+<h2>Autocorrelation<a class="headerlink" href="#autocorrelation" title="Permalink to this heading">#</a></h2>
+<p>The autocorrelation at lag <span class="math notranslate nohighlight">\(h\)</span> is defined as the ratio:
+<span class="math notranslate nohighlight">\(\rho_h = \dfrac{\gamma_h}{\gamma_0}\)</span>. The partial autocorrelation measures the strength of the correlation between these two time-series observations after controlling for the observations between them (i.e., the intermediate lags <span class="math notranslate nohighlight">\(Y_{t-1}, Y_{t-2}, ..., Y_{t-h+1}\)</span>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">values</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plot_acf</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">lags</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plot_pacf</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">lags</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;ywm&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="n">alf</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">observed</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/0ec974a31768560933f5420ae74e3f251471053ab1a68008ca702e827b6a5d0a.png" src="_images/0ec974a31768560933f5420ae74e3f251471053ab1a68008ca702e827b6a5d0a.png" />
+</div>
+</div>
+</section>
+<section id="time-series">
+<h2>Time Series<a class="headerlink" href="#time-series" title="Permalink to this heading">#</a></h2>
+<section id="ar-models">
+<h3>AR models<a class="headerlink" href="#ar-models" title="Permalink to this heading">#</a></h3>
+<p><strong>Autoregressive</strong> models relate the current value of a time series <span class="math notranslate nohighlight">\(Y_t\)</span> to its previous values. A first order AR process, which can be denoted by AR(1), evolves according to: <span class="math notranslate nohighlight">\(Y_t = \delta + \phi Y_{t-1} + \epsilon_t\)</span>,
+where <span class="math notranslate nohighlight">\(\delta\)</span> is called the intercept, <span class="math notranslate nohighlight">\(\phi\)</span> is the AR parameter, and the shock <span class="math notranslate nohighlight">\(\epsilon\)</span> is white noise with constant and finance variance <span class="math notranslate nohighlight">\(\sigma^2\)</span>.
+White noise processes have zero autocorrelation and autocovariance</p>
+<p>It partial autocorrelation function (<strong>PACF</strong>) is non-zero only for the first lag, while its autocorrelation function (<strong>ACF</strong>) exhits a slow decay <span class="math notranslate nohighlight">\(\rho(h) = \phi^{|h|}\)</span></p>
+<p>The <span class="math notranslate nohighlight">\(p\)</span> th order AR process generalizes the first-order process to include <span class="math notranslate nohighlight">\(p\)</span> lags of <span class="math notranslate nohighlight">\(Y\)</span> in the model. The AR(p) model is: <span class="math notranslate nohighlight">\(Y_t = \mu + \phi_1 Y_{t-1} + \phi_2 Y_{t-2} + ... + \phi_p Y_{t-p} + \epsilon_t\)</span></p>
+</section>
+<section id="ma-models">
+<h3>MA models<a class="headerlink" href="#ma-models" title="Permalink to this heading">#</a></h3>
+<p>A first-order <strong>moving average</strong> model, denoted MA(1), is defined as:
+<span class="math notranslate nohighlight">\(Y_t = \mu + \theta \epsilon_{t-1} + \epsilon_t\)</span></p>
+<p>The observed value of <span class="math notranslate nohighlight">\(Y_t\)</span> depends on both the contemporaneous and previous shock. Moving averages are always covariance-stationary. An MA(1) has a limited memory, because only the shock in the previous period impacts the current value.</p>
+<p>The MA(1) generalizes to an MA(q), which includes <span class="math notranslate nohighlight">\(q\)</span> lags of the shock:
+<span class="math notranslate nohighlight">\(Y_t = \mu + \epsilon_t + \phi_1 \epsilon_{t-1} + ... + \theta_q \epsilon_{t-q}\)</span></p>
+<p>Its ACF is always zero for lags larger than <span class="math notranslate nohighlight">\(q\)</span>, but the PACF is more complex.</p>
+</section>
+<section id="arma-models">
+<h3>ARMA models<a class="headerlink" href="#arma-models" title="Permalink to this heading">#</a></h3>
+<p>Autoregressive Moving Average (ARMA) processes combine AR and MA processes. For example, a simple ARMA(1,1) evolves according to:
+<span class="math notranslate nohighlight">\(Y_t = \mu + \phi Y_{t-1} + \theta epsilon_{t-1} + \epsilon_{t}\)</span>
+The mean of this process is <span class="math notranslate nohighlight">\(\mu = \delta / (1 - \phi)\)</span>
+The variance is <span class="math notranslate nohighlight">\(\gamma_0 = \sigma^2(1 + 2\phi \theta + \theta^2)/(1 - \phi^2)\)</span></p>
+<p>An ARMA(1,1) process is covariance-stationary if <span class="math notranslate nohighlight">\(|\phi_1| &lt;&gt; 1\)</span>. The MA coefficient plays no role in determining whether the pro-cess is covariance-stationary, because any MA is covariance-stationary and the MA component only affects a single lag of the shock. The AR component, however, affects all lagged shocks and so if <span class="math notranslate nohighlight">\(\phi_1\)</span> is too large, then the time series is not covariance-stationary.</p>
+</section>
+<section id="lag-lengths">
+<h3>Lag lengths<a class="headerlink" href="#lag-lengths" title="Permalink to this heading">#</a></h3>
+<p>Determining the appropriate lag lengths for the AR and MA components (i.e., p and q, respectively) is a key challenge when building an ARMA model. The first step in model building is to inspect the sample autocorrelation and sample PACFs.</p>
+<p>The <strong>Box-Pierce</strong> test statistic is the sum of the squared autocorrelations scaled by the sample size T: <span class="math notranslate nohighlight">\(Q_{BP} = T\sum_{i=1}^h (\dfrac{T+1}{T-1}) \hat{\rho}_i^2\)</span>
+When the null is true, <span class="math notranslate nohighlight">\(Q_{BP}\)</span> is asymptotically distributed as a <span class="math notranslate nohighlight">\(\chi_h^2\)</span> variable.</p>
+<p>The <strong>Ljung-Box</strong> statistic is a modified version of the Box-Pierce statistic that works better in smaller samples, and is defined as: <span class="math notranslate nohighlight">\(Q_{LB} = T\sum_{i=1}^h (\dfrac{T+2}{T-i}) \hat{\rho}_i^2\)</span></p>
+</section>
+<section id="seasonal-component">
+<h3>Seasonal component<a class="headerlink" href="#seasonal-component" title="Permalink to this heading">#</a></h3>
+<p>Seasonal components can be added to the short-term components of an ARMA(p,q) model, by using lags only at the seasonal frequency.  A seasonal ARMA combines
+these two components into a single specification:</p>
+<div class="math notranslate nohighlight">
+\[ARMA (p, q) \times (p_s, q_s)_f\]</div>
+<p>where p and q are the orders of the short-run lag polynomials, <span class="math notranslate nohighlight">\(p_s\)</span> and <span class="math notranslate nohighlight">\(q_s\)</span> are the orders of the seasonal lag polynomials, and <span class="math notranslate nohighlight">\(f\)</span> is the seasonal horizon (e.g., every 3 or 12 months with monthly observations).</p>
+</section>
+<section id="unit-roots">
+<h3>Unit Roots<a class="headerlink" href="#unit-roots" title="Permalink to this heading">#</a></h3>
+<p>Random walks are most important source of non-stationarity in economic time series. A simple random walk process evolves according to:
+<span class="math notranslate nohighlight">\(Y_t = Y_{t-1} + \epsilon_t\)</span>. Unit roots generalize random walks by adding short-run station-ary dynamics to the long-run random walk.</p>
+<p>A pair of time series have a spurious relationship when there are no fundamental links between them, but a regression of one on the other produces a coefficient estimate that is large and seemingly statistically different from zero when using conventional statistical distributions to obtain the critical values. When a time series contains a unit root, it is common to find spurious relationships with other time series that have a time trend or a unit root.</p>
+<p>The solution is to difference a time series that contains a unit root. If <span class="math notranslate nohighlight">\(Y_t\)</span> has a unit root (i.e. has integration order 1), then the difference: <span class="math notranslate nohighlight">\(\Delta Y_t = Y_t - Y_{t-1}\)</span> does not.</p>
+</section>
+<section id="sarimax-model">
+<h3>SARIMAX model<a class="headerlink" href="#sarimax-model" title="Permalink to this heading">#</a></h3>
+<p>The Seasonal AutoRegressive Integrated Moving Average with eXogenous regressors (SARIMAX) model is specified <span class="math notranslate nohighlight">\((p, d, q) \times (P, D, Q)_s\)</span>, with</p>
 <ul class="simple">
-<li><p>AR(p) is simplest time-model, can nest in SARIMAX(p,d,q,s) with</p></li>
-<li><p>integration order I(d), moving average MA(q), seasonality S(s), exogenous X</p></li>
+<li><p>the (p,d,q) order of the model for the number of AR parameters, differences (indicating the integration order of the process), and MA parameters,</p></li>
+<li><p>the (P,D,Q,s) order of the seasonal component for the AR parameters, differences, MA parameters, and periodicity.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">split_date</span> <span class="o">=</span> <span class="s1">&#39;2021-12-31&#39;</span>
-<span class="n">series_id</span><span class="p">,</span> <span class="n">freq</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="s1">&#39;CPIAUCNS&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="mi">0</span>  <span class="c1"># not seasonally adjust</span>
-<span class="n">log_df</span> <span class="o">=</span> <span class="n">alf</span><span class="p">(</span><span class="n">series_id</span><span class="p">,</span> <span class="n">log</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">log_df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">BusDay</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">log_df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
-<span class="n">log_df</span> <span class="o">=</span> <span class="n">log_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:</span><span class="n">split_date</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">split_date</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">12</span><span class="p">]</span>   <span class="c1"># train/test split date</span>
+<span class="c1"># df_train = df.loc[:split_date].dropna()</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pdq</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>   <span class="c1">#(12, 1, 0)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fit a SARIMA(1,1,3) with seasonal order (0, 0, 0, 12)</span>
+<span class="n">pdq</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>   <span class="c1">#(12, 1, 0)</span>
 <span class="n">seasonal_pdqs</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
-<span class="n">arima</span> <span class="o">=</span> <span class="n">SARIMAX</span><span class="p">(</span><span class="n">log_df</span><span class="p">,</span>
-                <span class="n">order</span><span class="o">=</span><span class="n">pdq</span><span class="p">,</span>
-                <span class="n">seasonal_order</span><span class="o">=</span><span class="n">seasonal_pdqs</span><span class="p">,</span>
-                <span class="n">trend</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">arima</span><span class="o">.</span><span class="n">plot_diagnostics</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span> <span class="n">lags</span><span class="o">=</span><span class="mi">36</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">pad</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">imgdir</span> <span class="o">/</span> <span class="s1">&#39;ar.jpg&#39;</span><span class="p">)</span>
+<span class="n">arima</span> <span class="o">=</span> <span class="n">SARIMAX</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">pdq</span><span class="p">,</span> <span class="n">seasonal_order</span><span class="o">=</span><span class="n">seasonal_pdqs</span><span class="p">,</span> <span class="n">trend</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">arima</span><span class="o">.</span><span class="n">plot_diagnostics</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">lags</span><span class="o">=</span><span class="mi">36</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">arima</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/terence/env3.11/lib/python3.11/site-packages/statsmodels/tsa/base/tsa_model.py:473: ValueWarning: No frequency information was provided, so inferred frequency M will be used.
-  self._init_dates(dates, freq)
-/home/terence/env3.11/lib/python3.11/site-packages/statsmodels/tsa/base/tsa_model.py:473: ValueWarning: No frequency information was provided, so inferred frequency M will be used.
-  self._init_dates(dates, freq)
- This problem is unconstrained.
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RUNNING THE L-BFGS-B CODE
 
            * * *
 
 Machine precision = 2.220D-16
- N =            6     M =           10
+ N =            4     M =           10
 
 At X0         0 variables are exactly at the bounds
 
-At iterate    0    f= -3.76541D+00    |proj g|=  1.11379D+02
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Warning:  more than 10 function and gradient
-   evaluations in the last line search.  Termination
-   may possibly be caused by a bad search direction.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>At iterate    5    f= -3.78602D+00    |proj g|=  2.76533D-01
+At iterate    0    f= -2.09203D+00    |proj g|=  3.50751D-01
+
+At iterate    5    f= -2.09212D+00    |proj g|=  2.65613D-02
+
+At iterate   10    f= -2.09214D+00    |proj g|=  1.27872D-01
 
            * * *
 
@@ -653,31 +723,34 @@ F     = final function value
            * * *
 
    N    Tit     Tnf  Tnint  Skip  Nact     Projg        F
-    6      5     26      1     0     0   2.765D-01  -3.786D+00
-  F =  -3.7860213397202140     
+    4     14     18      1     0     0   8.002D-04  -2.092D+00
+  F =  -2.0921435906737225     
 
 CONVERGENCE: REL_REDUCTION_OF_F_&lt;=_FACTR*EPSMCH             
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> This problem is unconstrained.
 </pre></div>
 </div>
 <div class="output text_html"><table class="simpletable">
 <caption>SARIMAX Results</caption>
 <tr>
-  <th>Dep. Variable:</th>       <td>CPIAUCNS</td>     <th>  No. Observations:  </th>   <td>1308</td>   
+  <th>Dep. Variable:</th>       <td>IPB50001N</td>    <th>  No. Observations:  </th>   <td>1262</td>   
 </tr>
 <tr>
-  <th>Model:</th>           <td>SARIMAX(1, 1, 3)</td> <th>  Log Likelihood     </th> <td>4952.116</td> 
+  <th>Model:</th>           <td>SARIMAX(1, 1, 1)</td> <th>  Log Likelihood     </th> <td>2640.285</td> 
 </tr>
 <tr>
-  <th>Date:</th>            <td>Thu, 31 Aug 2023</td> <th>  AIC                </th> <td>-9892.232</td>
+  <th>Date:</th>            <td>Tue, 09 Apr 2024</td> <th>  AIC                </th> <td>-5272.570</td>
 </tr>
 <tr>
-  <th>Time:</th>                <td>06:58:58</td>     <th>  BIC                </th> <td>-9861.179</td>
+  <th>Time:</th>                <td>11:16:42</td>     <th>  BIC                </th> <td>-5252.012</td>
 </tr>
 <tr>
-  <th>Sample:</th>             <td>01-31-1913</td>    <th>  HQIC               </th> <td>-9880.584</td>
+  <th>Sample:</th>             <td>01-31-1919</td>    <th>  HQIC               </th> <td>-5264.845</td>
 </tr>
 <tr>
-  <th></th>                   <td>- 12-31-2021</td>   <th>                     </th>     <td> </td>    
+  <th></th>                   <td>- 02-29-2024</td>   <th>                     </th>     <td> </td>    
 </tr>
 <tr>
   <th>Covariance Type:</th>        <td>opg</td>       <th>                     </th>     <td> </td>    
@@ -688,108 +761,75 @@ CONVERGENCE: REL_REDUCTION_OF_F_&lt;=_FACTR*EPSMCH
       <td></td>         <th>coef</th>     <th>std err</th>      <th>z</th>      <th>P>|z|</th>  <th>[0.025</th>    <th>0.975]</th>  
 </tr>
 <tr>
-  <th>intercept</th> <td>    0.0004</td> <td> 9.68e-05</td> <td>    3.688</td> <td> 0.000</td> <td>    0.000</td> <td>    0.001</td>
+  <th>intercept</th> <td>    0.0027</td> <td>    0.001</td> <td>    2.393</td> <td> 0.017</td> <td>    0.000</td> <td>    0.005</td>
 </tr>
 <tr>
-  <th>ar.L1</th>     <td>    0.8589</td> <td>    0.030</td> <td>   28.855</td> <td> 0.000</td> <td>    0.801</td> <td>    0.917</td>
+  <th>ar.L1</th>     <td>   -0.1199</td> <td>    0.222</td> <td>   -0.541</td> <td> 0.588</td> <td>   -0.554</td> <td>    0.314</td>
 </tr>
 <tr>
-  <th>ma.L1</th>     <td>   -0.5255</td> <td>    0.032</td> <td>  -16.528</td> <td> 0.000</td> <td>   -0.588</td> <td>   -0.463</td>
+  <th>ma.L1</th>     <td>    0.2237</td> <td>    0.221</td> <td>    1.011</td> <td> 0.312</td> <td>   -0.210</td> <td>    0.657</td>
 </tr>
 <tr>
-  <th>ma.L2</th>     <td>   -0.0763</td> <td>    0.025</td> <td>   -3.032</td> <td> 0.002</td> <td>   -0.126</td> <td>   -0.027</td>
-</tr>
-<tr>
-  <th>ma.L3</th>     <td>   -0.0576</td> <td>    0.023</td> <td>   -2.479</td> <td> 0.013</td> <td>   -0.103</td> <td>   -0.012</td>
-</tr>
-<tr>
-  <th>sigma2</th>    <td> 2.994e-05</td> <td> 4.82e-07</td> <td>   62.116</td> <td> 0.000</td> <td>  2.9e-05</td> <td> 3.09e-05</td>
+  <th>sigma2</th>    <td>    0.0009</td> <td> 2.24e-05</td> <td>   39.741</td> <td> 0.000</td> <td>    0.001</td> <td>    0.001</td>
 </tr>
 </table>
 <table class="simpletable">
 <tr>
-  <th>Ljung-Box (L1) (Q):</th>     <td>0.04</td> <th>  Jarque-Bera (JB):  </th> <td>7896.60</td>
+  <th>Ljung-Box (L1) (Q):</th>     <td>0.02</td> <th>  Jarque-Bera (JB):  </th> <td>554.43</td>
 </tr>
 <tr>
-  <th>Prob(Q):</th>                <td>0.84</td> <th>  Prob(JB):          </th>  <td>0.00</td>  
+  <th>Prob(Q):</th>                <td>0.88</td> <th>  Prob(JB):          </th>  <td>0.00</td> 
 </tr>
 <tr>
-  <th>Heteroskedasticity (H):</th> <td>0.12</td> <th>  Skew:              </th>  <td>0.88</td>  
+  <th>Heteroskedasticity (H):</th> <td>0.32</td> <th>  Skew:              </th>  <td>-0.20</td>
 </tr>
 <tr>
-  <th>Prob(H) (two-sided):</th>    <td>0.00</td> <th>  Kurtosis:          </th>  <td>14.91</td> 
+  <th>Prob(H) (two-sided):</th>    <td>0.00</td> <th>  Kurtosis:          </th>  <td>6.22</td> 
 </tr>
-</table><br/><br/>Warnings:<br/>[1] Covariance matrix calculated using the outer product of gradients (complex-step).</div><img alt="_images/05de45882a9a60379947869d9ea5d8d04586fe051757e118c1828f92b9dd2638.png" src="_images/05de45882a9a60379947869d9ea5d8d04586fe051757e118c1828f92b9dd2638.png" />
+</table><br/><br/>Warnings:<br/>[1] Covariance matrix calculated using the outer product of gradients (complex-step).</div><img alt="_images/722e200324b9c590de142c271917a47fa86e522ddf01595bfe1ffbb1f10efe49.png" src="_images/722e200324b9c590de142c271917a47fa86e522ddf01595bfe1ffbb1f10efe49.png" />
 </div>
 </div>
+</section>
 </section>
 <section id="forecasting">
 <h2>Forecasting<a class="headerlink" href="#forecasting" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">series_id</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="s1">&#39;CPIAUCSL&#39;</span><span class="p">,</span> <span class="mi">0</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">alf</span><span class="p">(</span><span class="n">series_id</span><span class="p">,</span> <span class="n">log</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">diff</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
-<span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">BusDay</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
-<span class="n">df_train</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">&lt;=</span> <span class="n">split_date</span><span class="p">]</span>
-<span class="n">df_test</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">&gt;</span> <span class="n">split_date</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">series_id</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="s1">&#39;INDPRO&#39;</span><span class="p">,</span> <span class="mi">0</span>
+<span class="n">df_all</span> <span class="o">=</span> <span class="n">alf</span><span class="p">(</span><span class="n">series_id</span><span class="p">,</span> <span class="n">log</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">diff</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">df_all</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_all</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">df_all</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">freq</span> <span class="o">=</span> <span class="n">freq</span>
+<span class="n">df_train</span> <span class="o">=</span> <span class="n">df_all</span><span class="p">[</span><span class="n">df_all</span><span class="o">.</span><span class="n">index</span> <span class="o">&lt;=</span> <span class="n">split_date</span><span class="p">]</span>
+<span class="n">df_test</span> <span class="o">=</span> <span class="n">df_all</span><span class="p">[</span><span class="n">df_all</span><span class="o">.</span><span class="n">index</span> <span class="o">&gt;</span> <span class="n">split_date</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
+<section id="ar-lag-order">
+<h3>AR lag order<a class="headerlink" href="#ar-lag-order" title="Permalink to this heading">#</a></h3>
+<p>The most natural measure of fit is the sample variance of the estimated residuals, also known as the Mean Squared Error (MSE) of the model. Unfortunately, choosing a model to minimize MSE also selects a specification that is far too large. The solution to this overfitting problem is to add a penalty to the MSE that increases each time a new parameter is added.</p>
+<ul class="simple">
+<li><p>AIC is defined as: AIC = <span class="math notranslate nohighlight">\(T \ln \hat{\sigma}^2 + 2 k\)</span>, where T is the sample size and k is the number of parameters.</p></li>
+<li><p>BIC alters the penalty and is defined as: BIC = <span class="math notranslate nohighlight">\(T \ln \hat{\sigma}^2 2 + k \ln T\)</span></p></li>
+</ul>
+<p>Unlike the AIC, the BIC has a cost per parameter that slowly increases with T. Hence BIC always selects a model that is no larger than the model selected by the AIC (assuming <span class="math notranslate nohighlight">\(\ln T &gt; 2\)</span>), and is a consistent model selection criterion (i.e., the true model is selected as <span class="math notranslate nohighlight">\(T \rightarrow \infty\)</span>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Select AR lag order</span>
-<span class="sd">&quot;&quot;&quot;ARMA select order is too slow and unstable in statsmodels</span>
-<span class="sd"># Select ARMA lag order</span>
-<span class="sd">from statsmodels.tsa.stattools import arma_order_select_ic</span>
-<span class="sd">series_id = &#39;CPIAUCSL&#39;</span>
-<span class="sd">df = alf(series_id, log=1, diff=1).dropna()</span>
-<span class="sd">df.index = BusDay.to_datetime(df.index)</span>
-<span class="sd">split_date = &#39;2021-06-30&#39;</span>
-<span class="sd">df_train = df[df.index &lt;= split_date]</span>
-<span class="sd">df_test = df[df.index &gt; split_date]</span>
-<span class="sd">res = arma_order_select_ic(df_train,</span>
-<span class="sd">                           max_ar=36,</span>
-<span class="sd">                           max_ma=12,</span>
-<span class="sd">                           ic=&#39;aic&#39;,</span>
-<span class="sd">                           trend=&#39;n&#39;)</span>
-<span class="sd">print(&#39;(p, q) = &#39;, res.aic_min_order)</span>
-<span class="sd">&quot;&quot;&quot;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;ARMA select order is too slow and unstable in statsmodels\n# Select ARMA lag order\nfrom statsmodels.tsa.stattools import arma_order_select_ic\nseries_id = &#39;CPIAUCSL&#39;\ndf = alf(series_id, log=1, diff=1).dropna()\ndf.index = BusDay.to_datetime(df.index)\nsplit_date = &#39;2021-06-30&#39;\ndf_train = df[df.index &lt;= split_date]\ndf_test = df[df.index &gt; split_date]\nres = arma_order_select_ic(df_train,\n                           max_ar=36,\n                           max_ma=12,\n                           ic=&#39;aic&#39;,\n                           trend=&#39;n&#39;)\nprint(&#39;(p, q) = &#39;, res.aic_min_order)\n&quot;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lags</span> <span class="o">=</span> <span class="n">ar_select_order</span><span class="p">(</span><span class="n">df_train</span><span class="p">,</span>
-                       <span class="n">maxlag</span><span class="o">=</span><span class="mi">36</span><span class="p">,</span>
-                       <span class="n">ic</span><span class="o">=</span><span class="s1">&#39;bic&#39;</span><span class="p">,</span>
-                       <span class="n">old_names</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">ar_lags</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lags</span> <span class="o">=</span> <span class="n">ar_select_order</span><span class="p">(</span><span class="n">df_train</span><span class="p">,</span> <span class="n">maxlag</span><span class="o">=</span><span class="mi">36</span><span class="p">,</span> <span class="n">ic</span><span class="o">=</span><span class="s1">&#39;bic&#39;</span><span class="p">,</span> <span class="n">old_names</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">ar_lags</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;(BIC) lags= &#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">lags</span><span class="p">),</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">lags</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(BIC) lags=  12 : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/terence/env3.11/lib/python3.11/site-packages/statsmodels/tsa/base/tsa_model.py:473: ValueWarning: No frequency information was provided, so inferred frequency M will be used.
-  self._init_dates(dates, freq)
-/home/terence/env3.11/lib/python3.11/site-packages/statsmodels/tsa/base/tsa_model.py:473: ValueWarning: No frequency information was provided, so inferred frequency M will be used.
-  self._init_dates(dates, freq)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(BIC) lags=  1 : [1]
 </pre></div>
 </div>
 </div>
 </div>
-<p><strong>One-step ahead predictions</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">AutoReg</span><span class="p">(</span><span class="n">df_train</span><span class="p">,</span> <span class="n">lags</span><span class="o">=</span><span class="n">lags</span><span class="p">,</span> <span class="n">old_names</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>  
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Train final model on train split</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">AutoReg</span><span class="p">(</span><span class="n">df_train</span><span class="p">,</span> <span class="n">lags</span><span class="o">=</span><span class="n">lags</span><span class="p">,</span> <span class="n">old_names</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>  
 <span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
@@ -797,154 +837,125 @@ CONVERGENCE: REL_REDUCTION_OF_F_&lt;=_FACTR*EPSMCH
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            AutoReg Model Results                             
 ==============================================================================
-Dep. Variable:               CPIAUCSL   No. Observations:                  899
-Model:                    AutoReg(12)   Log Likelihood                4064.408
-Method:               Conditional MLE   S.D. of innovations              0.002
-Date:                Thu, 31 Aug 2023   AIC                          -8100.815
-Time:                        06:58:58   BIC                          -8033.785
-Sample:                    02-29-1948   HQIC                         -8075.191
-                         - 12-31-2021                                         
-================================================================================
-                   coef    std err          z      P&gt;|z|      [0.025      0.975]
---------------------------------------------------------------------------------
-const            0.0005      0.000      4.000      0.000       0.000       0.001
-CPIAUCSL.L1      0.4431      0.033     13.433      0.000       0.378       0.508
-CPIAUCSL.L2      0.0451      0.036      1.255      0.209      -0.025       0.116
-CPIAUCSL.L3      0.0371      0.036      1.035      0.301      -0.033       0.107
-CPIAUCSL.L4      0.0596      0.035      1.681      0.093      -0.010       0.129
-CPIAUCSL.L5      0.0539      0.035      1.551      0.121      -0.014       0.122
-CPIAUCSL.L6     -0.0043      0.035     -0.124      0.901      -0.072       0.064
-CPIAUCSL.L7      0.1033      0.035      2.976      0.003       0.035       0.171
-CPIAUCSL.L8      0.0200      0.035      0.574      0.566      -0.048       0.088
-CPIAUCSL.L9      0.0707      0.035      2.039      0.041       0.003       0.139
-CPIAUCSL.L10     0.1163      0.034      3.373      0.001       0.049       0.184
-CPIAUCSL.L11     0.0433      0.034      1.270      0.204      -0.024       0.110
-CPIAUCSL.L12    -0.1793      0.031     -5.714      0.000      -0.241      -0.118
-                                    Roots                                     
+Dep. Variable:                 INDPRO   No. Observations:                 1250
+Model:                     AutoReg(1)   Log Likelihood                3331.030
+Method:               Conditional MLE   S.D. of innovations              0.017
+Date:                Tue, 09 Apr 2024   AIC                          -6656.061
+Time:                        11:16:45   BIC                          -6640.670
+Sample:                    03-31-1919   HQIC                         -6650.275
+                         - 03-31-2023                                         
 ==============================================================================
-                   Real          Imaginary           Modulus         Frequency
+                 coef    std err          z      P&gt;|z|      [0.025      0.975]
 ------------------------------------------------------------------------------
-AR.1             0.8466           -0.7100j            1.1049           -0.1111
-AR.2             0.8466           +0.7100j            1.1049            0.1111
-AR.3             1.0858           -0.0000j            1.0858           -0.0000
-AR.4             1.2766           -0.0000j            1.2766           -0.0000
-AR.5             0.3489           -1.0659j            1.1215           -0.1997
-AR.6             0.3489           +1.0659j            1.1215            0.1997
-AR.7            -0.2554           -1.1060j            1.1351           -0.2861
-AR.8            -0.2554           +1.1060j            1.1351            0.2861
-AR.9            -0.8564           -0.8338j            1.1952           -0.3771
-AR.10           -0.8564           +0.8338j            1.1952            0.3771
-AR.11           -1.1442           -0.3382j            1.1931           -0.4543
-AR.12           -1.1442           +0.3382j            1.1931            0.4543
-------------------------------------------------------------------------------
+const          0.0013      0.000      2.697      0.007       0.000       0.002
+INDPRO.L1      0.4854      0.025     19.685      0.000       0.437       0.534
+                                    Roots                                    
+=============================================================================
+                  Real          Imaginary           Modulus         Frequency
+-----------------------------------------------------------------------------
+AR.1            2.0601           +0.0000j            2.0601            0.0000
+-----------------------------------------------------------------------------
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/terence/env3.11/lib/python3.11/site-packages/statsmodels/tsa/base/tsa_model.py:473: ValueWarning: No frequency information was provided, so inferred frequency M will be used.
-  self._init_dates(dates, freq)
+</div>
+</div>
+</section>
+<section id="one-step-forecast">
+<h3>One-step forecast<a class="headerlink" href="#one-step-forecast" title="Permalink to this heading">#</a></h3>
+<p>The one-step forecast is the expectation of <span class="math notranslate nohighlight">\(Y_{T+ 1}\)</span> conditional the time T information set, which contains all values that are known at time T, including the entire prior history of Y (<span class="math notranslate nohighlight">\(Y_T, Y_{T-1}, ... \)</span>), as well as all values of any other variable that occurred at time T or earlier.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Observations to predict are from the oos test split</span>
+<span class="n">test</span> <span class="o">=</span> <span class="n">AutoReg</span><span class="p">(</span><span class="n">df_all</span><span class="p">,</span> <span class="n">lags</span><span class="o">=</span><span class="n">lags</span><span class="p">,</span> <span class="n">old_names</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Observations to predict are from the test split</span>
-<span class="n">all_dates</span> <span class="o">=</span> <span class="n">AutoReg</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">lags</span><span class="o">=</span><span class="n">lags</span><span class="p">,</span> <span class="n">old_names</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/terence/env3.11/lib/python3.11/site-packages/statsmodels/tsa/base/tsa_model.py:473: ValueWarning: No frequency information was provided, so inferred frequency M will be used.
-  self._init_dates(dates, freq)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Use model params from train split, start predictions from last train row    </span>
-<span class="n">df_pred</span> <span class="o">=</span> <span class="n">all_dates</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">params</span><span class="p">,</span>
-                            <span class="n">start</span><span class="o">=</span><span class="n">df_train</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use model params from train split, start predictions from last train row    </span>
+<span class="n">df_pred</span> <span class="o">=</span> <span class="n">test</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">params</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">df_test</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">mse</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">df_test</span><span class="p">,</span> <span class="n">df_pred</span><span class="p">)</span>
-<span class="n">var</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">df_test</span> <span class="o">-</span> <span class="n">df_train</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ST Forecast(</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df_pred</span><span class="p">)</span><span class="si">}</span><span class="s2">): rmse=</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mse</span><span class="p">)</span><span class="si">}</span><span class="s2"> r2=</span><span class="si">{</span><span class="mi">1</span><span class="o">-</span><span class="n">mse</span><span class="o">/</span><span class="n">var</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="c1">#var = np.mean(np.square(df_test - df_train.mean()))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ST Forecast(</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df_pred</span><span class="p">)</span><span class="si">}</span><span class="s2">): rmse=</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mse</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ST Forecast(19): rmse=0.003233725982906748 r2=0.1608176217788846
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ST Forecast(11): rmse=0.006210397949646384
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">df_test</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">)</span>
-<span class="n">df_pred</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;Predicted&#39;</span><span class="p">,</span> <span class="s1">&#39;Actual&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">df_pred</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Predicted&#39;</span><span class="p">)</span>
+<span class="n">df_test</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Actual&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">series_id</span> <span class="o">+</span> <span class="s2">&quot; (one-step forecasts)&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">pad</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">imgdir</span> <span class="o">/</span> <span class="s1">&#39;short.jpg&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f73bcbaedfce195d1039fbcf2e37775edd1d09ff66768df3e7683a226970a1bd.png" src="_images/f73bcbaedfce195d1039fbcf2e37775edd1d09ff66768df3e7683a226970a1bd.png" />
+<img alt="_images/cc48cec7726437711049855f63f5873496d9f6cdf2103ba62cfea6e8c8a8cf17.png" src="_images/cc48cec7726437711049855f63f5873496d9f6cdf2103ba62cfea6e8c8a8cf17.png" />
 </div>
 </div>
-<p><strong>Multi-step ahead predictions</strong></p>
+</section>
+<section id="multi-step-forecast">
+<h3>Multi-step forecast<a class="headerlink" href="#multi-step-forecast" title="Permalink to this heading">#</a></h3>
+<p>Forecasts are generated recursively starting with <span class="math notranslate nohighlight">\(E_T[Y_{T+ 1}]. The forecast at horizon h depends on forecasts from earlier steps (\)</span>E_T[Y_{T+ 1}], …, E_T [Y_{T+ h - 1}]). When these
+quantities appear in the forecast for period <span class="math notranslate nohighlight">\(T + h\)</span>, they are replaced by the forecasts computed for horizons <span class="math notranslate nohighlight">\(1, 2, ... , h - 1\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_pred</span> <span class="o">=</span> <span class="n">all_dates</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">params</span><span class="p">,</span>
-                            <span class="n">start</span><span class="o">=</span><span class="n">df_train</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
-                            <span class="n">end</span><span class="o">=</span><span class="n">df_test</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
-                            <span class="n">dynamic</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set dynamic=True for multi-step ahead predictions</span>
+<span class="n">df_pred</span> <span class="o">=</span> <span class="n">test</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">params</span><span class="p">,</span> <span class="n">dynamic</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                       <span class="n">start</span><span class="o">=</span><span class="n">df_test</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="n">df_test</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">mse</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">df_test</span><span class="p">,</span> <span class="n">df_pred</span><span class="p">)</span>
-<span class="n">var</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">df_test</span> <span class="o">-</span> <span class="n">df_train</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Long-term Forecasts:  rmse=</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mse</span><span class="p">)</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2"> r2=</span><span class="si">{</span><span class="mi">1</span><span class="o">-</span><span class="n">mse</span><span class="o">/</span><span class="n">var</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">df_test</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">)</span>
-<span class="n">df_pred</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;Predicted&#39;</span><span class="p">,</span> <span class="s1">&#39;Actual&#39;</span><span class="p">])</span>
+<span class="c1">#var = np.mean(np.square(df_test - df_train.mean()))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Long-term Forecasts:  rmse=</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mse</span><span class="p">)</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">df_pred</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Predicted&#39;</span><span class="p">)</span>
+<span class="n">df_test</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Actual&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">series_id</span> <span class="o">+</span> <span class="s2">&quot; (multi-step forecasts)&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">pad</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">imgdir</span> <span class="o">/</span> <span class="s1">&#39;long.jpg&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Long-term Forecasts:  rmse=0.002876 r2=0.3363
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Long-term Forecasts:  rmse=0.005469
 </pre></div>
 </div>
-<img alt="_images/e36d35e8e483ee9a30f418b417b53807474a3ac2f1bbf6f839c60e366ed7b86f.png" src="_images/e36d35e8e483ee9a30f418b417b53807474a3ac2f1bbf6f839c60e366ed7b86f.png" />
+<img alt="_images/aaefc89e06c9fdda877be409b404738707bece1a211a17190a255f4008f56b39.png" src="_images/aaefc89e06c9fdda877be409b404738707bece1a211a17190a255f4008f56b39.png" />
 </div>
 </div>
 </section>
 <section id="granger-causality">
-<h2>Granger Causality<a class="headerlink" href="#granger-causality" title="Permalink to this heading">#</a></h2>
+<h3>Granger Causality<a class="headerlink" href="#granger-causality" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Granger Causality: INDPRO vs CPI</span>
-<span class="n">variables</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;CPIAUCSL&#39;</span><span class="p">,</span> <span class="s1">&#39;INDPRO&#39;</span><span class="p">]</span>
-<span class="c1">#variables = [&#39;CPIAUCSL&#39;, &#39;WPSFD4131&#39;]</span>
+<span class="n">variables</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;INDPRO&#39;</span><span class="p">,</span> <span class="s1">&#39;CPIAUCSL&#39;</span><span class="p">]</span>
 <span class="n">start</span> <span class="o">=</span> <span class="mi">19620101</span>
 <span class="k">for</span> <span class="n">series_id</span><span class="p">,</span> <span class="n">exog_id</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">variables</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">variables</span><span class="p">))):</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">alf</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">log</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
                     <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="p">[</span><span class="n">series_id</span><span class="p">,</span> <span class="n">exog_id</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">))</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">freq</span> <span class="o">=</span> <span class="n">freq</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
 
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Null Hypothesis: </span><span class="si">{</span><span class="n">exog_id</span><span class="si">}</span><span class="s2"> granger-causes </span><span class="si">{</span><span class="n">series_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="n">res</span> <span class="o">=</span> <span class="n">grangercausalitytests</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">grangercausalitytests</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">maxlag</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">()</span>
 
     <span class="n">dmf</span> <span class="o">=</span> <span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">series_id</span><span class="si">}</span><span class="s1"> ~ </span><span class="si">{</span><span class="n">series_id</span><span class="si">}</span><span class="s1">.shift(1) &#39;</span>
            <span class="sa">f</span><span class="s1">&#39; + </span><span class="si">{</span><span class="n">exog_id</span><span class="si">}</span><span class="s1">.shift(1) &#39;</span>
            <span class="sa">f</span><span class="s1">&#39; + </span><span class="si">{</span><span class="n">exog_id</span><span class="si">}</span><span class="s1">.shift(2) &#39;</span>
            <span class="sa">f</span><span class="s1">&#39; + </span><span class="si">{</span><span class="n">exog_id</span><span class="si">}</span><span class="s1">.shift(3) &#39;</span><span class="p">)</span>
-<span class="c1">#           f&#39; + {exog_id}.shift(4) &#39;)</span>
     <span class="n">model</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="o">=</span><span class="n">dmf</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
     <span class="n">robust</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">get_robustcov_results</span><span class="p">(</span><span class="n">cov_type</span><span class="o">=</span><span class="s1">&#39;HAC&#39;</span><span class="p">,</span> <span class="n">use_t</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">maxlags</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">robust</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
@@ -952,104 +963,104 @@ AR.12           -1.1442           +0.3382j            1.1931            0.4543
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Null Hypothesis: INDPRO granger-causes CPIAUCSL
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Null Hypothesis: CPIAUCSL granger-causes INDPRO
 
 Granger Causality
 number of lags (no zero) 1
-ssr based F test:         F=0.0229  , p=0.8797  , df_denom=734, df_num=1
-ssr based chi2 test:   chi2=0.0230  , p=0.8795  , df=1
-likelihood ratio test: chi2=0.0230  , p=0.8795  , df=1
-parameter F test:         F=0.0229  , p=0.8797  , df_denom=734, df_num=1
+ssr based F test:         F=0.3694  , p=0.5435  , df_denom=741, df_num=1
+ssr based chi2 test:   chi2=0.3709  , p=0.5425  , df=1
+likelihood ratio test: chi2=0.3708  , p=0.5426  , df=1
+parameter F test:         F=0.3694  , p=0.5435  , df_denom=741, df_num=1
 
 Granger Causality
 number of lags (no zero) 2
-ssr based F test:         F=0.0166  , p=0.9835  , df_denom=731, df_num=2
-ssr based chi2 test:   chi2=0.0335  , p=0.9834  , df=2
-likelihood ratio test: chi2=0.0335  , p=0.9834  , df=2
-parameter F test:         F=0.0166  , p=0.9835  , df_denom=731, df_num=2
+ssr based F test:         F=7.5604  , p=0.0006  , df_denom=738, df_num=2
+ssr based chi2 test:   chi2=15.2233 , p=0.0005  , df=2
+likelihood ratio test: chi2=15.0694 , p=0.0005  , df=2
+parameter F test:         F=7.5604  , p=0.0006  , df_denom=738, df_num=2
 
 Granger Causality
 number of lags (no zero) 3
-ssr based F test:         F=0.0969  , p=0.9618  , df_denom=728, df_num=3
-ssr based chi2 test:   chi2=0.2934  , p=0.9613  , df=3
-likelihood ratio test: chi2=0.2933  , p=0.9613  , df=3
-parameter F test:         F=0.0969  , p=0.9618  , df_denom=728, df_num=3
+ssr based F test:         F=5.3906  , p=0.0011  , df_denom=735, df_num=3
+ssr based chi2 test:   chi2=16.3259 , p=0.0010  , df=3
+likelihood ratio test: chi2=16.1489 , p=0.0011  , df=3
+parameter F test:         F=5.3906  , p=0.0011  , df_denom=735, df_num=3
 
                             OLS Regression Results                            
 ==============================================================================
-Dep. Variable:               CPIAUCSL   R-squared:                       0.391
-Model:                            OLS   Adj. R-squared:                  0.387
-Method:                 Least Squares   F-statistic:                     53.04
-Date:                Thu, 31 Aug 2023   Prob (F-statistic):           3.00e-39
-Time:                        06:59:01   Log-Likelihood:                 3368.4
-No. Observations:                 735   AIC:                            -6727.
-Df Residuals:                     730   BIC:                            -6704.
+Dep. Variable:                 INDPRO   R-squared:                       0.089
+Model:                            OLS   Adj. R-squared:                  0.084
+Method:                 Least Squares   F-statistic:                     2.668
+Date:                Tue, 09 Apr 2024   Prob (F-statistic):             0.0313
+Time:                        11:16:47   Log-Likelihood:                 2430.5
+No. Observations:                 742   AIC:                            -4851.
+Df Residuals:                     737   BIC:                            -4828.
 Df Model:                           4                                         
 Covariance Type:                  HAC                                         
 =====================================================================================
                         coef    std err          t      P&gt;|t|      [0.025      0.975]
 -------------------------------------------------------------------------------------
-Intercept             0.0012      0.000      6.712      0.000       0.001       0.002
-CPIAUCSL.shift(1)     0.6243      0.045     13.783      0.000       0.535       0.713
-INDPRO.shift(1)      -0.0020      0.014     -0.140      0.889      -0.029       0.026
-INDPRO.shift(2)       0.0023      0.016      0.143      0.886      -0.030       0.034
-INDPRO.shift(3)       0.0053      0.009      0.580      0.562      -0.013       0.023
+Intercept             0.0019      0.001      1.954      0.051   -8.95e-06       0.004
+INDPRO.shift(1)       0.2548      0.143      1.778      0.076      -0.027       0.536
+CPIAUCSL.shift(1)     0.4099      0.213      1.921      0.055      -0.009       0.829
+CPIAUCSL.shift(2)    -0.4703      0.214     -2.202      0.028      -0.890      -0.051
+CPIAUCSL.shift(3)    -0.1124      0.144     -0.779      0.436      -0.395       0.171
 ==============================================================================
-Omnibus:                       86.367   Durbin-Watson:                   2.132
-Prob(Omnibus):                  0.000   Jarque-Bera (JB):              717.358
-Skew:                           0.034   Prob(JB):                    1.69e-156
-Kurtosis:                       7.839   Cond. No.                         317.
+Omnibus:                      727.398   Durbin-Watson:                   1.983
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):           126368.644
+Skew:                          -3.898   Prob(JB):                         0.00
+Kurtosis:                      66.456   Cond. No.                         563.
 ==============================================================================
 
 Notes:
 [1] Standard Errors are heteroscedasticity and autocorrelation robust (HAC) using 0 lags and without small sample correction
-Null Hypothesis: CPIAUCSL granger-causes INDPRO
+Null Hypothesis: INDPRO granger-causes CPIAUCSL
 
 Granger Causality
 number of lags (no zero) 1
-ssr based F test:         F=0.3960  , p=0.5294  , df_denom=734, df_num=1
-ssr based chi2 test:   chi2=0.3976  , p=0.5283  , df=1
-likelihood ratio test: chi2=0.3975  , p=0.5284  , df=1
-parameter F test:         F=0.3960  , p=0.5294  , df_denom=734, df_num=1
+ssr based F test:         F=0.0173  , p=0.8955  , df_denom=741, df_num=1
+ssr based chi2 test:   chi2=0.0173  , p=0.8952  , df=1
+likelihood ratio test: chi2=0.0173  , p=0.8952  , df=1
+parameter F test:         F=0.0173  , p=0.8955  , df_denom=741, df_num=1
 
 Granger Causality
 number of lags (no zero) 2
-ssr based F test:         F=7.2923  , p=0.0007  , df_denom=731, df_num=2
-ssr based chi2 test:   chi2=14.6844 , p=0.0006  , df=2
-likelihood ratio test: chi2=14.5398 , p=0.0007  , df=2
-parameter F test:         F=7.2923  , p=0.0007  , df_denom=731, df_num=2
+ssr based F test:         F=0.0053  , p=0.9947  , df_denom=738, df_num=2
+ssr based chi2 test:   chi2=0.0107  , p=0.9947  , df=2
+likelihood ratio test: chi2=0.0107  , p=0.9947  , df=2
+parameter F test:         F=0.0053  , p=0.9947  , df_denom=738, df_num=2
 
 Granger Causality
 number of lags (no zero) 3
-ssr based F test:         F=5.3865  , p=0.0011  , df_denom=728, df_num=3
-ssr based chi2 test:   chi2=16.3148 , p=0.0010  , df=3
-likelihood ratio test: chi2=16.1364 , p=0.0011  , df=3
-parameter F test:         F=5.3865  , p=0.0011  , df_denom=728, df_num=3
+ssr based F test:         F=0.1255  , p=0.9450  , df_denom=735, df_num=3
+ssr based chi2 test:   chi2=0.3802  , p=0.9443  , df=3
+likelihood ratio test: chi2=0.3801  , p=0.9443  , df=3
+parameter F test:         F=0.1255  , p=0.9450  , df_denom=735, df_num=3
 
                             OLS Regression Results                            
 ==============================================================================
-Dep. Variable:                 INDPRO   R-squared:                       0.090
-Model:                            OLS   Adj. R-squared:                  0.085
-Method:                 Least Squares   F-statistic:                     2.709
-Date:                Thu, 31 Aug 2023   Prob (F-statistic):             0.0293
-Time:                        06:59:01   Log-Likelihood:                 2404.7
-No. Observations:                 735   AIC:                            -4799.
-Df Residuals:                     730   BIC:                            -4776.
+Dep. Variable:               CPIAUCSL   R-squared:                       0.387
+Model:                            OLS   Adj. R-squared:                  0.384
+Method:                 Least Squares   F-statistic:                     52.69
+Date:                Tue, 09 Apr 2024   Prob (F-statistic):           4.63e-39
+Time:                        11:16:47   Log-Likelihood:                 3399.4
+No. Observations:                 742   AIC:                            -6789.
+Df Residuals:                     737   BIC:                            -6766.
 Df Model:                           4                                         
 Covariance Type:                  HAC                                         
 =====================================================================================
                         coef    std err          t      P&gt;|t|      [0.025      0.975]
 -------------------------------------------------------------------------------------
-Intercept             0.0020      0.001      1.998      0.046    3.46e-05       0.004
-INDPRO.shift(1)       0.2542      0.143      1.776      0.076      -0.027       0.535
-CPIAUCSL.shift(1)     0.4172      0.214      1.945      0.052      -0.004       0.838
-CPIAUCSL.shift(2)    -0.4424      0.203     -2.181      0.030      -0.841      -0.044
-CPIAUCSL.shift(3)    -0.1554      0.140     -1.113      0.266      -0.430       0.119
+Intercept             0.0012      0.000      6.816      0.000       0.001       0.002
+CPIAUCSL.shift(1)     0.6216      0.045     13.719      0.000       0.533       0.711
+INDPRO.shift(1)      -0.0012      0.014     -0.086      0.931      -0.028       0.026
+INDPRO.shift(2)    7.455e-05      0.016      0.005      0.996      -0.032       0.032
+INDPRO.shift(3)       0.0058      0.010      0.608      0.543      -0.013       0.025
 ==============================================================================
-Omnibus:                      720.568   Durbin-Watson:                   1.981
-Prob(Omnibus):                  0.000   Jarque-Bera (JB):           124405.818
-Skew:                          -3.897   Prob(JB):                         0.00
-Kurtosis:                      66.257   Cond. No.                         563.
+Omnibus:                       86.562   Durbin-Watson:                   2.123
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              713.052
+Skew:                           0.030   Prob(JB):                    1.45e-155
+Kurtosis:                       7.802   Cond. No.                         317.
 ==============================================================================
 
 Notes:
@@ -1059,21 +1070,20 @@ Notes:
 </div>
 </div>
 </section>
-<section id="vector-autoregression">
-<h2>Vector Autoregression<a class="headerlink" href="#vector-autoregression" title="Permalink to this heading">#</a></h2>
+<section id="impulse-response-function">
+<h3>Impulse Response Function<a class="headerlink" href="#impulse-response-function" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Impulse Response Function</p></li>
+<li><p>Vector Autoregresion (VAR)</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Vector Autoregression: Impulse Response Function</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">VAR</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">maxlags</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 <span class="n">irf</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">irf</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
 <span class="c1">#irf.plot(orth=False)</span>
 <span class="n">irf</span><span class="o">.</span><span class="n">plot_cum_effects</span><span class="p">(</span><span class="n">orth</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">imgdir</span> <span class="o">/</span> <span class="s1">&#39;impulse.jpg&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1082,53 +1092,51 @@ Notes:
 ==================================
 Model:                         VAR
 Method:                        OLS
-Date:           Thu, 31, Aug, 2023
-Time:                     06:59:01
+Date:           Tue, 09, Apr, 2024
+Time:                     11:16:47
 --------------------------------------------------------------------
-No. of Equations:         2.00000    BIC:                   -21.3075
-Nobs:                     735.000    HQIC:                  -21.3614
-Log likelihood:           5790.88    FPE:                5.10743e-10
-AIC:                     -21.3952    Det(Omega_mle):     5.01152e-10
+No. of Equations:         2.00000    BIC:                   -21.3130
+Nobs:                     742.000    HQIC:                  -21.3664
+Log likelihood:           5847.68    FPE:                5.08298e-10
+AIC:                     -21.4000    Det(Omega_mle):     4.98842e-10
 --------------------------------------------------------------------
-Results for equation INDPRO
-==============================================================================
-                 coefficient       std. error           t-stat            prob
-------------------------------------------------------------------------------
-const               0.001959         0.000530            3.697           0.000
-L1.INDPRO           0.268216         0.037126            7.225           0.000
-L1.CPIAUCSL         0.410245         0.138383            2.965           0.003
-L2.INDPRO          -0.060509         0.038070           -1.589           0.112
-L2.CPIAUCSL        -0.426554         0.157572           -2.707           0.007
-L3.INDPRO           0.072363         0.036677            1.973           0.048
-L3.CPIAUCSL        -0.168769         0.139684           -1.208           0.227
-==============================================================================
-
 Results for equation CPIAUCSL
 ==============================================================================
                  coefficient       std. error           t-stat            prob
 ------------------------------------------------------------------------------
-const               0.000893         0.000141            6.332           0.000
-L1.INDPRO           0.004405         0.009885            0.446           0.656
-L1.CPIAUCSL         0.540335         0.036845           14.665           0.000
-L2.INDPRO          -0.000168         0.010136           -0.017           0.987
-L2.CPIAUCSL         0.028925         0.041954            0.689           0.491
-L3.INDPRO           0.002588         0.009765            0.265           0.791
-L3.CPIAUCSL         0.142322         0.037191            3.827           0.000
+const               0.000906         0.000141            6.439           0.000
+L1.CPIAUCSL         0.542635         0.036649           14.806           0.000
+L1.INDPRO           0.005496         0.009885            0.556           0.578
+L2.CPIAUCSL         0.018542         0.041788            0.444           0.657
+L2.INDPRO          -0.002211         0.010121           -0.218           0.827
+L3.CPIAUCSL         0.147812         0.037002            3.995           0.000
+L3.INDPRO           0.002745         0.009758            0.281           0.778
+==============================================================================
+
+Results for equation INDPRO
+==============================================================================
+                 coefficient       std. error           t-stat            prob
+------------------------------------------------------------------------------
+const               0.001908         0.000526            3.628           0.000
+L1.CPIAUCSL         0.405543         0.136956            2.961           0.003
+L1.INDPRO           0.267880         0.036938            7.252           0.000
+L2.CPIAUCSL        -0.456232         0.156160           -2.922           0.003
+L2.INDPRO          -0.057815         0.037823           -1.529           0.126
+L3.CPIAUCSL        -0.126543         0.138275           -0.915           0.360
+L3.INDPRO           0.071427         0.036463            1.959           0.050
 ==============================================================================
 
 Correlation matrix of residuals
-              INDPRO  CPIAUCSL
-INDPRO      1.000000  0.098913
-CPIAUCSL    0.098913  1.000000
+            CPIAUCSL    INDPRO
+CPIAUCSL    1.000000  0.098825
+INDPRO      0.098825  1.000000
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/terence/env3.11/lib/python3.11/site-packages/statsmodels/tsa/base/tsa_model.py:473: ValueWarning: No frequency information was provided, so inferred frequency M will be used.
-  self._init_dates(dates, freq)
-</pre></div>
-</div>
-<img alt="_images/487f59e46aab454c50e86f839474ed1d1d4d5ec0d320f4a05837283101d0785d.png" src="_images/487f59e46aab454c50e86f839474ed1d1d4d5ec0d320f4a05837283101d0785d.png" />
+<img alt="_images/390ec027f072889d6516f90ae1c6fe74717e409bf3a40ca0b813395f49632609.png" src="_images/390ec027f072889d6516f90ae1c6fe74717e409bf3a40ca0b813395f49632609.png" />
+<img alt="_images/390ec027f072889d6516f90ae1c6fe74717e409bf3a40ca0b813395f49632609.png" src="_images/390ec027f072889d6516f90ae1c6fe74717e409bf3a40ca0b813395f49632609.png" />
 </div>
 </div>
+</section>
 </section>
 </section>
 
@@ -1157,11 +1165,10 @@ CPIAUCSL    0.098913  1.000000
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="regression_diagnostics.html"
@@ -1181,10 +1188,7 @@ CPIAUCSL    0.098913  1.000000
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1193,6 +1197,7 @@ CPIAUCSL    0.098913  1.000000
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
@@ -1200,12 +1205,26 @@ CPIAUCSL    0.098913  1.000000
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seasonality">Seasonality</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#autocorrelation">Autocorrelation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stationarity">Stationarity</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ar-arma-sarimax">AR, ARMA, SARIMAX</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forecasting">Forecasting</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#granger-causality">Granger Causality</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-autoregression">Vector Autoregression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#autocorrelation">Autocorrelation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series">Time Series</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ar-models">AR models</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ma-models">MA models</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arma-models">ARMA models</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lag-lengths">Lag lengths</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seasonal-component">Seasonal component</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-roots">Unit Roots</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sarimax-model">SARIMAX model</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forecasting">Forecasting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ar-lag-order">AR lag order</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#one-step-forecast">One-step forecast</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-step-forecast">Multi-step forecast</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#granger-causality">Granger Causality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#impulse-response-function">Impulse Response Function</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
@@ -1227,9 +1246,10 @@ By Terence Lim
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -1253,8 +1273,8 @@ By Terence Lim
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

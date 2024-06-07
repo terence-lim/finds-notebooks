@@ -3,13 +3,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Event risk &#8212; Financial Data Science Python Notebooks</title>
+    <title>Event Risk &#8212; Financial Data Science Python Notebooks</title>
   
   
   
@@ -19,50 +19,49 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'event_risk';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Principal Customers Network" href="customer_ego.html" />
+    <link rel="next" title="Principal Customers Graph" href="customer_ego.html" />
     <link rel="prev" title="Market Microstructure" href="market_microstructure.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -73,7 +72,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -108,11 +115,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -127,6 +137,7 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="README.html">
@@ -135,60 +146,70 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     <p class="title logo__title">Financial Data Science Python Notebooks</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="README.html">
-                    Financial Data Science Notebooks
+                    FINANCIAL DATA SCIENCE
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="stock_prices.html">Stock prices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stock_prices.html">Stock Prices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jegadeesh_titman.html">Jegadeesh-Titman Rolling Portfolios</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fama_french.html">Fama-French Portfolio Sorts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fama_macbeth.html">Fama-Macbeth Cross-sectional Regressions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="weekly_reversal.html">Weekly reversal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weekly_reversal.html">Contrarian Trading</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quant_factors.html">Quant Factors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="event_study.html">Event Study</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="economic_releases.html">Economic Data Revisions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="regression_diagnostics.html">Linear Regression Diagonostics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="econometric_forecast.html">Econometric Forecasts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="approximate_factors.html">Approximate Factor Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="economic_states.html">State Space Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="conditional_volatility.html">Conditional Volatility</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="term_structure.html">Term Structure of Interest Rates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bond_returns.html">Bond Returns and Risks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional_volatility.html">Conditional Volatility and VaR</a></li>
 <li class="toctree-l1"><a class="reference internal" href="covariance_matrix.html">Covariance Matrix</a></li>
-<li class="toctree-l1"><a class="reference internal" href="term_structure.html">Term Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bond_returns.html">Bond Returns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="options_pricing.html">Options Pricing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="market_microstructure.html">Market Microstructure</a></li>
-
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Event risk</a></li>
-<li class="toctree-l1"><a class="reference internal" href="customer_ego.html">Principal Customers Network</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="bea_centrality.html">Graph Centrality</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Event Risk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="customer_ego.html">Principal Customers Graph</a></li>
 <li class="toctree-l1"><a class="reference internal" href="industry_community.html">Community Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bea_centrality.html">Graph Centrality</a></li>
 <li class="toctree-l1"><a class="reference internal" href="link_prediction.html">Link Prediction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="spatial_regression.html">Spatial Regression</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fomc_topics.html">Topic Modelling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="management_sentiment.html">Sentiment Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="business_description.html">10-K Business Description</a></li>
-
-
-<li class="toctree-l1"><a class="reference internal" href="classification_models.html">Classification for supervised learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="regression_models.html">Regression for supervised learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="deep_classifier.html">Deep Averaging Networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="convolutional_net.html">Temporal Convolution Net</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fomc_topics.html">FOMC Topic Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management_sentiment.html">Management Sentiment Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="business_description.html">Business Text Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classification_models.html">Classification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regression_models.html">Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deep_classifier.html">Deep Learning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="recurrent_net.html">Recurrent Neural Networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fomc_language.html">Language Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="convolutional_net.html">Convolutional Neural Networks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reinforcement_learning.html">Reinforcement Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fomc_language.html">FedSpeak Language Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sentiment_llm.html">LLM Prompting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="summarization_llm.html">LLM Text Summarization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="finetune_llm.html">LLM Finetuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rag_agent.html">LLM RAG, Chatbots and Agents</a></li>
 </ul>
 
     </div>
@@ -342,24 +363,28 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
+
 
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -370,11 +395,30 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Event risk</h1>
+    <h1>Event Risk</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#earnings-misses">Earnings misses</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#poisson-regression">Poisson regression</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generalized-linear-models">Generalized Linear Models</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#credit-losses">Credit losses</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#actuarial-losses">Actuarial losses</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-frequency">Claim frequency</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-severity">Claim severity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregate-loss">Aggregate loss</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -382,64 +426,410 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="event-risk">
-<h1>Event risk<a class="headerlink" href="#event-risk" title="Permalink to this heading">#</a></h1>
-<p><em>UNDER CONSTRUCTION</em></p>
+<h1>Event Risk<a class="headerlink" href="#event-risk" title="Permalink to this heading">#</a></h1>
+<p><em>Don’t worry about failure; you only have to be right once</em> — Drew Houston</p>
+<p>Concepts:</p>
 <ul class="simple">
-<li><p>Poisson regression; GLM’s</p></li>
 <li><p>Earnings surprises</p></li>
+<li><p>Poisson regression</p></li>
+<li><p>Generalized Linear Models</p></li>
+<li><p>Credit Losses</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">Series</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
 <span class="kn">from</span> <span class="nn">finds.database</span> <span class="kn">import</span> <span class="n">SQL</span><span class="p">,</span> <span class="n">RedisDB</span>
-<span class="kn">from</span> <span class="nn">finds.structured</span> <span class="kn">import</span> <span class="n">Stocks</span><span class="p">,</span> <span class="n">Signals</span><span class="p">,</span> <span class="n">SignalsFrame</span>
-<span class="kn">from</span> <span class="nn">finds.busday</span> <span class="kn">import</span> <span class="n">BusDay</span>
-<span class="kn">from</span> <span class="nn">finds.misc</span> <span class="kn">import</span> <span class="n">Show</span>
+<span class="kn">from</span> <span class="nn">finds.structured</span> <span class="kn">import</span> <span class="n">BusDay</span><span class="p">,</span> <span class="n">SignalsFrame</span><span class="p">,</span> <span class="n">CRSP</span><span class="p">,</span> <span class="n">IBES</span>
+<span class="kn">from</span> <span class="nn">finds.readers</span> <span class="kn">import</span> <span class="n">Alfred</span>
 <span class="kn">from</span> <span class="nn">secret</span> <span class="kn">import</span> <span class="n">credentials</span><span class="p">,</span> <span class="n">paths</span><span class="p">,</span> <span class="n">CRSP_DATE</span>
-<span class="n">show</span> <span class="o">=</span> <span class="n">Show</span><span class="p">(</span><span class="n">ndigits</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">latex</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 <span class="n">VERBOSE</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="c1">#%matplotlib qt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># open connections</span>
+<span class="n">sql</span> <span class="o">=</span> <span class="n">SQL</span><span class="p">(</span><span class="o">**</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;sql&#39;</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
+<span class="n">user</span> <span class="o">=</span> <span class="n">SQL</span><span class="p">(</span><span class="o">**</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
+<span class="n">rdb</span> <span class="o">=</span> <span class="n">RedisDB</span><span class="p">(</span><span class="o">**</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;redis&#39;</span><span class="p">])</span>
+<span class="n">bd</span> <span class="o">=</span> <span class="n">BusDay</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
+<span class="n">crsp</span> <span class="o">=</span> <span class="n">CRSP</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">bd</span><span class="p">,</span> <span class="n">rdb</span><span class="o">=</span><span class="n">rdb</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
+<span class="n">ibes</span> <span class="o">=</span> <span class="n">IBES</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">bd</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
+<span class="n">store</span> <span class="o">=</span> <span class="n">Store</span><span class="p">(</span><span class="n">paths</span><span class="p">[</span><span class="s1">&#39;scratch&#39;</span><span class="p">])</span>
 <span class="n">LAST_DATE</span> <span class="o">=</span> <span class="n">CRSP_DATE</span>
 </pre></div>
 </div>
 </div>
 </div>
+<section id="earnings-misses">
+<h2>Earnings misses<a class="headerlink" href="#earnings-misses" title="Permalink to this heading">#</a></h2>
+<p>The quarterly earnings expectations from all the analysts that cover a company are averaged out to find the consensus analyst estimate. The number of analysts covering a particular company is largely dependent on the size of the company and the trading volume of its stock. Large, well-known companies tend to be covered by many analysts and the consensus is therefore derived from many opinions. A small, lesser-known company may be covered by only one or a few research analysts, and sometimes none at all.</p>
+<p>If the company reports earnings below what research analysts were expecting, this would be considered an <strong>earnings miss</strong>.  If the company reports earnings greater than what analysts expected, it would be considered an <strong>earnings beat</strong></p>
+<ol class="arabic simple">
+<li><p>Each quarter and stock in the universe: select latest IBES statistical period that is no later than than the fiscal quarter end date</p></li>
+<li><p>SUE (standardized unexpected earnings) is computed as the fiscal quarter’s reported earnings minus median Q1 estimate, scaled by stock price.</p></li>
+</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># open connections</span>
-<span class="n">imgdir</span> <span class="o">=</span> <span class="n">paths</span><span class="p">[</span><span class="s1">&#39;images&#39;</span><span class="p">]</span>
-<span class="n">sql</span> <span class="o">=</span> <span class="n">SQL</span><span class="p">(</span><span class="o">**</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;sql&#39;</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
-<span class="n">user</span> <span class="o">=</span> <span class="n">SQL</span><span class="p">(</span><span class="o">**</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
-<span class="n">rdb</span> <span class="o">=</span> <span class="n">RedisDB</span><span class="p">(</span><span class="o">**</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;redis&#39;</span><span class="p">])</span>
-<span class="n">bd</span> <span class="o">=</span> <span class="n">BusDay</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
-<span class="n">signals</span> <span class="o">=</span> <span class="n">Signals</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
-<span class="n">outdir</span> <span class="o">=</span> <span class="n">paths</span><span class="p">[</span><span class="s1">&#39;images&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="s1">&#39;glm&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># retrieve ibes Q1 where forecast period &lt;= fiscal date, and keep latest</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">ibes</span><span class="o">.</span><span class="n">get_linked</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="s1">&#39;statsum&#39;</span><span class="p">,</span>
+                     <span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;fpedats&#39;</span><span class="p">,</span> <span class="s1">&#39;medest&#39;</span><span class="p">,</span> <span class="s1">&#39;actual&#39;</span><span class="p">],</span>
+                     <span class="n">date_field</span><span class="o">=</span><span class="s1">&#39;statpers&#39;</span><span class="p">,</span>
+                     <span class="n">where</span><span class="o">=</span><span class="s2">&quot; fpi = &#39;6&#39; AND statpers &lt;= fpedats&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>TODO</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">summ</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>\
+         <span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;permno&#39;</span><span class="p">,</span> <span class="s1">&#39;fpedats&#39;</span><span class="p">,</span> <span class="s1">&#39;statpers&#39;</span><span class="p">])</span>\
+         <span class="o">.</span><span class="n">drop_duplicates</span><span class="p">([</span><span class="s1">&#39;permno&#39;</span><span class="p">,</span> <span class="s1">&#39;fpedats&#39;</span><span class="p">],</span> <span class="n">keep</span><span class="o">=</span><span class="s1">&#39;last&#39;</span><span class="p">)</span>
+<span class="n">summ</span><span class="p">[</span><span class="s1">&#39;rebaldate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bd</span><span class="o">.</span><span class="n">endmo</span><span class="p">(</span><span class="n">summ</span><span class="p">[</span><span class="s1">&#39;fpedats&#39;</span><span class="p">])</span>
+<span class="n">summ</span> <span class="o">=</span> <span class="n">summ</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;permno&#39;</span><span class="p">,</span> <span class="s1">&#39;statpers&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># retrieve ibes price</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">ibes</span><span class="o">.</span><span class="n">get_linked</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="s1">&#39;actpsum&#39;</span><span class="p">,</span>
+                     <span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span>
+                     <span class="n">date_field</span><span class="o">=</span><span class="s1">&#39;statpers&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hist</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>\
+         <span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;permno&#39;</span><span class="p">,</span> <span class="s1">&#39;statpers&#39;</span><span class="p">])</span>\
+         <span class="o">.</span><span class="n">drop_duplicates</span><span class="p">([</span><span class="s1">&#39;permno&#39;</span><span class="p">,</span> <span class="s1">&#39;statpers&#39;</span><span class="p">],</span> <span class="n">keep</span><span class="o">=</span><span class="s1">&#39;last&#39;</span><span class="p">)</span>
+<span class="n">hist</span> <span class="o">=</span> <span class="n">hist</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;permno&#39;</span><span class="p">,</span> <span class="s1">&#39;statpers&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate sue with ibes surprise and price</span>
+<span class="n">summ</span> <span class="o">=</span> <span class="n">summ</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">hist</span><span class="p">[[</span><span class="s1">&#39;price&#39;</span><span class="p">]],</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span>
+<span class="n">summ</span><span class="p">[</span><span class="s1">&#39;sue&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">summ</span><span class="p">[</span><span class="s1">&#39;actual&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">summ</span><span class="p">[</span><span class="s1">&#39;medest&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">div</span><span class="p">(</span><span class="n">summ</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define large earnings miss as 5% of price</span>
+<span class="n">START</span> <span class="o">=</span> <span class="mi">19841201</span>
+<span class="n">signals</span> <span class="o">=</span> <span class="n">SignalsFrame</span><span class="p">(</span><span class="n">summ</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="n">rebaldates</span> <span class="o">=</span> <span class="n">bd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">START</span><span class="p">,</span> <span class="n">LAST_DATE</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;quarterly&#39;</span><span class="p">)</span>
+<span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;sue&#39;</span>
+<span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">rebaldate</span> <span class="ow">in</span> <span class="n">rebaldates</span><span class="p">:</span>
+    <span class="n">univ</span> <span class="o">=</span> <span class="n">crsp</span><span class="o">.</span><span class="n">get_universe</span><span class="p">(</span><span class="n">rebaldate</span><span class="p">)</span>    <span class="c1"># get this quarter&#39;s universe</span>
+    <span class="n">univ</span> <span class="o">=</span> <span class="n">univ</span><span class="p">[(</span><span class="nb">abs</span><span class="p">(</span><span class="n">univ</span><span class="p">[</span><span class="s1">&#39;prc&#39;</span><span class="p">])</span> <span class="o">&gt;=</span> <span class="mf">5.0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">univ</span><span class="p">[</span><span class="s1">&#39;decile&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">9</span><span class="p">)]</span>  <span class="c1"># no small low-price</span>
+    <span class="n">signal</span> <span class="o">=</span> <span class="n">signals</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span>
+                     <span class="n">date</span><span class="o">=</span><span class="n">rebaldate</span><span class="p">,</span>
+                     <span class="n">start</span><span class="o">=</span><span class="n">bd</span><span class="o">.</span><span class="n">endqr</span><span class="p">(</span><span class="n">rebaldate</span><span class="p">,</span> <span class="n">quarters</span><span class="o">=-</span><span class="mi">1</span><span class="p">))</span>\
+                     <span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">univ</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>\
+                     <span class="o">.</span><span class="n">dropna</span><span class="p">()</span>\
+                     <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+    <span class="n">signal</span><span class="p">[</span><span class="s1">&#39;rebaldate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rebaldate</span> <span class="o">//</span> <span class="mi">100</span>
+    <span class="n">signal</span><span class="p">[</span><span class="s1">&#39;miss&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">signal</span><span class="p">[</span><span class="s1">&#39;sue&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">0.05</span>   <span class="c1"># large earnings misses</span>
+    <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;permno&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">univ</span><span class="p">[</span><span class="s1">&#39;decile&#39;</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span>\
+               <span class="o">.</span><span class="n">reset_index</span><span class="p">())</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># median quarterly earnings surprise by firm size</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">axes</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">dec</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]])):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="n">out</span><span class="p">[</span><span class="s1">&#39;decile&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">dec</span><span class="p">)]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;rebaldate&#39;</span><span class="p">)[</span><span class="s1">&#39;sue&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+    <span class="n">y</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;C0&quot;</span><span class="p">)</span>
+    <span class="n">y</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;C1&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;size quintile </span><span class="si">{</span><span class="n">label</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">label</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;sue&#39;</span><span class="p">,</span><span class="s1">&#39;1-year average&#39;</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C2&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">index</span><span class="p">[::</span><span class="mi">28</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">minorticks_off</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Median quarterly earnings surprises by firm size&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/c0024e86edc8ab71b01e68d95c45c2ef408cbc0426465094a92409cafd0dcf95.png" src="_images/c0024e86edc8ab71b01e68d95c45c2ef408cbc0426465094a92409cafd0dcf95.png" />
+</div>
+</div>
+<p>Median quarterly earnings surprise tended to be negative prior to the mid-90’s (especially smaller stocks) but turned generally positive after that.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># count number of stocks with large earnings misses</span>
+<span class="n">frac</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;rebaldate&#39;</span><span class="p">)[</span><span class="s1">&#39;miss&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;frac&#39;</span><span class="p">)</span>
+<span class="n">count</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;rebaldate&#39;</span><span class="p">)[</span><span class="s1">&#39;miss&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
+<span class="n">exposures</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="s1">&#39;rebaldate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;exposures&#39;</span><span class="p">)</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">exposures</span><span class="p">,</span> <span class="n">frac</span><span class="p">,</span> <span class="n">count</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Y</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">Y</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Earnings misses&quot;</span><span class="p">)</span>
+<span class="n">Y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Earnings misses
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>exposures</th>
+      <th>frac</th>
+      <th>count</th>
+    </tr>
+    <tr>
+      <th>rebaldate</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>198412</th>
+      <td>1327</td>
+      <td>0.051997</td>
+      <td>69</td>
+    </tr>
+    <tr>
+      <th>198503</th>
+      <td>1302</td>
+      <td>0.038402</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>198506</th>
+      <td>1384</td>
+      <td>0.040462</td>
+      <td>56</td>
+    </tr>
+    <tr>
+      <th>198509</th>
+      <td>1384</td>
+      <td>0.033960</td>
+      <td>47</td>
+    </tr>
+    <tr>
+      <th>198512</th>
+      <td>1398</td>
+      <td>0.063662</td>
+      <td>89</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>202209</th>
+      <td>2080</td>
+      <td>0.009615</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>202212</th>
+      <td>2008</td>
+      <td>0.007968</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>202303</th>
+      <td>1910</td>
+      <td>0.005759</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>202306</th>
+      <td>1902</td>
+      <td>0.003680</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>202309</th>
+      <td>1842</td>
+      <td>0.008686</td>
+      <td>16</td>
+    </tr>
+  </tbody>
+</table>
+<p>156 rows × 3 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="poisson-regression">
+<h2>Poisson regression<a class="headerlink" href="#poisson-regression" title="Permalink to this heading">#</a></h2>
+<p>The Poisson distribution is typically used to model counts.  A Poisson regression models the expected response as a function of the covariances, specifically: <span class="math notranslate nohighlight">\(\log(E[Y | X]) = \beta X\)</span>, or equivalently <span class="math notranslate nohighlight">\(E[Y | X] = e^{\beta X}\)</span></p>
 <ul class="simple">
-<li><p>quarterly number of earnings surprise</p></li>
-<li><p>conditional on FRED-QD and number of exposures = companies</p></li>
+<li><p>Interpretation of coefficients: an increase in <span class="math notranslate nohighlight">\(X_i\)</span> by one unit is associated with a change in <span class="math notranslate nohighlight">\(E[Y_i]\)</span> by a factor of <span class="math notranslate nohighlight">\(\exp{\beta_i}\)</span></p></li>
+<li><p>Under the Poisson model, <span class="math notranslate nohighlight">\(Var[Y_i] = E[Y_i]\)</span></p></li>
+<li><p>No negative fitted values, because the Poisson model only allows for non-negative values.</p></li>
 </ul>
+<p>Poisson regression may also be appropriate for <em>rate</em> data, where the count of events divided by some measure of that unit’s <strong>exposure</strong>.  When modelling the number of stocks with large earnings misses each quarter, the denominator of the rate would be the total number of stocks <span class="math notranslate nohighlight">\(N\)</span> in the universe that quarter. The log of the total number is called the <strong>offset</strong> variable, and enters on the right-hand side of the equation and a parameter estimate constrained to 1.</p>
+<div class="math notranslate nohighlight">
+\[\log[\dfrac{E[Y|X]}{\mathrm{exposure}}] = \log{E[Y|X]} - \log(\mathrm{exposure}) = X\beta - \log(\mathrm{exposure})\]</div>
+<section id="generalized-linear-models">
+<h3>Generalized Linear Models<a class="headerlink" href="#generalized-linear-models" title="Permalink to this heading">#</a></h3>
+<p>Linear and Poisson regression are generalized linear models (GLMs).</p>
+<ul class="simple">
+<li><p>Each approach models the mean of <span class="math notranslate nohighlight">\(Y_i\)</span> as a function of the predictors, specifically: the transformed mean <span class="math notranslate nohighlight">\(E[Y_i]\)</span> is a lienar function of the predictors.  That transformation is called a <strong>link function</strong> <span class="math notranslate nohighlight">\(\nu\)</span>, which provides the relationship between the linear predictor and the mean of the distribution function. The inverse of the link function is called the <strong>mean function</strong>. The link functions for linear and Poisson regression are the identity <span class="math notranslate nohighlight">\(\nu(E[Y]) = E[Y]\)</span> and log <span class="math notranslate nohighlight">\(\nu(E[Y]) = \log{E[Y]}\)</span> respectively.</p></li>
+<li><p>Conditional on <span class="math notranslate nohighlight">\(X\)</span>, <span class="math notranslate nohighlight">\(Y\)</span> belongs to some family of distributions, typically Gaussian for linear regression and Poisson for Poisson regression.  These distributions are members of the <strong>exponential family</strong>: other well-known members of this family are the Bernoulli, Multinomial, Exponential, Gamma, and the negative binomial distributions.</p></li>
+</ul>
+<p>Any regression approach that models the response Y as coming from a particular
+member of the exponential family, and then transforming the mean of the
+response so that the transformed mean is a linear function of the predictors
+is known as a generalized linear model. Poission regression models the response as coming from the Poisson distribution (with support 0, 1, 2…,), with its canonical link function being the log function <span class="math notranslate nohighlight">\(X\beta = \log{E[Y]}\)</span>, and the mean function being the exponential <span class="math notranslate nohighlight">\(E[Y] = e^{X\beta}\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">signals</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;sue&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># retrieve and transform economics series </span>
+<span class="n">alf</span> <span class="o">=</span> <span class="n">Alfred</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;fred&#39;</span><span class="p">][</span><span class="s1">&#39;api_key&#39;</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">alf</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">log</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">diff</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;Q&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;INDPRO&#39;</span><span class="p">,</span> <span class="s1">&#39;WILL5000IND&#39;</span><span class="p">]],</span>
+              <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>\
+      <span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">X</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">index</span> <span class="o">//</span> <span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run GLM regression with Poisson family and Log link</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">Y</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">Y</span><span class="o">.</span><span class="n">index</span> <span class="o">&gt;</span> <span class="s1">&#39;199512&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span>
+<span class="n">Z</span><span class="p">[</span><span class="s1">&#39;const&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">glm</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">GLM</span><span class="p">(</span><span class="n">exog</span><span class="o">=</span><span class="n">Z</span><span class="p">[[</span><span class="s1">&#39;const&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">)],</span>
+             <span class="n">endog</span><span class="o">=</span><span class="n">Z</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">],</span>
+             <span class="n">family</span><span class="o">=</span><span class="n">sm</span><span class="o">.</span><span class="n">families</span><span class="o">.</span><span class="n">Poisson</span><span class="p">(</span><span class="n">link</span><span class="o">=</span><span class="n">sm</span><span class="o">.</span><span class="n">families</span><span class="o">.</span><span class="n">links</span><span class="o">.</span><span class="n">Log</span><span class="p">()),</span>
+             <span class="n">exposure</span><span class="o">=</span><span class="n">Z</span><span class="p">[</span><span class="s1">&#39;exposures&#39;</span><span class="p">])</span>\
+        <span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">glm</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">exog</span><span class="o">=</span><span class="n">Z</span><span class="p">[[</span><span class="s1">&#39;const&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">)],</span>
+                     <span class="n">exposure</span><span class="o">=</span><span class="n">Z</span><span class="p">[</span><span class="s1">&#39;exposures&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;predicted&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">glm</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                 Generalized Linear Model Regression Results                  
+==============================================================================
+Dep. Variable:                  count   No. Observations:                  111
+Model:                            GLM   Df Residuals:                      108
+Model Family:                 Poisson   Df Model:                            2
+Link Function:                    Log   Scale:                          1.0000
+Method:                          IRLS   Log-Likelihood:                -431.05
+Date:                Sat, 27 Apr 2024   Deviance:                       451.81
+Time:                        17:00:51   Pearson chi2:                     523.
+No. Iterations:                     5   Pseudo R-squ. (CS):             0.9695
+Covariance Type:            nonrobust                                         
+===============================================================================
+                  coef    std err          z      P&gt;|z|      [0.025      0.975]
+-------------------------------------------------------------------------------
+const          -5.3083      0.032   -163.880      0.000      -5.372      -5.245
+INDPRO        -20.9026      1.478    -14.143      0.000     -23.799     -18.006
+WILL5000IND    -3.1993      0.302    -10.602      0.000      -3.791      -2.608
+===============================================================================
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot predicted and predictors</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">bx</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">Z</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;C0&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">y_pred</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;^&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;C0&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;quarterly number of stocks&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;C0&quot;</span><span class="p">)</span>
+<span class="n">Z</span><span class="p">[</span><span class="s1">&#39;INDPRO&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;C1&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">bx</span><span class="p">)</span>
+<span class="n">Z</span><span class="p">[</span><span class="s1">&#39;WILL5000IND&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;C2&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">bx</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">bx</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">Z</span><span class="p">),</span> <span class="mi">12</span><span class="p">),</span> <span class="n">Z</span><span class="o">.</span><span class="n">index</span><span class="p">[::</span><span class="mi">12</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Number of stocks with large earnings misses&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/5341554d12a2c39c96cb18f21438b12272bc6ad76f6357617df775c6e51ed68a.png" src="_images/5341554d12a2c39c96cb18f21438b12272bc6ad76f6357617df775c6e51ed68a.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="credit-losses">
+<h2>Credit losses<a class="headerlink" href="#credit-losses" title="Permalink to this heading">#</a></h2>
+<p>Suppose a financial institution has a portfolio N loans, and:</p>
+<ul class="simple">
+<li><p><strong>default risk</strong> <span class="math notranslate nohighlight">\(p_i\)</span> is the probability of default of the <span class="math notranslate nohighlight">\(i\)</span> th loan</p></li>
+<li><p><strong>loss severity</strong> or loss given default <span class="math notranslate nohighlight">\(L_i\)</span> is the portion of the <span class="math notranslate nohighlight">\(i\)</span> th loan lost in the event of default.  This is often assumed known with certainty</p></li>
+</ul>
+<p>Then Expected loss is the sum of Default Probability <span class="math notranslate nohighlight">\(\times\)</span> Loss given default over all loans <span class="math notranslate nohighlight">\(= \sum_{i=1}^N p_i L_i\)</span></p>
+<p>The standard deviation of the expected loss on an individual loan, by applying the “Bernoulli shortcut” is <span class="math notranslate nohighlight">\(\sigma_i = \sqrt{p_i(1 - p_i)}L_i\)</span>.</p>
+<p>The standard deviation of the loss of the portfolio depends on the correlation of defaults between loands <span class="math notranslate nohighlight">\(\sigma_P = \sqrt{\sum_i \sum_j \rho_{ij} \sigma_i \sigma_j}\)</span>. For tractability, the correlations may be simplified to be constant or determined by a (Gaussian) copula, though neither assumption suffices to model real markets.</p>
+</section>
+<section id="actuarial-losses">
+<h2>Actuarial losses<a class="headerlink" href="#actuarial-losses" title="Permalink to this heading">#</a></h2>
+<p>Actuaries use the <strong>frequency-severity</strong> method for determining the expected number of claims that an insurer will receive during a given time period and how much the average claim will cost. Both are random (unlike the previous credit loss scenario where loss severity was assumed constant), and historical data may be used to model the expected number of claims and the expected cost of each claim, then multiplied together assuming they are independent.</p>
+<p><a class="reference external" href="https://sites.google.com/site/zoubin019/teaching/math-5639-actuarial-loss-models">https://sites.google.com/site/zoubin019/teaching/math-5639-actuarial-loss-models</a></p>
+<section id="claim-frequency">
+<h3>Claim frequency<a class="headerlink" href="#claim-frequency" title="Permalink to this heading">#</a></h3>
+<p>TODO</p>
+</section>
+<section id="claim-severity">
+<h3>Claim severity<a class="headerlink" href="#claim-severity" title="Permalink to this heading">#</a></h3>
+<p>TODO</p>
+</section>
+<section id="aggregate-loss">
+<h3>Aggregate loss<a class="headerlink" href="#aggregate-loss" title="Permalink to this heading">#</a></h3>
+<p>TODO</p>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -467,11 +857,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="market_microstructure.html"
@@ -487,19 +876,42 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Principal Customers Network</p>
+        <p class="prev-next-title">Principal Customers Graph</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#earnings-misses">Earnings misses</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#poisson-regression">Poisson regression</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generalized-linear-models">Generalized Linear Models</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#credit-losses">Credit losses</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#actuarial-losses">Actuarial losses</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-frequency">Claim frequency</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-severity">Claim severity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregate-loss">Aggregate loss</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
@@ -517,9 +929,10 @@ By Terence Lim
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -543,8 +956,8 @@ By Terence Lim
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

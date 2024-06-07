@@ -3,13 +3,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Weekly reversal &#8212; Financial Data Science Python Notebooks</title>
+    <title>Contrarian Trading &#8212; Financial Data Science Python Notebooks</title>
   
   
   
@@ -19,46 +19,45 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'weekly_reversal';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -73,7 +72,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -108,11 +115,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -127,6 +137,7 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="README.html">
@@ -135,60 +146,70 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     <p class="title logo__title">Financial Data Science Python Notebooks</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="README.html">
-                    Financial Data Science Notebooks
+                    FINANCIAL DATA SCIENCE
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="stock_prices.html">Stock prices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stock_prices.html">Stock Prices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jegadeesh_titman.html">Jegadeesh-Titman Rolling Portfolios</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fama_french.html">Fama-French Portfolio Sorts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fama_macbeth.html">Fama-Macbeth Cross-sectional Regressions</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Weekly reversal</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Contrarian Trading</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quant_factors.html">Quant Factors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="event_study.html">Event Study</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="economic_releases.html">Economic Data Revisions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="regression_diagnostics.html">Linear Regression Diagonostics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="econometric_forecast.html">Econometric Forecasts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="approximate_factors.html">Approximate Factor Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="economic_states.html">State Space Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="conditional_volatility.html">Conditional Volatility</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="term_structure.html">Term Structure of Interest Rates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bond_returns.html">Bond Returns and Risks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional_volatility.html">Conditional Volatility and VaR</a></li>
 <li class="toctree-l1"><a class="reference internal" href="covariance_matrix.html">Covariance Matrix</a></li>
-<li class="toctree-l1"><a class="reference internal" href="term_structure.html">Term Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bond_returns.html">Bond Returns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="options_pricing.html">Options Pricing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="market_microstructure.html">Market Microstructure</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="event_risk.html">Event risk</a></li>
-<li class="toctree-l1"><a class="reference internal" href="customer_ego.html">Principal Customers Network</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="bea_centrality.html">Graph Centrality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event_risk.html">Event Risk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="customer_ego.html">Principal Customers Graph</a></li>
 <li class="toctree-l1"><a class="reference internal" href="industry_community.html">Community Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bea_centrality.html">Graph Centrality</a></li>
 <li class="toctree-l1"><a class="reference internal" href="link_prediction.html">Link Prediction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="spatial_regression.html">Spatial Regression</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fomc_topics.html">Topic Modelling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="management_sentiment.html">Sentiment Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="business_description.html">10-K Business Description</a></li>
-
-
-<li class="toctree-l1"><a class="reference internal" href="classification_models.html">Classification for supervised learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="regression_models.html">Regression for supervised learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="deep_classifier.html">Deep Averaging Networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="convolutional_net.html">Temporal Convolution Net</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fomc_topics.html">FOMC Topic Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management_sentiment.html">Management Sentiment Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="business_description.html">Business Text Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classification_models.html">Classification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regression_models.html">Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deep_classifier.html">Deep Learning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="recurrent_net.html">Recurrent Neural Networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fomc_language.html">Language Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="convolutional_net.html">Convolutional Neural Networks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reinforcement_learning.html">Reinforcement Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fomc_language.html">FedSpeak Language Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sentiment_llm.html">LLM Prompting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="summarization_llm.html">LLM Text Summarization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="finetune_llm.html">LLM Finetuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rag_agent.html">LLM RAG, Chatbots and Agents</a></li>
 </ul>
 
     </div>
@@ -342,20 +363,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -372,7 +395,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Weekly reversal</h1>
+    <h1>Contrarian Trading</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -382,9 +405,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-shortfall">Implementation Shortfall</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#information-coefficient">Information coefficient</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-reversion">Mean reversion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-shortfall">Implementation shortfall</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structural-break-with-unknown-changepoint">Structural break with unknown changepoint</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#information-coefficient">Information coefficient</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-evaluation">Performance evaluation</a></li>
 </ul>
             </nav>
         </div>
@@ -394,16 +419,23 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="weekly-reversal">
-<h1>Weekly reversal<a class="headerlink" href="#weekly-reversal" title="Permalink to this heading">#</a></h1>
-<p><em>UNDER CONSTRUCTION</em></p>
+  <section class="tex2jax_ignore mathjax_ignore" id="contrarian-trading">
+<h1>Contrarian Trading<a class="headerlink" href="#contrarian-trading" title="Permalink to this heading">#</a></h1>
+<p><em>Fortune befriends the bold</em> - Emily Dickinson</p>
+<p>Concepts:</p>
 <ul class="simple">
-<li><p>Contrarian trading (Lo and Mackinlay 1990, and others), mean reversion</p></li>
-<li><p>implementation shortfall</p></li>
-<li><p>structural break with unknown changepoint</p></li>
+<li><p>Mean reversion</p></li>
+<li><p>Implementation shortfall</p></li>
+<li><p>Structural break with unknown changepoints</p></li>
+<li><p>Performance evaluation, information coefficient</p></li>
 </ul>
+<p><strong>References</strong></p>
+<p>Andrews, D.W.K., “Tests for parameter instability and structural change with unknown change point”, Econometrica, 61 (1993), 821-856.</p>
+<p>Grinold, Richard C., 1994, “Alpha is Volatility Times IC Times Score”, The Journal of Portfolio Management, Summer 1994, 20(4), 9-16</p>
+<p>Lo, Andrew W. and MacKinlay, A. Craig, 1990, “When Are Contrarian Profits Due to Stock Market Overreaction?”, The Review of Financial Studies, 3(2), 175–205</p>
+<p>Perold, Andre, 1988, “The Implementation Shortfall: Paper versus Reality”, The Journal of Portfolio Management, 14(3), 4-9</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -414,14 +446,11 @@ document.write(`
 <span class="kn">import</span> <span class="nn">rpy2.robjects</span> <span class="k">as</span> <span class="nn">ro</span>
 <span class="kn">from</span> <span class="nn">rpy2.robjects.packages</span> <span class="kn">import</span> <span class="n">importr</span>
 <span class="kn">from</span> <span class="nn">finds.database</span> <span class="kn">import</span> <span class="n">SQL</span><span class="p">,</span> <span class="n">RedisDB</span>
-<span class="kn">from</span> <span class="nn">finds.busday</span> <span class="kn">import</span> <span class="n">BusDay</span>
-<span class="kn">from</span> <span class="nn">finds.structured</span> <span class="kn">import</span> <span class="n">CRSP</span><span class="p">,</span> <span class="n">Benchmarks</span>
-<span class="kn">from</span> <span class="nn">finds.backtesting</span> <span class="kn">import</span> <span class="n">fractiles</span>
-<span class="kn">from</span> <span class="nn">finds.econs</span> <span class="kn">import</span> <span class="n">lm</span>
-<span class="kn">from</span> <span class="nn">finds.misc</span> <span class="kn">import</span> <span class="n">PyR</span><span class="p">,</span> <span class="n">row_formatted</span><span class="p">,</span> <span class="n">Show</span>
+<span class="kn">from</span> <span class="nn">finds.structured</span> <span class="kn">import</span> <span class="n">BusDay</span><span class="p">,</span> <span class="n">CRSP</span><span class="p">,</span> <span class="n">Benchmarks</span>
+<span class="kn">from</span> <span class="nn">finds.recipes</span> <span class="kn">import</span> <span class="n">fractile_split</span><span class="p">,</span> <span class="n">least_squares</span>
+<span class="kn">from</span> <span class="nn">finds.utils</span> <span class="kn">import</span> <span class="n">PyR</span><span class="p">,</span> <span class="n">row_formatted</span>
 <span class="kn">from</span> <span class="nn">secret</span> <span class="kn">import</span> <span class="n">credentials</span><span class="p">,</span> <span class="n">paths</span><span class="p">,</span> <span class="n">CRSP_DATE</span>
-<span class="n">show</span> <span class="o">=</span> <span class="n">Show</span><span class="p">(</span><span class="n">ndigits</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">latex</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<span class="n">VERBOSE</span> <span class="o">=</span> <span class="mi">0</span>      <span class="c1"># 1</span>
+<span class="n">VERBOSE</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="c1">#%matplotlib qt</span>
 </pre></div>
 </div>
@@ -435,49 +464,61 @@ document.write(`
 <span class="n">bd</span> <span class="o">=</span> <span class="n">BusDay</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
 <span class="n">crsp</span> <span class="o">=</span> <span class="n">CRSP</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">bd</span><span class="p">,</span> <span class="n">rdb</span><span class="o">=</span><span class="n">rdb</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
 <span class="n">bench</span> <span class="o">=</span> <span class="n">Benchmarks</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">bd</span><span class="p">)</span>
-<span class="n">imgdir</span> <span class="o">=</span> <span class="n">paths</span><span class="p">[</span><span class="s1">&#39;images&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p><strong>Construct weekly reversal</strong></p>
-<p>Retrieve weekly returns, standardize scores, and compute returns and i.c.</p>
+<section id="mean-reversion">
+<h2>Mean reversion<a class="headerlink" href="#mean-reversion" title="Permalink to this heading">#</a></h2>
+<p>The assumption of <strong>mean reversion</strong> underlies many investment and trading strategies. Similar assets should be priced identically, according to the <strong>law of one price</strong>, otherwise the opportunity for guaranteed <strong>arbitrage</strong> profits incentize traders to buy the undervalued asset while short-selling the overvalued asset hence driving their prices closer together again. Deviations from long-run expectations, such as yield spreads in fixed income assets, should not persist. <strong>Pairs trading</strong> involves identifying two related securities, often based on their historical price relationships, and trading them simultaneously to profit from the temporary divergences in price between the two securities. <strong>Statistical arbitrage</strong>, also referred to as stat arb, models statistical relationships between securities and uses computationally intensive trading algorithms to simultaneously buy and sell portfolios of securities in financial market assets such as equities and commodities.  Since such relationships are not risk-free, stat arb strategies seek to diversify as much as possible across a broad set of imperfectly correlated positions (unfortunately, correlations between strategies and
+asset classes seem to increase inconveniently around financial shocks, perhaps due liquidity constraints and deleveraging effects).</p>
+<p>We construct and evaluate a <strong>contrarian strategy</strong> based on the weekly returns of US stocks and motivated by stock mispricing due to investor over-reaction, see Lo and Mackinlay (1990) and others. The <strong>alpha</strong> of this strategy can be approximated by its <strong>information coefficient</strong> and <strong>volatility</strong> components, resembling Grinold (1994)’s decomposition. We apply tests of structural breaks with unknown changepoints to examine the decline of its profitability over time. Trading strategies can experience large differences between the paper return of a portfolio where all trades are assumed to have transacted at the decision price and the actual return of the portfolio using actual transaction prices and amounts executed. The concept of <strong>implementation shortfall</strong>, introduced by Perold (1988), measures the total cost of implementing an investment decision by capturing both explicit and implicit trading costs, such as market impact, delay, as well as opportunity costs.</p>
+<p><strong>Weekly returns reversals</strong></p>
+<p>Daily returns from CRSP are compounded in to weekly stock returns assuming Wednesday-close to Wednesday-close. This skips over weekend and holiday (which often occur over a long weekend) effects. The backtest starts in January 1974, after an expansion of the stocks universe the previous year, and excludes the smallest market cap quintile (based on NYSE breakpoints) comprising microcap stocks.</p>
+<p>Let <span class="math notranslate nohighlight">\(\overline{r}_{t}\)</span> and <span class="math notranslate nohighlight">\(\sigma_{t}\)</span> be the
+cross-sectional mean and standard deviation of stock returns in week
+<span class="math notranslate nohighlight">\(t\)</span>. Define <span class="math notranslate nohighlight">\(\tilde{r}_t = r_t - \overline{r}_t\)</span> as the vector of
+demeaned stock returns, and <span class="math notranslate nohighlight">\(X_{t} = -\tilde{r}_t / \sigma_t\)</span> as the
+vector of normalized scores. In other words, stocks’ “exposures” to (minus) their respective prior week’s returns are standardized to have cross-sectional variance and standard deviation equal to 1.0.</p>
+<p>Each week, a portfolio is rebalanced to hold an amount in each stock equal to their respective exposure values divided by the number of holdings <span class="math notranslate nohighlight">\(w_{t} = X_{t}/n\)</span>.  hence the portfolio overall has unit exposure to prior week’s returns <span class="math notranslate nohighlight">\(w_{t}^TX_{t} = 1\)</span> and is dollar-neutral <span class="math notranslate nohighlight">\(\sum w_{t} = \sum X_{t}/n = 0\)</span>.</p>
+<p>As an aside, this portfolio construction approach can more generally incorporate additional signals where <span class="math notranslate nohighlight">\(X\)</span> may be a matrix with ones in the
+first column and standardized signal exposures in other columns. Then each row,
+except the first, of <span class="math notranslate nohighlight">\(W = (X' X)^{-1} X'\)</span> contains stock weights
+of a long-short characteristic porfolio: a dollar-neutral,
+minimum-norm (in terms of squared weights) portfolio with unit
+exposure through long positions in stocks with positive exposure and
+short positions in stocks with negative exposure to the signal,
+and zero exposure to the other characteristics.</p>
+<p>The portfolio’s realized return in the following week <span class="math notranslate nohighlight">\(t+1\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[W'_t ~ r_{t+1} = \dfrac{X'_t \tilde{r}_t}{n} + \dfrac{X'_t \hat{r}_t}{n} = -\dfrac{\tilde{r}'_t ~ \tilde{r}_{t+1} ~ \sigma_{t+1}} {n ~ \sigma_{t} ~ \sigma_{t+1}} =
+-\rho_{t,t+1} ~ \sigma_{t+1}\]</div>
+<p>that is the product of the
+(negative) cross-sectional correlation of stock returns times the amount of cross-sectional stock volatility at week <span class="math notranslate nohighlight">\(t+1\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weekday</span> <span class="o">=</span> <span class="mi">3</span>          <span class="c1"># wednesday close-to-close</span>
 <span class="n">bd</span> <span class="o">=</span> <span class="n">BusDay</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">endweek</span><span class="o">=</span><span class="n">weekday</span><span class="p">)</span>   <span class="c1"># Generate weekly cal</span>
 <span class="n">begweek</span> <span class="o">=</span> <span class="mi">19740102</span>   <span class="c1"># increased stocks coverage in CRSP in Jan 1973</span>
-<span class="n">middate</span> <span class="o">=</span> <span class="mi">19851231</span>   <span class="c1"># increased stocks traded in CRSP around this date</span>
 <span class="n">endweek</span> <span class="o">=</span> <span class="n">bd</span><span class="o">.</span><span class="n">endwk</span><span class="p">(</span><span class="n">CRSP_DATE</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">rebaldates</span> <span class="o">=</span> <span class="n">bd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">begweek</span><span class="p">,</span> <span class="n">endweek</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;weekly&#39;</span><span class="p">)</span>
 <span class="n">retdates</span> <span class="o">=</span> <span class="n">bd</span><span class="o">.</span><span class="n">date_tuples</span><span class="p">(</span><span class="n">rebaldates</span><span class="p">)</span>
-<span class="n">june_universe</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># to track when reached a June end to update universe</span>
-<span class="n">year</span> <span class="o">=</span> <span class="mi">0</span>           <span class="c1"># to track new year to retrieve prices in batch</span>
+
+<span class="n">june_universe</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># to track date when reached a June end to update universe</span>
+<span class="n">year</span> <span class="o">=</span> <span class="mi">0</span>           <span class="c1"># to track new year to pre-load stocks datas in batch by year</span>
 <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">lagged_weights</span> <span class="o">=</span> <span class="n">Series</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span> <span class="c1"># to track &quot;turnover&quot; of stock weights</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Last FamaFrench Date 2023-04-28 00:00:00
-</pre></div>
-</div>
-</div>
-</div>
-<p>Loop over weekly rebalance dates</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">rebaldate</span><span class="p">,</span> <span class="n">pastdates</span><span class="p">,</span> <span class="n">nextdates</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">rebaldates</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
-                                                <span class="n">retdates</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
-                                                <span class="n">retdates</span><span class="p">[</span><span class="mi">1</span><span class="p">:])):</span>
+<span class="k">for</span> <span class="n">rebaldate</span><span class="p">,</span> <span class="n">pastdates</span><span class="p">,</span> <span class="n">nextdates</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span>
+        <span class="n">rebaldates</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">retdates</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">retdates</span><span class="p">[</span><span class="mi">1</span><span class="p">:]),</span> <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">rebaldates</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+
     <span class="c1"># screen universe each June: largest 5 size deciles</span>
     <span class="n">d</span> <span class="o">=</span> <span class="n">bd</span><span class="o">.</span><span class="n">june_universe</span><span class="p">(</span><span class="n">rebaldate</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">d</span> <span class="o">!=</span> <span class="n">june_universe</span><span class="p">:</span>  <span class="c1"># need next June&#39;s universe</span>
         <span class="n">june_universe</span> <span class="o">=</span> <span class="n">d</span>                        <span class="c1"># update universe every June</span>
         <span class="n">univ</span> <span class="o">=</span> <span class="n">crsp</span><span class="o">.</span><span class="n">get_universe</span><span class="p">(</span><span class="n">june_universe</span><span class="p">)</span>  <span class="c1"># usual CRSP universe screen</span>
-        <span class="n">univ</span> <span class="o">=</span> <span class="n">univ</span><span class="p">[</span><span class="n">univ</span><span class="p">[</span><span class="s1">&#39;decile&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">9</span><span class="p">]</span>         <span class="c1"># drop smallest half stocks</span>
+        <span class="n">univ</span> <span class="o">=</span> <span class="n">univ</span><span class="p">[</span><span class="n">univ</span><span class="p">[</span><span class="s1">&#39;decile&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">8</span><span class="p">]</span>         <span class="c1"># drop smallest quintile stocks</span>
 
-    <span class="c1"># retrieve new annual batch of daily prices and returns when start year</span>
+    <span class="c1"># retrieve new annual batch of daily prices and returns when start new year</span>
     <span class="k">if</span> <span class="n">bd</span><span class="o">.</span><span class="n">begyr</span><span class="p">(</span><span class="n">rebaldate</span><span class="p">)</span> <span class="o">!=</span> <span class="n">year</span><span class="p">:</span>
         <span class="n">year</span> <span class="o">=</span> <span class="n">bd</span><span class="o">.</span><span class="n">begyr</span><span class="p">(</span><span class="n">rebaldate</span><span class="p">)</span>
         <span class="n">prc</span> <span class="o">=</span> <span class="n">crsp</span><span class="o">.</span><span class="n">get_range</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="s1">&#39;daily&#39;</span><span class="p">,</span>
@@ -487,76 +528,125 @@ document.write(`
                              <span class="n">end</span><span class="o">=</span><span class="n">bd</span><span class="o">.</span><span class="n">offset</span><span class="p">(</span><span class="n">bd</span><span class="o">.</span><span class="n">endyr</span><span class="p">(</span><span class="n">year</span><span class="p">),</span> <span class="mi">10</span><span class="p">),</span>
                              <span class="n">cache_mode</span><span class="o">=</span><span class="s2">&quot;rw&quot;</span><span class="p">)</span>
 
-    <span class="c1"># get past week&#39;s returns, require price at start of week</span>
+    <span class="c1"># get past week&#39;s returns, require price at rebalance (decision) date</span>
     <span class="n">past_week</span> <span class="o">=</span> <span class="n">prc</span><span class="p">[</span><span class="n">prc</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="n">rebaldate</span><span class="p">][</span><span class="s1">&#39;prc&#39;</span><span class="p">]</span>\
         <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>\
         <span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;permno&#39;</span><span class="p">)</span>\
         <span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">crsp</span><span class="o">.</span><span class="n">get_ret</span><span class="p">(</span><span class="o">*</span><span class="n">pastdates</span><span class="p">)</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">univ</span><span class="o">.</span><span class="n">index</span><span class="p">))</span>\
         <span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
 
-    <span class="c1"># convert past week&#39;s minus returns to standardized weights in portfolio</span>
+    <span class="c1"># convert past week&#39;s returns to desired standardized portfolio weights</span>
     <span class="n">weights</span> <span class="o">=</span> <span class="p">((</span><span class="n">past_week</span><span class="p">[</span><span class="s1">&#39;ret&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">past_week</span><span class="p">[</span><span class="s1">&#39;ret&#39;</span><span class="p">])</span> <span class="o">/</span>
                <span class="p">(</span><span class="n">past_week</span><span class="p">[</span><span class="s1">&#39;ret&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">past_week</span><span class="p">)))</span>
 
-    <span class="c1"># turnover = total abs change in stock weight, scaled by total abs weight</span>
-    <span class="n">chg_weights</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">weights</span><span class="p">,</span> <span class="o">-</span><span class="n">lagged_weights</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>\
-                       <span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>\
-                       <span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">total_weight</span> <span class="o">=</span> <span class="n">weights</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">+</span> <span class="n">lagged_weights</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-    <span class="n">lagged_weights</span> <span class="o">=</span> <span class="n">weights</span>
-    
-    <span class="c1"># get next week&#39;s returns</span>
-    <span class="n">next_week</span> <span class="o">=</span> <span class="n">crsp</span><span class="o">.</span><span class="n">get_ret</span><span class="p">(</span><span class="o">*</span><span class="n">nextdates</span><span class="p">)</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">past_week</span><span class="o">.</span><span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="c1"># adjust past week&#39;s holdings by change stock price</span>
+    <span class="n">lagged_weights</span> <span class="o">=</span> <span class="n">lagged_weights</span><span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="n">crsp</span><span class="o">.</span><span class="n">get_ret</span><span class="p">(</span><span class="o">*</span><span class="n">pastdates</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;retx&#39;</span><span class="p">)</span>\
+                                        <span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">lagged_weights</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>\
+                                        <span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 
-    <span class="c1"># get next day&#39;s closing prices (or bid-ask quotes), to compute one-day delay cost</span>
+    <span class="c1"># compute how much to buy (or sell) to achieve desired new portfolio weights</span>
+    <span class="n">chg_weights</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">weights</span><span class="p">,</span> <span class="o">-</span><span class="n">lagged_weights</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>\
+                    <span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>\
+                    <span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># calculate total abs weight as denominator for scaling turnover</span>
+    <span class="n">total_weight</span> <span class="o">=</span> <span class="n">weights</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">+</span> <span class="n">lagged_weights</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+    <span class="c1"># get next week&#39;s gross returns</span>
+    <span class="n">next_week</span> <span class="o">=</span> <span class="n">crsp</span><span class="o">.</span><span class="n">get_ret</span><span class="p">(</span><span class="o">*</span><span class="n">nextdates</span><span class="p">)</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">weights</span><span class="o">.</span><span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="c1"># get next day&#39;s prices to compute one-day slippage cost</span>
     <span class="n">next_day</span> <span class="o">=</span> <span class="n">prc</span><span class="p">[</span><span class="n">prc</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span> <span class="o">==</span>
                    <span class="n">bd</span><span class="o">.</span><span class="n">offset</span><span class="p">(</span><span class="n">rebaldate</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span>\
                    <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>\
                    <span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;permno&#39;</span><span class="p">)</span>\
                    <span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">)</span>\
                    <span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">chg_weights</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
-    <span class="n">avgprc</span> <span class="o">=</span> <span class="n">next_day</span><span class="p">[[</span><span class="s1">&#39;bidlo&#39;</span><span class="p">,</span> <span class="s1">&#39;askhi&#39;</span><span class="p">,</span> <span class="s1">&#39;prc&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
-    <span class="c1"># if no trade next day, then enter position at askhi (long) or bidlo (short)</span>
-    <span class="n">bidask</span> <span class="o">=</span> <span class="n">next_day</span><span class="p">[</span><span class="s1">&#39;askhi&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">weights</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">next_day</span><span class="p">[</span><span class="s1">&#39;bidlo&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span>
-    <span class="n">avgprc</span> <span class="o">=</span> <span class="n">next_day</span><span class="p">[</span><span class="s1">&#39;prc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">next_day</span><span class="p">[</span><span class="s1">&#39;prc&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">bidask</span><span class="p">)</span>
+    <span class="c1"># if no trade next day, then enter position at askhi (buy) or bidlo (sell)</span>
+    <span class="n">bidask</span> <span class="o">=</span> <span class="n">next_day</span><span class="p">[</span><span class="s1">&#39;askhi&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">chg_weights</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">next_day</span><span class="p">[</span><span class="s1">&#39;bidlo&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span>
 
-    <span class="c1"># delay slippage (positive is cost) = weights chg * drift of next day price</span>
-    <span class="n">drift</span> <span class="o">=</span> <span class="n">avgprc</span><span class="o">.</span><span class="n">div</span><span class="p">(</span><span class="n">next_day</span><span class="p">[</span><span class="s1">&#39;prc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">abs</span><span class="p">())</span>\
-                  <span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">next_day</span><span class="p">[</span><span class="s1">&#39;ret&#39;</span><span class="p">])</span>\
-                  <span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>\
-                  <span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="c1"># spread is relevant askhi or bidlo divided by recorded close, minus 1</span>
+    <span class="n">spread</span> <span class="o">=</span> <span class="n">next_day</span><span class="p">[</span><span class="s1">&#39;prc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">next_day</span><span class="p">[</span><span class="s1">&#39;prc&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">bidask</span><span class="p">)</span>\
+                            <span class="o">.</span><span class="n">div</span><span class="p">(</span><span class="n">next_day</span><span class="p">[</span><span class="s1">&#39;prc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">abs</span><span class="p">())</span>\
+                            <span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>\
+                            <span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    
+    <span class="c1"># finally, trade_prc is the next day&#39;s close, or the relevent askhi or bidlo</span>
+    <span class="n">trade_prc</span> <span class="o">=</span> <span class="n">next_day</span><span class="p">[</span><span class="s1">&#39;prc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">next_day</span><span class="p">[</span><span class="s1">&#39;prc&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">bidask</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
-    <span class="c1"># accumulate weekly computations</span>
-    <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;ret&#39;</span><span class="p">:</span> <span class="n">weights</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">next_week</span><span class="p">),</span>
-                              <span class="s1">&#39;ic&#39;</span><span class="p">:</span> <span class="n">weights</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">next_week</span><span class="p">),</span>
-                              <span class="s1">&#39;n&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">next_week</span><span class="p">),</span>
-                              <span class="s1">&#39;beg&#39;</span><span class="p">:</span> <span class="n">nextdates</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-                              <span class="s1">&#39;end&#39;</span><span class="p">:</span> <span class="n">nextdates</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-                              <span class="s1">&#39;absweight&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">weights</span><span class="o">.</span><span class="n">abs</span><span class="p">()),</span>
-                              <span class="s1">&#39;turnover&#39;</span><span class="p">:</span> <span class="n">chg_weights</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="n">total_weight</span><span class="p">,</span>
-                              <span class="s1">&#39;vol&#39;</span><span class="p">:</span> <span class="n">next_week</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
-                              <span class="s1">&#39;delay&#39;</span><span class="p">:</span> <span class="n">chg_weights</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">drift</span><span class="p">)},</span>
-                             <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="n">rebaldate</span><span class="p">]))</span>
+    <span class="c1"># drift is next day&#39;s trade price with dividends over today&#39;s decision price</span>
+    <span class="c1"># delay (positive is cost) will be chg_weights * drift </span>
+    <span class="n">drift</span> <span class="o">=</span> <span class="n">trade_prc</span><span class="o">.</span><span class="n">div</span><span class="p">(</span><span class="n">next_day</span><span class="p">[</span><span class="s1">&#39;prc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">abs</span><span class="p">())</span>\
+                     <span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">next_day</span><span class="p">[</span><span class="s1">&#39;ret&#39;</span><span class="p">])</span>\
+                     <span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>\
+                     <span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    
 
-<span class="c1"># Combine accumulated weekly computations</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">dates</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span>
-<span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">))</span>
+    <span class="c1"># exit and enter delay should sum to chg_weights.dot(next_day[&#39;ret&#39;])</span>
+    <span class="n">exit1</span> <span class="o">=</span> <span class="o">-</span><span class="n">lagged_weights</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">next_day</span><span class="p">[</span><span class="s1">&#39;ret&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">lagged_weights</span><span class="o">.</span><span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+    <span class="n">enter1</span> <span class="o">=</span> <span class="n">weights</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">next_day</span><span class="p">[</span><span class="s1">&#39;ret&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">weights</span><span class="o">.</span><span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
 
-<span class="c1"># Show summary</span>
-<span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ic&#39;</span> <span class="p">,</span><span class="s1">&#39;vol&#39;</span><span class="p">,</span> <span class="s1">&#39;ret&#39;</span><span class="p">,</span> <span class="s1">&#39;delay&#39;</span><span class="p">,</span> <span class="s1">&#39;turnover&#39;</span><span class="p">]</span>
-<span class="n">indexes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Information coefficient&#39;</span><span class="p">,</span> <span class="s1">&#39;Cross-sectional Volatility&#39;</span><span class="p">,</span>
-           <span class="s1">&#39;Alpha (gross return)&#39;</span><span class="p">,</span> <span class="s1">&#39;Delay cost&#39;</span><span class="p">,</span> <span class="s1">&#39;Portfolio turnover&#39;</span><span class="p">]</span>
-<span class="n">show</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;mean&#39;</span><span class="p">),</span>
-                <span class="n">df</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;std&#39;</span><span class="p">)],</span>
-               <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">(</span><span class="n">indexes</span><span class="p">)),</span>
-     <span class="n">caption</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Summary of Weekly Mean Reversion Strategy </span><span class="si">{</span><span class="n">dates</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">-</span><span class="si">{</span><span class="n">dates</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="c1"># accumulate weekly calculations</span>
+    <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="p">{</span><span class="s1">&#39;ret&#39;</span><span class="p">:</span> <span class="n">weights</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">next_week</span><span class="p">),</span>
+         <span class="s1">&#39;exit1&#39;</span><span class="p">:</span> <span class="n">exit1</span><span class="p">,</span>
+         <span class="s1">&#39;enter1&#39;</span><span class="p">:</span> <span class="n">enter1</span><span class="p">,</span>
+         <span class="s1">&#39;delay&#39;</span><span class="p">:</span> <span class="n">chg_weights</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">next_day</span><span class="p">[</span><span class="s1">&#39;ret&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)),</span>  <span class="c1"># delay=enter+exit</span>
+         <span class="s1">&#39;spread&#39;</span><span class="p">:</span> <span class="n">chg_weights</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">spread</span><span class="p">),</span>
+         <span class="s1">&#39;slippage&#39;</span><span class="p">:</span> <span class="n">chg_weights</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">drift</span><span class="p">),</span> <span class="c1"># total slippage</span>
+         <span class="s1">&#39;ic&#39;</span><span class="p">:</span> <span class="n">weights</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">next_week</span><span class="p">),</span>
+         <span class="s1">&#39;n&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">next_week</span><span class="p">),</span>
+         <span class="s1">&#39;beg&#39;</span><span class="p">:</span> <span class="n">nextdates</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+         <span class="s1">&#39;end&#39;</span><span class="p">:</span> <span class="n">nextdates</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+         <span class="s1">&#39;absweight&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">weights</span><span class="o">.</span><span class="n">abs</span><span class="p">()),</span>
+         <span class="s1">&#39;turnover&#39;</span><span class="p">:</span> <span class="n">chg_weights</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="n">total_weight</span><span class="p">,</span>
+         <span class="s1">&#39;vol&#39;</span><span class="p">:</span> <span class="n">next_week</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">0</span><span class="p">)},</span>
+        <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="n">rebaldate</span><span class="p">]))</span>
+
+    <span class="c1"># carry forward to next week as lagged portfolio weights</span>
+    <span class="n">lagged_weights</span> <span class="o">=</span> <span class="n">weights</span>    
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2555it [01:13, 34.69it/s]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Last FamaFrench Date 2024-02-29 00:00:00
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|█████████▉| 2607/2608 [01:17&lt;00:00, 33.74it/s]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Combine accumulated computations and report</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">dates</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span>
+<span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">))</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;net&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;ret&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;slippage&#39;</span><span class="p">])</span>
+<span class="c1"># Show summary</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ic&#39;</span> <span class="p">,</span><span class="s1">&#39;vol&#39;</span><span class="p">,</span> <span class="s1">&#39;ret&#39;</span><span class="p">,</span> <span class="s1">&#39;slippage&#39;</span><span class="p">,</span> <span class="s1">&#39;net&#39;</span><span class="p">,</span> <span class="s1">&#39;exit1&#39;</span><span class="p">,</span> <span class="s1">&#39;enter1&#39;</span><span class="p">,</span> <span class="s1">&#39;delay&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;spread&#39;</span><span class="p">,</span> <span class="s1">&#39;turnover&#39;</span><span class="p">]</span>
+<span class="n">indexes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Information coefficient&#39;</span><span class="p">,</span> <span class="s1">&#39;Cross-sectional Volatility&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;Gross return (alpha)&#39;</span><span class="p">,</span> <span class="s1">&#39;Slippage cost&#39;</span><span class="p">,</span> <span class="s1">&#39;Net (of slippage) return&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;   Exit one day delay   &#39;</span><span class="p">,</span> <span class="s1">&#39;   Enter one day delay   &#39;</span><span class="p">,</span> <span class="s1">&#39;Delay cost&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;Spread cost&#39;</span><span class="p">,</span> <span class="s1">&#39;Portfolio turnover&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Summary of Weekly Mean Reversion Strategy </span><span class="si">{</span><span class="n">dates</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">-</span><span class="si">{</span><span class="n">dates</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;mean&#39;</span><span class="p">),</span>
+           <span class="n">df</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;std&#39;</span><span class="p">)],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>\
+  <span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">(</span><span class="n">indexes</span><span class="p">))</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Summary of Weekly Mean Reversion Strategy 19740109-20231220
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -580,90 +670,96 @@ document.write(`
       <th>mean</th>
       <th>std</th>
     </tr>
-    <tr>
-      <th>Summary of Weekly Mean Reversion Strategy 19740109-20221221</th>
-      <th></th>
-      <th></th>
-    </tr>
   </thead>
   <tbody>
     <tr>
       <th>Information coefficient</th>
-      <td>0.0398</td>
-      <td>0.0927</td>
+      <td>0.0379</td>
+      <td>0.1027</td>
     </tr>
     <tr>
       <th>Cross-sectional Volatility</th>
-      <td>0.0583</td>
-      <td>0.0203</td>
+      <td>0.0535</td>
+      <td>0.0192</td>
     </tr>
     <tr>
-      <th>Alpha (gross return)</th>
-      <td>0.0024</td>
-      <td>0.0077</td>
+      <th>Gross return (alpha)</th>
+      <td>0.0021</td>
+      <td>0.0080</td>
+    </tr>
+    <tr>
+      <th>Slippage cost</th>
+      <td>0.0017</td>
+      <td>0.0048</td>
+    </tr>
+    <tr>
+      <th>Net (of slippage) return</th>
+      <td>0.0005</td>
+      <td>0.0078</td>
+    </tr>
+    <tr>
+      <th>Exit one day delay</th>
+      <td>-0.0003</td>
+      <td>0.0029</td>
+    </tr>
+    <tr>
+      <th>Enter one day delay</th>
+      <td>0.0006</td>
+      <td>0.0036</td>
     </tr>
     <tr>
       <th>Delay cost</th>
-      <td>0.0019</td>
+      <td>0.0004</td>
       <td>0.0042</td>
     </tr>
     <tr>
+      <th>Spread cost</th>
+      <td>0.0013</td>
+      <td>0.0023</td>
+    </tr>
+    <tr>
       <th>Portfolio turnover</th>
-      <td>0.7370</td>
-      <td>0.0384</td>
+      <td>0.7362</td>
+      <td>0.0408</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
-<section id="implementation-shortfall">
-<h2>Implementation Shortfall<a class="headerlink" href="#implementation-shortfall" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>decision price</p></li>
-<li><p>delay</p></li>
-<li><p>market impact</p></li>
-<li><p>opportunity cost</p></li>
-</ul>
 </section>
-<section id="information-coefficient">
-<h2>Information coefficient<a class="headerlink" href="#information-coefficient" title="Permalink to this heading">#</a></h2>
+<section id="implementation-shortfall">
+<h2>Implementation shortfall<a class="headerlink" href="#implementation-shortfall" title="Permalink to this heading">#</a></h2>
+<p>Perold (1988) observed that the a paper portfolio based upon a
+well-known stock rankings system significantly outperformed the actual
+track record of funds that make use of the system.  He defined
+implementation shortfall as the difference in return between a
+theoretical portfolio and the implemented portfolio, which captures explicit
+fees and commissions as well as  market impact, delay and
+opportunity costs.</p>
 <ul class="simple">
-<li><p>Grinold rule of thum</p></li>
-<li><p>alpha = IC time volatility</p></li>
+<li><p><strong>Decision price</strong> is the price at the time the investment decision was
+made</p></li>
+<li><p><strong>Arrival price</strong> is the midquote (mid-point of bid-ask prices) at the
+time the trader, broker or trading system received the order, or the
+trade decision is made.</p></li>
+<li><p><strong>Market drift</strong> is the amount of buys (sells) multiplied
+by the increase (decrease) in execution price relative to the
+arrival price, due to execution delay.</p></li>
+<li><p><strong>Delay</strong> is the adverse change in execution price relative to the decision price</p></li>
+<li><p><strong>Opportunity costs</strong> are the profits lost due to trades that are cancelled or not executed.</p></li>
+<li><p><strong>Market impact costs</strong> are bid-ask spreads as well as the amount that buying or selling moves the price against the buyer or seller</p></li>
 </ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Plot returns, and rolling avg information coefficient and cross-sectional vol</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">num</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;ret&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">rot</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;cumulative returns&#39;</span><span class="p">],</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;cumulative returns&#39;</span><span class="p">)</span>
-<span class="n">bx</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
-<span class="n">roll</span> <span class="o">=</span> <span class="mi">250</span>  <span class="c1"># 250 week rolling average ~ 5 years</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;ic&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">roll</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">bx</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">rot</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;vol&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">roll</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">bx</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">rot</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
-<span class="c1">#bx.axhline(df[&#39;ic&#39;].mean(), linestyle=&#39;-&#39;, color=&#39;C0&#39;, lw=2)</span>
-<span class="n">bx</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">bx</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot;information coefficient (</span><span class="si">{</span><span class="n">roll</span><span class="si">}</span><span class="s2">-week roll)&quot;</span><span class="p">,</span>
-           <span class="sa">f</span><span class="s2">&quot;cross-sectional vol (</span><span class="si">{</span><span class="n">roll</span><span class="si">}</span><span class="s2">-week roll)&quot;</span><span class="p">],</span>
-          <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower right&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Profitability of Weekly Mean Reversion </span><span class="si">{</span><span class="n">dates</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">-</span><span class="si">{</span><span class="n">dates</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">pad</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">imgdir</span> <span class="o">/</span> <span class="s1">&#39;weekrev.jpg&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/570c5ac8842aa779df8297a07f6b8e1560aab1334b8b9890dad0a08b59794c92.png" src="_images/570c5ac8842aa779df8297a07f6b8e1560aab1334b8b9890dad0a08b59794c92.png" />
-</div>
-</div>
+<p>The <strong>trader’s dilemma</strong> refers to the trade-off between market drift and
+impact: one can trade faster with more impact to minimize market drift, or
+trade slower to minimize market impact but at the risk of the market drifting
+away.</p>
+<p>Unfortunately, stock prices in CRSP are not available at a finer than daily frequency. We adjust estimated profits for slippage by waiting a full day after the decision price then setting the execution price at the next day’s closing price, since the stock market exchanges experience the most liquidity during the trading day at the close. For stocks that did not trade during that day, we assumed the desired buys are executed at the (higher) ask price and sells are executed at the (lower) bid price: in the CRSP database, closing bid and ask quotes are recorded so that the closing price, when not available, is set to the negative of the bid-ask average. Transactions costs are challenging to model and cannot be observed from historical prices in backtest simulations, so this measurement approach feasibly assumes trades are executed at the close a full day after their decision prices are considered.</p>
+<p>Over the full period, much of the profitability of this version of the strategy appears to be dissipated after considering a one-day execution delay and bid-ask spreads.</p>
 </section>
 <section id="structural-break-with-unknown-changepoint">
 <h2>Structural break with unknown changepoint<a class="headerlink" href="#structural-break-with-unknown-changepoint" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Welch/Chow test</p></li>
-<li><p>Andrews</p></li>
-</ul>
+<p>In a linear regression, the Chow test is commonly used to test for the presence of a structural break in the model at a period known <em>a priori</em>; it essentially constructs a test of whether the true coefficients on the independent variable split into two subsets are equal. Welch’s test that two populations have equal means is a special case with no independent variables and only an intercept whose true values are tested in the two time periods.  However, when the breakpoints are unknown, these standard tests are not applicable. Andrews (1993) and others have developed alternative tests, based on supremum statistics, for the detection of structural change involving an unknown number of breaks in mean with unknown break points.</p>
+<p>The R library <code class="docutils literal notranslate"><span class="pre">strucchange</span></code> implements tests for structural breaks with unknown breakpoints. The external Python package <code class="docutils literal notranslate"><span class="pre">rpy2</span></code> provides an interface to R libraries and programming language. The <code class="docutils literal notranslate"><span class="pre">PyR</span></code> wrapper class in the FinDS package facilitates converting Pandas DataFrames to and from R objects and function calls.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Structural Break Test with Unknown Changepoint</span>
@@ -682,19 +778,25 @@ document.write(`
 
 <span class="c1"># Extract output from R results</span>
 <span class="n">confint</span> <span class="o">=</span> <span class="n">PyR</span><span class="p">(</span><span class="n">confint_r</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>  <span class="c1"># R index starts at 1</span>
+
 <span class="n">output</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">confint</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">confint</span><span class="p">]))</span>       <span class="c1"># confidence interval</span>
+
 <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">sctest_r</span><span class="o">.</span><span class="n">slots</span><span class="p">[</span><span class="s1">&#39;names&#39;</span><span class="p">][:</span><span class="mi">3</span><span class="p">],</span> <span class="n">sctest_r</span><span class="p">[:</span><span class="mi">3</span><span class="p">]):</span> <span class="c1"># significance values</span>
     <span class="n">output</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">PyR</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">output</span><span class="p">[</span><span class="s1">&#39;mean(pre)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Y</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">&lt;=</span> <span class="n">output</span><span class="p">[</span><span class="s1">&#39;breakpoints&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> 
 <span class="n">output</span><span class="p">[</span><span class="s1">&#39;mean(post)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Y</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">&gt;</span> <span class="n">output</span><span class="p">[</span><span class="s1">&#39;breakpoints&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="n">fstat</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">PyR</span><span class="p">(</span><span class="n">fstats_r</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">values</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># pad beyond from and to </span>
 
-<span class="n">show</span><span class="p">(</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sctest&#39;</span><span class="p">]),</span>
-     <span class="n">caption</span><span class="o">=</span><span class="s2">&quot;Structural break test with unknown changepoint&quot;</span><span class="p">)</span>
+<span class="n">fstat</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">PyR</span><span class="p">(</span><span class="n">fstats_r</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">values</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># pad before and after</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Structural break test with unknown changepoint&quot;</span><span class="p">)</span>
+<span class="n">DataFrame</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sctest&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Structural break test with unknown changepoint
+</pre></div>
+</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -722,29 +824,18 @@ document.write(`
       <th>mean(pre)</th>
       <th>mean(post)</th>
     </tr>
-    <tr>
-      <th>Structural break test with unknown changepoint</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
   </thead>
   <tbody>
     <tr>
       <th>sctest</th>
-      <td>1998-07-01</td>
-      <td>2001-07-03</td>
-      <td>2002-07-31</td>
-      <td>23.1675</td>
+      <td>1996-10-23</td>
+      <td>2001-05-30</td>
+      <td>2002-11-06</td>
+      <td>17.226016</td>
       <td>0.0</td>
       <td>aveF test</td>
-      <td>0.0035</td>
-      <td>0.001</td>
+      <td>0.003112</td>
+      <td>0.000957</td>
     </tr>
   </tbody>
 </table>
@@ -753,27 +844,83 @@ document.write(`
 <p>Plot breakpoint F-stats</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">num</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">num</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">fstat</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">)</span>
-<span class="n">arg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanargmax</span><span class="p">(</span><span class="n">fstat</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">arg</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">)</span>
+<span class="n">argmax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanargmax</span><span class="p">(</span><span class="n">fstat</span><span class="p">)</span>              <span class="c1"># where maximum fstat</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">argmax</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">confint</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">confint</span><span class="p">[</span><span class="mi">2</span><span class="p">]],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;F-stat&#39;</span><span class="p">,</span> <span class="s1">&#39;Max-F&#39;</span><span class="p">,</span> <span class="s1">&#39;C.I. of Break Date&#39;</span><span class="p">])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">arg</span><span class="p">]</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">),</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">arg</span><span class="p">],</span> <span class="n">fstat</span><span class="p">[</span><span class="n">arg</span><span class="p">]))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">argmax</span><span class="p">]</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">),</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">argmax</span><span class="p">],</span> <span class="n">fstat</span><span class="p">[</span><span class="n">argmax</span><span class="p">]))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;F-statistic at Breakpoints&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Date of Breakpoints&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Structural Break with Unknown Changepoint: &#39;</span>
-             <span class="s1">&#39;Weekly Mean Reversion&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">pad</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">imgdir</span> <span class="o">/</span> <span class="s1">&#39;break.jpg&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Weekly Mean Reversion Structural Break F-stats&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/58efd66a025b3640ecf58a60374e9bac503ccfd600873d6896ec119866524166.png" src="_images/58efd66a025b3640ecf58a60374e9bac503ccfd600873d6896ec119866524166.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1727373/3930510136.py:5: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  ax.axvspan(df.index[confint[0]], df.index[confint[2]], alpha=0.3, color=&#39;grey&#39;)
+</pre></div>
+</div>
+<img alt="_images/5985211edfd01153d12a2eb82497ba59be37d79782a33b2e1d307b84b7c683df.png" src="_images/5985211edfd01153d12a2eb82497ba59be37d79782a33b2e1d307b84b7c683df.png" />
 </div>
 </div>
-<p>Compute gross annualized sharpe ratio and delay slippage</p>
+</section>
+<section id="information-coefficient">
+<h2>Information coefficient<a class="headerlink" href="#information-coefficient" title="Permalink to this heading">#</a></h2>
+<p>Grinold (1994) linked the expected alpha of a signal to its information coefficient and an asset’s signal score and idiosyncratic volatility: <span class="math notranslate nohighlight">\(\alpha = IC \times volatility \times score\)</span>.</p>
+<ul class="simple">
+<li><p><strong>IC</strong>: The information coefficient can be understood as
+the correlation between a signal and residual returns.  It tells how well forecasts align wih actual returns and is a measure of manager forecasting skill.</p></li>
+<li><p><strong>Volatility</strong>: The volatility can be understood as an asset’s residual risk. This component allows for forecast alpha to be expressed in units of returns.</p></li>
+<li><p><strong>Score</strong>: The score is a standardized measure of an asset’s raw
+signal exposure, and reflects relative expectations about an asset.
+Standardization, by subtracing the cross-sectional mean and
+dividing by the cross-sectional standard deviation, allows assets to be
+compared to one another and over time.</p></li>
+</ul>
+<p>Recall that the weekly reversal portfolio <span class="math notranslate nohighlight">\(W_t\)</span> was constructed to be dollar-neutral with exposure equal to 1.0, with weekly profitability <span class="math notranslate nohighlight">\(W'_t ~ r_{t+1} = -\rho_{t,t+1} ~ \sigma_{t+1}\)</span>.  Hence the IC of this strategy is simply measured by the (negative) cross-sectional correlation of stock returns from one week to the next.</p>
+<p>We plot the 5-year rolling average alpha and its information coefficient and volatility components. Whereas volatility exhibits cyclical changes, the estimated IC showed a sharp downward trend from a peak in the mid 1990’s down to 2010.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Plot returns, and rolling avg information coefficient and cross-sectional vol</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">num</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;ret&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">rot</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;cumulative returns&#39;</span><span class="p">],</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;center left&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;cumulative returns&#39;</span><span class="p">)</span>
+<span class="n">bx</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">roll</span> <span class="o">=</span> <span class="mi">250</span>  <span class="c1"># 250 week rolling average ~ 5 years</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;ic&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">roll</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">bx</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">rot</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;vol&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">roll</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">bx</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">rot</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
+<span class="c1">#bx.axhline(df[&#39;ic&#39;].mean(), linestyle=&#39;-&#39;, color=&#39;C0&#39;, lw=2)</span>
+<span class="n">bx</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">bx</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot;information coefficient (</span><span class="si">{</span><span class="n">roll</span><span class="si">}</span><span class="s2">-week average)&quot;</span><span class="p">,</span>
+           <span class="sa">f</span><span class="s2">&quot;cross-sectional volatility (</span><span class="si">{</span><span class="n">roll</span><span class="si">}</span><span class="s2">-week average)&quot;</span><span class="p">],</span>
+          <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;center right&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Profitability of Weekly Mean Reversion </span><span class="si">{</span><span class="n">dates</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">-</span><span class="si">{</span><span class="n">dates</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/f397f41c02c3076d79a04f4d05fbe26348da536ab9214fda99622df1fbc9346c.png" src="_images/f397f41c02c3076d79a04f4d05fbe26348da536ab9214fda99622df1fbc9346c.png" />
+</div>
+</div>
+</section>
+<section id="performance-evaluation">
+<h2>Performance evaluation<a class="headerlink" href="#performance-evaluation" title="Permalink to this heading">#</a></h2>
+<p>In a CAPM equilibrium, no investor can achieve an abnormal return, and each investment yields an identical risk-adjusted return. In the real world, assets may yield a return in excess of, or below, the return with fair compensation for their risk exposure: portfolio managers rely on market benchmarks to measure the performance of a given investment relative to the CAPM equilibrium risk-return relationship.</p>
+<ul class="simple">
+<li><p>Sharpe ratio - slope of the capital market line is the fair equilibrium compensation: <span class="math notranslate nohighlight">\(\dfrac{R_P - r_f}{\sigma_P}\)</span></p></li>
+<li><p>Treynor ratio - uses beta which is an approriate measure of risk for a well-diversified portfolio:  <span class="math notranslate nohighlight">\(\dfrac{R_P - r_f}{\beta_P}\)</span></p></li>
+<li><p>Jensen’s alpha - the intercept of a CAPM regression should be zero in equilibrium:  <span class="math notranslate nohighlight">\(R_P - r_f- \beta_P(R_M - r_f)\)</span></p></li>
+<li><p>Appraisal ratio - Jensen’s alpha scaled by the volatility of residual returns <span class="math notranslate nohighlight">\(\dfrac{\alpha}{\sigma_{P-M}}\)</span></p></li>
+<li><p>Sortino ratio - focuses on downside risk relative a target required rate of return T: <span class="math notranslate nohighlight">\(\dfrac{R_P - T}{\sqrt{\sum_t \min(0, r_t - T)^2 / N}}\)</span></p></li>
+<li><p>Information ratio - adjusts performance relative to a benchmark, called the acive return, scaled by the volatility of active returns, called tracking error: <span class="math notranslate nohighlight">\(\dfrac{\hat{R_P} - \hat{R_B}}{\sigma_{R_P-R_B}}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(M^2\)</span> (Modigliani-squared) - imagines that the given portfolio, P, is mixed with a position in T-bills so that the resulting portfolio P* matches the volatility of the market portfolio. Because the market index and portfolio <span class="math notranslate nohighlight">\(P^*\)</span> have the same standard deviation, their performance may be compared by simply subtracting returns: <span class="math notranslate nohighlight">\(R_{P^*} - R_M\)</span></p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">market</span> <span class="o">=</span> <span class="n">bench</span><span class="o">.</span><span class="n">get_series</span><span class="p">(</span><span class="n">permnos</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Mkt-RF&#39;</span><span class="p">],</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;ret&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
@@ -788,35 +935,46 @@ document.write(`
     <span class="c1">#res[&#39;date&#39;] = res.index</span>
     <span class="n">res</span><span class="p">[</span><span class="s1">&#39;mkt&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">market</span><span class="p">[</span><span class="n">market</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="o">*</span><span class="n">dt</span><span class="p">)][</span><span class="s1">&#39;Mkt-RF&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">prod</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span>
                   <span class="k">for</span> <span class="n">dt</span> <span class="ow">in</span> <span class="n">res</span><span class="p">[[</span><span class="s1">&#39;beg&#39;</span><span class="p">,</span><span class="s1">&#39;end&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">itertuples</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)]</span>
-    <span class="n">model</span> <span class="o">=</span> <span class="n">lm</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;mkt&#39;</span><span class="p">],</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;ret&#39;</span><span class="p">],</span> <span class="n">flatten</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    
+    <span class="c1"># model = lm(res[&#39;mkt&#39;], res[&#39;ret&#39;], flatten=True)</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">least_squares</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">res</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ret&#39;</span><span class="p">],</span> <span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;mkt&#39;</span><span class="p">],</span> <span class="n">stdres</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
     <span class="c1"># save df summary</span>
     <span class="n">out</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">period</span><span class="si">}</span><span class="s2"> Period&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s1">&#39;start date&#39;</span><span class="p">:</span> <span class="nb">min</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">index</span><span class="p">),</span>
         <span class="s1">&#39;end date&#39;</span><span class="p">:</span> <span class="nb">max</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">index</span><span class="p">),</span>
         <span class="s1">&#39;Sharpe Ratio&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">52</span><span class="p">)</span><span class="o">*</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;ret&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">/</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;ret&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">(),</span>
-        <span class="s1">&#39;Average Return&#39;</span><span class="p">:</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;ret&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
-        <span class="s1">&#39;Std Dev Return&#39;</span><span class="p">:</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;ret&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">(),</span>
-        <span class="s1">&#39;Market Beta&#39;</span><span class="p">:</span> <span class="n">model</span><span class="o">.</span><span class="n">coefficients</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-        <span class="s1">&#39;Jensen Alpha (annualized)&#39;</span><span class="p">:</span> <span class="n">model</span><span class="o">.</span><span class="n">coefficients</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">52</span><span class="p">,</span>
-<span class="c1">#        &#39;Appraisal Ratio&#39;: np.sqrt(52) * model.coefficients[0] / model.stderr,</span>
+        <span class="s1">&#39;Average Gross Return&#39;</span><span class="p">:</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;ret&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
+        <span class="s1">&#39;Std Dev Returns&#39;</span><span class="p">:</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;ret&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">(),</span>
+        <span class="s1">&#39;Market Beta&#39;</span><span class="p">:</span> <span class="n">model</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+        <span class="s1">&#39;Jensen Alpha (annualized)&#39;</span><span class="p">:</span> <span class="n">model</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">52</span><span class="p">,</span>
+        <span class="s1">&#39;Appraisal Ratio&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">52</span><span class="p">)</span> <span class="o">*</span> <span class="n">model</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">model</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
         <span class="s1">&#39;Information Coefficient&#39;</span><span class="p">:</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;ic&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
         <span class="s1">&#39;Cross-sectional Vol&#39;</span><span class="p">:</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;vol&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
-        <span class="s1">&#39;Delay cost&#39;</span><span class="p">:</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;delay&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
-        <span class="s1">&#39;Turnover Fraction&#39;</span><span class="p">:</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;turnover&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
+        <span class="s1">&#39;Total Slippage Cost&#39;</span><span class="p">:</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;slippage&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
+        <span class="s1">&#39;Spread Cost&#39;</span><span class="p">:</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;spread&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
+        <span class="s1">&#39;Delay Cost&#39;</span><span class="p">:</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;delay&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
+        <span class="s1">&#39;  Exit Delay Cost&#39;</span><span class="p">:</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;exit1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
+        <span class="s1">&#39;  Enter Delay Cost&#39;</span><span class="p">:</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;enter1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
+        <span class="s1">&#39;Average Net Return&#39;</span><span class="p">:</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;net&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
+        <span class="s1">&#39;Portfolio Turnover&#39;</span><span class="p">:</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;turnover&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
         <span class="c1">#&#39;Abs Weight&#39;: res[&#39;absweight&#39;].mean(),</span>
-        <span class="s1">&#39;Num Stocks&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;n&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()),</span>
+        <span class="s1">&#39;Average Num Stocks&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;n&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()),</span>
     <span class="p">}</span>
-
-<span class="c1"># Display as formatted DataFrame</span>
-<span class="n">formats</span> <span class="o">=</span> <span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">([</span><span class="s1">&#39;start date&#39;</span> <span class="p">,</span><span class="s1">&#39;end date&#39;</span><span class="p">,</span> <span class="s1">&#39;Num Stocks&#39;</span><span class="p">],</span> <span class="s1">&#39;</span><span class="si">{:.0f}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="n">show</span><span class="p">(</span><span class="n">row_formatted</span><span class="p">(</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">out</span><span class="p">),</span> <span class="n">formats</span><span class="o">=</span><span class="n">formats</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">{:.4f}</span><span class="s1">&#39;</span><span class="p">),</span>
-     <span class="n">caption</span><span class="o">=</span><span class="s2">&quot;Subperiod Performance of Weekly Mean Reversion Strategy&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Display as formatted DataFrame</span>
+<span class="n">fmts</span> <span class="o">=</span> <span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">([</span><span class="s1">&#39;start date&#39;</span><span class="p">,</span> <span class="s1">&#39;end date&#39;</span><span class="p">,</span> <span class="s1">&#39;Average Num Stocks&#39;</span><span class="p">],</span> <span class="s1">&#39;</span><span class="si">{:.0f}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Subperiod Performance of Weekly Reversals&quot;</span><span class="p">)</span>
+<span class="n">row_formatted</span><span class="p">(</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">out</span><span class="p">),</span> <span class="n">formats</span><span class="o">=</span><span class="n">fmts</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">{:.4f}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(get_series many) SELECT date, permno, ret   FROM benchmarks  WHERE date &gt;= 19000000 AND date &lt;= 29001231     AND permno IN (&#39;Mkt-RF&#39;)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Subperiod Performance of Weekly Reversals
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -841,90 +999,121 @@ document.write(`
       <th>Pre-break Period</th>
       <th>Post-break Period</th>
     </tr>
-    <tr>
-      <th>Subperiod Performance of Weekly Mean Reversion Strategy</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
   </thead>
   <tbody>
     <tr>
       <th>start date</th>
       <td>19740109</td>
       <td>19740109</td>
-      <td>20010711</td>
+      <td>20010606</td>
     </tr>
     <tr>
       <th>end date</th>
-      <td>20221221</td>
-      <td>20010703</td>
-      <td>20221221</td>
+      <td>20231220</td>
+      <td>20010530</td>
+      <td>20231220</td>
     </tr>
     <tr>
       <th>Sharpe Ratio</th>
-      <td>2.2938</td>
-      <td>4.2094</td>
-      <td>0.8167</td>
+      <td>1.9195</td>
+      <td>3.6667</td>
+      <td>0.7078</td>
     </tr>
     <tr>
-      <th>Average Return</th>
-      <td>0.0024</td>
-      <td>0.0035</td>
+      <th>Average Gross Return</th>
+      <td>0.0021</td>
+      <td>0.0031</td>
       <td>0.0010</td>
     </tr>
     <tr>
-      <th>Std Dev Return</th>
-      <td>0.0077</td>
+      <th>Std Dev Returns</th>
+      <td>0.0080</td>
       <td>0.0061</td>
-      <td>0.0092</td>
+      <td>0.0097</td>
     </tr>
     <tr>
       <th>Market Beta</th>
-      <td>0.0928</td>
-      <td>0.0688</td>
-      <td>0.1181</td>
+      <td>0.0905</td>
+      <td>0.0686</td>
+      <td>0.1127</td>
     </tr>
     <tr>
       <th>Jensen Alpha (annualized)</th>
-      <td>0.1201</td>
-      <td>0.1792</td>
-      <td>0.0446</td>
+      <td>0.1041</td>
+      <td>0.1566</td>
+      <td>0.0405</td>
+    </tr>
+    <tr>
+      <th>Appraisal Ratio</th>
+      <td>1.8591</td>
+      <td>3.6606</td>
+      <td>0.6001</td>
     </tr>
     <tr>
       <th>Information Coefficient</th>
-      <td>0.0398</td>
-      <td>0.0601</td>
+      <td>0.0379</td>
+      <td>0.0578</td>
       <td>0.0138</td>
     </tr>
     <tr>
       <th>Cross-sectional Vol</th>
-      <td>0.0583</td>
-      <td>0.0588</td>
-      <td>0.0578</td>
+      <td>0.0535</td>
+      <td>0.0542</td>
+      <td>0.0526</td>
     </tr>
     <tr>
-      <th>Delay cost</th>
-      <td>0.0019</td>
-      <td>0.0033</td>
+      <th>Total Slippage Cost</th>
+      <td>0.0017</td>
+      <td>0.0028</td>
+      <td>0.0003</td>
+    </tr>
+    <tr>
+      <th>Spread Cost</th>
+      <td>0.0013</td>
+      <td>0.0023</td>
       <td>0.0002</td>
     </tr>
     <tr>
-      <th>Turnover Fraction</th>
-      <td>0.7370</td>
-      <td>0.7401</td>
-      <td>0.7331</td>
+      <th>Delay Cost</th>
+      <td>0.0004</td>
+      <td>0.0006</td>
+      <td>0.0002</td>
     </tr>
     <tr>
-      <th>Num Stocks</th>
-      <td>2552</td>
-      <td>2658</td>
-      <td>2416</td>
+      <th>Exit Delay Cost</th>
+      <td>-0.0003</td>
+      <td>-0.0004</td>
+      <td>-0.0001</td>
+    </tr>
+    <tr>
+      <th>Enter Delay Cost</th>
+      <td>0.0006</td>
+      <td>0.0010</td>
+      <td>0.0002</td>
+    </tr>
+    <tr>
+      <th>Average Net Return</th>
+      <td>0.0005</td>
+      <td>0.0003</td>
+      <td>0.0006</td>
+    </tr>
+    <tr>
+      <th>Portfolio Turnover</th>
+      <td>0.7362</td>
+      <td>0.7393</td>
+      <td>0.7325</td>
+    </tr>
+    <tr>
+      <th>Average Num Stocks</th>
+      <td>1936</td>
+      <td>1981</td>
+      <td>1882</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
+<p>The structural break test suggeted a statistically significant changepoint in mid-2001 in the time series of the strategy’s weekly returns. The performance of the strategy in the periods before and after that dates shows a noticeable decline in annualized Sharpe ratio and average weekly returns, as well as an increase in riskiness. This coincides approximately with the New York and American Stock Exchanges switching to decimalization on Jan 29, 2001, which has led to tighter spreads. Previously, markets in the US utilized fractions in price quotes, where one-sixteenth (1/16) of one dollar ws the smallest price movement that could be presented in a price quote.</p>
 </section>
 </section>
 
@@ -953,11 +1142,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="fama_macbeth.html"
@@ -977,10 +1165,7 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -989,15 +1174,18 @@ document.write(`
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-shortfall">Implementation Shortfall</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#information-coefficient">Information coefficient</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-reversion">Mean reversion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-shortfall">Implementation shortfall</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structural-break-with-unknown-changepoint">Structural break with unknown changepoint</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#information-coefficient">Information coefficient</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-evaluation">Performance evaluation</a></li>
 </ul>
   </nav></div>
 
@@ -1019,9 +1207,10 @@ By Terence Lim
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -1045,8 +1234,8 @@ By Terence Lim
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -1,0 +1,1265 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>LLM Finetuning &#8212; Financial Data Science Python Notebooks</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'finetune_llm';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="LLM RAG, Chatbots and Agents" href="rag_agent.html" />
+    <link rel="prev" title="LLM Text Summarization" href="summarization_llm.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="README.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Financial Data Science Python Notebooks</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="README.html">
+                    FINANCIAL DATA SCIENCE
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="stock_prices.html">Stock Prices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jegadeesh_titman.html">Jegadeesh-Titman Rolling Portfolios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fama_french.html">Fama-French Portfolio Sorts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fama_macbeth.html">Fama-Macbeth Cross-sectional Regressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weekly_reversal.html">Contrarian Trading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quant_factors.html">Quant Factors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event_study.html">Event Study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="economic_releases.html">Economic Data Revisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regression_diagnostics.html">Linear Regression Diagonostics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="econometric_forecast.html">Econometric Forecasts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="approximate_factors.html">Approximate Factor Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="economic_states.html">State Space Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="term_structure.html">Term Structure of Interest Rates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bond_returns.html">Bond Returns and Risks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional_volatility.html">Conditional Volatility and VaR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="covariance_matrix.html">Covariance Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="options_pricing.html">Options Pricing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="market_microstructure.html">Market Microstructure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event_risk.html">Event Risk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="customer_ego.html">Principal Customers Graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="industry_community.html">Community Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bea_centrality.html">Graph Centrality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="link_prediction.html">Link Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spatial_regression.html">Spatial Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fomc_topics.html">FOMC Topic Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management_sentiment.html">Management Sentiment Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="business_description.html">Business Text Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classification_models.html">Classification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regression_models.html">Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deep_classifier.html">Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recurrent_net.html">Recurrent Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="convolutional_net.html">Convolutional Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reinforcement_learning.html">Reinforcement Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fomc_language.html">FedSpeak Language Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sentiment_llm.html">LLM Prompting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="summarization_llm.html">LLM Text Summarization</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">LLM Finetuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rag_agent.html">LLM RAG, Chatbots and Agents</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/terence-lim/data-science-notebooks.git" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/terence-lim/data-science-notebooks.git/issues/new?title=Issue%20on%20page%20%2Ffinetune_llm.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/finetune_llm.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>LLM Finetuning</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unsloth-apis">Unsloth APIs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#low-rank-adaptation">Low-rank adaptation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#huggingface-datasets">HuggingFace datasets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supervised-fine-tuning">Supervised fine-tuning</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="llm-finetuning">
+<h1>LLM Finetuning<a class="headerlink" href="#llm-finetuning" title="Permalink to this heading">#</a></h1>
+<p>Concepts:</p>
+<ul class="simple">
+<li><p>Industry Classification</p></li>
+<li><p>Unsloth APIs</p></li>
+<li><p>Performance Efficient Fine-tuning</p></li>
+<li><p>Supervised Fine-tuning</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">Series</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">from</span> <span class="nn">unsloth</span> <span class="kn">import</span> <span class="n">FastLanguageModel</span><span class="p">,</span> <span class="n">is_bfloat16_supported</span>
+<span class="kn">from</span> <span class="nn">datasets</span> <span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">from</span> <span class="nn">trl</span> <span class="kn">import</span> <span class="n">SFTTrainer</span>
+<span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">TrainingArguments</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">from</span> <span class="nn">finds.database</span> <span class="kn">import</span> <span class="n">SQL</span><span class="p">,</span> <span class="n">RedisDB</span>
+<span class="kn">from</span> <span class="nn">finds.unstructured</span> <span class="kn">import</span> <span class="n">Edgar</span>
+<span class="kn">from</span> <span class="nn">finds.structured</span> <span class="kn">import</span> <span class="n">BusDay</span><span class="p">,</span> <span class="n">CRSP</span><span class="p">,</span> <span class="n">PSTAT</span>
+<span class="kn">from</span> <span class="nn">finds.readers</span> <span class="kn">import</span> <span class="n">Sectoring</span>
+<span class="kn">from</span> <span class="nn">finds.utils</span> <span class="kn">import</span> <span class="n">Store</span>
+<span class="kn">from</span> <span class="nn">secret</span> <span class="kn">import</span> <span class="n">credentials</span><span class="p">,</span> <span class="n">paths</span>
+<span class="c1"># %matplotlib qt</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/terence/env3.11/lib/python3.11/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from .autonotebook import tqdm as notebook_tqdm
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">VERBOSE</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">sql</span> <span class="o">=</span> <span class="n">SQL</span><span class="p">(</span><span class="o">**</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;sql&#39;</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
+<span class="n">bd</span> <span class="o">=</span> <span class="n">BusDay</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+<span class="n">rdb</span> <span class="o">=</span> <span class="n">RedisDB</span><span class="p">(</span><span class="o">**</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;redis&#39;</span><span class="p">])</span>
+<span class="n">crsp</span> <span class="o">=</span> <span class="n">CRSP</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">bd</span><span class="p">,</span> <span class="n">rdb</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
+<span class="n">pstat</span> <span class="o">=</span> <span class="n">PSTAT</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">bd</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
+<span class="n">ed</span> <span class="o">=</span> <span class="n">Edgar</span><span class="p">(</span><span class="n">paths</span><span class="p">[</span><span class="s1">&#39;10X&#39;</span><span class="p">],</span> <span class="n">zipped</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">store</span> <span class="o">=</span> <span class="n">Store</span><span class="p">(</span><span class="n">paths</span><span class="p">[</span><span class="s1">&#39;scratch&#39;</span><span class="p">],</span> <span class="n">ext</span><span class="o">=</span><span class="s1">&#39;pkl&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Last FamaFrench Date 2024-04-30 00:00:00
+</pre></div>
+</div>
+</div>
+</div>
+<p>Load 10-K business description text for industry classification task</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Retrieve universe of stocks</span>
+<span class="n">univ</span> <span class="o">=</span> <span class="n">crsp</span><span class="o">.</span><span class="n">get_universe</span><span class="p">(</span><span class="n">bd</span><span class="o">.</span><span class="n">endmo</span><span class="p">(</span><span class="mi">20221231</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># lookup company names</span>
+<span class="n">comnam</span> <span class="o">=</span> <span class="n">crsp</span><span class="o">.</span><span class="n">build_lookup</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s1">&#39;permno&#39;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;comnam&#39;</span><span class="p">,</span> <span class="n">fillna</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="n">univ</span><span class="p">[</span><span class="s1">&#39;comnam&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">comnam</span><span class="p">(</span><span class="n">univ</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># lookup ticker symbols</span>
+<span class="n">ticker</span> <span class="o">=</span> <span class="n">crsp</span><span class="o">.</span><span class="n">build_lookup</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s1">&#39;permno&#39;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;ticker&#39;</span><span class="p">,</span> <span class="n">fillna</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="n">univ</span><span class="p">[</span><span class="s1">&#39;ticker&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ticker</span><span class="p">(</span><span class="n">univ</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># lookup sic codes from Compustat, and map to FF 10-sector code</span>
+<span class="n">sic</span> <span class="o">=</span> <span class="n">pstat</span><span class="o">.</span><span class="n">build_lookup</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s1">&#39;lpermno&#39;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;sic&#39;</span><span class="p">,</span> <span class="n">fillna</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">industry</span> <span class="o">=</span> <span class="n">Series</span><span class="p">(</span><span class="n">sic</span><span class="p">[</span><span class="n">univ</span><span class="o">.</span><span class="n">index</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">univ</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">industry</span> <span class="o">=</span> <span class="n">industry</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">industry</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">univ</span><span class="p">[</span><span class="s1">&#39;siccd&#39;</span><span class="p">])</span>
+<span class="n">sectors</span> <span class="o">=</span> <span class="n">Sectoring</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">scheme</span><span class="o">=</span><span class="s1">&#39;codes10&#39;</span><span class="p">,</span> <span class="n">fillna</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>   <span class="c1"># supplement from crosswalk</span>
+<span class="n">univ</span><span class="p">[</span><span class="s1">&#39;sector&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sectors</span><span class="p">[</span><span class="n">industry</span><span class="p">]</span>
+<span class="c1">#fullnames = Series({&#39;Durbl&#39;: &quot;Durable&quot;, &#39;Enrgy&#39;: &quot;Energy&quot;,</span>
+<span class="c1">#                    &#39;HiTec&#39;: &quot;Technology&quot;, &#39;Hlth&#39;: &quot;Healthcare&quot;,</span>
+<span class="c1">#                    &#39;Manuf&#39;: &quot;Manufacturing&quot;, &#39;NoDur&#39;: &quot;Nondurable&quot;,</span>
+<span class="c1">#                    &#39;Other&#39;: &quot;Other&quot;, &#39;Shops&#39;: &quot;Retail&quot;,</span>
+<span class="c1">#                    &#39;Telcm&#39;: &quot;Telecommunications&quot;, &#39;Utils&#39;: &quot;Utilities&quot;})</span>
+<span class="c1">#univ[&#39;sector&#39;] = fullnames[sectors[industry]].values</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># same permnos from other earlier experiments</span>
+<span class="n">permnos</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">store</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;nouns&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># retrieve 2023 bus10K&#39;s</span>
+<span class="n">item</span><span class="p">,</span> <span class="n">form</span> <span class="o">=</span> <span class="s1">&#39;bus10K&#39;</span><span class="p">,</span> <span class="s1">&#39;10-K&#39;</span>
+<span class="n">rows</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">ed</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">form</span><span class="o">=</span><span class="n">form</span><span class="p">,</span> <span class="n">item</span><span class="o">=</span><span class="n">item</span><span class="p">))</span>
+<span class="n">found</span> <span class="o">=</span> <span class="n">rows</span><span class="p">[</span><span class="n">rows</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="mi">20230101</span><span class="p">,</span> <span class="mi">20231231</span><span class="p">)]</span>\
+             <span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;permno&#39;</span><span class="p">],</span> <span class="n">keep</span><span class="o">=</span><span class="s1">&#39;last&#39;</span><span class="p">)</span>\
+             <span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;permno&#39;</span><span class="p">)</span>\
+             <span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">permnos</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># split documents into train/test sets</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">univ</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">permnos</span><span class="p">,</span> <span class="s1">&#39;sector&#39;</span><span class="p">]</span>
+<span class="n">train_index</span><span class="p">,</span> <span class="n">test_index</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">permnos</span><span class="p">,</span>
+                                           <span class="n">stratify</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span>
+                                           <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span>
+                                           <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">Series</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+    </tr>
+    <tr>
+      <th>sector</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Hlth</th>
+      <td>881</td>
+    </tr>
+    <tr>
+      <th>Other</th>
+      <td>762</td>
+    </tr>
+    <tr>
+      <th>HiTec</th>
+      <td>706</td>
+    </tr>
+    <tr>
+      <th>Manuf</th>
+      <td>344</td>
+    </tr>
+    <tr>
+      <th>Shops</th>
+      <td>321</td>
+    </tr>
+    <tr>
+      <th>Durbl</th>
+      <td>164</td>
+    </tr>
+    <tr>
+      <th>NoDur</th>
+      <td>145</td>
+    </tr>
+    <tr>
+      <th>Enrgy</th>
+      <td>94</td>
+    </tr>
+    <tr>
+      <th>Utils</th>
+      <td>92</td>
+    </tr>
+    <tr>
+      <th>Telcm</th>
+      <td>50</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># helper to decode class label in text</span>
+<span class="n">class_labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">decode_label</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Extract label from output string text&quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">lab</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">class_labels</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span> <span class="c1"># longest strings first  </span>
+        <span class="k">if</span> <span class="n">lab</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+            <span class="k">return</span> <span class="n">lab</span>
+    <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">train_index</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_index</span><span class="p">),</span> <span class="n">class_labels</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3559 2847 712 [&#39;Durbl&#39; &#39;Enrgy&#39; &#39;HiTec&#39; &#39;Hlth&#39; &#39;Manuf&#39; &#39;NoDur&#39; &#39;Other&#39; &#39;Shops&#39; &#39;Telcm&#39;
+ &#39;Utils&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<section id="unsloth-apis">
+<h2>Unsloth APIs<a class="headerlink" href="#unsloth-apis" title="Permalink to this heading">#</a></h2>
+<p>Unsloth’s library uses several advanced techniques to make training large language models (LLMs) much faster and more efficient, for example, by optimizing matrix multiplications, which are a key part of LLM training, by chaining them together efficiently.</p>
+<p>Installing unsloth:</p>
+<p><code class="docutils literal notranslate"><span class="pre">!pip</span> <span class="pre">install</span> <span class="pre">&quot;unsloth[colab-new]</span> <span class="pre">&#64;</span> <span class="pre">git+https://github.com/unslothai/unsloth.git&quot;</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">major_version,</span> <span class="pre">minor_version</span> <span class="pre">=</span> <span class="pre">torch.cuda.get_device_capability()</span></code> - must install separately since torch 2.2.1 breaks packages</p>
+<ul>
+<li><p>if major_version &gt;= 8 (new GPUs like Ampere, Hopper GPUs (RTX 30xx, RTX 40xx, A100, H100, L40))</p>
+<p><code class="docutils literal notranslate"><span class="pre">!pip</span> <span class="pre">install</span> <span class="pre">--no-deps</span> <span class="pre">packaging</span> <span class="pre">ninja</span> <span class="pre">einops</span> <span class="pre">flash-attn</span> <span class="pre">xformers</span> <span class="pre">trl</span> <span class="pre">peft</span> <span class="pre">accelerate</span> <span class="pre">bitsandbytes</span></code></p>
+</li>
+<li><p>else: older GPUs (V100, Tesla T4, RTX 20xx)</p>
+<p><code class="docutils literal notranslate"><span class="pre">!pip</span> <span class="pre">install</span> <span class="pre">--no-deps</span> <span class="pre">xformers</span> <span class="pre">trl</span> <span class="pre">peft</span> <span class="pre">accelerate</span> <span class="pre">bitsandbytes</span></code></p>
+</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">WARNING</span><span class="p">[</span><span class="n">XFORMERS</span><span class="p">]:</span> <span class="n">xFormers</span> <span class="n">can</span><span class="s1">&#39;t load C++/CUDA extensions. xFormers was built for:</span>
+<span class="n">PyTorch</span> <span class="mf">2.3.0</span><span class="o">+</span><span class="n">cu121</span> <span class="k">with</span> <span class="n">CUDA</span> <span class="mi">1201</span> <span class="p">(</span><span class="n">you</span> <span class="n">have</span> <span class="mf">2.2.1</span><span class="o">+</span><span class="n">cu121</span><span class="p">)</span>
+<span class="n">Python</span>  <span class="mf">3.11.9</span> <span class="p">(</span><span class="n">you</span> <span class="n">have</span> <span class="mf">3.11.9</span><span class="p">)</span>
+<span class="n">Please</span> <span class="n">reinstall</span> <span class="n">xformers</span> <span class="p">(</span><span class="n">see</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">facebookresearch</span><span class="o">/</span><span class="n">xformers</span><span class="c1">#installing-xformers)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>install the corresponding xformers (<a class="reference external" href="https://anaconda.org/xformers/xformers/files">https://anaconda.org/xformers/xformers/files</a>)</p></li>
+</ul>
+<div class="highlight-!pip3 notranslate"><div class="highlight"><pre><span></span>   !pip install xformers==0.0.25  # for torch 2.2.1+cu121
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">NEW_MODEL</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">model_id</span> <span class="o">=</span><span class="s2">&quot;unsloth/llama-3-8b-bnb-4bit&quot;</span>
+<span class="n">savedir</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">paths</span><span class="p">[</span><span class="s1">&#39;scratch&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="s1">&#39;finetuned_model&#39;</span><span class="p">)</span>
+<span class="n">output_dir</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">paths</span><span class="p">[</span><span class="s1">&#39;scratch&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="s2">&quot;outputs&quot;</span><span class="p">)</span>
+<span class="n">max_seq_length</span> <span class="o">=</span> <span class="mi">8192</span>
+<span class="n">dtype</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># None for auto. Float16 for Tesla T4, V100, Bfloat16 for Ampere+</span>
+<span class="n">load_in_4bit</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1"># Use 4bit quantization to reduce memory usage. Can be False.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 4bit pre quantized models from unsloth for 4x faster downloading + no OOMs</span>
+<span class="n">model</span><span class="p">,</span> <span class="n">tokenizer</span> <span class="o">=</span> <span class="n">FastLanguageModel</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span>
+    <span class="n">model_name</span> <span class="o">=</span> <span class="n">model_id</span> <span class="k">if</span> <span class="n">NEW_MODEL</span> <span class="k">else</span> <span class="n">savedir</span><span class="p">,</span>
+    <span class="n">max_seq_length</span> <span class="o">=</span> <span class="n">max_seq_length</span><span class="p">,</span>
+    <span class="n">dtype</span> <span class="o">=</span> <span class="n">dtype</span><span class="p">,</span>
+    <span class="n">load_in_4bit</span> <span class="o">=</span> <span class="n">load_in_4bit</span><span class="p">,</span>
+    <span class="c1"># token = &quot;hf_...&quot;, # if using gated models like meta-llama/Meta-Llama-3-8B</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>==((====))==  Unsloth: Fast Llama patching release 2024.5
+   \\   /|    GPU: NVIDIA GeForce RTX 3080 Laptop GPU. Max memory: 15.739 GB. Platform = Linux.
+O^O/ \_/ \    Pytorch: 2.2.1+cu121. CUDA = 8.6. CUDA Toolkit = 12.1.
+\        /    Bfloat16 = TRUE. Xformers = 0.0.25. FA = True.
+ &quot;-____-&quot;     Free Apache license: http://github.com/unslothai/unsloth
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="low-rank-adaptation">
+<h2>Low-rank adaptation<a class="headerlink" href="#low-rank-adaptation" title="Permalink to this heading">#</a></h2>
+<p>Parameter-efficient fine-tuning (PEFT) methods significantly decrease the computational and storage costs for large language models by only fine-tuning a small number of (extra) model parameters instead of all the model’s parameters. Low-rank adaptation (LoRA) reduces the number of trainable parameters by learning pairs of rank-decompostion matrices while freezing the original weights.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">unsloth</span></code> library replaces HuggingFace’s <code class="docutils literal notranslate"><span class="pre">peft</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">peft</span> <span class="kn">import</span> <span class="n">AutoPeftModelForCausalLM</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">AutoPeftModelForCausalLM</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span>
+    <span class="n">savedir</span><span class="p">,</span> <span class="c1"># YOUR MODEL YOU USED FOR TRAINING</span>
+    <span class="n">load_in_4bit</span> <span class="o">=</span> <span class="n">load_in_4bit</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">peft</span> <span class="kn">import</span> <span class="n">LoraConfig</span><span class="p">,</span> <span class="n">get_peft_model</span>
+<span class="n">config</span> <span class="o">=</span> <span class="n">LoraConfig</span><span class="p">(</span>
+    <span class="n">r</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+    <span class="n">lora_alpha</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+    <span class="n">target_modules</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;query&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">],</span>
+    <span class="n">lora_dropout</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+    <span class="n">bias</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span>
+    <span class="n">modules_to_save</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;classifier&quot;</span><span class="p">],</span>
+<span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">get_peft_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add LoRA adapters so we only need to update less than 10% of all parameters</span>
+<span class="k">if</span> <span class="n">NEW_MODEL</span><span class="p">:</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">FastLanguageModel</span><span class="o">.</span><span class="n">get_peft_model</span><span class="p">(</span>
+        <span class="n">model</span><span class="p">,</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="mi">16</span><span class="p">,</span> <span class="c1"># Choose any number &gt; 0 ! Suggested 8, 16, 32, 64, 128</span>
+        <span class="n">target_modules</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;q_proj&quot;</span><span class="p">,</span> <span class="s2">&quot;k_proj&quot;</span><span class="p">,</span> <span class="s2">&quot;v_proj&quot;</span><span class="p">,</span> <span class="s2">&quot;o_proj&quot;</span><span class="p">,</span>
+                          <span class="s2">&quot;gate_proj&quot;</span><span class="p">,</span> <span class="s2">&quot;up_proj&quot;</span><span class="p">,</span> <span class="s2">&quot;down_proj&quot;</span><span class="p">,],</span>
+        <span class="n">lora_alpha</span> <span class="o">=</span> <span class="mi">16</span><span class="p">,</span>
+        <span class="n">lora_dropout</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="c1"># Supports any, but = 0 is optimized</span>
+        <span class="n">bias</span> <span class="o">=</span> <span class="s2">&quot;none&quot;</span><span class="p">,</span>    <span class="c1"># Supports any, but = &quot;none&quot; is optimized</span>
+        <span class="n">use_gradient_checkpointing</span> <span class="o">=</span> <span class="s2">&quot;unsloth&quot;</span><span class="p">,</span> <span class="c1"># True or &quot;unsloth&quot; for long context</span>
+        <span class="n">random_state</span> <span class="o">=</span> <span class="mi">3407</span><span class="p">,</span>
+        <span class="n">use_rslora</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>  <span class="c1"># supports rank stabilized LoRA</span>
+        <span class="n">loftq_config</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="c1"># supports LoftQ</span>
+    <span class="p">)</span>
+
+<span class="c1"># [NOTE] To train only on completions (ignoring the user&#39;s input) read TRL&#39;s docs [here](https://huggingface.co/docs/trl/sft_trainer#train-on-completions-only).</span>
+<span class="c1"># [NOTE] Remember to add the **EOS_TOKEN** to the tokenized output!! Otherwise you&#39;ll get infinite generations!</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Unsloth 2024.5 patched 32 layers with 32 QKV layers, 32 O layers and 32 MLP layers.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="huggingface-datasets">
+<h2>HuggingFace datasets<a class="headerlink" href="#huggingface-datasets" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">EOS_TOKEN</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">eos_token</span>   <span class="c1"># Must add EOS_TOKEN</span>
+<span class="k">def</span> <span class="nf">generate_prompt</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">Below is an instruction that describes a task. </span>
+<span class="s2">Write a response that appropriately completes the request.</span>
+
+<span class="s2">### Instruction:</span>
+<span class="s2">The text of a business description can be classified in industry categories like below.</span>
+
+<span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;&quot; or &quot;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">class_labels</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;.</span>
+
+<span class="s2">In one word, please respond with the industry classification category </span>
+<span class="s2">of the following text delimited in triple quotes.</span>
+
+<span class="s2">&#39;&#39;&#39;</span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="s2">&#39;&#39;&#39;</span>
+
+<span class="s2">### Response: </span>
+<span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2"> &quot;&quot;&quot;</span> <span class="o">+</span> <span class="n">EOS_TOKEN</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">MAX_CHARS</span> <span class="o">=</span> <span class="mi">4096</span>
+<span class="k">def</span> <span class="nf">data_generator</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">permno</span> <span class="ow">in</span> <span class="n">train_index</span><span class="p">:</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">ed</span><span class="p">[</span><span class="n">found</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">permno</span><span class="p">,</span> <span class="s1">&#39;pathname&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()[:</span><span class="n">MAX_CHARS</span><span class="p">]</span>
+        <span class="k">yield</span> <span class="p">{</span><span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="n">generate_prompt</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">univ</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">permno</span><span class="p">,</span> <span class="s1">&#39;sector&#39;</span><span class="p">])}</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">Dataset</span><span class="o">.</span><span class="n">from_generator</span><span class="p">(</span><span class="n">data_generator</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="supervised-fine-tuning">
+<h2>Supervised fine-tuning<a class="headerlink" href="#supervised-fine-tuning" title="Permalink to this heading">#</a></h2>
+<p>Supervised Fine-Tuning adapts a pre-trained model to a specific task, by training the model on a new labeled dataset to predict the correct label for each input.</p>
+<p>The TRL library provides the SFTTrainer class, which is designed to facilitate the SFT process. This class accepts a column in your training dataset that contains the prompt constructed from system instructions, questions, and answers.</p>
+<p><a class="reference external" href="https://huggingface.co/docs/trl/sft_trainer">https://huggingface.co/docs/trl/sft_trainer</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">MAX_EPOCHS</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="n">trainer</span> <span class="o">=</span> <span class="n">SFTTrainer</span><span class="p">(</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">model</span><span class="p">,</span>
+    <span class="n">tokenizer</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="p">,</span>
+    <span class="n">train_dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">,</span>
+    <span class="n">dataset_text_field</span> <span class="o">=</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span>
+    <span class="n">max_seq_length</span> <span class="o">=</span> <span class="n">max_seq_length</span><span class="p">,</span>
+    <span class="n">dataset_num_proc</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="n">packing</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="c1"># Can make training 5x faster for short sequences.</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">TrainingArguments</span><span class="p">(</span>
+        <span class="n">per_device_train_batch_size</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>  <span class="c1"># 2,</span>
+        <span class="n">gradient_accumulation_steps</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
+        <span class="n">warmup_steps</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="n">max_steps</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="c1"># 60, -1</span>
+        <span class="n">num_train_epochs</span> <span class="o">=</span> <span class="n">MAX_EPOCHS</span><span class="p">,</span>  <span class="c1"># default 3</span>
+        <span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">2e-4</span><span class="p">,</span>
+        <span class="n">fp16</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">is_bfloat16_supported</span><span class="p">(),</span>
+        <span class="n">bf16</span> <span class="o">=</span> <span class="n">is_bfloat16_supported</span><span class="p">(),</span>
+        <span class="n">logging_strategy</span> <span class="o">=</span> <span class="s2">&quot;steps&quot;</span> <span class="k">if</span> <span class="n">VERBOSE</span> <span class="k">else</span> <span class="s2">&quot;no&quot;</span><span class="p">,</span>  <span class="c1"># &quot;epoch&quot;, &quot;no&quot;, &quot;steps&quot;</span>
+        <span class="n">logging_steps</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>  <span class="c1"># defaults to 500 if logging_strategy=&quot;steps&quot;</span>
+        <span class="n">optim</span> <span class="o">=</span> <span class="s2">&quot;adamw_8bit&quot;</span><span class="p">,</span>
+        <span class="n">weight_decay</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">,</span>
+        <span class="n">lr_scheduler_type</span> <span class="o">=</span> <span class="s2">&quot;linear&quot;</span><span class="p">,</span>
+        <span class="n">seed</span> <span class="o">=</span> <span class="mi">3407</span><span class="p">,</span>
+        <span class="n">save_strategy</span><span class="o">=</span><span class="s2">&quot;epoch&quot;</span><span class="p">,</span>      <span class="c1"># Save the model checkpoint every epoch</span>
+        <span class="n">output_dir</span> <span class="o">=</span> <span class="n">output_dir</span><span class="p">,</span>
+    <span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Map (num_proc=2): 100%|██████████| 2847/2847 [00:02&lt;00:00, 1058.27 examples/s]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show current memory stats</span>
+<span class="n">gpu_stats</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">get_device_properties</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">start_gpu_memory</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">max_memory_reserved</span><span class="p">()</span> <span class="o">/</span> <span class="mi">1024</span> <span class="o">/</span> <span class="mi">1024</span> <span class="o">/</span> <span class="mi">1024</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">max_memory</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">gpu_stats</span><span class="o">.</span><span class="n">total_memory</span> <span class="o">/</span> <span class="mi">1024</span> <span class="o">/</span> <span class="mi">1024</span> <span class="o">/</span> <span class="mi">1024</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;GPU = </span><span class="si">{</span><span class="n">gpu_stats</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">. Max memory = </span><span class="si">{</span><span class="n">max_memory</span><span class="si">}</span><span class="s2"> GB.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">start_gpu_memory</span><span class="si">}</span><span class="s2"> GB of memory reserved.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GPU = NVIDIA GeForce RTX 3080 Laptop GPU. Max memory = 15.739 GB.
+5.594 GB of memory reserved.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Helpers to generate input tokens and response</span>
+<span class="k">def</span> <span class="nf">generate_inputs</span><span class="p">(</span><span class="n">permno</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Transform text corresponding to permno into tokenized input&quot;&quot;&quot;</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">ed</span><span class="p">[</span><span class="n">found</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">permno</span><span class="p">,</span> <span class="s1">&#39;pathname&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()[:</span><span class="n">MAX_CHARS</span><span class="p">]</span>
+    <span class="n">inputs</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="p">([</span><span class="n">generate_prompt</span><span class="p">(</span><span class="n">text</span><span class="p">)],</span> <span class="n">return_tensors</span><span class="o">=</span><span class="s2">&quot;pt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">inputs</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generate_output</span><span class="p">(</span><span class="n">inputs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Generate response given tokenized input, and return decoded output text&quot;&quot;&quot;</span>
+    <span class="n">terminators</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">tokenizer</span><span class="o">.</span><span class="n">eos_token_id</span><span class="p">,</span>
+        <span class="n">tokenizer</span><span class="o">.</span><span class="n">convert_tokens_to_ids</span><span class="p">(</span><span class="s2">&quot;&lt;|eot_id|&gt;&quot;</span><span class="p">)</span>
+    <span class="p">]</span>
+    <span class="n">outputs</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span>
+        <span class="o">**</span><span class="n">inputs</span><span class="p">,</span>
+        <span class="n">max_new_tokens</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+        <span class="n">eos_token_id</span><span class="o">=</span><span class="n">terminators</span><span class="p">,</span>
+        <span class="n">pad_token_id</span><span class="o">=</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">eos_token_id</span><span class="p">,</span>
+        <span class="c1">#do_sample=True,</span>
+        <span class="c1">#temperature=0.01, #0.6,</span>
+        <span class="c1">#top_p=0.9,</span>
+        <span class="n">do_sample</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">use_cache</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">outputs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="nb">len</span><span class="p">(</span><span class="n">inputs</span><span class="p">[</span><span class="mi">0</span><span class="p">]):]</span>
+    <span class="k">return</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">skip_special_tokens</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">evaluate_output</span><span class="p">(</span><span class="n">permnos</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return predicted and true labels&quot;&quot;&quot;</span>
+    <span class="n">y_pred</span><span class="p">,</span> <span class="n">y_true</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">permno</span> <span class="ow">in</span> <span class="n">permnos</span><span class="p">:</span>
+        <span class="n">inputs</span> <span class="o">=</span> <span class="n">generate_inputs</span><span class="p">(</span><span class="n">permno</span><span class="p">)</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">generate_output</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">)</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="n">decode_label</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+        <span class="n">gold</span> <span class="o">=</span> <span class="n">univ</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">permno</span><span class="p">,</span> <span class="s1">&#39;sector&#39;</span><span class="p">]</span>
+        <span class="n">y_pred</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+        <span class="n">y_true</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gold</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">permno</span><span class="p">,</span> <span class="n">gold</span><span class="p">,</span> <span class="s1">&#39;  [&#39;</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="s1">&#39;]   &#39;</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">y_true</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Evaluate before fine-tuning</span>
+<span class="k">if</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">FastLanguageModel</span><span class="o">.</span><span class="n">for_inference</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>   <span class="c1"># Enable native 2x faster inference</span>
+    <span class="n">y_pred</span><span class="p">,</span> <span class="n">y_true</span> <span class="o">=</span> <span class="n">evaluate_output</span><span class="p">(</span><span class="n">test_index</span><span class="p">)</span>
+
+    <span class="c1"># generate classification report</span>
+    <span class="n">report</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_true</span><span class="o">=</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="o">=</span><span class="n">y_pred</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Classification Report (Test Set) before fine-tuning:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">report</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Classification Report (Test Set) before fine-tuning:
+              precision    recall  f1-score   support
+
+                   0.00      0.00      0.00         0
+       Durbl       0.00      0.00      0.00        33
+       Enrgy       0.00      0.00      0.00        19
+       HiTec       0.00      0.00      0.00       141
+        Hlth       0.50      0.01      0.01       176
+       Manuf       0.12      0.06      0.08        69
+       NoDur       0.01      0.03      0.02        29
+       Other       0.00      0.00      0.00       153
+       Shops       0.00      0.00      0.00        64
+       Telcm       0.00      0.00      0.00        10
+       Utils       0.00      0.00      0.00        18
+
+    accuracy                           0.01       712
+   macro avg       0.06      0.01      0.01       712
+weighted avg       0.14      0.01      0.01       712
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/terence/env3.11/lib/python3.11/site-packages/sklearn/metrics/_classification.py:1509: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, len(result))
+/home/terence/env3.11/lib/python3.11/site-packages/sklearn/metrics/_classification.py:1509: UndefinedMetricWarning: Recall is ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, len(result))
+/home/terence/env3.11/lib/python3.11/site-packages/sklearn/metrics/_classification.py:1509: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, len(result))
+/home/terence/env3.11/lib/python3.11/site-packages/sklearn/metrics/_classification.py:1509: UndefinedMetricWarning: Recall is ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, len(result))
+/home/terence/env3.11/lib/python3.11/site-packages/sklearn/metrics/_classification.py:1509: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, len(result))
+/home/terence/env3.11/lib/python3.11/site-packages/sklearn/metrics/_classification.py:1509: UndefinedMetricWarning: Recall is ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, len(result))
+</pre></div>
+</div>
+</div>
+</div>
+<p>Train the model</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Training loop</span>
+<span class="n">trainer_stats</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>==((====))==  Unsloth - 2x faster free finetuning | Num GPUs = 1
+   \\   /|    Num examples = 2,847 | Num Epochs = 16
+O^O/ \_/ \    Batch size per device = 2 | Gradient Accumulation steps = 4
+\        /    Total batch size = 8 | Total steps = 5,696
+ &quot;-____-&quot;     Number of trainable parameters = 41,943,040
+100%|██████████| 5696/5696 [20:39:52&lt;00:00, 13.06s/it]   
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;train_runtime&#39;: 74392.7458, &#39;train_samples_per_second&#39;: 0.612, &#39;train_steps_per_second&#39;: 0.077, &#39;train_loss&#39;: 0.494993617025654, &#39;epoch&#39;: 16.0}
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show final memory and time stats</span>
+<span class="n">used_memory</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">max_memory_reserved</span><span class="p">()</span> <span class="o">/</span> <span class="mi">1024</span> <span class="o">/</span> <span class="mi">1024</span> <span class="o">/</span> <span class="mi">1024</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">used_memory_for_lora</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">used_memory</span> <span class="o">-</span> <span class="n">start_gpu_memory</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">used_percentage</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">used_memory</span>         <span class="o">/</span><span class="n">max_memory</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">lora_percentage</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">used_memory_for_lora</span><span class="o">/</span><span class="n">max_memory</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">trainer_stats</span><span class="o">.</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;train_runtime&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> seconds used for training.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Peak reserved memory = </span><span class="si">{</span><span class="n">used_memory</span><span class="si">}</span><span class="s2"> GB.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Peak reserved memory for training = </span><span class="si">{</span><span class="n">used_memory_for_lora</span><span class="si">}</span><span class="s2"> GB.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Peak reserved memory % of max memory = </span><span class="si">{</span><span class="n">used_percentage</span><span class="si">}</span><span class="s2"> %.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Peak reserved memory for training % of max memory = </span><span class="si">{</span><span class="n">lora_percentage</span><span class="si">}</span><span class="s2"> %.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>74392.7458 seconds used for training.
+Peak reserved memory = 9.1 GB.
+Peak reserved memory for training = 3.35 GB.
+Peak reserved memory % of max memory = 57.818 %.
+Peak reserved memory for training % of max memory = 21.285 %.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save fine-tuned model</span>
+<span class="c1"># **[NOTE]** This ONLY saves the LoRA adapters, and not the full model.</span>
+<span class="k">if</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">save_pretrained</span><span class="p">(</span><span class="n">savedir</span><span class="p">)</span> <span class="c1"># Local saving</span>
+    <span class="n">tokenizer</span><span class="o">.</span><span class="n">save_pretrained</span><span class="p">(</span><span class="n">savedir</span><span class="p">)</span>
+<span class="c1"># model.push_to_hub(&quot;your_name/lora_model&quot;, token = &quot;...&quot;) # Online saving</span>
+<span class="c1"># tokenizer.push_to_hub(&quot;your_name/lora_model&quot;, token = &quot;...&quot;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run inference on train split</span>
+<span class="k">if</span> <span class="kc">False</span><span class="p">:</span>
+    <span class="n">FastLanguageModel</span><span class="o">.</span><span class="n">for_inference</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>   <span class="c1"># Enable native 2x faster inference</span>
+    <span class="n">y_pred</span><span class="p">,</span> <span class="n">y_true</span> <span class="o">=</span> <span class="n">evaluate_output</span><span class="p">(</span><span class="n">train_index</span><span class="p">)</span>
+
+    <span class="c1"># generate classification report</span>
+    <span class="n">report</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_true</span><span class="o">=</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="o">=</span><span class="n">y_pred</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Classification Report (Training set):&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">report</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run inference on test split</span>
+<span class="k">if</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">FastLanguageModel</span><span class="o">.</span><span class="n">for_inference</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>   <span class="c1"># Enable native 2x faster inference</span>
+    <span class="n">y_pred</span><span class="p">,</span> <span class="n">y_true</span> <span class="o">=</span> <span class="n">evaluate_output</span><span class="p">(</span><span class="n">test_index</span><span class="p">)</span>
+
+    <span class="c1"># generate classification report</span>
+    <span class="n">report</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_true</span><span class="o">=</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="o">=</span><span class="n">y_pred</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Classification Report (Test Set) after fine-tuning:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">report</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 712/712 [09:10&lt;00:00,  1.29it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Classification Report (Test Set) after fine-tuning:
+              precision    recall  f1-score   support
+
+                   0.00      0.00      0.00         0
+       Durbl       0.33      0.61      0.43        33
+       Enrgy       1.00      0.47      0.64        19
+       HiTec       0.74      0.59      0.66       141
+        Hlth       0.96      0.89      0.92       176
+       Manuf       0.70      0.71      0.71        69
+       NoDur       0.70      0.55      0.62        29
+       Other       0.80      0.70      0.75       153
+       Shops       0.77      0.78      0.78        64
+       Telcm       1.00      0.90      0.95        10
+       Utils       0.65      0.94      0.77        18
+
+    accuracy                           0.72       712
+   macro avg       0.70      0.65      0.66       712
+weighted avg       0.79      0.72      0.75       712
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/terence/env3.11/lib/python3.11/site-packages/sklearn/metrics/_classification.py:1509: UndefinedMetricWarning: Recall is ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, len(result))
+/home/terence/env3.11/lib/python3.11/site-packages/sklearn/metrics/_classification.py:1509: UndefinedMetricWarning: Recall is ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, len(result))
+/home/terence/env3.11/lib/python3.11/site-packages/sklearn/metrics/_classification.py:1509: UndefinedMetricWarning: Recall is ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, len(result))
+</pre></div>
+</div>
+</div>
+</div>
+<p>Display a few responses from fine-tuned model</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span> <span class="o">=</span> <span class="n">evaluate_output</span><span class="p">(</span><span class="n">test_index</span><span class="p">[::</span><span class="mi">32</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>17147 Hlth   [ Hlth ]       Hlth 
+22952 Other   [ Other ]     Other 
+14547 HiTec   [ HiTec ]     HiTec 
+88284 Hlth   [ Hlth ]       Hlth 
+88873 HiTec   [ Other ]     Hi there,   Other has the highest weight so that&#39;s the one
+13777 HiTec   [ Other ]     Hi there,   Other 
+89968 Other   [ Other ]     Other 
+16471 Other   [ Other ]     Other 
+21933 Hlth   [ Hlth ]       Hlth 
+90542 Hlth   [ Hlth ]       Hlth 
+22260 Manuf   [ NoDur ]     NoDur 
+16401 Enrgy   [ Enrgy ]     Enrgy 
+14329 Shops   [ Shops ]     Shops 
+79698 Hlth   [  ]     Hi there,   I&#39;m a business description writer, and based on
+92443 Other   [ Other ]     Other 
+19085 Other   [  ]     Bank 
+86810 Other   [ NoDur ]     NoDur 
+18960 Hlth   [ Hlth ]       Hlth 
+15943 HiTec   [  ]     Hi there,   The industry classification category of our business description can be
+17106 HiTec   [ HiTec ]     HiTec 
+76076 HiTec   [ HiTec ]     HiTec 
+20412 Manuf   [ Manuf ]     Manuf 
+13812 HiTec   [ HiTec ]     HiTec 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="summarization_llm.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">LLM Text Summarization</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="rag_agent.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">LLM RAG, Chatbots and Agents</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unsloth-apis">Unsloth APIs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#low-rank-adaptation">Low-rank adaptation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#huggingface-datasets">HuggingFace datasets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supervised-fine-tuning">Supervised fine-tuning</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Terence Lim
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

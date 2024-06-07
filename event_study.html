@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -19,46 +19,45 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'event_study';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -73,7 +72,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -108,11 +115,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -127,6 +137,7 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="README.html">
@@ -135,60 +146,70 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     <p class="title logo__title">Financial Data Science Python Notebooks</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="README.html">
-                    Financial Data Science Notebooks
+                    FINANCIAL DATA SCIENCE
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="stock_prices.html">Stock prices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stock_prices.html">Stock Prices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jegadeesh_titman.html">Jegadeesh-Titman Rolling Portfolios</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fama_french.html">Fama-French Portfolio Sorts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fama_macbeth.html">Fama-Macbeth Cross-sectional Regressions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="weekly_reversal.html">Weekly reversal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weekly_reversal.html">Contrarian Trading</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quant_factors.html">Quant Factors</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Event Study</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="economic_releases.html">Economic Data Revisions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="regression_diagnostics.html">Linear Regression Diagonostics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="econometric_forecast.html">Econometric Forecasts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="approximate_factors.html">Approximate Factor Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="economic_states.html">State Space Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="conditional_volatility.html">Conditional Volatility</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="term_structure.html">Term Structure of Interest Rates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bond_returns.html">Bond Returns and Risks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional_volatility.html">Conditional Volatility and VaR</a></li>
 <li class="toctree-l1"><a class="reference internal" href="covariance_matrix.html">Covariance Matrix</a></li>
-<li class="toctree-l1"><a class="reference internal" href="term_structure.html">Term Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bond_returns.html">Bond Returns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="options_pricing.html">Options Pricing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="market_microstructure.html">Market Microstructure</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="event_risk.html">Event risk</a></li>
-<li class="toctree-l1"><a class="reference internal" href="customer_ego.html">Principal Customers Network</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="bea_centrality.html">Graph Centrality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event_risk.html">Event Risk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="customer_ego.html">Principal Customers Graph</a></li>
 <li class="toctree-l1"><a class="reference internal" href="industry_community.html">Community Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bea_centrality.html">Graph Centrality</a></li>
 <li class="toctree-l1"><a class="reference internal" href="link_prediction.html">Link Prediction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="spatial_regression.html">Spatial Regression</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fomc_topics.html">Topic Modelling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="management_sentiment.html">Sentiment Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="business_description.html">10-K Business Description</a></li>
-
-
-<li class="toctree-l1"><a class="reference internal" href="classification_models.html">Classification for supervised learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="regression_models.html">Regression for supervised learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="deep_classifier.html">Deep Averaging Networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="convolutional_net.html">Temporal Convolution Net</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fomc_topics.html">FOMC Topic Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management_sentiment.html">Management Sentiment Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="business_description.html">Business Text Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classification_models.html">Classification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regression_models.html">Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deep_classifier.html">Deep Learning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="recurrent_net.html">Recurrent Neural Networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fomc_language.html">Language Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="convolutional_net.html">Convolutional Neural Networks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reinforcement_learning.html">Reinforcement Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fomc_language.html">FedSpeak Language Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sentiment_llm.html">LLM Prompting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="summarization_llm.html">LLM Text Summarization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="finetune_llm.html">LLM Finetuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rag_agent.html">LLM RAG, Chatbots and Agents</a></li>
 </ul>
 
     </div>
@@ -342,20 +363,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -382,14 +405,21 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Event Study</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-developments">Key developments</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Event study</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abnormal-returns">Abnormal returns</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#announcement-effect">Announcement effect</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-testing">Multiple Testing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-correlation">Cross correlation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convolution-theorem">Convolution theorem</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-testing-problem">Multiple testing problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bonferroni-correction">Bonferroni correction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#holm-s-step-down-procedure">Holm’s step-down procedure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#benjamin-hochberg-procedure">Benjamin-Hochberg procedure</a></li>
+</ul>
+</li>
+</ul>
             </nav>
         </div>
     </div>
@@ -398,17 +428,23 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="event-study">
 <h1>Event Study<a class="headerlink" href="#event-study" title="Permalink to this heading">#</a></h1>
-<p><em>UNDER CONSTRUCTION</em></p>
+<p><em>All strange and terrible events are welcome, but comforts we despise</em> - Cleopatra</p>
+<p>Concepts</p>
 <ul class="simple">
-<li><p>event study: CAR, BHAR, post-announcement drift (Kolari 2010 and others)</p></li>
-<li><p>cross-sectional correlation: cross-correlation, convolution, FFT</p></li>
-<li><p>multiple testing: Holm FWER, Benjamin-Hochberg FDR, Bonferroni p-values</p></li>
-<li><p>S&amp;P Key Developments</p></li>
+<li><p>Abnormal returns</p></li>
+<li><p>Convolution Theorem</p></li>
+<li><p>Multiple testing</p></li>
 </ul>
+<p>References:</p>
+<ul class="simple">
+<li><p>Kolari, James W. and Pynnonen, Seppo, 2010, “Event Study Testing with Cross-sectional Correlation of Abnormal Returns”. The Review of Financial Studies, 23(11), 3996-4025</p></li>
+<li><p>Kolari, James W., Paper, Bernd, and Pynnonen, Seppo, 2018, “Event Study Testing with Cross-sectional Correlation Due to Partially Overlapping Event Windows”, working paper</p></li>
+</ul>
+<p>MIT License.  Copyright 2021-2024 Terence Lim</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -418,15 +454,14 @@ document.write(`
 <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
 <span class="kn">from</span> <span class="nn">statsmodels.stats.multitest</span> <span class="kn">import</span> <span class="n">multipletests</span>
 <span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
-<span class="kn">from</span> <span class="nn">finds.database</span> <span class="kn">import</span> <span class="n">SQL</span>
-<span class="kn">from</span> <span class="nn">finds.busday</span> <span class="kn">import</span> <span class="n">BusDay</span>
-<span class="kn">from</span> <span class="nn">finds.structured</span> <span class="kn">import</span> <span class="n">Benchmarks</span><span class="p">,</span> <span class="n">Stocks</span><span class="p">,</span> <span class="n">CRSP</span><span class="p">,</span> <span class="n">PSTAT</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">from</span> <span class="nn">finds.database</span> <span class="kn">import</span> <span class="n">SQL</span><span class="p">,</span> <span class="n">RedisDB</span>
+<span class="kn">from</span> <span class="nn">finds.structured</span> <span class="kn">import</span> <span class="n">BusDay</span><span class="p">,</span> <span class="n">Benchmarks</span><span class="p">,</span> <span class="n">Stocks</span><span class="p">,</span> <span class="n">CRSP</span><span class="p">,</span> <span class="n">PSTAT</span>
 <span class="kn">from</span> <span class="nn">finds.backtesting</span> <span class="kn">import</span> <span class="n">EventStudy</span>
-<span class="kn">from</span> <span class="nn">finds.misc</span> <span class="kn">import</span> <span class="n">Show</span>
 <span class="kn">from</span> <span class="nn">secret</span> <span class="kn">import</span> <span class="n">credentials</span><span class="p">,</span> <span class="n">paths</span><span class="p">,</span> <span class="n">CRSP_DATE</span>
-<span class="n">show</span> <span class="o">=</span> <span class="n">Show</span><span class="p">(</span><span class="n">ndigits</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">latex</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 <span class="n">VERBOSE</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="c1">#</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">VERBOSE</span><span class="p">:</span>
+    <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">)</span>
 <span class="c1">#%matplotlib qt</span>
 </pre></div>
 </div>
@@ -438,8 +473,9 @@ document.write(`
 <span class="n">sql</span> <span class="o">=</span> <span class="n">SQL</span><span class="p">(</span><span class="o">**</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;sql&#39;</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
 <span class="n">user</span> <span class="o">=</span> <span class="n">SQL</span><span class="p">(</span><span class="o">**</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
 <span class="n">bd</span> <span class="o">=</span> <span class="n">BusDay</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+<span class="n">rdb</span> <span class="o">=</span> <span class="n">RedisDB</span><span class="p">(</span><span class="o">**</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;redis&#39;</span><span class="p">])</span>
 <span class="n">keydev</span> <span class="o">=</span> <span class="n">PSTAT</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">bd</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
-<span class="n">crsp</span> <span class="o">=</span> <span class="n">CRSP</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">bd</span><span class="p">,</span> <span class="n">rdb</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
+<span class="n">crsp</span> <span class="o">=</span> <span class="n">CRSP</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">bd</span><span class="p">,</span> <span class="n">rdb</span><span class="o">=</span><span class="n">rdb</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
 <span class="n">bench</span> <span class="o">=</span> <span class="n">Benchmarks</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">bd</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
 <span class="n">eventstudy</span> <span class="o">=</span> <span class="n">EventStudy</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">bench</span><span class="o">=</span><span class="n">bench</span><span class="p">,</span> <span class="n">stocks</span><span class="o">=</span><span class="n">crsp</span><span class="p">,</span> <span class="n">max_date</span><span class="o">=</span><span class="n">CRSP_DATE</span><span class="p">)</span>
 <span class="n">imgdir</span> <span class="o">=</span> <span class="n">paths</span><span class="p">[</span><span class="s1">&#39;images&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="s1">&#39;events&#39;</span>
@@ -447,18 +483,54 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Last FamaFrench Date 2023-04-28 00:00:00
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Last FamaFrench Date 2024-02-29 00:00:00
 </pre></div>
 </div>
 </div>
 </div>
-<section id="key-developments">
-<h2>Key developments<a class="headerlink" href="#key-developments" title="Permalink to this heading">#</a></h2>
+<section id="abnormal-returns">
+<h2>Abnormal returns<a class="headerlink" href="#abnormal-returns" title="Permalink to this heading">#</a></h2>
+<p>Event studies assess the impact on stock returns of a company-specific
+event such as a merger or company announcement. They investigate deviations of stock returns from expected returns, called abnormal returns, on days around the disclosure of
+news.</p>
+<p>Define the date of the announcement or event <span class="math notranslate nohighlight">\(t=0\)</span>, and
+the daily stock return for each firm <span class="math notranslate nohighlight">\(i\)</span> is <span class="math notranslate nohighlight">\(R_{i,t}\)</span>.  Returns of a market- or
+sector-reference group <span class="math notranslate nohighlight">\(R_{m,t}\)</span> is computed as comparison. Then:</p>
+<ul class="simple">
+<li><p>Abnormal returns (AR) for each stock <span class="math notranslate nohighlight">\(i\)</span> at time <span class="math notranslate nohighlight">\(t\)</span> are defined as
+$<span class="math notranslate nohighlight">\(AR_{i,t} = R_{i,t} - R_{m,t}\)</span>$</p></li>
+<li><p>Average abnormal returns (AAR) across firms are defined as
+$<span class="math notranslate nohighlight">\(AAR_t = \dfrac{1}{N}\sum_i^N AR_{i,t}\)</span>$</p></li>
+<li><p>Cumulative average abnormal returns (CAR) are defined over time as
+$<span class="math notranslate nohighlight">\(CAR_T = \sum_t AAR_t\)</span>$</p></li>
+<li><p>Buy-and-hold average abnormal returns (BHAR) are defined across firms’
+buy-and-hold returns as
+$<span class="math notranslate nohighlight">\(BHAR_T = \dfrac{1}{N} \sum_i^N [\Pi_t (1+ AR_{i,t}) - \Pi_t (1+ R_{m,t}) ]\)</span>$</p></li>
+</ul>
+<section id="announcement-effect">
+<h3>Announcement effect<a class="headerlink" href="#announcement-effect" title="Permalink to this heading">#</a></h3>
+<p>An announcement effect is the immediate spike in stock price upon
+the announcemnt or event. An efficient reaction is one where the
+stock price maintains its new level after the event.  An
+under-reaction occurs when the stock prices continues to trend in the
+same direction after the announcement.  An over-reaction occurs when
+stock prices drift in the oppositve direction after the initial
+spike.</p>
+<p>Often, the exact date and time canot be pinpointed in historical data. An announcement window around the recorded announcement date, often encompassing one day before and after, accounts for this uncertainty.</p>
+<p>A <strong>pre-announcement drift</strong> of stock prices could be consistent with insider information being leaked prior to the announcement, or other explanations.
+A <strong>post-announcement drift</strong> may possibly due to under- or over-reaction of investors to the news released.</p>
+<p>When measuring announcement effects from many stocks and dates, the returns of stocks with the same announcement date are typically averaged together, so the dataset is reduced to unique announcement dates. Even after this transformation, Kolari et al (2010) demonstrate that even small cross-sectional correlation of abnormal returns can cause severe over-rejection of the null hypothesis of zero abnormal returns. In the presense of such cross-sectional correlations, an unbiased estimate of the mean abnormal return <span class="math notranslate nohighlight">\(\sigma^2\)</span> is given by:</p>
+<div class="math notranslate nohighlight">
+\[\sigma^{2} = \dfrac{s^2}{n}(1 + (n - 1) \hat{r})\]</div>
+<p>where <span class="math notranslate nohighlight">\(\hat{r}\)</span> is the average of the sample cross-sectional
+correlations of the estimation-period residuals, and <span class="math notranslate nohighlight">\(s^2\)</span> is the
+(biased) cross-sectional standard deviation of the abnormal returns.</p>
+<p>Retrieve event dates and company roles from CapitalIQ Key Developments</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sorted list of all eventids and roleids, provided in keydev class</span>
-<span class="n">events</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">keydev</span><span class="o">.</span><span class="n">_event</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-<span class="n">roles</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">keydev</span><span class="o">.</span><span class="n">_role</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="n">events</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">keydev</span><span class="o">.</span><span class="n">event</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">roles</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">keydev</span><span class="o">.</span><span class="n">role</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -467,46 +539,57 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># str formatter to pretty print descriptions, provided in keydev class</span>
 <span class="n">eventformat</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">e</span><span class="p">,</span> <span class="n">r</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{event}</span><span class="s2"> (</span><span class="si">{eventid}</span><span class="s2">) </span><span class="si">{role}</span><span class="s2"> [</span><span class="si">{roleid}</span><span class="s2">]&quot;</span>\
-    <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="n">keydev</span><span class="o">.</span><span class="n">_event</span><span class="p">[</span><span class="n">e</span><span class="p">],</span>
-            <span class="n">eventid</span><span class="o">=</span><span class="n">e</span><span class="p">,</span>
-            <span class="n">role</span><span class="o">=</span><span class="n">keydev</span><span class="o">.</span><span class="n">_role</span><span class="p">[</span><span class="n">r</span><span class="p">],</span>
-            <span class="n">roleid</span><span class="o">=</span><span class="n">r</span><span class="p">)</span> 
+    <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="n">keydev</span><span class="o">.</span><span class="n">event</span><span class="p">[</span><span class="n">e</span><span class="p">],</span> <span class="n">eventid</span><span class="o">=</span><span class="n">e</span><span class="p">,</span> <span class="n">role</span><span class="o">=</span><span class="n">keydev</span><span class="o">.</span><span class="n">role</span><span class="p">[</span><span class="n">r</span><span class="p">],</span> <span class="n">roleid</span><span class="o">=</span><span class="n">r</span><span class="p">)</span> 
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="id1">
-<h2>Event study<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># event window parameters</span>
 <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">post</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">21</span>
 <span class="n">end</span> <span class="o">=</span> <span class="n">bd</span><span class="o">.</span><span class="n">offset</span><span class="p">(</span><span class="n">CRSP_DATE</span><span class="p">,</span> <span class="n">post</span> <span class="o">-</span> <span class="n">left</span><span class="p">)</span>
-<span class="n">beg</span> <span class="o">=</span> <span class="mi">19890101</span>  <span class="c1"># 20020101</span>
-<span class="n">minobs</span> <span class="o">=</span> <span class="mi">250</span>
+<span class="n">beg</span> <span class="o">=</span> <span class="mi">20020101</span>
+<span class="n">mindays</span> <span class="o">=</span> <span class="mi">1000</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>Helper functions to retrieve size decile of universe stocks and run event study pipeline</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># to lookup prevailing exchange and share codes by permno and date</span>
-<span class="n">shrcd</span> <span class="o">=</span> <span class="n">crsp</span><span class="o">.</span><span class="n">build_lookup</span><span class="p">(</span><span class="s1">&#39;permno&#39;</span><span class="p">,</span> <span class="s1">&#39;shrcd&#39;</span><span class="p">)</span>
-<span class="n">exchcd</span> <span class="o">=</span> <span class="n">crsp</span><span class="o">.</span><span class="n">build_lookup</span><span class="p">(</span><span class="s1">&#39;permno&#39;</span><span class="p">,</span> <span class="s1">&#39;exchcd&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Universe</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Helper to lookup prevailing size decile of universe stocks&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">beg</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">end</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">stocks</span><span class="p">:</span> <span class="n">Stocks</span><span class="p">,</span> <span class="n">annual</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="c1"># whether to offset previous month or year end when lookup</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">offset</span> <span class="o">=</span> <span class="n">stocks</span><span class="o">.</span><span class="n">bd</span><span class="o">.</span><span class="n">endyr</span> <span class="k">if</span> <span class="n">annual</span> <span class="k">else</span> <span class="n">stocks</span><span class="o">.</span><span class="n">bd</span><span class="o">.</span><span class="n">endmo</span>
+        
+        <span class="c1"># populate dictionary, keyed by permno and date, with size decile</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">decile</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="n">date_range</span> <span class="o">=</span> <span class="n">stocks</span><span class="o">.</span><span class="n">bd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">offset</span><span class="p">(</span><span class="n">beg</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">,</span>
+                                          <span class="n">freq</span><span class="o">=</span><span class="mi">12</span> <span class="k">if</span> <span class="n">annual</span> <span class="k">else</span> <span class="s1">&#39;e&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">date</span> <span class="ow">in</span> <span class="n">date_range</span><span class="p">:</span>
+            <span class="n">univ</span> <span class="o">=</span> <span class="n">crsp</span><span class="o">.</span><span class="n">get_universe</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">permno</span> <span class="ow">in</span> <span class="n">univ</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">decile</span><span class="p">[(</span><span class="n">permno</span><span class="p">,</span> <span class="n">date</span><span class="p">)]</span> <span class="o">=</span> <span class="n">univ</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">permno</span><span class="p">,</span> <span class="s1">&#39;decile&#39;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns size decile, else 0 if not universe stock&quot;&quot;&quot;</span>
+        <span class="n">permno</span><span class="p">,</span> <span class="n">date</span> <span class="o">=</span> <span class="n">item</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">decile</span><span class="o">.</span><span class="n">get</span><span class="p">((</span><span class="n">permno</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">offset</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)),</span> <span class="mi">0</span><span class="p">)</span>
+    
+<span class="n">univ</span> <span class="o">=</span> <span class="n">Universe</span><span class="p">(</span><span class="n">beg</span><span class="o">=</span><span class="n">beg</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">,</span> <span class="n">stocks</span><span class="o">=</span><span class="n">crsp</span><span class="p">)</span>
 
 <span class="c1"># run event study after screening stock universe</span>
 <span class="k">def</span> <span class="nf">event_pipeline</span><span class="p">(</span><span class="n">eventstudy</span><span class="p">:</span> <span class="n">EventStudy</span><span class="p">,</span>
-                   <span class="n">stocks</span><span class="p">:</span> <span class="n">Stocks</span><span class="p">,</span>
                    <span class="n">beg</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
                    <span class="n">end</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
                    <span class="n">eventid</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
                    <span class="n">roleid</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
                    <span class="n">left</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
                    <span class="n">right</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-                   <span class="n">post</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-                   <span class="n">mincap</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">300000.</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;helper to merge keydev events and crsp, and screen stock universe&quot;&quot;&quot;</span>
+                   <span class="n">post</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;helper to screen stock universe, and merge keydev events and crsp daily&quot;&quot;&quot;</span>
 
     <span class="c1"># Retrieve announcement dates for this event</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">keydev</span><span class="o">.</span><span class="n">get_linked</span><span class="p">(</span>
@@ -522,43 +605,27 @@ document.write(`
                <span class="o">.</span><span class="n">drop_duplicates</span><span class="p">([</span><span class="s1">&#39;permno&#39;</span><span class="p">,</span> <span class="s1">&#39;announcedate&#39;</span><span class="p">])</span>\
                <span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;permno&#39;</span><span class="p">,</span> <span class="s1">&#39;announcedate&#39;</span><span class="p">],</span> <span class="n">drop</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
-    <span class="c1"># Require in valid screen: &#39;cap&#39;, &#39;exchcd&#39;, &#39;shcrd&#39;</span>
-    <span class="n">stk</span> <span class="o">=</span> <span class="n">stocks</span><span class="o">.</span><span class="n">get_many</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="s1">&#39;daily&#39;</span><span class="p">,</span>
-                          <span class="n">permnos</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;permno&#39;</span><span class="p">],</span>
-                          <span class="n">date_field</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">,</span>
-                          <span class="n">dates</span><span class="o">=</span><span class="n">stocks</span><span class="o">.</span><span class="n">bd</span><span class="o">.</span><span class="n">offset</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;announcedate&#39;</span><span class="p">],</span> <span class="n">left</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span>
-                          <span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;prc&#39;</span><span class="p">,</span> <span class="s1">&#39;shrout&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;cap&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">stk</span><span class="p">[</span><span class="s1">&#39;prc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span> <span class="o">*</span> <span class="n">stk</span><span class="p">[</span><span class="s1">&#39;shrout&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">values</span>
-    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;exchcd&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">exchcd</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">permno</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">date</span><span class="p">)</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">stk</span><span class="o">.</span><span class="n">itertuples</span><span class="p">()]</span>
-    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;shrcd&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">shrcd</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">permno</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">date</span><span class="p">)</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">stk</span><span class="o">.</span><span class="n">itertuples</span><span class="p">()]</span>
-    <span class="n">select</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;cap&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">gt</span><span class="p">(</span><span class="n">mincap</span><span class="p">)</span>                  <span class="c1"># require cap &gt; $300M</span>
-              <span class="o">&amp;</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;exchcd&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>        <span class="c1"># primary exchange</span>
-              <span class="o">&amp;</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;shrcd&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]))</span><span class="o">.</span><span class="n">values</span>  <span class="c1"># domestic common stocks</span>
+    <span class="c1"># Require universe size decile</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">univ</span><span class="p">[</span><span class="n">row</span><span class="o">.</span><span class="n">permno</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">announcedate</span><span class="p">]</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">itertuples</span><span class="p">()]</span>
 
     <span class="c1"># Call eventstudy to retrieve daily abnormal returns, with named label</span>
     <span class="n">rows</span> <span class="o">=</span> <span class="n">eventstudy</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">eventid</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">roleid</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
-                      <span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">select</span><span class="p">],</span>
+                      <span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">gt</span><span class="p">(</span><span class="mi">0</span><span class="p">)],</span>
                       <span class="n">left</span><span class="o">=</span><span class="n">left</span><span class="p">,</span>
                       <span class="n">right</span><span class="o">=</span><span class="n">right</span><span class="p">,</span>
                       <span class="n">post</span><span class="o">=</span><span class="n">post</span><span class="p">,</span>
                       <span class="n">date_field</span><span class="o">=</span><span class="s1">&#39;announcedate&#39;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">rows</span><span class="o">.</span><span class="n">to_records</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()]</span>  <span class="c1"># restrict df to rows</span>
+    <span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">rows</span><span class="o">.</span><span class="n">to_records</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()]</span> <span class="c1"># restrict successful rows</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p><strong>Show subsample plots for selected events</strong></p>
+<p>Show subsample plots for events with large post-announcement drift</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Show by market cap and half-period</span>
-<span class="n">events_list</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">150</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>  <span class="c1"># top drift</span>
-<span class="n">midcap</span> <span class="o">=</span> <span class="mi">20000000</span>   <span class="c1"># arbitrary mid market cap breakpoint</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">events_list</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">93</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">232</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>  <span class="c1"># largest drift returns</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">eventid</span><span class="p">,</span> <span class="n">roleid</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">events_list</span><span class="p">):</span>
-    <span class="c1">#eventid, roleid = 50, 1</span>
-    <span class="c1">#eventid, roleid = 83, 1</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">event_pipeline</span><span class="p">(</span><span class="n">eventstudy</span><span class="p">,</span>
-                        <span class="n">stocks</span><span class="o">=</span><span class="n">crsp</span><span class="p">,</span>
-                        <span class="n">eventid</span><span class="o">=</span><span class="n">eventid</span><span class="p">,</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">event_pipeline</span><span class="p">(</span><span class="n">eventstudy</span><span class="p">,</span><span class="n">eventid</span><span class="o">=</span><span class="n">eventid</span><span class="p">,</span>
                         <span class="n">roleid</span><span class="o">=</span><span class="n">roleid</span><span class="p">,</span>
                         <span class="n">beg</span><span class="o">=</span><span class="n">beg</span><span class="p">,</span>
                         <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">,</span>
@@ -568,43 +635,43 @@ document.write(`
     <span class="n">halfperiod</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;announcedate&#39;</span><span class="p">])</span>
     <span class="n">sample</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;FirstHalf&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;announcedate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">ge</span><span class="p">(</span><span class="n">halfperiod</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
               <span class="s1">&#39;SecondHalf&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;announcedate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="n">halfperiod</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
-              <span class="s1">&#39;Large&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;cap&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">ge</span><span class="p">(</span><span class="n">midcap</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
-              <span class="s1">&#39;Small&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;cap&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="n">midcap</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+              <span class="s1">&#39;Large&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">le</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+              <span class="s1">&#39;Small&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">gt</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
               <span class="s1">&#39;&#39;</span><span class="p">:</span> <span class="p">[]}</span>
     <span class="k">for</span> <span class="n">ifig</span><span class="p">,</span> <span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">rows</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sample</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
         <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
         <span class="n">bhar</span> <span class="o">=</span> <span class="n">eventstudy</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;sbhar&#39;</span><span class="p">,</span> <span class="n">rows</span><span class="o">=</span><span class="n">rows</span><span class="p">)</span>
         <span class="n">eventstudy</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;sbhar&#39;</span><span class="p">,</span>
-                        <span class="n">title</span><span class="o">=</span><span class="n">eventformat</span><span class="p">(</span><span class="n">eventid</span><span class="p">,</span> <span class="n">roleid</span><span class="p">)</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">,</span>
+                        <span class="n">title</span><span class="o">=</span><span class="n">eventformat</span><span class="p">(</span><span class="n">eventid</span><span class="p">,</span> <span class="n">roleid</span><span class="p">)</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot; (</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2"> subset)&quot;</span><span class="p">,</span>
                         <span class="n">drift</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                         <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
                         <span class="n">c</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;C</span><span class="si">{</span><span class="n">i</span><span class="o">*</span><span class="mi">5</span><span class="o">+</span><span class="n">ifig</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">imgdir</span> <span class="o">/</span> <span class="p">(</span><span class="n">label</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">eventid</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">roleid</span><span class="si">}</span><span class="s2">.jpg&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/44c80fba0041fad1217bcfa3f4294c71b7e1db28c0ad86d7bbf1e365688ba1b2.png" src="_images/44c80fba0041fad1217bcfa3f4294c71b7e1db28c0ad86d7bbf1e365688ba1b2.png" />
-<img alt="_images/ec3c610ba88d6d5d8662aa9570dde3b37d8d42b57eddfe524d5a163a5c583520.png" src="_images/ec3c610ba88d6d5d8662aa9570dde3b37d8d42b57eddfe524d5a163a5c583520.png" />
-<img alt="_images/84b33fbbe0686178c6d39fa3f1332a4cb870987f98261abaca2ac38ae12d9443.png" src="_images/84b33fbbe0686178c6d39fa3f1332a4cb870987f98261abaca2ac38ae12d9443.png" />
-<img alt="_images/dfb45c991b137e9f6a68864f8504c0d30536f8ba246c995f258083a6471f20eb.png" src="_images/dfb45c991b137e9f6a68864f8504c0d30536f8ba246c995f258083a6471f20eb.png" />
-<img alt="_images/c102e4f063da3ceb931a0077f36d6893440281abd56ba27936346be994cf22ce.png" src="_images/c102e4f063da3ceb931a0077f36d6893440281abd56ba27936346be994cf22ce.png" />
-<img alt="_images/34f10c7398d3b949bf48567962a3d3c17bf9cc79d09699f13ef32d02ea49ff5e.png" src="_images/34f10c7398d3b949bf48567962a3d3c17bf9cc79d09699f13ef32d02ea49ff5e.png" />
-<img alt="_images/e6b7a7bc14be1f15d48210775325e213a3505e9b831970d63c5964e3c5403749.png" src="_images/e6b7a7bc14be1f15d48210775325e213a3505e9b831970d63c5964e3c5403749.png" />
-<img alt="_images/ef68d670c385b63ce49c8a8e92bd75f4e3008734afd33ce2d3cef816faf145ed.png" src="_images/ef68d670c385b63ce49c8a8e92bd75f4e3008734afd33ce2d3cef816faf145ed.png" />
-<img alt="_images/fbd33a9b227e56fd61b7b1ac0e82e15e8a31e6ffdf10dcf7509f31e409d77891.png" src="_images/fbd33a9b227e56fd61b7b1ac0e82e15e8a31e6ffdf10dcf7509f31e409d77891.png" />
-<img alt="_images/8ff9da2b176141ffbc35a0fdbd959a3dc87fa952e3a4ab35151c196040dcb19a.png" src="_images/8ff9da2b176141ffbc35a0fdbd959a3dc87fa952e3a4ab35151c196040dcb19a.png" />
+<img alt="_images/3e22a724487f4f4bc2e2a64119e79ab74891dec12c972800959bbc879646cb8c.png" src="_images/3e22a724487f4f4bc2e2a64119e79ab74891dec12c972800959bbc879646cb8c.png" />
+<img alt="_images/2445ed10534d68617bc2e090720b869063f2f4f9c49ca7b845d5f5620fbd02a1.png" src="_images/2445ed10534d68617bc2e090720b869063f2f4f9c49ca7b845d5f5620fbd02a1.png" />
+<img alt="_images/ee9b9b57edbc57c4e5a810b6c62bf1e255e176cf998801551f2cdf02bdc58603.png" src="_images/ee9b9b57edbc57c4e5a810b6c62bf1e255e176cf998801551f2cdf02bdc58603.png" />
+<img alt="_images/10bb59edb56679235517e49c509fbdfdc18c67921611c279c2eb6e4fa7c5f9ec.png" src="_images/10bb59edb56679235517e49c509fbdfdc18c67921611c279c2eb6e4fa7c5f9ec.png" />
+<img alt="_images/5d79005cee9df9225067f41f2c7d0215db1f1f649c9caf27d05f2c23a8329750.png" src="_images/5d79005cee9df9225067f41f2c7d0215db1f1f649c9caf27d05f2c23a8329750.png" />
+<img alt="_images/da0260a3c1308943c80abe445175e09082fe008f85b0447d5e00a5a007e1f6da.png" src="_images/da0260a3c1308943c80abe445175e09082fe008f85b0447d5e00a5a007e1f6da.png" />
+<img alt="_images/a9480528ec842145324b65791035d9e905f41ccbe14accc6c113454db72914f7.png" src="_images/a9480528ec842145324b65791035d9e905f41ccbe14accc6c113454db72914f7.png" />
+<img alt="_images/543d0a0c6d233004a439f34c56fba962de5e253a80ccd9883642d94fb3631018.png" src="_images/543d0a0c6d233004a439f34c56fba962de5e253a80ccd9883642d94fb3631018.png" />
+<img alt="_images/b94ce61ba31db79825a8db21bf161f4d25e021954c6d562287008adc32efab43.png" src="_images/b94ce61ba31db79825a8db21bf161f4d25e021954c6d562287008adc32efab43.png" />
+<img alt="_images/9d3e0901e7229c87b8215a1a5ab6e46b5e38f4067e0055cd532c239d0b434d12.png" src="_images/9d3e0901e7229c87b8215a1a5ab6e46b5e38f4067e0055cd532c239d0b434d12.png" />
 </div>
 </div>
+<p>Show subsample plots for events with large announcement window returns</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Show by market cap and half-period</span>
-<span class="n">events_list</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">80</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">26</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>  <span class="c1"># top announcement window</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">events_list</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">80</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">26</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>  <span class="c1"># largest announcement window returns</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">eventid</span><span class="p">,</span> <span class="n">roleid</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">events_list</span><span class="p">):</span>
     <span class="c1">#eventid, roleid = 50, 1</span>
     <span class="c1">#eventid, roleid = 83, 1</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">event_pipeline</span><span class="p">(</span><span class="n">eventstudy</span><span class="p">,</span>
-                        <span class="n">stocks</span><span class="o">=</span><span class="n">crsp</span><span class="p">,</span>
                         <span class="n">eventid</span><span class="o">=</span><span class="n">eventid</span><span class="p">,</span>
                         <span class="n">roleid</span><span class="o">=</span><span class="n">roleid</span><span class="p">,</span>
                         <span class="n">beg</span><span class="o">=</span><span class="n">beg</span><span class="p">,</span>
@@ -615,45 +682,173 @@ document.write(`
     <span class="n">halfperiod</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;announcedate&#39;</span><span class="p">])</span>
     <span class="n">sample</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;FirstHalf&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;announcedate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">ge</span><span class="p">(</span><span class="n">halfperiod</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
               <span class="s1">&#39;SecondHalf&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;announcedate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="n">halfperiod</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
-              <span class="s1">&#39;Large&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;cap&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">ge</span><span class="p">(</span><span class="n">midcap</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
-              <span class="s1">&#39;Small&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;cap&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="n">midcap</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+              <span class="s1">&#39;Large&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">le</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+              <span class="s1">&#39;Small&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">gt</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
               <span class="s1">&#39;&#39;</span><span class="p">:</span> <span class="p">[]}</span>
     <span class="k">for</span> <span class="n">ifig</span><span class="p">,</span> <span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">rows</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sample</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
         <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
         <span class="n">bhar</span> <span class="o">=</span> <span class="n">eventstudy</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;sbhar&#39;</span><span class="p">,</span> <span class="n">rows</span><span class="o">=</span><span class="n">rows</span><span class="p">)</span>
         <span class="n">eventstudy</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;sbhar&#39;</span><span class="p">,</span>
-                        <span class="n">title</span><span class="o">=</span><span class="n">eventformat</span><span class="p">(</span><span class="n">eventid</span><span class="p">,</span> <span class="n">roleid</span><span class="p">)</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">,</span>
+                        <span class="n">title</span><span class="o">=</span><span class="n">eventformat</span><span class="p">(</span><span class="n">eventid</span><span class="p">,</span> <span class="n">roleid</span><span class="p">),</span>
                         <span class="n">drift</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                         <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
                         <span class="n">c</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;C</span><span class="si">{</span><span class="n">i</span><span class="o">*</span><span class="mi">5</span><span class="o">+</span><span class="n">ifig</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">imgdir</span> <span class="o">/</span> <span class="p">(</span><span class="n">label</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">eventid</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">roleid</span><span class="si">}</span><span class="s2">.jpg&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/35876d2729501d8e6d59bf038ec5056f8c1b1863d5fd60d0901bd31b992af177.png" src="_images/35876d2729501d8e6d59bf038ec5056f8c1b1863d5fd60d0901bd31b992af177.png" />
-<img alt="_images/5035ddaa2fe7bca4f1638e4a486fa7c6bd21d2d5e4e9364e32871ab515324583.png" src="_images/5035ddaa2fe7bca4f1638e4a486fa7c6bd21d2d5e4e9364e32871ab515324583.png" />
-<img alt="_images/abc2ca69ac400bcae4a5ac613f612a3a71839bdce3f923522b745a4c433374c3.png" src="_images/abc2ca69ac400bcae4a5ac613f612a3a71839bdce3f923522b745a4c433374c3.png" />
-<img alt="_images/1412d666d70ac2a4eff3562d39a3c6058b4c3b2b16909de51f2b728d377ce9b3.png" src="_images/1412d666d70ac2a4eff3562d39a3c6058b4c3b2b16909de51f2b728d377ce9b3.png" />
-<img alt="_images/3bc840cb76a35e5f1668a2e61e0e4954b0c73993bcebc53c6e773725df973577.png" src="_images/3bc840cb76a35e5f1668a2e61e0e4954b0c73993bcebc53c6e773725df973577.png" />
-<img alt="_images/fcb30bfd2b535344976aa47424d27d4df8de300bd27bca93f95e2943b43ab87b.png" src="_images/fcb30bfd2b535344976aa47424d27d4df8de300bd27bca93f95e2943b43ab87b.png" />
-<img alt="_images/03e30ca33c13037deb67d2ad7e278c0b5d2a4e558be0a1bdc928a86f61e8e3d0.png" src="_images/03e30ca33c13037deb67d2ad7e278c0b5d2a4e558be0a1bdc928a86f61e8e3d0.png" />
-<img alt="_images/0c85a225575179896d26bfa2c1eac74f03d908516f3d58a1488e4aeec96568ff.png" src="_images/0c85a225575179896d26bfa2c1eac74f03d908516f3d58a1488e4aeec96568ff.png" />
-<img alt="_images/fc3e021e772d6199d7f137d354a53e7bbeb0f3234a3dbbf587887710be7f8433.png" src="_images/fc3e021e772d6199d7f137d354a53e7bbeb0f3234a3dbbf587887710be7f8433.png" />
-<img alt="_images/2914bfb09f5e2085bbc4472c7f9b37cb6a43ab0e1f1b16b9031061e3326cf05a.png" src="_images/2914bfb09f5e2085bbc4472c7f9b37cb6a43ab0e1f1b16b9031061e3326cf05a.png" />
+<img alt="_images/8034951b6904ba5af7f6ee5e1b70d60bf8f4d0c5bb27d2bd1f7cc168ff1aac67.png" src="_images/8034951b6904ba5af7f6ee5e1b70d60bf8f4d0c5bb27d2bd1f7cc168ff1aac67.png" />
+<img alt="_images/9db91a16d4732962c6c4cbdf9c1243b4833c468ee52759dc4c523a8aeb15e5ca.png" src="_images/9db91a16d4732962c6c4cbdf9c1243b4833c468ee52759dc4c523a8aeb15e5ca.png" />
+<img alt="_images/17b92a7dd067d1a0a2d5d7892e2284ac29d525780e709c0be5659ab946d2337e.png" src="_images/17b92a7dd067d1a0a2d5d7892e2284ac29d525780e709c0be5659ab946d2337e.png" />
+<img alt="_images/f2f7c8b0b5d412863f7ad6b4c6dbe324264c1f7e8187515218b11b79d2c61fd3.png" src="_images/f2f7c8b0b5d412863f7ad6b4c6dbe324264c1f7e8187515218b11b79d2c61fd3.png" />
+<img alt="_images/50ad02f0bd33615bdd6bcc98d8cc125a7aa648fe86b21f01ec64575bf201de39.png" src="_images/50ad02f0bd33615bdd6bcc98d8cc125a7aa648fe86b21f01ec64575bf201de39.png" />
+<img alt="_images/682eeb074596fc024be28362386a59439acb9b8a7f1a4587824dc0c417a97743.png" src="_images/682eeb074596fc024be28362386a59439acb9b8a7f1a4587824dc0c417a97743.png" />
+<img alt="_images/f77b663e4a1090a62377e55cbeec80fe4d84e51e76811d40efd9d6c22dd43a8c.png" src="_images/f77b663e4a1090a62377e55cbeec80fe4d84e51e76811d40efd9d6c22dd43a8c.png" />
+<img alt="_images/c1badb7e29c3512402f5077bd9d0ad433352ac278efd2e1534e40445e1c5f572.png" src="_images/c1badb7e29c3512402f5077bd9d0ad433352ac278efd2e1534e40445e1c5f572.png" />
+<img alt="_images/305c60c78e28b633fa922f7e4fe96d642d63cca71e55731905245025e1300e36.png" src="_images/305c60c78e28b633fa922f7e4fe96d642d63cca71e55731905245025e1300e36.png" />
+<img alt="_images/ab2e5bc1425ab2b69b2eedb3f6b4bcd2584f1b6bdf8591ec9ea8dcd36bfee169.png" src="_images/ab2e5bc1425ab2b69b2eedb3f6b4bcd2584f1b6bdf8591ec9ea8dcd36bfee169.png" />
 </div>
 </div>
-<p><strong>Compute BHAR and CAR of all events</strong></p>
+</section>
+</section>
+<section id="cross-correlation">
+<h2>Cross correlation<a class="headerlink" href="#cross-correlation" title="Permalink to this heading">#</a></h2>
+<p>Kolari et al (2018) consider event windows that partially overlap in calendar time, and modify standard errors and test statistics to adjust for the average percentage of overlaps in event windows and account for cross-sectional correlation effects.</p>
+<div class="math notranslate nohighlight">
+\[\sigma^{2} = \dfrac{s^2}{n} m (1 + \tau (n - 1) \rho)\]</div>
+<p>where <span class="math notranslate nohighlight">\(m\)</span> is the length of the event window, <span class="math notranslate nohighlight">\(\tau\)</span> is the ratio of number of overlapping calendar days of the event windows to the length of the event windows, and <span class="math notranslate nohighlight">\(\rho = \dfrac{\nu}{s^2}\)</span> is the ratio of the average covariance between abnormal returns to their average variance. If the calendar time of the event day is the same for all firms such that all event periods are completely overlapping, and the residual series are standardized by their respecive standard deviations, then <span class="math notranslate nohighlight">\(\rho\)</span> is just the average cross-sectional correlation of the estimation window residuals.</p>
+<p>To approximate <span class="math notranslate nohighlight">\(\rho\)</span>: we assume that cross-sectional correlations between any two series are primarily due to their misalignment, where the number of time periods shifted is unknown. We first find the best alignment of event window residual returns between each pair of series that maximizes their pair-wise correlation, and then compute the average of these best-aligned correlations over all pairs.</p>
+<section id="convolution-theorem">
+<h3>Convolution theorem<a class="headerlink" href="#convolution-theorem" title="Permalink to this heading">#</a></h3>
+<p>From the field of signal processing, frequency domain techniques are well suited for computing the cross-correlations at all lags between each pair of time series, and terming every pair-specific best alignment with maximum correlation. Directly computing the correlations for every possible lag between two series may seem computationally expensive over all possible pairs. Such an operation between between two series, known as a convolution, can be computed as a product of the fourier transforms of the two series. The relevant definitions and theorems are summarized below:</p>
+<p>A convolution is a mathematical operation on two functions
+(<span class="math notranslate nohighlight">\(f\)</span> and <span class="math notranslate nohighlight">\(g\)</span>) that produces a third function (<span class="math notranslate nohighlight">\(f*g\)</span>) which expresses
+how the shape of one is modified by the other. It is defined as the integral of the product of the two functions after one is reflected about the y-axis and shifted.</p>
+<div class="math notranslate nohighlight">
+\[(f * g)(t) = \int_{-\infty}^{\infty} f(s)g(t - s) ds = \int_{-\infty}^{\infty} f(t - s)g(s) ds\]</div>
+<p>The Convolution Theorem states that under suitable conditions the Fourier transform of a convolution of two signals is the pointwise product of their Fourier transforms. More generally, convolution in the time domain equals point-wise multiplication in the frequency domain. Hence a convolution of two sequences can be obtained as the inverse transform of the product of the individual transforms. Let <span class="math notranslate nohighlight">\(*\)</span> denote the convolution of two series:</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{F}\{f(t) * g(t)\} = \mathcal{F}\{f(t)\} \mathcal{F}\{g(t)\} \]</div>
+<p>Cross-correlation measures the similarity of two series as a function of the
+displacement of one relative to the other. This is also known as a sliding dot product or sliding inner-product. Let <span class="math notranslate nohighlight">\(\star\)</span> denote the
+cross-correlation of two series, and <span class="math notranslate nohighlight">\(\overline{f}\)</span> denote the
+complex conjugate:</p>
+<div class="math notranslate nohighlight">
+\[(f \star g)(t) = \int_{-\infty}^{\infty} \overline{f(s)}g(s + t) ds \int_{-\infty}^{\infty} \overline{f(s - t)} g(s) ds\]</div>
+<p>The Cross-correlation Theorem states that the cross-correlation integral is
+equivalent to the convolution integral if one of the input signals
+is conjugated and time-reversed.</p>
+<div class="math notranslate nohighlight">
+\[[f(t) \star g(t)](\tau) = [\overline{f(-t)} * g(t)](\tau)\]</div>
+<p>where <span class="math notranslate nohighlight">\(\tau\)</span> is called the displacement or lag. For highly-correlated <span class="math notranslate nohighlight">\(f\)</span> and <span class="math notranslate nohighlight">\(g\)</span> which have a maximum cross-correlation at a particular <span class="math notranslate nohighlight">\(\tau\)</span>, a feature in <span class="math notranslate nohighlight">\(f\)</span> at <span class="math notranslate nohighlight">\(t\)</span> also occurs later in <span class="math notranslate nohighlight">\(g\)</span> at <span class="math notranslate nohighlight">\(t + \tau\)</span>, hence <span class="math notranslate nohighlight">\(g\)</span> could be described to lag <span class="math notranslate nohighlight">\(f\)</span> by <span class="math notranslate nohighlight">\(\tau\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">restart</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">eventid</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">events</span><span class="p">)):</span>
-    <span class="k">if</span> <span class="n">eventid</span> <span class="o">&lt;=</span> <span class="n">restart</span><span class="p">:</span>  <span class="c1"># kludge to resume loop</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># best alignment and cross-correlation using convolution theorem method</span>
+<span class="kn">from</span> <span class="nn">scipy.fft</span> <span class="kn">import</span> <span class="n">rfft</span><span class="p">,</span> <span class="n">irfft</span>
+<span class="k">def</span> <span class="nf">fft_align</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Find best alignment, max cross-correlation and indices of all pairs of columns&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">_normalize</span><span class="p">(</span><span class="n">X</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Helper to demean columns and divide by norm&quot;&quot;&quot;</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">X</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">X</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">X</span>
+
+    <span class="n">N</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">_normalize</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)])</span>  <span class="c1"># normalize and zero pad</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="n">rfft</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">flipud</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>              <span class="c1"># FFT of all series flipped</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">rfft</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>                         <span class="c1"># FFT of all original series</span>
+    <span class="n">corr</span><span class="p">,</span> <span class="n">disp</span><span class="p">,</span> <span class="n">cols</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>               <span class="c1"># to accumulate results</span>
+    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">M</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>  <span class="c1"># at each iter: compute column col * all remaining columns</span>
+        <span class="n">conv</span> <span class="o">=</span> <span class="n">irfft</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="p">[</span><span class="n">col</span><span class="p">]]</span> <span class="o">*</span> <span class="n">Y</span><span class="p">[:,</span> <span class="n">col</span><span class="o">+</span><span class="mi">1</span><span class="p">:],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># inverse of product of FFT</span>
+        <span class="n">corr</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">conv</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+        <span class="n">shift</span> <span class="o">=</span> <span class="p">(</span><span class="n">N</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>           <span class="c1"># displacement location relative to center</span>
+        <span class="n">disp</span><span class="o">.</span><span class="n">extend</span><span class="p">(((</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">conv</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">shift</span><span class="p">)</span> <span class="o">%</span> <span class="n">N</span><span class="p">)</span> <span class="o">-</span> <span class="n">shift</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">cols</span><span class="o">.</span><span class="n">extend</span><span class="p">([(</span><span class="n">col</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">col</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">M</span><span class="p">)])</span>
+    <span class="k">return</span> <span class="n">corr</span><span class="p">,</span> <span class="n">disp</span><span class="p">,</span> <span class="n">cols</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">fft_align</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">Z</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">Z</span><span class="p">[</span><span class="mi">1</span><span class="p">:])))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([0.9998344824121533], [1], [(0, 1)])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#fft_align(np.hstack(np.hstack((Z[:-5], Z[5:])))[:,2:], Z[:-2]) </span>
+<span class="n">fft_align</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">Z</span><span class="p">[:</span><span class="o">-</span><span class="mi">5</span><span class="p">],</span> <span class="n">Z</span><span class="p">[</span><span class="mi">5</span><span class="p">:]))[:</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="n">Z</span><span class="p">[</span><span class="mi">7</span><span class="p">:])))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([0.9996045585524033, 0.9993741961936712, 0.9997696328132938],
+ [5, 7, 2],
+ [(0, 1), (0, 2), (1, 2)])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="multiple-testing-problem">
+<h2>Multiple testing problem<a class="headerlink" href="#multiple-testing-problem" title="Permalink to this heading">#</a></h2>
+<p>When testing a huge number of null hypotheses, we are bound to get
+some very testing small p-values by chance. If we make a decision
+about whether to reject each null hypothesis without accounting for
+the fact that we have performed a very large number of tests, then we
+may end up rejecting a great number of true null hypotheses – that is,
+making a large number of Type I errors.</p>
+<p><strong>Data snooping</strong> occurs when the analyst fits a great number of models to
+a dataset. When explanatory variables are selected using the data,
+t-ratios and F-ratios will be too large, thus overstating the
+importance of variables in the model.</p>
+<p>Multiple testing adjusts the hurdle for significance because some tests will appear significant by
+chance. The downside of doing this is that some truly significant strategies might be overlooked because they
+did not pass the more stringent hurdle. This is the classic tension between Type I errors and Type II errors. The Type I error is the false discovery (investing in an unprofitable trading strategy). The Type II error is missing a truly profitable trading strategy.
+Data snooping occurs when the analyst fits a great number of models to
+a dataset. When explanatory variables are selected using the data,
+t-ratios and F-ratios will be too large, thus overstating the
+importance of variables in the model.</p>
+<p>The false discovery rate (FDR) is the ratio of false discoveries to number
+of positive tests, which is the sum of false discoveries (i.e. false
+positives) and true positives. To calculate the false discovery
+rate, we must take a guess at the fraction of tests that we do in
+which there is a real difference, and the probability that the test
+will give the right result when there is a real effect (power).
+The FDR views unacceptable in terms of a proportion. For example, if one false discovery were unacceptable for 100 tests, then 10 are unacceptable for 1,000 tests.</p>
+<p>Family-wise error rate (FWER) generalizes this notion to the
+setting of <span class="math notranslate nohighlight">\(m\)</span> null hypotheses, <span class="math notranslate nohighlight">\(H_1 , ... , H_m\)</span> , and is defined
+as the probability error rate of making at least one Type I error.
+If we make the additional rather
+strong assumptions that the m tests are independent and that all m null
+hypotheses are true, then</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{FWER}(\alpha) = 1 - \prod_{j=1}^{m} (1 - \alpha) = 1 - (1 - \alpha)^m\]</div>
+<p>In the family-wise error rate, it is unacceptable to
+make a single false discovery. This is a very severe rule.</p>
+<p>Given the p-values, the <code class="docutils literal notranslate"><span class="pre">multipletests</span></code> function from the <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> module outputs adjusted p-values, which can be thought of as a new set of p-values that have been corrected for multiple testing. If the adjusted p-value for a given hypothesis is less than or equal to alpha, then that hypothesis can be rejected while maintaining a FWER of no more than alpha. In other words, for such methods, the adjusted p-values resulting from the multipletests function can simply be compared to the desired FWER in order to determine whether or not to reject each hypothesis. We can use the same function to control FDR as well.</p>
+<p>Compute BHAR and CAR of all events</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">restart_event</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># 75,1</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">eventid</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">events</span><span class="p">),</span> <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">events</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">eventid</span> <span class="o">&lt;=</span> <span class="n">restart_event</span><span class="p">:</span>  <span class="c1"># kludge to resume loop</span>
         <span class="k">continue</span>
     <span class="k">for</span> <span class="n">roleid</span> <span class="ow">in</span> <span class="n">roles</span><span class="p">:</span>
         <span class="c1"># retrieve all returns observations of this eventid, roleid</span>
         <span class="n">df</span> <span class="o">=</span> <span class="n">event_pipeline</span><span class="p">(</span><span class="n">eventstudy</span><span class="p">,</span>
-                            <span class="n">stocks</span><span class="o">=</span><span class="n">crsp</span><span class="p">,</span>
                             <span class="n">beg</span><span class="o">=</span><span class="n">beg</span><span class="p">,</span>
                             <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">,</span>
                             <span class="n">eventid</span><span class="o">=</span><span class="n">eventid</span><span class="p">,</span>
@@ -661,7 +856,7 @@ document.write(`
                             <span class="n">left</span><span class="o">=</span><span class="n">left</span><span class="p">,</span>
                             <span class="n">right</span><span class="o">=</span><span class="n">right</span><span class="p">,</span>
                             <span class="n">post</span><span class="o">=</span><span class="n">post</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;announcedate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">minobs</span><span class="p">:</span>  <span class="c1"># require min number of dates</span>
+        <span class="k">if</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;announcedate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">mindays</span><span class="p">:</span>  <span class="c1"># require min number of dates</span>
             <span class="k">continue</span>
 
         <span class="c1"># compute both BHAR and CAR averages, then plot and save</span>
@@ -670,93 +865,1135 @@ document.write(`
         <span class="c1">#eventstudy.write()</span>
         <span class="n">eventstudy</span><span class="o">.</span><span class="n">write_summary</span><span class="p">()</span>
         <span class="c1">#print(eventstudy.label, eventid, roleid)</span>
-        <span class="n">show</span><span class="p">(</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">car</span> <span class="o">|</span> <span class="n">bhar</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">))</span>
 
-        <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">num</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">eventstudy</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;sbhar&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="n">eventstudy</span><span class="o">.</span><span class="n">label</span><span class="p">,</span>
+        <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">num</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">eventstudy</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;sbhar&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                        <span class="n">title</span><span class="o">=</span><span class="n">eventformat</span><span class="p">(</span><span class="n">eventid</span><span class="p">,</span> <span class="n">roleid</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; BHAR&#39;</span><span class="p">,</span>
                         <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">vline</span><span class="o">=</span><span class="p">[</span><span class="n">right</span><span class="p">])</span>
-        <span class="n">eventstudy</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;scar&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="n">eventstudy</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;scar&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                        <span class="n">title</span><span class="o">=</span><span class="n">eventformat</span><span class="p">(</span><span class="n">eventid</span><span class="p">,</span> <span class="n">roleid</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; CAR&#39;</span><span class="p">,</span>
                         <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">vline</span><span class="o">=</span><span class="p">[</span><span class="n">right</span><span class="p">])</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">imgdir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">eventid</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">roleid</span><span class="si">}</span><span class="s2">.jpg&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>33it [11:47:02, 1289.68s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|          | 0/116 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 116/116 [26:18:33&lt;00:00, 816.50s/it]   
+</pre></div>
+</div>
+<img alt="_images/02d0951a7c5cfe7a14a6bcaee30336f69154fb3d7a2bc7a1ae8e7805e8fba870.png" src="_images/02d0951a7c5cfe7a14a6bcaee30336f69154fb3d7a2bc7a1ae8e7805e8fba870.png" />
 </div>
 </div>
-<p><strong>Summarize BHAR’s of all events</strong></p>
+<p>Summarize BHAR’s of all events</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sorted by 3-day event window abnormal returns</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create (eventid, roleid) multiindex for table of all BHAR&#39;s</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">eventstudy</span><span class="o">.</span><span class="n">read_summary</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;sbhar&#39;</span><span class="p">)</span>\
                <span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;label&#39;</span><span class="p">)</span>\
-               <span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;rho&#39;</span><span class="p">,</span> <span class="s1">&#39;tau&#39;</span><span class="p">,</span> <span class="s1">&#39;created&#39;</span><span class="p">])</span>\
-               <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;window&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># convert (eventid, roleid) to multiindex</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;days&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">500</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;post_t&#39;</span><span class="p">)</span>
+               <span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;rho&#39;</span><span class="p">,</span> <span class="s1">&#39;tau&#39;</span><span class="p">,</span> <span class="s1">&#39;created&#39;</span><span class="p">])</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;effective&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">400</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;post_t&#39;</span><span class="p">)</span>  <span class="c1"># sorted by post drift t-stat</span>
 <span class="n">multiIndex</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_list</span><span class="p">())</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_frame</span><span class="p">(</span><span class="n">multiIndex</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;eventid&#39;</span><span class="p">,</span> <span class="s1">&#39;roleid&#39;</span><span class="p">])</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;event&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">keydev</span><span class="o">.</span><span class="n">event</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;role&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">keydev</span><span class="o">.</span><span class="n">role</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">1</span><span class="p">)]</span><span class="o">.</span><span class="n">values</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Post-Announcement Drift&quot;</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;event&#39;</span><span class="p">,</span> <span class="s1">&#39;role&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># show summary</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;event&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">keydev</span><span class="o">.</span><span class="n">_event</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">values</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;role&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">keydev</span><span class="o">.</span><span class="n">_role</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">1</span><span class="p">)]</span><span class="o">.</span><span class="n">values</span>
-<span class="n">show</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;event&#39;</span><span class="p">,</span> <span class="s1">&#39;role&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]),</span>
-     <span class="n">caption</span><span class="o">=</span><span class="s2">&quot;Post-Announcement Drift&quot;</span><span class="p">)</span>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Post-Announcement Drift
 </pre></div>
 </div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>beg</th>
+      <th>end</th>
+      <th>rows</th>
+      <th>days</th>
+      <th>effective</th>
+      <th>window</th>
+      <th>window_t</th>
+      <th>post</th>
+      <th>post_t</th>
+    </tr>
+    <tr>
+      <th>event</th>
+      <th>role</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Shelf Registration Filings</th>
+      <th>Target</th>
+      <td>20020102</td>
+      <td>20240201</td>
+      <td>43968</td>
+      <td>5462</td>
+      <td>658.0</td>
+      <td>-0.005723</td>
+      <td>-2.953200</td>
+      <td>-0.010470</td>
+      <td>-2.287190</td>
+    </tr>
+    <tr>
+      <th>Changes in Company Bylaws/Rules</th>
+      <th>Target</th>
+      <td>20020430</td>
+      <td>20240201</td>
+      <td>26080</td>
+      <td>4614</td>
+      <td>567.0</td>
+      <td>0.000111</td>
+      <td>0.042656</td>
+      <td>-0.010652</td>
+      <td>-2.000120</td>
+    </tr>
+    <tr>
+      <th>Auditor Changes</th>
+      <th>Target</th>
+      <td>20020103</td>
+      <td>20240131</td>
+      <td>9232</td>
+      <td>3738</td>
+      <td>587.0</td>
+      <td>-0.003299</td>
+      <td>-1.106310</td>
+      <td>-0.011627</td>
+      <td>-1.737210</td>
+    </tr>
+    <tr>
+      <th>Name Changes</th>
+      <th>Target</th>
+      <td>20020430</td>
+      <td>20240130</td>
+      <td>1516</td>
+      <td>1282</td>
+      <td>434.0</td>
+      <td>0.012904</td>
+      <td>2.072100</td>
+      <td>-0.021342</td>
+      <td>-1.729880</td>
+    </tr>
+    <tr>
+      <th>Executive Changes - CFO</th>
+      <th>Target</th>
+      <td>20020102</td>
+      <td>20240201</td>
+      <td>21873</td>
+      <td>5337</td>
+      <td>652.0</td>
+      <td>-0.007732</td>
+      <td>-3.119900</td>
+      <td>-0.007747</td>
+      <td>-1.588070</td>
+    </tr>
+    <tr>
+      <th>Special/Extraordinary Shareholders Meeting</th>
+      <th>Target</th>
+      <td>20040106</td>
+      <td>20240131</td>
+      <td>5710</td>
+      <td>3176</td>
+      <td>513.0</td>
+      <td>-0.000755</td>
+      <td>-0.203839</td>
+      <td>-0.013482</td>
+      <td>-1.519900</td>
+    </tr>
+    <tr>
+      <th>Product-Related Announcements</th>
+      <th>Target</th>
+      <td>20020102</td>
+      <td>20240201</td>
+      <td>203597</td>
+      <td>5559</td>
+      <td>662.0</td>
+      <td>0.005881</td>
+      <td>4.758170</td>
+      <td>-0.003877</td>
+      <td>-1.467370</td>
+    </tr>
+    <tr>
+      <th>Investor Activism - Target Communication</th>
+      <th>Target</th>
+      <td>20020402</td>
+      <td>20240201</td>
+      <td>4995</td>
+      <td>2914</td>
+      <td>504.0</td>
+      <td>0.008170</td>
+      <td>1.945040</td>
+      <td>-0.007546</td>
+      <td>-1.198240</td>
+    </tr>
+    <tr>
+      <th>Executive/Board Changes - Other</th>
+      <th>Target</th>
+      <td>20020101</td>
+      <td>20240201</td>
+      <td>215926</td>
+      <td>5558</td>
+      <td>661.0</td>
+      <td>-0.000451</td>
+      <td>-0.442385</td>
+      <td>-0.002750</td>
+      <td>-1.189980</td>
+    </tr>
+    <tr>
+      <th>Executive Changes - CEO</th>
+      <th>Target</th>
+      <td>20020102</td>
+      <td>20240201</td>
+      <td>16560</td>
+      <td>5080</td>
+      <td>648.0</td>
+      <td>-0.004515</td>
+      <td>-1.210740</td>
+      <td>-0.007229</td>
+      <td>-1.100320</td>
+    </tr>
+    <tr>
+      <th>Index Constituent Adds</th>
+      <th>Target</th>
+      <td>20020102</td>
+      <td>20240123</td>
+      <td>27762</td>
+      <td>2158</td>
+      <td>496.0</td>
+      <td>-0.001032</td>
+      <td>-0.394831</td>
+      <td>-0.006559</td>
+      <td>-1.065910</td>
+    </tr>
+    <tr>
+      <th>M&amp;A Transaction Cancellations</th>
+      <th>Buyer</th>
+      <td>20020107</td>
+      <td>20240128</td>
+      <td>1481</td>
+      <td>1233</td>
+      <td>444.0</td>
+      <td>-0.000830</td>
+      <td>-0.153281</td>
+      <td>-0.011231</td>
+      <td>-1.047170</td>
+    </tr>
+    <tr>
+      <th>M&amp;A Transaction Closings</th>
+      <th>Target</th>
+      <td>20020109</td>
+      <td>20240126</td>
+      <td>1453</td>
+      <td>1154</td>
+      <td>406.0</td>
+      <td>0.011893</td>
+      <td>1.369390</td>
+      <td>-0.013536</td>
+      <td>-1.007740</td>
+    </tr>
+    <tr>
+      <th>Business Expansions</th>
+      <th>Target</th>
+      <td>20020102</td>
+      <td>20240201</td>
+      <td>57173</td>
+      <td>5510</td>
+      <td>663.0</td>
+      <td>0.001807</td>
+      <td>1.465250</td>
+      <td>-0.002680</td>
+      <td>-0.888018</td>
+    </tr>
+    <tr>
+      <th>Private Placements</th>
+      <th>Buyer</th>
+      <td>20020103</td>
+      <td>20240131</td>
+      <td>10955</td>
+      <td>4168</td>
+      <td>623.0</td>
+      <td>0.000871</td>
+      <td>0.522021</td>
+      <td>-0.003573</td>
+      <td>-0.887581</td>
+    </tr>
+    <tr>
+      <th>Earnings Release Date</th>
+      <th>Target</th>
+      <td>20020411</td>
+      <td>20240201</td>
+      <td>218101</td>
+      <td>5086</td>
+      <td>608.0</td>
+      <td>0.000167</td>
+      <td>0.158605</td>
+      <td>-0.002156</td>
+      <td>-0.797304</td>
+    </tr>
+    <tr>
+      <th>Corporate Guidance - Lowered</th>
+      <th>Target</th>
+      <td>20020102</td>
+      <td>20240131</td>
+      <td>10609</td>
+      <td>3510</td>
+      <td>565.0</td>
+      <td>-0.066260</td>
+      <td>-16.435100</td>
+      <td>-0.003715</td>
+      <td>-0.790521</td>
+    </tr>
+    <tr>
+      <th>Client Announcements</th>
+      <th>Target</th>
+      <td>20020102</td>
+      <td>20240201</td>
+      <td>208109</td>
+      <td>5555</td>
+      <td>663.0</td>
+      <td>0.008302</td>
+      <td>7.351210</td>
+      <td>-0.002044</td>
+      <td>-0.783472</td>
+    </tr>
+    <tr>
+      <th>Conferences</th>
+      <th>Participant</th>
+      <td>20070125</td>
+      <td>20240201</td>
+      <td>280404</td>
+      <td>3467</td>
+      <td>426.0</td>
+      <td>-0.000576</td>
+      <td>-0.458456</td>
+      <td>-0.002489</td>
+      <td>-0.734339</td>
+    </tr>
+    <tr>
+      <th>Investor Activism - Activist Communication</th>
+      <th>Target</th>
+      <td>20020102</td>
+      <td>20240201</td>
+      <td>8126</td>
+      <td>3707</td>
+      <td>553.0</td>
+      <td>0.015004</td>
+      <td>4.258800</td>
+      <td>-0.004300</td>
+      <td>-0.731366</td>
+    </tr>
+    <tr>
+      <th>Special Calls</th>
+      <th>Target</th>
+      <td>20030211</td>
+      <td>20240201</td>
+      <td>15526</td>
+      <td>4299</td>
+      <td>574.0</td>
+      <td>0.019873</td>
+      <td>0.789582</td>
+      <td>-0.013420</td>
+      <td>-0.697699</td>
+    </tr>
+    <tr>
+      <th>Strategic Alliances</th>
+      <th>Target</th>
+      <td>20020102</td>
+      <td>20240201</td>
+      <td>28757</td>
+      <td>5281</td>
+      <td>655.0</td>
+      <td>0.010172</td>
+      <td>3.713280</td>
+      <td>-0.002782</td>
+      <td>-0.576902</td>
+    </tr>
+    <tr>
+      <th>Buyback Transaction Closings</th>
+      <th>Target</th>
+      <td>20020103</td>
+      <td>20240201</td>
+      <td>12532</td>
+      <td>3771</td>
+      <td>597.0</td>
+      <td>0.003669</td>
+      <td>1.549030</td>
+      <td>-0.002613</td>
+      <td>-0.571668</td>
+    </tr>
+    <tr>
+      <th>M&amp;A Transaction Announcements</th>
+      <th>Buyer</th>
+      <td>20020101</td>
+      <td>20240201</td>
+      <td>24750</td>
+      <td>5309</td>
+      <td>658.0</td>
+      <td>0.010916</td>
+      <td>3.012090</td>
+      <td>-0.002259</td>
+      <td>-0.566940</td>
+    </tr>
+    <tr>
+      <th>M&amp;A Transaction Closings</th>
+      <th>Buyer</th>
+      <td>20020101</td>
+      <td>20240201</td>
+      <td>42052</td>
+      <td>5496</td>
+      <td>663.0</td>
+      <td>0.004906</td>
+      <td>3.378730</td>
+      <td>-0.001616</td>
+      <td>-0.544916</td>
+    </tr>
+    <tr>
+      <th>M&amp;A Transaction Announcements</th>
+      <th>Seller</th>
+      <td>20020101</td>
+      <td>20240201</td>
+      <td>12010</td>
+      <td>4648</td>
+      <td>639.0</td>
+      <td>0.010365</td>
+      <td>2.572670</td>
+      <td>-0.002726</td>
+      <td>-0.456992</td>
+    </tr>
+    <tr>
+      <th>M&amp;A Calls</th>
+      <th>Target</th>
+      <td>20031027</td>
+      <td>20240130</td>
+      <td>7029</td>
+      <td>3193</td>
+      <td>543.0</td>
+      <td>0.060313</td>
+      <td>8.263100</td>
+      <td>-0.002316</td>
+      <td>-0.415104</td>
+    </tr>
+    <tr>
+      <th>Shareholder/Analyst Calls</th>
+      <th>Target</th>
+      <td>20020108</td>
+      <td>20240201</td>
+      <td>21606</td>
+      <td>4209</td>
+      <td>562.0</td>
+      <td>-0.000081</td>
+      <td>-0.028738</td>
+      <td>-0.002662</td>
+      <td>-0.413827</td>
+    </tr>
+    <tr>
+      <th>M&amp;A Transaction Closings</th>
+      <th>Seller</th>
+      <td>20020101</td>
+      <td>20240201</td>
+      <td>18006</td>
+      <td>4962</td>
+      <td>649.0</td>
+      <td>0.004011</td>
+      <td>1.823550</td>
+      <td>-0.001731</td>
+      <td>-0.386578</td>
+    </tr>
+    <tr>
+      <th>Follow-on Equity Offerings</th>
+      <th>Target</th>
+      <td>20020102</td>
+      <td>20240201</td>
+      <td>20686</td>
+      <td>5015</td>
+      <td>642.0</td>
+      <td>-0.031380</td>
+      <td>-5.485400</td>
+      <td>-0.003701</td>
+      <td>-0.381144</td>
+    </tr>
+    <tr>
+      <th>M&amp;A Rumors and Discussions</th>
+      <th>Target</th>
+      <td>20020918</td>
+      <td>20240201</td>
+      <td>21229</td>
+      <td>4421</td>
+      <td>561.0</td>
+      <td>0.013601</td>
+      <td>4.939740</td>
+      <td>-0.001830</td>
+      <td>-0.365101</td>
+    </tr>
+    <tr>
+      <th>Business Reorganizations</th>
+      <th>Target</th>
+      <td>20020102</td>
+      <td>20240129</td>
+      <td>4374</td>
+      <td>2743</td>
+      <td>512.0</td>
+      <td>-0.002682</td>
+      <td>-0.770601</td>
+      <td>-0.002331</td>
+      <td>-0.312863</td>
+    </tr>
+    <tr>
+      <th>Discontinued Operations/Downsizings</th>
+      <th>Target</th>
+      <td>20020102</td>
+      <td>20240201</td>
+      <td>18697</td>
+      <td>4379</td>
+      <td>581.0</td>
+      <td>-0.008746</td>
+      <td>-2.599930</td>
+      <td>-0.001346</td>
+      <td>-0.218363</td>
+    </tr>
+    <tr>
+      <th>Fixed Income Offerings</th>
+      <th>Target</th>
+      <td>20020101</td>
+      <td>20240201</td>
+      <td>26916</td>
+      <td>5203</td>
+      <td>652.0</td>
+      <td>-0.005389</td>
+      <td>-3.096800</td>
+      <td>-0.000678</td>
+      <td>-0.194733</td>
+    </tr>
+    <tr>
+      <th>Private Placements</th>
+      <th>Target</th>
+      <td>20020103</td>
+      <td>20240201</td>
+      <td>14052</td>
+      <td>4838</td>
+      <td>634.0</td>
+      <td>0.022058</td>
+      <td>3.816930</td>
+      <td>-0.001219</td>
+      <td>-0.113048</td>
+    </tr>
+    <tr>
+      <th>Delayed SEC Filings</th>
+      <th>Target</th>
+      <td>20020102</td>
+      <td>20240130</td>
+      <td>12480</td>
+      <td>1999</td>
+      <td>498.0</td>
+      <td>-0.014976</td>
+      <td>-2.507320</td>
+      <td>-0.001142</td>
+      <td>-0.086236</td>
+    </tr>
+    <tr>
+      <th>Labor-related Announcements</th>
+      <th>Target</th>
+      <td>20020111</td>
+      <td>20240125</td>
+      <td>3941</td>
+      <td>2460</td>
+      <td>476.0</td>
+      <td>0.002075</td>
+      <td>0.657079</td>
+      <td>-0.000550</td>
+      <td>-0.082097</td>
+    </tr>
+    <tr>
+      <th>M&amp;A Transaction Announcements</th>
+      <th>Target</th>
+      <td>20020102</td>
+      <td>20240130</td>
+      <td>5875</td>
+      <td>3420</td>
+      <td>598.0</td>
+      <td>0.241380</td>
+      <td>18.389100</td>
+      <td>0.000139</td>
+      <td>0.020541</td>
+    </tr>
+    <tr>
+      <th>Earnings Calls</th>
+      <th>Target</th>
+      <td>20020108</td>
+      <td>20240201</td>
+      <td>227032</td>
+      <td>5234</td>
+      <td>630.0</td>
+      <td>0.000473</td>
+      <td>0.434752</td>
+      <td>0.000274</td>
+      <td>0.044777</td>
+    </tr>
+    <tr>
+      <th>Lawsuits &amp; Legal Issues</th>
+      <th>Target</th>
+      <td>20020101</td>
+      <td>20240201</td>
+      <td>40786</td>
+      <td>5420</td>
+      <td>658.0</td>
+      <td>-0.000651</td>
+      <td>-0.309857</td>
+      <td>0.000435</td>
+      <td>0.109043</td>
+    </tr>
+    <tr>
+      <th>Board Meeting</th>
+      <th>Target</th>
+      <td>20020204</td>
+      <td>20240126</td>
+      <td>6482</td>
+      <td>2646</td>
+      <td>458.0</td>
+      <td>0.001948</td>
+      <td>0.686676</td>
+      <td>0.001542</td>
+      <td>0.262207</td>
+    </tr>
+    <tr>
+      <th>Corporate Guidance - New/Confirmed</th>
+      <th>Target</th>
+      <td>20020101</td>
+      <td>20240201</td>
+      <td>143964</td>
+      <td>5449</td>
+      <td>661.0</td>
+      <td>-0.002079</td>
+      <td>-1.229350</td>
+      <td>0.000875</td>
+      <td>0.318072</td>
+    </tr>
+    <tr>
+      <th>Seeking Acquisitions/Investments</th>
+      <th>Target</th>
+      <td>20020103</td>
+      <td>20240201</td>
+      <td>37127</td>
+      <td>5089</td>
+      <td>647.0</td>
+      <td>-0.000001</td>
+      <td>-0.000492</td>
+      <td>0.001187</td>
+      <td>0.343154</td>
+    </tr>
+    <tr>
+      <th>Impairments/Write Offs</th>
+      <th>Target</th>
+      <td>20020408</td>
+      <td>20240201</td>
+      <td>22850</td>
+      <td>3407</td>
+      <td>502.0</td>
+      <td>-0.002974</td>
+      <td>-0.905683</td>
+      <td>0.002642</td>
+      <td>0.493208</td>
+    </tr>
+    <tr>
+      <th>Company Conference Presentations</th>
+      <th>Target</th>
+      <td>20041101</td>
+      <td>20240201</td>
+      <td>324553</td>
+      <td>4767</td>
+      <td>568.0</td>
+      <td>0.001339</td>
+      <td>1.353990</td>
+      <td>0.001249</td>
+      <td>0.496738</td>
+    </tr>
+    <tr>
+      <th>Announcements of Sales/Trading Statement</th>
+      <th>Target</th>
+      <td>20020102</td>
+      <td>20240130</td>
+      <td>12285</td>
+      <td>3231</td>
+      <td>570.0</td>
+      <td>0.002500</td>
+      <td>0.831303</td>
+      <td>0.003360</td>
+      <td>0.508218</td>
+    </tr>
+    <tr>
+      <th>Considering Multiple Strategic Alternatives</th>
+      <th>Target</th>
+      <td>20040324</td>
+      <td>20240131</td>
+      <td>3914</td>
+      <td>2410</td>
+      <td>461.0</td>
+      <td>-0.007378</td>
+      <td>-1.002320</td>
+      <td>0.012381</td>
+      <td>0.522977</td>
+    </tr>
+    <tr>
+      <th>Debt Financing Related</th>
+      <th>Target</th>
+      <td>20020102</td>
+      <td>20240201</td>
+      <td>40154</td>
+      <td>5508</td>
+      <td>660.0</td>
+      <td>0.005354</td>
+      <td>2.456220</td>
+      <td>0.003117</td>
+      <td>0.748678</td>
+    </tr>
+    <tr>
+      <th>Buyback Tranche Update</th>
+      <th>Target</th>
+      <td>20020107</td>
+      <td>20240201</td>
+      <td>106352</td>
+      <td>4870</td>
+      <td>621.0</td>
+      <td>0.000841</td>
+      <td>0.491636</td>
+      <td>0.002297</td>
+      <td>0.792872</td>
+    </tr>
+    <tr>
+      <th>Seeking to Sell/Divest</th>
+      <th>Target</th>
+      <td>20020110</td>
+      <td>20240117</td>
+      <td>5230</td>
+      <td>2908</td>
+      <td>499.0</td>
+      <td>-0.002341</td>
+      <td>-0.456121</td>
+      <td>0.007285</td>
+      <td>0.873905</td>
+    </tr>
+    <tr>
+      <th>End of Lock-Up Period</th>
+      <th>Target</th>
+      <td>20020115</td>
+      <td>20240130</td>
+      <td>6822</td>
+      <td>3151</td>
+      <td>541.0</td>
+      <td>-0.058891</td>
+      <td>-9.594920</td>
+      <td>0.007141</td>
+      <td>1.101470</td>
+    </tr>
+    <tr>
+      <th>Corporate Guidance - Raised</th>
+      <th>Target</th>
+      <td>20020103</td>
+      <td>20240201</td>
+      <td>19376</td>
+      <td>4041</td>
+      <td>611.0</td>
+      <td>0.032878</td>
+      <td>10.723600</td>
+      <td>0.005254</td>
+      <td>1.234920</td>
+    </tr>
+    <tr>
+      <th>Announcements of Earnings</th>
+      <th>Target</th>
+      <td>20020101</td>
+      <td>20240201</td>
+      <td>331260</td>
+      <td>5502</td>
+      <td>660.0</td>
+      <td>0.000328</td>
+      <td>0.205462</td>
+      <td>0.003517</td>
+      <td>1.291870</td>
+    </tr>
+    <tr>
+      <th>Delistings</th>
+      <th>Target</th>
+      <td>20020107</td>
+      <td>20240201</td>
+      <td>16431</td>
+      <td>4736</td>
+      <td>603.0</td>
+      <td>-0.022604</td>
+      <td>-4.433630</td>
+      <td>0.015234</td>
+      <td>1.323590</td>
+    </tr>
+    <tr>
+      <th>Analyst/Investor Day</th>
+      <th>Target</th>
+      <td>20040204</td>
+      <td>20240201</td>
+      <td>6407</td>
+      <td>3211</td>
+      <td>524.0</td>
+      <td>0.006024</td>
+      <td>2.396800</td>
+      <td>0.007048</td>
+      <td>1.334210</td>
+    </tr>
+    <tr>
+      <th>Investor Activism - Proxy/Voting Related</th>
+      <th>Target</th>
+      <td>20020107</td>
+      <td>20240201</td>
+      <td>6993</td>
+      <td>3020</td>
+      <td>507.0</td>
+      <td>-0.001108</td>
+      <td>-0.509462</td>
+      <td>0.010531</td>
+      <td>1.371040</td>
+    </tr>
+    <tr>
+      <th>Annual General Meeting</th>
+      <th>Target</th>
+      <td>20020122</td>
+      <td>20240129</td>
+      <td>68147</td>
+      <td>4887</td>
+      <td>595.0</td>
+      <td>0.001885</td>
+      <td>1.224010</td>
+      <td>0.006747</td>
+      <td>1.595650</td>
+    </tr>
+    <tr>
+      <th>Buyback - Change in Plan Terms</th>
+      <th>Target</th>
+      <td>20020102</td>
+      <td>20240201</td>
+      <td>6627</td>
+      <td>3281</td>
+      <td>583.0</td>
+      <td>0.008746</td>
+      <td>3.685190</td>
+      <td>0.009255</td>
+      <td>2.180510</td>
+    </tr>
+    <tr>
+      <th>Buyback Transaction Announcements</th>
+      <th>Target</th>
+      <td>20020102</td>
+      <td>20240201</td>
+      <td>19521</td>
+      <td>4810</td>
+      <td>642.0</td>
+      <td>0.015452</td>
+      <td>6.943710</td>
+      <td>0.010344</td>
+      <td>2.596150</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
-</div>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="multiple-testing">
-<h1>Multiple Testing<a class="headerlink" href="#multiple-testing" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Show actual two-sided p-values vs expected (with continuity correction)</span>
-<span class="n">pvals</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="o">-</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;post_t&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">abs</span><span class="p">())</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">argmin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">pvals</span><span class="p">)</span>
-<span class="n">header</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">argmin</span><span class="p">][[</span><span class="s1">&#39;event&#39;</span><span class="p">,</span> <span class="s1">&#39;role&#39;</span><span class="p">,</span> <span class="s1">&#39;days&#39;</span><span class="p">,</span> <span class="s1">&#39;effective&#39;</span><span class="p">,</span> <span class="s1">&#39;post_t&#39;</span><span class="p">]]</span>\
-           <span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Expected p-values (with continuity correction)</span>
+<span class="n">pvals</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="o">-</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;post_t&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">abs</span><span class="p">())</span> <span class="o">*</span> <span class="mi">2</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">pvals</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">pvals</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.5</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">pvals</span><span class="p">),</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pvals</span><span class="p">)</span><span class="o">-</span><span class="mf">0.5</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">pvals</span><span class="p">)],</span> <span class="s1">&#39;r--&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Distribution of p-values&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;actual&#39;</span><span class="p">,</span> <span class="s1">&#39;expected&#39;</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">imgdir</span> <span class="o">/</span> <span class="s1">&#39;pvals.jpg&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/57ad0720b085a5a8d317dc348bb4961964032b3a227e78bd84f6b51e314b22bf.png" src="_images/57ad0720b085a5a8d317dc348bb4961964032b3a227e78bd84f6b51e314b22bf.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Bonferroni, Holm and Benjamin-Hochberg methods</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Number of rejections with uncorrected pvals</span>
+<span class="c1">#argmin = np.argmin(pvals)</span>
+<span class="c1">#header = df.iloc[argmin][[&#39;event&#39;, &#39;role&#39;, &#39;days&#39;, &#39;effective&#39;, &#39;post_t&#39;]]</span>
 <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
-<span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="k">for</span> <span class="n">method</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;bonferroni&#39;</span><span class="p">,</span> <span class="s1">&#39;holm&#39;</span><span class="p">,</span> <span class="s1">&#39;fdr_bh&#39;</span><span class="p">]:</span>
-    <span class="n">tests</span> <span class="o">=</span>  <span class="n">multipletests</span><span class="p">(</span><span class="n">pvals</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">)</span>
-    <span class="n">results</span><span class="p">[</span><span class="n">method</span><span class="p">]</span> <span class="o">=</span> <span class="n">header</span> <span class="o">|</span> <span class="p">{</span><span class="sa">f</span><span class="s1">&#39;pval(alpha=</span><span class="si">{</span><span class="n">alpha</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">:</span> <span class="n">pvals</span><span class="p">[</span><span class="n">argmin</span><span class="p">],</span>
-                                <span class="s1">&#39;adj-pval&#39;</span><span class="p">:</span> <span class="n">tests</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">argmin</span><span class="p">]}</span>
-<span class="n">show</span><span class="p">(</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">),</span>
-     <span class="n">caption</span><span class="o">=</span><span class="s2">&quot;Multiple Testing methods&quot;</span><span class="p">)</span>
+<span class="n">uncorrected</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;rejections&#39;</span><span class="p">:</span> <span class="nb">sum</span><span class="p">(</span><span class="n">pvals</span> <span class="o">&lt;</span> <span class="n">alpha</span><span class="p">),</span>
+                         <span class="s1">&#39;min p-value&#39;</span><span class="p">:</span> <span class="nb">min</span><span class="p">(</span><span class="n">pvals</span><span class="p">)},</span>
+                        <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;uncorrected&#39;</span><span class="p">])</span>
+<span class="n">uncorrected</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>rejections</th>
+      <th>min p-value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>uncorrected</th>
+      <td>4</td>
+      <td>0.0094</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
+<section id="bonferroni-correction">
+<h3>Bonferroni correction<a class="headerlink" href="#bonferroni-correction" title="Permalink to this heading">#</a></h3>
+<p>The best-known FWER test is called the Bonferroni test which adjusts for the multiple tests. Given the chance that one test could randomly show up as significant, the Bonferroni requires the confidence level to increase. Instead of 5%, you take the 5% and divide by the number of tests, that is, 5%/10 = 0.5%. Again equivalently, you need to be 99.5% confident with 10 tests that you are not making a single false discovery. In terms of the t-statistic, the Bonferroni requires a statistic of at least 2.8 for 10 tests. For 1,000 tests, the statistic must exceed 4.1.</p>
+<p>It sets the threshold for rejecting each hypothesis to <span class="math notranslate nohighlight">\(\alpha/m\)</span>, by applying the union bound inequality:</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{FWER}(\alpha) = \mathrm{Pr}(\cup_{j=1}^{m} A_j) \le                                  
+  \sum_{j=1}^{m} \mathrm{Pr}(A_j) \le m \times \frac{\alpha}{m} = \alpha\]</div>
+<p>where <span class="math notranslate nohighlight">\(A_j\)</span> denotes the probability of rejecting the <span class="math notranslate nohighlight">\(j\)</span>-th
+hypothesis. The Bonferroni correction can be quite conservative, in
+the sense that the true FWER is often quite a bit lower than the
+nominal (or target) FWER;</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The Bonferroni p-values bonf are simply the uncorrected pvalues multiplied by</span>
+<span class="c1"># the number of samples and truncated to be less than or equal to 1.  </span>
+<span class="n">reject</span><span class="p">,</span> <span class="n">bonf_corrected</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span>  <span class="n">multipletests</span><span class="p">(</span><span class="n">pvals</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;bonferroni&#39;</span><span class="p">)</span>
+<span class="n">bonf</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;rejections&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">bonf_corrected</span> <span class="o">&lt;</span> <span class="n">alpha</span><span class="p">),</span>
+                  <span class="s1">&#39;min p-value&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">bonf_corrected</span><span class="p">)},</span>
+                 <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;bonferroni&#39;</span><span class="p">])</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">uncorrected</span><span class="p">,</span> <span class="n">bonf</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>rejections</th>
+      <th>min p-value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>uncorrected</th>
+      <td>4</td>
+      <td>0.0094</td>
+    </tr>
+    <tr>
+      <th>bonferroni</th>
+      <td>0</td>
+      <td>0.5562</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="holm-s-step-down-procedure">
+<h3>Holm’s step-down procedure<a class="headerlink" href="#holm-s-step-down-procedure" title="Permalink to this heading">#</a></h3>
+<p>Holm’s method, also known as Holm’s step-down procedure or the Holm-Bonferroni method, is an alternative to the Bonferroni procedure. Holm’s method method controls the FWER, but it is less conservative than Bonferroni, in the sense that it will reject more null hypotheses, typically resulting in fewer Type II errors and hence greater power. Holm’s method makes no independence assumptions about the hypothesis tests, and is uniformly more powerful than the Bonferroni method – it will always reject at least as many null hypotheses as Bonferroni– and so it should always be preferred. It is worth noting that in Holm’s procedure, the threshold that we use to reject each null hypothesis actually depends on the values of all the p-values.</p>
+<p>The Holm method begins by sorting the tests from the lowest p-value (most significant) to the highest (least significant), and comparing a threshold computed with the Holm function.  In contrast to the Bonferroni, which has a single threshold for all tests, the other tests will have a different hurdle under Holm. Starting from the first test, we sequentially compare the p-values with their hurdles. When we first come across the test such that its p-value fails to meet the hurdle, we reject this test and all others with higher p-values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Holm method</span>
+<span class="n">reject</span><span class="p">,</span> <span class="n">holm_corrected</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span>  <span class="n">multipletests</span><span class="p">(</span><span class="n">pvals</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;holm&#39;</span><span class="p">)</span>
+<span class="n">holm</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;rejections&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">holm_corrected</span> <span class="o">&lt;</span> <span class="n">alpha</span><span class="p">),</span>
+                  <span class="s1">&#39;min p-value&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">holm_corrected</span><span class="p">)},</span>
+                 <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;holm&#39;</span><span class="p">])</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">uncorrected</span><span class="p">,</span> <span class="n">bonf</span><span class="p">,</span> <span class="n">holm</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>rejections</th>
+      <th>min p-value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>uncorrected</th>
+      <td>4</td>
+      <td>0.0094</td>
+    </tr>
+    <tr>
+      <th>bonferroni</th>
+      <td>0</td>
+      <td>0.5562</td>
+    </tr>
+    <tr>
+      <th>holm</th>
+      <td>0</td>
+      <td>0.5562</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="benjamin-hochberg-procedure">
+<h3>Benjamin-Hochberg procedure<a class="headerlink" href="#benjamin-hochberg-procedure" title="Permalink to this heading">#</a></h3>
+<p>The false discovery rate approach allows an expected proportional error rate.  As such, it is less stringent than both the Bonferroni and the Holm test. FDR control is much milder – and more powerful – than FWER control, in the sense that it allows us to reject many more null hypotheses, with a cost of substantially more false positives.</p>
+<p>Similar to the Holm test, Benjamin-Hochberg also relies on the distribution of test statistics. However, in contrast to the Holm test that begins with the most significant test, the Benjamin-Hochberg approach starts with the least significant.
+We sort the tests from the lowest p-value (most significant) to the highest (least significant). Starting from the last test, we sequentially compare the p-values with their Benjamin-Hochberg thresholds. When we first come across the test such that its p-value falls below its threshold, we declare this test significant and all tests that have a lower p-value.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">multipletests</span></code> function can be used to carry out the Benjamini–Hochberg procedure.  The q-values output by the Benjamini–Hochberg procedure can be interpreted as the smallest FDR threshold at which we would reject a particular null hypothesis. For instance, a q-value of 0.1 indicates that we can reject the
+corresponding null hypothesis at an FDR of 10% or greater, but that we cannot reject the null hypothesis at an FDR below 10%.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Benjamini-Hochberg method</span>
+<span class="n">reject</span><span class="p">,</span> <span class="n">fdr_bh_corrected</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span>  <span class="n">multipletests</span><span class="p">(</span><span class="n">pvals</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;fdr_bh&#39;</span><span class="p">)</span>
+<span class="n">fdr_bh</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;rejections&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">fdr_bh_corrected</span> <span class="o">&lt;</span> <span class="n">alpha</span><span class="p">),</span>
+                    <span class="s1">&#39;min p-value&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">fdr_bh_corrected</span><span class="p">)},</span>
+                   <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;fdr_bh&#39;</span><span class="p">])</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">uncorrected</span><span class="p">,</span> <span class="n">bonf</span><span class="p">,</span> <span class="n">holm</span><span class="p">,</span> <span class="n">fdr_bh</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>rejections</th>
+      <th>min p-value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>uncorrected</th>
+      <td>4</td>
+      <td>0.0094</td>
+    </tr>
+    <tr>
+      <th>bonferroni</th>
+      <td>0</td>
+      <td>0.5562</td>
+    </tr>
+    <tr>
+      <th>holm</th>
+      <td>0</td>
+      <td>0.5562</td>
+    </tr>
+    <tr>
+      <th>fdr_bh</th>
+      <td>0</td>
+      <td>0.5562</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot uncorrected and corrected p-values from Benjamini-Hochberg method</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">pvals</span><span class="p">,</span> <span class="n">fdr_bh_corrected</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">bottom</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Benjamini–Hochberg method to control the FDR at alpha=</span><span class="si">{</span><span class="n">alpha</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;uncorrected p-values&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Benjamini–Hochberg corrected p-values&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7da5e9dfd21e8d626ce253d91b6876942520c8d83f5a602b21f4ba59dec847d6.png" src="_images/7da5e9dfd21e8d626ce253d91b6876942520c8d83f5a602b21f4ba59dec847d6.png" />
+</div>
+</div>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -784,11 +2021,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="quant_factors.html"
@@ -808,10 +2044,7 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -820,20 +2053,28 @@ document.write(`
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Event Study</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-developments">Key developments</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Event study</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abnormal-returns">Abnormal returns</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#announcement-effect">Announcement effect</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-testing">Multiple Testing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-correlation">Cross correlation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convolution-theorem">Convolution theorem</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-testing-problem">Multiple testing problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bonferroni-correction">Bonferroni correction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#holm-s-step-down-procedure">Holm’s step-down procedure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#benjamin-hochberg-procedure">Benjamin-Hochberg procedure</a></li>
+</ul>
+</li>
+</ul>
   </nav></div>
 
 </div></div>
@@ -854,9 +2095,10 @@ By Terence Lim
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -880,8 +2122,8 @@ By Terence Lim
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

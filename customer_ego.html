@@ -3,13 +3,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Principal Customers Network &#8212; Financial Data Science Python Notebooks</title>
+    <title>Principal Customers Graph &#8212; Financial Data Science Python Notebooks</title>
   
   
   
@@ -19,51 +19,50 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'customer_ego';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Graph Centrality" href="bea_centrality.html" />
-    <link rel="prev" title="Event risk" href="event_risk.html" />
+    <link rel="next" title="Community Detection" href="industry_community.html" />
+    <link rel="prev" title="Event Risk" href="event_risk.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -73,7 +72,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -108,11 +115,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -127,6 +137,7 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="README.html">
@@ -135,60 +146,70 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     <p class="title logo__title">Financial Data Science Python Notebooks</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="README.html">
-                    Financial Data Science Notebooks
+                    FINANCIAL DATA SCIENCE
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="stock_prices.html">Stock prices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stock_prices.html">Stock Prices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jegadeesh_titman.html">Jegadeesh-Titman Rolling Portfolios</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fama_french.html">Fama-French Portfolio Sorts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fama_macbeth.html">Fama-Macbeth Cross-sectional Regressions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="weekly_reversal.html">Weekly reversal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weekly_reversal.html">Contrarian Trading</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quant_factors.html">Quant Factors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="event_study.html">Event Study</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="economic_releases.html">Economic Data Revisions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="regression_diagnostics.html">Linear Regression Diagonostics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="econometric_forecast.html">Econometric Forecasts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="approximate_factors.html">Approximate Factor Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="economic_states.html">State Space Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="conditional_volatility.html">Conditional Volatility</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="term_structure.html">Term Structure of Interest Rates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bond_returns.html">Bond Returns and Risks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional_volatility.html">Conditional Volatility and VaR</a></li>
 <li class="toctree-l1"><a class="reference internal" href="covariance_matrix.html">Covariance Matrix</a></li>
-<li class="toctree-l1"><a class="reference internal" href="term_structure.html">Term Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bond_returns.html">Bond Returns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="options_pricing.html">Options Pricing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="market_microstructure.html">Market Microstructure</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="event_risk.html">Event risk</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Principal Customers Network</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="bea_centrality.html">Graph Centrality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event_risk.html">Event Risk</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Principal Customers Graph</a></li>
 <li class="toctree-l1"><a class="reference internal" href="industry_community.html">Community Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bea_centrality.html">Graph Centrality</a></li>
 <li class="toctree-l1"><a class="reference internal" href="link_prediction.html">Link Prediction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="spatial_regression.html">Spatial Regression</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fomc_topics.html">Topic Modelling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="management_sentiment.html">Sentiment Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="business_description.html">10-K Business Description</a></li>
-
-
-<li class="toctree-l1"><a class="reference internal" href="classification_models.html">Classification for supervised learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="regression_models.html">Regression for supervised learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="deep_classifier.html">Deep Averaging Networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="convolutional_net.html">Temporal Convolution Net</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fomc_topics.html">FOMC Topic Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management_sentiment.html">Management Sentiment Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="business_description.html">Business Text Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classification_models.html">Classification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regression_models.html">Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deep_classifier.html">Deep Learning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="recurrent_net.html">Recurrent Neural Networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fomc_language.html">Language Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="convolutional_net.html">Convolutional Neural Networks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reinforcement_learning.html">Reinforcement Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fomc_language.html">FedSpeak Language Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sentiment_llm.html">LLM Prompting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="summarization_llm.html">LLM Text Summarization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="finetune_llm.html">LLM Finetuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rag_agent.html">LLM RAG, Chatbots and Agents</a></li>
 </ul>
 
     </div>
@@ -342,20 +363,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -372,7 +395,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Principal Customers Network</h1>
+    <h1>Principal Customers Graph</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -382,14 +405,18 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Principal Customers Network</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#nodes-centrality">Nodes Centrality</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#longest-path">Longest path</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ego-graph">Ego graph</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supply-chain">Supply chain</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principal-customers">Principal customers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-properties">Graph properties</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clustering-coefficient">Clustering coefficient</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#degree-analysis">Degree analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ego-network">Ego network</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#path-lengths">Path lengths</a></li>
 </ul>
 </li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -398,41 +425,59 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="principal-customers-network">
-<h1>Principal Customers Network<a class="headerlink" href="#principal-customers-network" title="Permalink to this heading">#</a></h1>
-<p><em>UNDER CONSTRUCTION</em></p>
+  <section class="tex2jax_ignore mathjax_ignore" id="principal-customers-graph">
+<h1>Principal Customers Graph<a class="headerlink" href="#principal-customers-graph" title="Permalink to this heading">#</a></h1>
+<p><em>Forget about your competitors, just focus on your customers</em> - Jack Ma</p>
+<p>Concepts:</p>
 <ul class="simple">
-<li><p>Graphs: ego network, induced subgraph</p></li>
-<li><p>Supply chain: principal customers</p></li>
+<li><p>Supply chain</p></li>
+<li><p>Graph properties</p></li>
+</ul>
+<p>References;</p>
+<ul class="simple">
+<li><p>Ling Cen and Sudipto Dasgupta, 2021, The Economics and Finance of Customer-Supplier Relationships</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
 <span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">Series</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">pandas.api</span> <span class="kn">import</span> <span class="n">types</span>
-<span class="kn">import</span> <span class="nn">numpy.ma</span> <span class="k">as</span> <span class="nn">ma</span>
-<span class="kn">from</span> <span class="nn">numpy.ma</span> <span class="kn">import</span> <span class="n">masked_invalid</span> <span class="k">as</span> <span class="n">valid</span>
 <span class="kn">from</span> <span class="nn">finds.database</span> <span class="kn">import</span> <span class="n">SQL</span>
-<span class="kn">from</span> <span class="nn">finds.graph</span> <span class="kn">import</span> <span class="n">graph_info</span><span class="p">,</span> <span class="n">graph_draw</span><span class="p">,</span> <span class="n">nodes_centrality</span>
-<span class="kn">from</span> <span class="nn">finds.misc</span> <span class="kn">import</span> <span class="n">Show</span>
-<span class="kn">from</span> <span class="nn">secret</span> <span class="kn">import</span> <span class="n">paths</span><span class="p">,</span> <span class="n">credentials</span>
+<span class="kn">from</span> <span class="nn">finds.recipes</span> <span class="kn">import</span> <span class="n">graph_draw</span>
+<span class="kn">from</span> <span class="nn">secret</span> <span class="kn">import</span> <span class="n">credentials</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
 <span class="c1"># %matplotlib qt</span>
 <span class="n">VERBOSE</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">show</span> <span class="o">=</span> <span class="n">Show</span><span class="p">(</span><span class="n">ndigits</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">latex</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">VERBOSE</span><span class="p">:</span>
+    <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">)</span>
 <span class="n">sql</span> <span class="o">=</span> <span class="n">SQL</span><span class="p">(</span><span class="o">**</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;sql&#39;</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
-<span class="n">imgdir</span> <span class="o">=</span> <span class="n">paths</span><span class="p">[</span><span class="s1">&#39;images&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="s1">&#39;supplychain&#39;</span>
 </pre></div>
 </div>
 </div>
 </div>
+<section id="supply-chain">
+<h2>Supply chain<a class="headerlink" href="#supply-chain" title="Permalink to this heading">#</a></h2>
+<p>The interrelationships between upstream supplier firms and
+downstream customer firms, referred to as “supply-chain”
+relationships, constitute an important sources of linkages in the
+economy.</p>
+<section id="principal-customers">
+<h3>Principal customers<a class="headerlink" href="#principal-customers" title="Permalink to this heading">#</a></h3>
+<p>Regulation S-K and SFAS 131 require firms to disclose principal
+customers that account for more than 10% of a firm’s total sales. An
+important feature of these disclosure, however,
+is that the suppliers are much smaller
+than their corporate principal customers. The primary reason is that
+customers are identified as “important” for the supplier in terms of
+the percentage of the supplier’s sales.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Retrieve principal customers info</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># retrieve principal customers info</span>
 <span class="n">year</span> <span class="o">=</span> <span class="mi">2016</span>
 <span class="n">cust</span> <span class="o">=</span> <span class="n">sql</span><span class="o">.</span><span class="n">read_dataframe</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;select gvkey, cgvkey, stic, ctic, conm, cconm &quot;</span>
                           <span class="sa">f</span><span class="s2">&quot;  from customer &quot;</span>
@@ -444,7 +489,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To lookup company full name from ticker</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># construct Series to lookup company full name from ticker</span>
 <span class="n">lookup</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">Series</span><span class="p">(</span><span class="n">cust</span><span class="p">[</span><span class="s1">&#39;conm&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">cust</span><span class="p">[</span><span class="s1">&#39;stic&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">),</span>
                     <span class="n">Series</span><span class="p">(</span><span class="n">cust</span><span class="p">[</span><span class="s1">&#39;cconm&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">cust</span><span class="p">[</span><span class="s1">&#39;ctic&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)])</span>\
            <span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
@@ -452,266 +497,381 @@ document.write(`
 </div>
 </div>
 </div>
+</section>
+</section>
+<section id="graph-properties">
+<h2>Graph properties<a class="headerlink" href="#graph-properties" title="Permalink to this heading">#</a></h2>
+<p>In a <strong>graph</strong>, <strong>nodes</strong> (also called vertices) represent entities or
+objects, while <strong>edges</strong> represent the connections or relationships
+between these entities. The <strong>degree</strong> of a graph is the number of edges
+that are directly connected to a particular node.</p>
+<p><strong>Density</strong> is the edges to nodes ratio: <span class="math notranslate nohighlight">\(\frac{2m}{n(n-1)}\)</span> for undirected graphs,
+and <span class="math notranslate nohighlight">\(\frac{m}{n(n-1)}\)</span> for directed graphs, where <span class="math notranslate nohighlight">\(m\)</span> is the number of edges and <span class="math notranslate nohighlight">\(n\)</span> is the number of nodes</p>
+<p>A <strong>simple</strong> graph does not contain any self-loops (edges that connect a
+vertex to itself) and does not have multiple edges between the same
+pair of vertices.</p>
+<p>A <strong>subgraph</strong> is a subset of nodes within a larger graph, and including
+only the edges that connect those selected nodes.
+A <strong>component</strong> of a graph is a subgraph where every node is connected to
+every other node in the subgraph by some path</p>
+<p>Attributes of graphs:</p>
+<ul class="simple">
+<li><p>weighted versus unweighted: whether there are any numerical values associated
+with each relationship (edge)</p></li>
+<li><p>directed versus undirected: whether the relationships (edges) explicitly require a
+a start and an end node</p></li>
+<li><p>cylic versus acylic: cyclic graphs contain at least one cycle,
+meaning there is a path that starts and ends at the same
+node. Acyclic graphs, on the other hand, do not have any cycles.</p></li>
+<li><p>connected versus disconnected: whether there is a path between any
+two nodes in graph, irrespective of distance</p></li>
+<li><p>Weakly connected
+components of a graph are sets of nodes where every pair of nodes
+has a path between them when ignoring the direction of edges.
+Strongly connected components are sets of
+nodes where every pair of nodes has a directed path between them.</p></li>
+<li><p>Weakly connected graphs have a path between every pair of nodes
+when considering the direction of edges, but ignoring their
+direction. Strongly connected graphs, on the other hand, have a
+directed path between every pair of nodes, considering the
+direction of edges.</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Construct Directed Graph</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># nodes are companies, with directed edges from supplier to customer</span>
 <span class="n">vertices</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">cust</span><span class="p">[</span><span class="s1">&#39;stic&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">cust</span><span class="p">[</span><span class="s1">&#39;ctic&#39;</span><span class="p">])</span>
 <span class="n">edges</span> <span class="o">=</span> <span class="n">cust</span><span class="p">[[</span><span class="s1">&#39;stic&#39;</span><span class="p">,</span> <span class="s1">&#39;ctic&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>  <span class="c1"># supplier --&gt; customer</span>
-
-<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
-<span class="n">G</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">vertices</span><span class="p">)</span>
-<span class="n">G</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">(</span><span class="n">edges</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<ol class="arabic simple">
-<li><p>Show graph properties</p></li>
-</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">graph_info</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Populate networkx directed graph with nodes and edges</span>
+<span class="n">DG</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
+<span class="n">DG</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">vertices</span><span class="p">)</span>
+<span class="n">DG</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">(</span><span class="n">edges</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Helper to display graph properties</span>
+<span class="k">def</span> <span class="nf">graph_info</span><span class="p">(</span><span class="n">G</span><span class="p">):</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+    <span class="n">out</span><span class="p">[</span><span class="s1">&#39;is_directed&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">is_directed</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+    <span class="n">out</span><span class="p">[</span><span class="s1">&#39;num_edges&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">number_of_edges</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+    <span class="n">out</span><span class="p">[</span><span class="s1">&#39;num_nodes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">number_of_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+    <span class="n">out</span><span class="p">[</span><span class="s1">&#39;num_selfloops&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">number_of_selfloops</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+    <span class="n">out</span><span class="p">[</span><span class="s1">&#39;density&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">density</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+
+    <span class="n">out</span><span class="p">[</span><span class="s1">&#39;is_weighted&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">is_weighted</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">nx</span><span class="o">.</span><span class="n">is_weighted</span><span class="p">(</span><span class="n">G</span><span class="p">):</span>
+        <span class="n">out</span><span class="p">[</span><span class="s1">&#39;is_negatively_weighted&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">is_negatively_weighted</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+    
+    <span class="c1"># Components</span>
+    <span class="k">if</span> <span class="n">nx</span><span class="o">.</span><span class="n">is_directed</span><span class="p">(</span><span class="n">G</span><span class="p">):</span>
+        <span class="n">out</span><span class="p">[</span><span class="s1">&#39;is_weakly_connected&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">is_weakly_connected</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+        <span class="n">out</span><span class="p">[</span><span class="s1">&#39;weakly_connected_components&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">number_weakly_connected_components</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+        <span class="n">out</span><span class="p">[</span><span class="s1">&#39;size_largest_weak_component&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span>
+            <span class="n">nx</span><span class="o">.</span><span class="n">weakly_connected_components</span><span class="p">(</span><span class="n">G</span><span class="p">),</span> <span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">))</span>
+        <span class="n">out</span><span class="p">[</span><span class="s1">&#39;is_strongly_connected&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">is_strongly_connected</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+        <span class="n">out</span><span class="p">[</span><span class="s1">&#39;strongly_connected_components&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">number_strongly_connected_components</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+        <span class="n">out</span><span class="p">[</span><span class="s1">&#39;size_largest_strong_component&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span>
+            <span class="n">nx</span><span class="o">.</span><span class="n">strongly_connected_components</span><span class="p">(</span><span class="n">G</span><span class="p">),</span> <span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">out</span><span class="p">[</span><span class="s1">&#39;is_connected&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">is_connected</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+        <span class="n">out</span><span class="p">[</span><span class="s1">&#39;connected_components&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">number_connected_components</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+        <span class="n">out</span><span class="p">[</span><span class="s1">&#39;size_largest_component&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span>
+            <span class="n">nx</span><span class="o">.</span><span class="n">connected_components</span><span class="p">(</span><span class="n">G</span><span class="p">),</span> <span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">out</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Series</span><span class="p">(</span><span class="n">graph_info</span><span class="p">(</span><span class="n">DG</span><span class="p">))</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;Principal Customers Graph&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;triad_003&#39;: 1014214260,
- &#39;triad_012&#39;: 5493913,
- &#39;triad_102&#39;: 1826,
- &#39;triad_021D&#39;: 7858,
- &#39;triad_021U&#39;: 21706,
- &#39;triad_021C&#39;: 1036,
- &#39;triad_111D&#39;: 0,
- &#39;triad_111U&#39;: 2,
- &#39;triad_030T&#39;: 59,
- &#39;triad_030C&#39;: 0,
- &#39;triad_201&#39;: 0,
- &#39;triad_120D&#39;: 0,
- &#39;triad_120U&#39;: 0,
- &#39;triad_120C&#39;: 0,
- &#39;triad_210&#39;: 0,
- &#39;triad_300&#39;: 0,
- &#39;transitivity&#39;: 0.0037252178305341582,
- &#39;average_clustering&#39;: 0.004935791976903955,
- &#39;weakly_connected&#39;: False,
- &#39;weakly_connected_components&#39;: 89,
- &#39;size_largest_weak_component&#39;: 1628,
- &#39;strongly_connected&#39;: False,
- &#39;strongly_connected_components&#39;: 1829,
- &#39;size_largest_strong_component&#39;: 2,
- &#39;directed&#39;: True,
- &#39;weighted&#39;: False,
- &#39;edges&#39;: 3052,
- &#39;nodes&#39;: 1830,
- &#39;selfloops&#39;: 11,
- &#39;density&#39;: 0.0009118422978903937}
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Principal Customers Graph</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>is_directed</th>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>num_edges</th>
+      <td>3052</td>
+    </tr>
+    <tr>
+      <th>num_nodes</th>
+      <td>1830</td>
+    </tr>
+    <tr>
+      <th>num_selfloops</th>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>density</th>
+      <td>0.000912</td>
+    </tr>
+    <tr>
+      <th>is_weighted</th>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>is_weakly_connected</th>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>weakly_connected_components</th>
+      <td>89</td>
+    </tr>
+    <tr>
+      <th>size_largest_weak_component</th>
+      <td>1628</td>
+    </tr>
+    <tr>
+      <th>is_strongly_connected</th>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>strongly_connected_components</th>
+      <td>1829</td>
+    </tr>
+    <tr>
+      <th>size_largest_strong_component</th>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># remove self-loops, if any</span>
+<span class="n">DG</span><span class="o">.</span><span class="n">remove_edges_from</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">selfloop_edges</span><span class="p">(</span><span class="n">DG</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 </div>
-<ol class="arabic simple" start="2">
-<li><p>Display graph</p></li>
-</ol>
+<section id="clustering-coefficient">
+<h3>Clustering coefficient<a class="headerlink" href="#clustering-coefficient" title="Permalink to this heading">#</a></h3>
+<p>The clustering coefficient measures the degree to which nodes in a graph tend to cluster together.</p>
+<ul class="simple">
+<li><p>a <strong>triplet</strong> is three nodes that are connected by either two (open triplet) or three (closed triplet) undirected ties.</p></li>
+<li><p>a <strong>triangle</strong> comprises three closed triplets, one centered on each of the nodes</p></li>
+<li><p>the <strong>clustering coefficient</strong> of a node is the fraction of possible traingles through that node that exist <span class="math notranslate nohighlight">\(\frac{2\mathrm{\#triangles}}{(\mathrm{degree})(\mathrm{degree}-1)}\)</span></p></li>
+<li><p><strong>graph transitivity</strong> is the fraction of all possible triangles present <span class="math notranslate nohighlight">\( 3 \frac{\mathrm{\# triangles}}{\mathrm{\#triads}}\)</span> where possible triangles are identified by the number of <strong>triads</strong> (two edges with a shared vertex).</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pos</span> <span class="o">=</span> <span class="n">graph_draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span>
-                 <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span>
-                 <span class="n">savefig</span><span class="o">=</span><span class="n">imgdir</span> <span class="o">/</span> <span class="s1">&#39;graph.jpg&#39;</span><span class="p">,</span>
-                 <span class="n">font_color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span>
-                 <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># as an undirected graph</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">(</span><span class="n">DG</span><span class="p">)</span>
+<span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;transitivity&#39;</span><span class="p">:</span> <span class="n">nx</span><span class="o">.</span><span class="n">transitivity</span><span class="p">(</span><span class="n">G</span><span class="p">),</span>
+           <span class="s1">&#39;average clustering&#39;</span><span class="p">:</span> <span class="n">nx</span><span class="o">.</span><span class="n">average_clustering</span><span class="p">(</span><span class="n">G</span><span class="p">)},</span>
+          <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;clustering&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>transitivity</th>
+      <th>average clustering</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>clustering</th>
+      <td>0.005751</td>
+      <td>0.009872</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="degree-analysis">
+<h3>Degree analysis<a class="headerlink" href="#degree-analysis" title="Permalink to this heading">#</a></h3>
+<p>In directed graphs, the <strong>out degree</strong> is the number of edges pointing out of the node, while the <strong>in degree</strong> is the number of edges pointing in.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot distribution of degrees</span>
+<span class="n">degrees</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Out Degree&#39;</span><span class="p">:</span> <span class="nb">sorted</span><span class="p">((</span><span class="n">d</span> <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">DG</span><span class="o">.</span><span class="n">out_degree</span><span class="p">()),</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+           <span class="s1">&#39;In Degree&#39;</span><span class="p">:</span> <span class="nb">sorted</span><span class="p">((</span><span class="n">d</span> <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">DG</span><span class="o">.</span><span class="n">in_degree</span><span class="p">()),</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)}</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">direction</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="n">degrees</span><span class="p">):</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">degrees</span><span class="p">[</span><span class="n">direction</span><span class="p">],</span> <span class="s2">&quot;b-&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">direction</span><span class="si">}</span><span class="s2"> Rank&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">direction</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Rank of Node&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">degrees</span><span class="p">[</span><span class="n">direction</span><span class="p">],</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">direction</span><span class="si">}</span><span class="s2"> Distribution&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">direction</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Number of Nodes&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/47ea46e2fec76c9129223fe6eedf3aa3dd97f8bafea1590b23477a35074cdd1f.png" src="_images/47ea46e2fec76c9129223fe6eedf3aa3dd97f8bafea1590b23477a35074cdd1f.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3. Node properties</span>
-<span class="n">G</span><span class="o">.</span><span class="n">remove_edges_from</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">selfloop_edges</span><span class="p">(</span><span class="n">G</span><span class="p">))</span>  <span class="c1"># remove self-loops, if any</span>
-</pre></div>
-</div>
+<img alt="_images/0b10d91f9a5b8753bc9171a63757638c29f9963c76678860fbfe2e8ba9bb6ca1.png" src="_images/0b10d91f9a5b8753bc9171a63757638c29f9963c76678860fbfe2e8ba9bb6ca1.png" />
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="nodes-centrality">
-<h1>Nodes Centrality<a class="headerlink" href="#nodes-centrality" title="Permalink to this heading">#</a></h1>
-<ul class="simple">
-<li><p>show top nodes’ centrality properties</p></li>
-</ul>
+<section id="ego-network">
+<h3>Ego network<a class="headerlink" href="#ego-network" title="Permalink to this heading">#</a></h3>
+<p><strong>Ego</strong> is some individual focal node.  A network can have as many
+egos as it has nodes. <strong>Neighborhood</strong> is the collection of ego and
+all nodes to whom ego has a connection at some path length.  The
+neighborhood is usually one-step; that is, it includes only ego and
+nodes that are directly adjacent.  The neighborhood also includes
+all of the edges among all of the actors to whom ego has a direct
+connection.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">centrality</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">nodes_centrality</span><span class="p">(</span><span class="n">G</span><span class="p">))</span>
-<span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">centrality</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">centrality</span><span class="p">[[</span><span class="n">c</span><span class="p">]]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[:</span><span class="n">n</span><span class="p">]</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">((</span><span class="n">lookup</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">),</span> <span class="n">df</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                             name  clustering
-ODC          OIL DRI CORP AMERICA         0.5
-FORM               FORMFACTOR INC         0.5
-FVE   FIVE STAR SENIOR LIVING INC         0.5
-MKC            MCCORMICK &amp; CO INC         0.5
-PTR             PETROCHINA CO LTD         0.5
-                         name  in_degree
-WMT               WALMART INC   0.062329
-MCK             MCKESSON CORP   0.022963
-RDS.A   ROYAL DUTCH SHELL PLC   0.022963
-CAH       CARDINAL HEALTH INC   0.022417
-ABC    AMERISOURCEBERGEN CORP   0.019683
-                            name  out_degree
-AKAM     AKAMAI TECHNOLOGIES INC    0.015856
-DHX                DHI GROUP INC    0.013669
-KRG      KITE REALTY GROUP TRUST    0.011482
-NPO         ENPRO INDUSTRIES INC    0.011482
-CBL   CBL &amp; ASSOCIATES PPTYS INC    0.010935
-                       name  eigenvector
-ZIOP  ZIOPHARM ONCOLOGY INC     0.500000
-XON           INTREXON CORP     0.500000
-FCSC  FIBROCELL SCIENCE INC     0.500000
-OGEN          ORAGENICS INC     0.500000
-AET               AETNA INC     0.000835
-                    name  pagerank
-WMT          WALMART INC  0.025525
-AET            AETNA INC  0.020512
-CVS      CVS HEALTH CORP  0.019657
-MCK        MCKESSON CORP  0.011308
-CAH  CARDINAL HEALTH INC  0.010130
-                             name       hub
-KRG       KITE REALTY GROUP TRUST  0.019795
-BRX1  BRIXMOR OPERATING PRTNRS LP  0.018452
-BRX    BRIXMOR PROPERTY GROUP INC  0.018452
-DDR                      DDR CORP  0.014801
-RPT   RAMCO-GERSHENSON PROPERTIES  0.014442
-                          name  authority
-WMT                WALMART INC   0.117030
-BBY            BEST BUY CO INC   0.035143
-DKS   DICKS SPORTING GOODS INC   0.033133
-BBBY     BED BATH &amp; BEYOND INC   0.031484
-PETM              PETSMART INC   0.029829
-                            name  betweenness
-ABC       AMERISOURCEBERGEN CORP     0.000101
-CAH          CARDINAL HEALTH INC     0.000068
-CVS              CVS HEALTH CORP     0.000047
-ESRX  EXPRESS SCRIPTS HOLDING CO     0.000038
-MCK                MCKESSON CORP     0.000037
-                       name  closeness
-WMT             WALMART INC   0.063601
-MCK           MCKESSON CORP   0.040170
-CAH     CARDINAL HEALTH INC   0.036602
-CVS         CVS HEALTH CORP   0.036326
-ABC  AMERISOURCEBERGEN CORP   0.035619
-</pre></div>
-</div>
-</div>
-</div>
-<section id="longest-path">
-<h2>Longest path<a class="headerlink" href="#longest-path" title="Permalink to this heading">#</a></h2>
-</section>
-<section id="ego-graph">
-<h2>Ego graph<a class="headerlink" href="#ego-graph" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>induce ego-graph of max betweenness node and neighbors</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="s1">&#39;betweenness&#39;</span>
-<span class="n">center</span> <span class="o">=</span> <span class="n">centrality</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">centrality</span><span class="p">[</span><span class="n">c</span><span class="p">])]</span>
-<span class="n">all_neighbors</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">all_neighbors</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">center</span><span class="p">))</span>  <span class="c1"># predecessors and successors</span>
-<span class="n">neighbors</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">neighbors</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">center</span><span class="p">))</span>          <span class="c1"># successors only</span>
-<span class="n">ego</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">subgraph</span><span class="p">([</span><span class="n">center</span><span class="p">]</span> <span class="o">+</span> <span class="n">all_neighbors</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">graph_info</span><span class="p">(</span><span class="n">ego</span><span class="p">,</span> <span class="n">fast</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;weakly_connected&#39;: True,
- &#39;weakly_connected_components&#39;: 1,
- &#39;size_largest_weak_component&#39;: 39,
- &#39;strongly_connected&#39;: False,
- &#39;strongly_connected_components&#39;: 39,
- &#39;size_largest_strong_component&#39;: 1,
- &#39;directed&#39;: True,
- &#39;weighted&#39;: False,
- &#39;edges&#39;: 41,
- &#39;nodes&#39;: 39,
- &#39;selfloops&#39;: 0,
- &#39;density&#39;: 0.02766531713900135}
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># find node with greatest degree</span>
+<span class="p">(</span><span class="n">ego</span><span class="p">,</span> <span class="n">degree</span><span class="p">)</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">degree</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># build subgraph of ego and neighbors</span>
+<span class="n">all_neighbors</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">all_neighbors</span><span class="p">(</span><span class="n">DG</span><span class="p">,</span> <span class="n">ego</span><span class="p">))</span>  <span class="c1"># predecessors and successors</span>
+<span class="n">neighbors</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">neighbors</span><span class="p">(</span><span class="n">DG</span><span class="p">,</span> <span class="n">ego</span><span class="p">))</span>          <span class="c1"># successors only</span>
+<span class="n">ego_graph</span> <span class="o">=</span> <span class="n">DG</span><span class="o">.</span><span class="n">subgraph</span><span class="p">([</span><span class="n">ego</span><span class="p">]</span> <span class="o">+</span> <span class="n">all_neighbors</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">node_color</span> <span class="o">=</span> <span class="p">(</span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="n">all_neighbors</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot ego graph</span>
+<span class="n">node_color</span> <span class="o">=</span> <span class="p">(</span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="n">all_neighbors</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
               <span class="o">|</span> <span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="n">neighbors</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">)</span>
-              <span class="o">|</span> <span class="p">{</span><span class="n">center</span><span class="p">:</span> <span class="s1">&#39;cyan&#39;</span><span class="p">})</span>
+              <span class="o">|</span> <span class="p">{</span><span class="n">ego</span><span class="p">:</span> <span class="s1">&#39;cyan&#39;</span><span class="p">})</span>
 
-<span class="n">labels</span> <span class="o">=</span> <span class="p">({</span><span class="n">ticker</span><span class="p">:</span> <span class="n">ticker</span> <span class="k">for</span> <span class="n">ticker</span> <span class="ow">in</span> <span class="n">ego</span><span class="o">.</span><span class="n">nodes</span><span class="p">}</span>
-          <span class="o">|</span> <span class="p">{</span><span class="n">ticker</span><span class="p">:</span> <span class="n">lookup</span><span class="p">[</span><span class="n">ticker</span><span class="p">]</span> <span class="k">for</span> <span class="n">ticker</span> <span class="ow">in</span> <span class="p">[</span><span class="n">center</span><span class="p">]</span> <span class="o">+</span> <span class="n">neighbors</span><span class="p">})</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">({</span><span class="n">ticker</span><span class="p">:</span> <span class="n">ticker</span> <span class="k">for</span> <span class="n">ticker</span> <span class="ow">in</span> <span class="n">ego_graph</span><span class="o">.</span><span class="n">nodes</span><span class="p">}</span>
+          <span class="o">|</span> <span class="p">{</span><span class="n">ticker</span><span class="p">:</span> <span class="n">lookup</span><span class="p">[</span><span class="n">ticker</span><span class="p">]</span> <span class="k">for</span> <span class="n">ticker</span> <span class="ow">in</span> <span class="p">[</span><span class="n">ego</span><span class="p">]</span> <span class="o">+</span> <span class="n">neighbors</span><span class="p">})</span>
 
-<span class="n">graph_draw</span><span class="p">(</span><span class="n">ego</span><span class="p">,</span>
-           <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
-           <span class="n">savefig</span><span class="o">=</span><span class="n">imgdir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">center</span><span class="si">}</span><span class="s2">,png&quot;</span><span class="p">,</span>
-           <span class="n">node_size</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
-           <span class="n">width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-           <span class="n">node_color</span><span class="o">=</span><span class="n">node_color</span><span class="p">,</span>
-           <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span>
-           <span class="n">style</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span>
-           <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Ego network for node with largest </span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">center</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> 
+<span class="n">graph_draw</span><span class="p">(</span><span class="n">ego_graph</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> 
+           <span class="n">width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">node_color</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span>
+           <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Ego network </span><span class="si">{</span><span class="n">ego</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;SHPG&#39;: array([-0.25082933, -0.35567791]),
- &#39;WBA&#39;: array([-1.        , -0.03256569]),
- &#39;BMY&#39;: array([ 0.00178938, -0.52295215]),
- &#39;LLY&#39;: array([0.43506672, 0.24086706]),
- &#39;ACUR&#39;: array([0.17293448, 0.57909669]),
- &#39;MRK&#39;: array([0.60701898, 0.30035638]),
- &#39;VVUS&#39;: array([ 0.49540816, -0.40330805]),
- &#39;PTX&#39;: array([-0.04990963,  0.67154546]),
- &#39;IPXL&#39;: array([ 0.3459714 , -0.50353382]),
- &#39;ENDP&#39;: array([ 0.08266948, -0.37185982]),
- &#39;PFE&#39;: array([-0.14875308, -0.00745675]),
- &#39;TLGT&#39;: array([ 0.69966816, -0.02100429]),
- &#39;AMGN&#39;: array([-0.40817628,  0.61391159]),
- &#39;ABBV&#39;: array([ 0.26554787, -0.32381893]),
- &#39;BIIB&#39;: array([-0.60259212,  0.40572203]),
- &#39;AMPH&#39;: array([-0.06136585, -0.24890341]),
- &#39;AGN&#39;: array([-0.66651497,  0.13778222]),
- &#39;ESRX&#39;: array([0.76898448, 0.56049694]),
- &#39;PDLI&#39;: array([-0.39867019, -0.12518804]),
- &#39;RHHBY&#39;: array([ 0.17165874, -0.51965105]),
- &#39;SPPI&#39;: array([ 0.54197759, -0.11407883]),
- &#39;KERX&#39;: array([0.60375536, 0.4485514 ]),
- &#39;ANIP&#39;: array([-0.2840836 ,  0.50338873]),
- &#39;LCI&#39;: array([-0.49590841,  0.22394769]),
- &#39;PCRX&#39;: array([-0.29596525, -0.54054871]),
- &#39;ACET&#39;: array([-0.13594692, -0.55326711]),
- &#39;SGEN&#39;: array([ 0.21083251, -0.02688948]),
- &#39;MNK&#39;: array([-0.44720782, -0.41432912]),
- &#39;AMAG&#39;: array([-0.53428029, -0.08141577]),
- &#39;MYL&#39;: array([0.46438575, 0.02716273]),
- &#39;ICCC&#39;: array([-0.22462841,  0.26772037]),
- &#39;ABC&#39;: array([-0.05812201,  0.21695896]),
- &#39;GILD&#39;: array([ 0.36950431, -0.19184001]),
- &#39;INSY&#39;: array([ 0.61316937, -0.23343322]),
- &#39;MACK&#39;: array([-0.4987529,  0.1428751]),
- &#39;AKRX&#39;: array([-0.70008699, -0.06749587]),
- &#39;VRX&#39;: array([-0.6135401 , -0.23826206]),
- &#39;VLRX&#39;: array([0.68409957, 0.1428459 ]),
- &#39;ALKS&#39;: array([0.34089183, 0.41425084])}
+<img alt="_images/ae6ee17e68ba0d0cbfc9f59b0e9da461ff9399d306dd95aa4682c127e2b36b84.png" src="_images/ae6ee17e68ba0d0cbfc9f59b0e9da461ff9399d306dd95aa4682c127e2b36b84.png" />
+</div>
+</div>
+</section>
+<section id="path-lengths">
+<h3>Path lengths<a class="headerlink" href="#path-lengths" title="Permalink to this heading">#</a></h3>
+<p>The <strong>distance</strong> or <strong>path length</strong> between two nodes is the shortest path
+(fewest number of edges) required to travel from one to the other.</p>
+<p>The <strong>eccentricity</strong> of a node is the maximum distance from the to
+all other nodes in a graph.  <strong>Diameter</strong> is the maximum eccentricity over
+all nodes in the graph.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># find component with the longest diameter</span>
+<span class="n">components</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">weakly_connected_components</span><span class="p">(</span><span class="n">DG</span><span class="p">))</span>
+<span class="n">nodes</span> <span class="o">=</span> <span class="n">components</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">([</span><span class="n">nx</span><span class="o">.</span><span class="n">diameter</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">subgraph</span><span class="p">(</span><span class="n">c</span><span class="p">))</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">components</span><span class="p">])]</span>
 </pre></div>
 </div>
-<img alt="_images/782755c9800d995a5a6f820e592188ab48cb5e400b3d1c2ca5db09081a91f853.png" src="_images/782755c9800d995a5a6f820e592188ab48cb5e400b3d1c2ca5db09081a91f853.png" />
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># compute all shortest path lengths, and determine the longest</span>
+<span class="n">best_length</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">src</span><span class="p">,</span> <span class="n">targets</span> <span class="ow">in</span> <span class="nb">dict</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">shortest_path</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">subgraph</span><span class="p">(</span><span class="n">nodes</span><span class="p">)))</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">tgt</span><span class="p">,</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">targets</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">length</span> <span class="o">&gt;</span> <span class="n">best_length</span><span class="p">:</span>
+            <span class="n">best_length</span> <span class="o">=</span> <span class="n">length</span>
+            <span class="n">best_path</span> <span class="o">=</span> <span class="n">path</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Archimedean spiral: r = b theta</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="p">{</span><span class="n">ticker</span><span class="p">:</span> <span class="p">((</span><span class="n">n</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+       <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">ticker</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">best_path</span><span class="p">)}</span>
+
+<span class="c1"># Plot nodes in a spiral graph</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">{</span><span class="n">ticker</span><span class="p">:</span> <span class="n">lookup</span><span class="p">[</span><span class="n">ticker</span><span class="p">]</span> <span class="k">for</span> <span class="n">ticker</span> <span class="ow">in</span> <span class="n">best_path</span><span class="p">}</span>
+<span class="n">graph_draw</span><span class="p">(</span><span class="n">DG</span><span class="o">.</span><span class="n">subgraph</span><span class="p">(</span><span class="n">best_path</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+           <span class="n">width</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span>  <span class="n">pos</span><span class="o">=</span><span class="n">pos</span><span class="p">,</span>
+           <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Longest Undirected Path&quot;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;TOL&#39;: (5.0, 0.0),
+ &#39;BMCH&#39;: (3.2418138352088386, 5.048825908847379),
+ &#39;HOV&#39;: (-2.9130278558299967, 6.365081987779772),
+ &#39;BLDR&#39;: (-7.919939972803563, 1.1289600644789377),
+ &#39;BCC&#39;: (-5.882792587772507, -6.811222457771354),
+ &#39;HD&#39;: (2.8366218546322624, -9.589242746631385),
+ &#39;TRNO&#39;: (10.561873153154025, -3.0735704801881845),
+ &#39;FDX&#39;: (9.046827052119655, 7.883839184625469),
+ &#39;SIR&#39;: (-1.8915004395119759, 12.861657206103963),
+ &#39;ALL&#39;: (-12.755823666385478, 5.769658793384592),
+ &#39;CLI&#39;: (-12.586072936146786, -8.160316663340547),
+ &#39;BG&#39;: (0.07081116780881257, -15.999843304811256),
+ &#39;CZZ&#39;: (14.345517298452366, -9.121739606007393),
+ &#39;ADM&#39;: (16.33404206610353, 7.563006662879537),
+ &#39;REX&#39;: (2.5980071459488383, 18.821539758202537),
+ &#39;9919B&#39;: (-15.193758257176427, 13.005756803142337),
+ &#39;CF&#39;: (-20.110849086791077, -6.045969649966372)}
+</pre></div>
+</div>
+<img alt="_images/141ca5ff98600dd4adc15449806a48ba5a2d03611246e6ba67697730162af4da.png" src="_images/141ca5ff98600dd4adc15449806a48ba5a2d03611246e6ba67697730162af4da.png" />
+</div>
+</div>
+</section>
 </section>
 </section>
 
@@ -740,11 +900,10 @@ ABC  AMERISOURCEBERGEN CORP   0.035619
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="event_risk.html"
@@ -752,22 +911,19 @@ ABC  AMERISOURCEBERGEN CORP   0.035619
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Event risk</p>
+        <p class="prev-next-title">Event Risk</p>
       </div>
     </a>
     <a class="right-next"
-       href="bea_centrality.html"
+       href="industry_community.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Graph Centrality</p>
+        <p class="prev-next-title">Community Detection</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -776,20 +932,25 @@ ABC  AMERISOURCEBERGEN CORP   0.035619
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Principal Customers Network</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#nodes-centrality">Nodes Centrality</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#longest-path">Longest path</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ego-graph">Ego graph</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supply-chain">Supply chain</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principal-customers">Principal customers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-properties">Graph properties</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clustering-coefficient">Clustering coefficient</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#degree-analysis">Degree analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ego-network">Ego network</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#path-lengths">Path lengths</a></li>
 </ul>
 </li>
 </ul>
-
   </nav></div>
 
 </div></div>
@@ -810,9 +971,10 @@ By Terence Lim
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -836,8 +998,8 @@ By Terence Lim
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

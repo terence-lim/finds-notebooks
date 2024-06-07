@@ -1,0 +1,1687 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>LLM RAG, Chatbots and Agents &#8212; Financial Data Science Python Notebooks</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'rag_agent';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="LLM Finetuning" href="finetune_llm.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="README.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Financial Data Science Python Notebooks</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="README.html">
+                    FINANCIAL DATA SCIENCE
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="stock_prices.html">Stock Prices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jegadeesh_titman.html">Jegadeesh-Titman Rolling Portfolios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fama_french.html">Fama-French Portfolio Sorts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fama_macbeth.html">Fama-Macbeth Cross-sectional Regressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weekly_reversal.html">Contrarian Trading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quant_factors.html">Quant Factors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event_study.html">Event Study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="economic_releases.html">Economic Data Revisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regression_diagnostics.html">Linear Regression Diagonostics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="econometric_forecast.html">Econometric Forecasts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="approximate_factors.html">Approximate Factor Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="economic_states.html">State Space Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="term_structure.html">Term Structure of Interest Rates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bond_returns.html">Bond Returns and Risks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional_volatility.html">Conditional Volatility and VaR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="covariance_matrix.html">Covariance Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="options_pricing.html">Options Pricing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="market_microstructure.html">Market Microstructure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event_risk.html">Event Risk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="customer_ego.html">Principal Customers Graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="industry_community.html">Community Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bea_centrality.html">Graph Centrality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="link_prediction.html">Link Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spatial_regression.html">Spatial Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fomc_topics.html">FOMC Topic Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management_sentiment.html">Management Sentiment Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="business_description.html">Business Text Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classification_models.html">Classification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regression_models.html">Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deep_classifier.html">Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recurrent_net.html">Recurrent Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="convolutional_net.html">Convolutional Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reinforcement_learning.html">Reinforcement Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fomc_language.html">FedSpeak Language Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sentiment_llm.html">LLM Prompting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="summarization_llm.html">LLM Text Summarization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="finetune_llm.html">LLM Finetuning</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">LLM RAG, Chatbots and Agents</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/terence-lim/data-science-notebooks.git" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/terence-lim/data-science-notebooks.git/issues/new?title=Issue%20on%20page%20%2Frag_agent.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/rag_agent.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>LLM RAG, Chatbots and Agents</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#retrieval-augmented-generation">Retrieval Augmented Generation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langchain-apis">Langchain APIs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-database">Vector Database</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chatbot">Chatbot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agents">Agents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#role-playing">Role-playing</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="llm-rag-chatbots-and-agents">
+<h1>LLM RAG, Chatbots and Agents<a class="headerlink" href="#llm-rag-chatbots-and-agents" title="Permalink to this heading">#</a></h1>
+<p>Concepts:</p>
+<ul class="simple">
+<li><p>Retrieval Augmented Generation (RAG)</p></li>
+<li><p>Chatbots</p></li>
+<li><p>LLM Agents</p></li>
+</ul>
+<p>References:</p>
+<ul class="simple">
+<li><p>Lim, T., 2010, Measuring the value of corporate philanthropy: Social impact, business benefits, and investor returns. published by CECP.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Chroma requires SQLite &gt; 3.35, if you encounter issues with having too</span>
+<span class="c1"># low of a SQLite version, try installing pysqlite3-binary, then enter</span>
+<span class="c1"># the following three lines in sqlite_version.py to swap the packages:</span>
+<span class="c1"># __import__(&#39;pysqlite3&#39;)</span>
+<span class="c1"># import sys</span>
+<span class="c1"># sys.modules[&#39;sqlite3&#39;] = sys.modules.pop(&#39;pysqlite3&#39;)</span>
+<span class="kn">import</span> <span class="nn">sqlite_version</span>   <span class="c1"># hack to use lower version of SQLite</span>
+
+<span class="c1"># !ollama pull mxbai-embed-large  # vector embeddings model in Ollama</span>
+<span class="kn">import</span> <span class="nn">ollama</span>
+
+<span class="kn">from</span> <span class="nn">langchain_community.llms</span> <span class="kn">import</span> <span class="n">Ollama</span>
+<span class="kn">from</span> <span class="nn">langchain_text_splitters</span> <span class="kn">import</span> <span class="n">RecursiveCharacterTextSplitter</span>
+<span class="c1"># import pdfplumber    # PDF document loaders</span>
+<span class="c1"># from langchain_community.document_loaders import PyPDFLoader</span>
+<span class="kn">from</span> <span class="nn">langchain_community.document_loaders</span> <span class="kn">import</span> <span class="n">UnstructuredMarkdownLoader</span>
+<span class="kn">import</span> <span class="nn">chromadb</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">import</span> <span class="nn">textwrap</span>
+
+<span class="k">def</span> <span class="nf">wrap</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Helper to wrap text for pretty printing&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">textwrap</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="retrieval-augmented-generation">
+<h2>Retrieval Augmented Generation<a class="headerlink" href="#retrieval-augmented-generation" title="Permalink to this heading">#</a></h2>
+<section id="langchain-apis">
+<h3>Langchain APIs<a class="headerlink" href="#langchain-apis" title="Permalink to this heading">#</a></h3>
+<p>Common interface to models served locally (e.g. Ollama) or remotely (e.g.cloud-based server)</p>
+<p><a class="reference external" href="https://python.langchain.com/v0.1/docs/integrations/llms/ollama/">https://python.langchain.com/v0.1/docs/integrations/llms/ollama/</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># temperature set low but nonzero so that chat responses can vary slightly</span>
+<span class="n">llm</span> <span class="o">=</span> <span class="n">Ollama</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;llama3:instruct&quot;</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Read and split input documents into chunks of around 1000 characters with overlap. The document is a textbook on the subject of measuring the value of corporate philanthropy, which will drive the examples of a chatbot, and a collaborative conversation between multiple LLM agents.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">loader</span> <span class="o">=</span> <span class="n">UnstructuredMarkdownLoader</span><span class="p">(</span><span class="s1">&#39;MVCP.md&#39;</span><span class="p">)</span>
+<span class="n">document</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+<span class="n">text_splitter</span> <span class="o">=</span> <span class="n">RecursiveCharacterTextSplitter</span><span class="p">(</span><span class="n">chunk_size</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">chunk_overlap</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">chunked_documents</span> <span class="o">=</span> <span class="n">text_splitter</span><span class="o">.</span><span class="n">split_documents</span><span class="p">(</span><span class="n">document</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of chunks:&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">chunked_documents</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">wrap</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">chunked_documents</span><span class="p">[:</span><span class="mi">2</span><span class="p">])))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of chunks: 198
+[Document(page_content=&#39;MEASURING THE VALUE OF CORPORATE PHILANTHROPY:
+SOCIAL IMPACT, BUSINESS BENEFITS, AND INVESTOR RETURNS\nby\nTerence
+Lim, Ph.D.\nReport Author and Manager, Standards and
+Measurement,\nCommittee Encouraging Corporate Philanthropy\n(through
+the 2008–2009 Goldman Sachs Public Service Program)\n\nHow to measure
+the value and results of corporate philanthropy remains\none of
+corporate giving professionals’ greatest challenges. Social
+and\nbusiness benefits are often long-term or intangible, which
+make\nsystematic measurement complex. And yet: Corporate philanthropy
+faces\nincreasing pressures to show it is as strategic,cost-effective,
+and value-enhancing\nas possible. The industry faces a critical need
+to assess current practices and\nmeasurement trends, clarify the
+demands practitioners face for impact evidence,\nand identify the most
+promising steps forward in order to make progress on
+these\nchallenges.&#39;, metadata={&#39;source&#39;: &#39;MVCP.md&#39;}),
+Document(page_content=&#39;This report aims to meet that need, by
+providing the corporate\nphilanthropic community with a review of
+recent measurement studies, models,\nand evidence drawn from
+complementary business disciplines as well as the social\nsector.
+Rather than present an other compendium of narrative accounts and
+case\nstudies, we endeavor to generalize the most valuable concepts
+and to recognize\nthe strengths and limitations of various measurement
+approaches. In conjunction\nwith the annotated references that follow,
+the analysis herein should provide an\nexcellent starting point for
+companies wishing to adapt current methodologies in\nthe field to
+their own corporate giving programs.\nTo realize meaningful benefits,
+philanthropy cannot be treated as just\nanother &quot;check in the box,&quot;
+but rather must be executed no less professionally,\nproactively, and
+strategically than other core business activities. Our hope is\nthat
+this work will enlighten giving professionals, CEOs, and the
+investor&#39;, metadata={&#39;source&#39;: &#39;MVCP.md&#39;})]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="vector-database">
+<h3>Vector Database<a class="headerlink" href="#vector-database" title="Permalink to this heading">#</a></h3>
+<p>Chroma DB is an open-source vector store that is utilized for the storage and retrieval of vector embeddings. It performs fast search of text data, and is used by semantic search engines and large language models.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">chromadb</span><span class="o">.</span><span class="n">Client</span><span class="p">()</span>
+<span class="c1">#client.delete_collection(name=&quot;docs&quot;) </span>
+<span class="n">collection</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_or_create_collection</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;docs&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ollama can also server word embeddings models, such as the “mxbai-embed-large” model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># store each document in a vector embedding database</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">chunked_documents</span><span class="p">):</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">ollama</span><span class="o">.</span><span class="n">embeddings</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;mxbai-embed-large&quot;</span><span class="p">,</span> <span class="n">prompt</span><span class="o">=</span><span class="n">d</span><span class="o">.</span><span class="n">page_content</span><span class="p">)</span>
+    <span class="n">embedding</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="s2">&quot;embedding&quot;</span><span class="p">]</span>
+    <span class="n">collection</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+        <span class="n">ids</span><span class="o">=</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)],</span>
+        <span class="n">embeddings</span><span class="o">=</span><span class="p">[</span><span class="n">embedding</span><span class="p">],</span>
+        <span class="n">documents</span><span class="o">=</span><span class="p">[</span><span class="n">d</span><span class="o">.</span><span class="n">page_content</span><span class="p">]</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Example of Question-Answer prompt</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># an example prompt</span>
+<span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;Why is it important to measure the value of corporate philanthropy?&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Embed the prompt query</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># generate an embedding for the query</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">ollama</span><span class="o">.</span><span class="n">embeddings</span><span class="p">(</span>
+  <span class="n">prompt</span><span class="o">=</span><span class="n">query</span><span class="p">,</span>
+  <span class="n">model</span><span class="o">=</span><span class="s2">&quot;mxbai-embed-large&quot;</span>
+<span class="p">)</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">response</span><span class="p">[</span><span class="s1">&#39;embedding&#39;</span><span class="p">])</span>   <span class="c1"># vector length</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1024
+</pre></div>
+</div>
+</div>
+</div>
+<p>Retrieve the most similar document chunks from the vector database</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># retrieve the most relevant doc</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">collection</span><span class="o">.</span><span class="n">query</span><span class="p">(</span>
+  <span class="n">query_embeddings</span><span class="o">=</span><span class="p">[</span><span class="n">response</span><span class="p">[</span><span class="s2">&quot;embedding&quot;</span><span class="p">]],</span>
+    <span class="n">n_results</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="s2">&quot;. &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;documents&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">textwrap</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A model for measuring the influence of corporate philanthropic
+initiatives on employee engagement.. consumer satisfaction and
+companies philanthropic record only when companies are perceived to
+have strong product quality and innovation capabilities and or operate
+in consumer oriented industries 22 Designing a measurement framework
+for loyalty should begin with an assessment of the perceptions
+customers have already developed as a result of a company s corporate
+philanthropic initiatives and whether these perceptions are
+contributing to higher loyalty scores Figure 9 suggests such a
+framework based on the literature reviewed Figure 9 A Framework for
+Measuring Customer Loyalty and Corporate Philanthropy Source Adapted
+from Bhatt acharya C B Sen S 2004 and Smith V Langford P 2009 A
+company s marketing department is likely already to have implemented
+its own customer loyalty metrics in which case it is sensible to
+leverage these along with customized deliberate customer research It
+is imperative that the additional factors affecting loyalty scores e
+g. philanthropic strategies criteria and disclosures are linked to can
+be successful in financial value There is a significant creating long
+term opportunity for companies to lead the business value industry in
+developing standards or differentiating themselves to the investor
+community through their disclosures about philanthropic efforts
+Documentation of the measurement process should bean important part of
+establishing quality disclosures and standards A high quality
+measurement process is a critical input for good management and
+demonstrates that a company recognize show its philanthropic
+strategies can be successful in creating long term business value The
+Dow Jones Sustainability Indexes questionnaire also asks if the
+company has in place a measurement system although it does not provide
+guidance about what Dow Jones considers to be a good system The review
+and findings summarized in this report suggest that companies could
+</pre></div>
+</div>
+</div>
+</div>
+<p>Generate a response combining the query and data we retrieved in previous step</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">Only use relevant information in the following text delimited by triple quotes:</span>
+
+<span class="s2">&#39;&#39;&#39;</span><span class="si">{</span><span class="n">data</span><span class="si">}</span><span class="s2">.&#39;&#39;&#39; </span>
+
+<span class="s2">Respond to this prompt: </span><span class="si">{</span><span class="n">query</span><span class="si">}</span><span class="s2">.</span>
+
+<span class="s2">In your response, only use information in the given text.</span>
+<span class="s2">Do not mention that you referred to the text.&quot;&quot;&quot;</span>
+
+<span class="n">output</span> <span class="o">=</span> <span class="n">llm</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">textwrap</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">output</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>It is imperative that the additional factors affecting loyalty scores,
+such as philanthropic strategies and disclosures, are linked to can be
+successful in financial value. This suggests that measuring the value
+of corporate philanthropy is important because it can create long-term
+business value. Additionally, a high-quality measurement process
+demonstrates that a company recognizes its philanthropic strategies
+can be successful in creating long-term business value, which can lead
+to differentiating themselves to the investor community through their
+disclosures about philanthropic efforts.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># show the supporting source document chunk ids</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;ids&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;95&#39;, &#39;120&#39;, &#39;187&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="chatbot">
+<h2>Chatbot<a class="headerlink" href="#chatbot" title="Permalink to this heading">#</a></h2>
+<p>The chatbot is an LLM instance, where a record of the past conversation is included in the next prompt, so the chatbot replies to the user’s question with memory of past queries and responses.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">system_prompt</span> <span class="o">=</span> <span class="s2">&quot;You are a competent AI business manager.&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">instruction</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">I will provide you with ideas.</span>
+<span class="s2">Please summarize and briefly explain all </span>
+<span class="s2">the ideas, including those I have provided you earlier, in a bulleted list.</span>
+<span class="s2">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hard-code the sequence of user queries.</span>
+<span class="n">user_queries</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;Idea: Sum up the amount of charitable contributions.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Idea: Measure the dollar value of goods contributed.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Idea: Count total employee volunteering hours.&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Concatenate user and response turns to form prompt</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Loop over number of incremental user queries and build up memory of responses</span>
+
+<span class="c1"># These special input symbols and sequences are needed to construct the prompt</span>
+<span class="c1"># including the past conversation. See</span>
+<span class="c1"># https://llama.meta.com/docs/model-cards-and-prompt-formats/meta-llama-3/</span>
+<span class="n">tokens</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;bos_token&#39;</span><span class="p">:</span> <span class="s1">&#39;&lt;|begin_of_text|&gt;&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;eos_token&#39;</span><span class="p">:</span> <span class="s1">&#39;&lt;|end_of_text|&gt;&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;pad_token&#39;</span><span class="p">:</span> <span class="s1">&#39;&lt;|reserved_special_token_250|&gt;&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;system_header&#39;</span><span class="p">:</span> <span class="s1">&#39;&lt;|start_header_id|&gt;system&lt;|end_header_id|&gt;&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;assistant_header&#39;</span><span class="p">:</span> <span class="s1">&#39;&lt;|start_header_id|&gt;assistant&lt;|end_header_id|&gt;&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;user_header&#39;</span><span class="p">:</span> <span class="s1">&#39;&lt;|start_header_id|&gt;user&lt;|end_header_id|&gt;&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;eot&#39;</span><span class="p">:</span> <span class="s1">&#39;&lt;|eot_id|&gt;&#39;</span><span class="p">,</span> 
+<span class="p">}</span>
+
+<span class="n">responses</span> <span class="o">=</span> <span class="p">[]</span>   <span class="c1"># memory of past AI-assistant turns</span>
+<span class="k">for</span> <span class="n">turn</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">user_queries</span><span class="p">))):</span>
+    <span class="c1"># 1. Start with system message </span>
+    <span class="n">prompt</span> <span class="o">=</span> <span class="n">tokens</span><span class="p">[</span><span class="s1">&#39;bos_token&#39;</span><span class="p">]</span>
+    <span class="n">prompt</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">tokens</span><span class="p">[</span><span class="s1">&#39;system_header&#39;</span><span class="p">],</span>
+                         <span class="n">system_prompt</span><span class="p">,</span>
+                         <span class="n">tokens</span><span class="p">[</span><span class="s1">&#39;eot&#39;</span><span class="p">]])</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span>
+
+    <span class="c1"># 2. Add user instruction and first user prompt</span>
+    <span class="n">prompt</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">tokens</span><span class="p">[</span><span class="s1">&#39;user_header&#39;</span><span class="p">],</span>
+                         <span class="n">instruction</span><span class="p">,</span>
+                         <span class="n">user_queries</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                         <span class="n">tokens</span><span class="p">[</span><span class="s1">&#39;eot&#39;</span><span class="p">]])</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span>
+
+    <span class="c1"># 3. Loop through past turns of AI response and user prompt</span>
+    <span class="k">for</span> <span class="n">response</span><span class="p">,</span> <span class="n">query</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">responses</span><span class="p">,</span> <span class="n">user_queries</span><span class="p">[</span><span class="mi">1</span><span class="p">:][:</span><span class="nb">len</span><span class="p">(</span><span class="n">responses</span><span class="p">)]):</span>
+        
+        <span class="c1"># a. Add AI response from memory</span>
+        <span class="n">prompt</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">tokens</span><span class="p">[</span><span class="s1">&#39;assistant_header&#39;</span><span class="p">],</span>
+                             <span class="n">response</span><span class="p">,</span>
+                             <span class="n">tokens</span><span class="p">[</span><span class="s1">&#39;eot&#39;</span><span class="p">]])</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span>
+        
+        <span class="c1"># b. Add next user prompt</span>
+        <span class="n">prompt</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">tokens</span><span class="p">[</span><span class="s1">&#39;user_header&#39;</span><span class="p">],</span>
+                             <span class="n">query</span><span class="p">,</span>
+                             <span class="n">tokens</span><span class="p">[</span><span class="s1">&#39;eot&#39;</span><span class="p">]])</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span>
+
+    <span class="c1"># 4. End with assistant header to ellicit AI response</span>
+    <span class="n">prompt</span> <span class="o">+=</span> <span class="n">tokens</span><span class="p">[</span><span class="s1">&#39;assistant_header&#39;</span><span class="p">]</span>
+
+    <span class="n">response</span> <span class="o">=</span> <span class="n">llm</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+    <span class="n">responses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 3/3 [00:16&lt;00:00,  5.53s/it]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Show the final response from the last turn of the Chatbot</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;FINAL RESPONSE:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">wrap</span><span class="p">(</span><span class="n">response</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FINAL RESPONSE:
+Here&#39;s the updated list with the new idea:
+
+* **Sum up the amount of charitable contributions**: This idea likely
+refers to calculating and aggregating the total amount of donations
+made by a company or organization to various charities. This could be
+an important metric for tracking philanthropic efforts and measuring
+social responsibility.
+* **Measure the dollar value of goods contributed**: This idea
+suggests quantifying the monetary value of goods, products, or
+services donated by a company or individual to charitable causes. This
+could include in-kind donations, product drives, or other forms of
+non-monetary giving.
+* **Count total employee volunteering hours**: This idea focuses on
+tracking and aggregating the total number of hours that employees
+spend volunteering for charitable organizations or community events.
+This metric can help measure employee engagement, corporate social
+responsibility, and the impact of company-sponsored volunteer
+programs.
+
+Please provide more ideas, and I&#39;ll keep adding them to the list!
+</pre></div>
+</div>
+</div>
+</div>
+<p>Show the last prompt that was asked of the chatbot: it includes the entire memory of the past conversation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;FINAL PROMPT:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FINAL PROMPT:
+&lt;|begin_of_text|&gt;&lt;|start_header_id|&gt;system&lt;|end_header_id|&gt;
+You are a competent AI business manager.
+&lt;|eot_id|&gt;
+
+&lt;|start_header_id|&gt;user&lt;|end_header_id|&gt;
+
+I will provide you with ideas.
+Please summarize and briefly explain all 
+the ideas, including those I have provided you earlier, in a bulleted list.
+
+Idea: Sum up the amount of charitable contributions.
+&lt;|eot_id|&gt;
+
+&lt;|start_header_id|&gt;assistant&lt;|end_header_id|&gt;
+Since this is the first idea you&#39;ve provided, I&#39;ll start by summarizing it:
+
+* **Sum up the amount of charitable contributions**: This idea likely refers to calculating and aggregating the total amount of donations made by a company or organization to various charities. This could be an important metric for tracking philanthropic efforts and measuring social responsibility.
+
+Please go ahead and provide more ideas, and I&#39;ll add them to the list!
+&lt;|eot_id|&gt;
+
+&lt;|start_header_id|&gt;user&lt;|end_header_id|&gt;
+Idea: Measure the dollar value of goods contributed.
+&lt;|eot_id|&gt;
+
+&lt;|start_header_id|&gt;assistant&lt;|end_header_id|&gt;
+Here&#39;s the updated list with the new idea:
+
+* **Sum up the amount of charitable contributions**: This idea likely refers to calculating and aggregating the total amount of donations made by a company or organization to various charities. This could be an important metric for tracking philanthropic efforts and measuring social responsibility.
+* **Measure the dollar value of goods contributed**: This idea suggests quantifying the monetary value of goods, products, or services donated by a company or individual to charitable causes. This could include in-kind donations, product drives, or other forms of non-monetary giving.
+
+Please provide more ideas, and I&#39;ll keep adding them to the list!
+&lt;|eot_id|&gt;
+
+&lt;|start_header_id|&gt;user&lt;|end_header_id|&gt;
+Idea: Count total employee volunteering hours.
+&lt;|eot_id|&gt;
+
+&lt;|start_header_id|&gt;assistant&lt;|end_header_id|&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="agents">
+<h2>Agents<a class="headerlink" href="#agents" title="Permalink to this heading">#</a></h2>
+<p>In multi-agent LLM systems, multiple LLM agents interact with each other or work in collaboration to achieve complex tasks or goals. Frameworks such as Microsoft’s Autogen provides a multi-agent conversation framework as a high-level abstraction with an open-source library to build complex workflows.</p>
+<p>Below, we model a simpler workflow of a conversation between three LLM agents, which perform the roles of a Chief Executive Officer, a Chief Giving Officer (who manages the company’s corporate philanthropy program), and an AI Assistant. Over several turns, they gradually explore and build up a plan for measuring the value of their program, drawing only from information in the RAG document store.</p>
+<section id="role-playing">
+<h3>Role-playing<a class="headerlink" href="#role-playing" title="Permalink to this heading">#</a></h3>
+<p><strong>AI Assistant agent</strong></p>
+<p>This agent responds to a query using RAG.  To reduce hallucination, the prompt is clearly written to stick to the retrieved text, and to simply respond “I don’t know” if the answer cannot be found in the text.  This agent performs the role of an AI Corporate Giving expert assistant (named CorGi), since its responses only uses information retrieved from the corporate philanthropy textbook.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rag_agent</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">n_results</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Role of a RAG-based question-answering agent&quot;&quot;&quot;</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">ollama</span><span class="o">.</span><span class="n">embeddings</span><span class="p">(</span><span class="n">prompt</span><span class="o">=</span><span class="n">text</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;mxbai-embed-large&quot;</span><span class="p">)</span>
+
+    <span class="n">results</span> <span class="o">=</span> <span class="n">collection</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">query_embeddings</span><span class="o">=</span><span class="p">[</span><span class="n">response</span><span class="p">[</span><span class="s2">&quot;embedding&quot;</span><span class="p">]],</span>
+                               <span class="n">n_results</span><span class="o">=</span><span class="n">n_results</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;documents&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="n">rag_prompt</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">You are a helpful AI assistant.</span>
+<span class="s2">Only use the information in the following text delimited by triple quotes:</span>
+
+<span class="s2">&#39;&#39;&#39;</span><span class="si">{</span><span class="n">data</span><span class="si">}</span><span class="s2">.&#39;&#39;&#39; </span>
+
+<span class="s2">Provide an answer to this question: </span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="s2">.</span>
+
+<span class="s2">You answer must only contain information in the given text.</span>
+<span class="s2">If the information requested is not in the text, say &quot;I don&#39;t know&quot;.</span>
+<span class="s2">Be concise.</span>
+<span class="s2">Do not mention that you referred to the text.&quot;&quot;&quot;</span>
+    
+    <span class="c1"># generate a response combining the prompt and data</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">llm</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">rag_prompt</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">output</span><span class="p">,</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;ids&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Chief Giving Officer agent</strong></p>
+<p>This role collects and summarizes of the responses received from the AI Assistant agent, to present to the Chief Executive Officer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cgo_agent</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Role of an information-summarizing Chief Giving Officer&quot;&quot;&quot;</span>
+    <span class="n">cgo_prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">You are the chief giving officer of a company. </span>
+<span class="s2">You want to describe a plan for measuring the value</span>
+<span class="s2">of your company&#39;s corporate philanthropy program. </span>
+<span class="s2">Only use the most relevant information about the plan </span>
+<span class="s2">given in the following text delimited by triple quotes:</span>
+
+<span class="s2">&#39;&#39;&#39;</span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="s2">.&#39;&#39;&#39;</span>
+
+<span class="s2">Please summarize and explain all the parts of the plan given in the text using a bulleted list.</span>
+<span class="s2">Be complete and concise.</span>
+<span class="s2">In your summary, do not use any information that is not in the given text.</span>
+<span class="s2">&quot;&quot;&quot;</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">llm</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">cgo_prompt</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">output</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Chief Executive Officer agent</strong></p>
+<p>This LLM agent generates questions, given the text of the plan, for the other agents to answer and add improvements.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ceo_agent</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Role as an inquisitive Chief Executive Officer&quot;&quot;&quot;</span>
+    <span class="n">ceo_prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">You are the chief executive officer of a company. </span>
+<span class="s2">You want to know about the plan for measuring the value</span>
+<span class="s2">of your company&#39;s corporate philanthropy program. </span>
+<span class="s2">The plan is given in the text delimited by triple quotes:</span>
+
+<span class="s2">&#39;&#39;&#39;</span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="s2">.&#39;&#39;&#39;</span>
+
+<span class="s2">Please ask a simple, general question for an idea to improve the your company&#39;s plan</span>
+<span class="s2">that is different than the text.</span>
+<span class="s2">Be concise.&quot;&quot;&quot;</span>
+
+    <span class="n">output</span> <span class="o">=</span> <span class="n">llm</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">ceo_prompt</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">output</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Loop over several turns of the conversation between the three agents, who collaboratively develop the plan.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">memory</span> <span class="o">=</span> <span class="s1">&#39;* Measure the amount of monetary donations.&#39;</span>
+<span class="n">docs</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">turn</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Turn </span><span class="si">{</span><span class="n">turn</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+    <span class="n">question</span> <span class="o">=</span> <span class="n">ceo_agent</span><span class="p">(</span><span class="n">memory</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;CEO &gt;&gt;&gt;&#39;</span><span class="p">,</span> <span class="n">wrap</span><span class="p">(</span><span class="n">question</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">------------------------------</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">answer</span><span class="p">,</span> <span class="n">doc</span> <span class="o">=</span> <span class="n">rag_agent</span><span class="p">(</span><span class="n">question</span><span class="p">)</span>
+    <span class="n">docs</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Corgi-AI &gt;&gt;&gt;&#39;</span><span class="p">,</span> <span class="n">wrap</span><span class="p">(</span><span class="n">answer</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">------------------------------</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">memory</span> <span class="o">=</span> <span class="n">cgo_agent</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">memory</span><span class="p">,</span> <span class="n">answer</span><span class="p">]))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;CGO &gt;&gt;&gt;&#39;</span><span class="p">,</span> <span class="n">wrap</span><span class="p">(</span><span class="n">memory</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">------------------------------&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Source documents:&#39;</span><span class="p">,</span> <span class="nb">set</span><span class="p">(</span><span class="n">docs</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Turn 1...
+CEO &gt;&gt;&gt; What metrics would you recommend tracking to gauge the program&#39;s
+impact on employee engagement and morale?
+
+------------------------------
+
+Corgi-AI &gt;&gt;&gt; How are outcome metrics designed and tracked? Draws from knowledge and
+experience of third-party domain-area experts engaged to collect
+(and/or supervise the collection of) data and then to conduct
+evaluation analysis.
+
+Outcome metrics for gauging program&#39;s impact on employee engagement
+and morale: How are outcome metrics designed and tracked?
+
+------------------------------
+
+CGO &gt;&gt;&gt; Here is a summary of the plan for measuring the value of the company&#39;s
+corporate philanthropy program:
+
+• **Measure monetary donations**: The plan involves tracking the
+amount of monetary donations made by the company.
+
+• **Outcome metrics designed and tracked with expert input**: To
+design and track outcome metrics, the company will draw from the
+knowledge and experience of third-party domain-area experts who will
+collect (and/or supervise the collection of) data and conduct
+evaluation analysis.
+
+• **Metrics for program impact on employee engagement and morale**:
+The plan also includes designing and tracking outcome metrics to gauge
+the program&#39;s impact on employee engagement and morale.
+
+------------------------------
+Turn 2...
+CEO &gt;&gt;&gt; What opportunities are there to leverage our corporate philanthropy
+program as a recruitment tool to attract top talent who share our
+values?
+
+------------------------------
+
+Corgi-AI &gt;&gt;&gt; Philanthropy provides access to new relationships and opportunities,
+whereby the company can find test and demonstrate new ideas,
+technologies, and products. This could potentially attract top talent
+who share our values.
+
+------------------------------
+
+CGO &gt;&gt;&gt; Here is a summary of the plan for measuring the value of the company&#39;s
+corporate philanthropy program:
+
+• **Measure monetary donations**: The plan involves tracking the
+amount of monetary donations made by the company.
+
+• **Outcome metrics designed and tracked with expert input**: The
+company will draw from the knowledge and experience of third-party
+domain-area experts to design and track outcome metrics. These experts
+will collect data and conduct evaluation analysis.
+
+• **Metrics for program impact on employee engagement and morale**:
+The plan includes designing and tracking outcome metrics to gauge the
+program&#39;s impact on employee engagement and morale.
+
+Note: There is no mention of specific metrics or targets in the text,
+only that the company will design and track them with expert input.
+
+------------------------------
+Turn 3...
+CEO &gt;&gt;&gt; What steps can be taken to ensure that the value of the corporate
+philanthropy program is communicated effectively to stakeholders,
+including employees and customers?
+
+------------------------------
+
+Corgi-AI &gt;&gt;&gt; To ensure effective communication of corporate philanthropy program
+value to stakeholders, including employees and customers:
+
+* Leverage existing customer loyalty metrics
+* Conduct customized deliberate customer research
+* Measure perceptions customers have developed as a result of
+company&#39;s corporate philanthropic initiatives and whether these
+perceptions are contributing to higher loyalty scores.
+
+------------------------------
+
+CGO &gt;&gt;&gt; Here is a summary of the plan for measuring the value of the company&#39;s
+corporate philanthropy program:
+
+• **Measure monetary donations**: The plan involves tracking the
+amount of monetary donations made by the company.
+
+• **Outcome metrics designed and tracked with expert input**: The
+company will design and track outcome metrics with the help of third-
+party domain-area experts. These experts will collect data and conduct
+evaluation analysis to measure the impact of the corporate
+philanthropy program.
+
+• **Metrics for program impact on employee engagement and morale**:
+The plan includes designing and tracking outcome metrics to gauge the
+program&#39;s impact on employee engagement and morale.
+
+• **Leverage existing customer loyalty metrics**: To communicate the
+value of the corporate philanthropy program to stakeholders, including
+customers, the company will use its existing customer loyalty metrics.
+
+• **Conduct customized deliberate customer research**: The company
+will conduct research specifically designed to understand how
+customers perceive the corporate philanthropic initiatives and whether
+these perceptions contribute to higher loyalty scores.
+
+• **Measure perceptions and loyalty scores**: The plan involves
+measuring the perceptions customers have developed as a result of the
+company&#39;s corporate philanthropic initiatives and whether these
+perceptions are contributing to higher loyalty scores.
+
+------------------------------
+Turn 4...
+CEO &gt;&gt;&gt; What steps can be taken to ensure that the impact of the corporate
+philanthropy program on employee engagement and morale is also
+reflected in the company&#39;s overall employee retention rates?
+
+------------------------------
+
+Corgi-AI &gt;&gt;&gt; Companies can engage employees through group volunteer programs and
+awareness of their philanthropic initiatives which raise employee
+motivation, productivity, and a sense of identification with the
+organization. This can contribute to business value by enhancing
+employee engagement.
+
+------------------------------
+
+CGO &gt;&gt;&gt; Here is a summary of the plan for measuring the value of the company&#39;s
+corporate philanthropy program:
+
+• **Measure monetary donations**: Track the amount of monetary
+donations made by the company to measure the financial aspect of the
+program.
+
+• **Outcome metrics designed and tracked with expert input**: Design
+and track outcome metrics with the help of third-party domain-area
+experts to measure the impact of the corporate philanthropy program.
+These experts will collect data and conduct evaluation analysis.
+
+• **Metrics for program impact on employee engagement and morale**:
+Design and track outcome metrics to gauge the program&#39;s impact on
+employee engagement and morale, which can contribute to business value
+by enhancing employee engagement.
+
+• **Leverage existing customer loyalty metrics**: Use existing
+customer loyalty metrics to communicate the value of the corporate
+philanthropy program to stakeholders, including customers.
+
+• **Conduct customized deliberate customer research**: Conduct
+research specifically designed to understand how customers perceive
+the company&#39;s corporate philanthropic initiatives and whether these
+perceptions contribute to higher loyalty scores.
+
+• **Measure perceptions and loyalty scores**: Measure the perceptions
+customers have developed as a result of the company&#39;s corporate
+philanthropic initiatives and whether these perceptions are
+contributing to higher loyalty scores.
+
+------------------------------
+Turn 5...
+CEO &gt;&gt;&gt; What if we also tracked the number of employee volunteer hours and
+days taken off for volunteering, to better understand how our
+corporate philanthropy program affects work-life balance and overall
+job satisfaction?
+
+------------------------------
+
+Corgi-AI &gt;&gt;&gt; Positive job-related behaviors include objective metrics such as
+reduced absenteeism and lower employee turnover. Additionally,
+enhanced work effort, advocacy, and cooperative conduct are also
+considered positive outcomes.
+
+------------------------------
+
+CGO &gt;&gt;&gt; Here is a summary of the plan for measuring the value of the company&#39;s
+corporate philanthropy program:
+
+• **Measure monetary donations**: Track the amount of monetary
+donations made by the company to measure the financial aspect of the
+program.
+
+• **Outcome metrics designed and tracked with expert input**: Design
+and track outcome metrics with the help of third-party domain-area
+experts to measure the impact of the corporate philanthropy program.
+These experts will collect data and conduct evaluation analysis.
+
+• **Metrics for program impact on employee engagement and morale**:
+Design and track outcome metrics to gauge the program&#39;s impact on
+employee engagement and morale, which can contribute to business value
+by enhancing employee engagement.
+
+• **Leverage existing customer loyalty metrics**: Use existing
+customer loyalty metrics to communicate the value of the corporate
+philanthropy program to stakeholders, including customers.
+
+• **Conduct customized deliberate customer research**: Conduct
+research specifically designed to understand how customers perceive
+the company&#39;s corporate philanthropic initiatives and whether these
+perceptions contribute to higher loyalty scores.
+
+• **Measure perceptions and loyalty scores**: Measure the perceptions
+customers have developed as a result of the company&#39;s corporate
+philanthropic initiatives and whether these perceptions are
+contributing to higher loyalty scores.
+
+Note: The plan also mentions positive job-related behaviors, such as
+reduced absenteeism, lower employee turnover, enhanced work effort,
+advocacy, and cooperative conduct, but this is not part of the
+specific measurement plan.
+
+------------------------------
+Turn 6...
+CEO &gt;&gt;&gt; What are some potential metrics or indicators that could be used to
+measure the program&#39;s impact on the company&#39;s reputation and brand
+equity?
+
+------------------------------
+
+Corgi-AI &gt;&gt;&gt; Enhancing the company&#39;s reputation or brand.
+
+------------------------------
+
+CGO &gt;&gt;&gt; Here is a summary of the plan for measuring the value of the company&#39;s
+corporate philanthropy program:
+
+• **Measure monetary donations**: Track the amount of monetary
+donations made by the company to measure the financial aspect of the
+program.
+
+• **Outcome metrics designed and tracked with expert input**: Design
+and track outcome metrics with the help of third-party domain-area
+experts to measure the impact of the corporate philanthropy program.
+These experts will collect data and conduct evaluation analysis.
+
+• **Metrics for program impact on employee engagement and morale**:
+Design and track outcome metrics to gauge the program&#39;s impact on
+employee engagement and morale, which can contribute to business value
+by enhancing employee engagement.
+
+• **Leverage existing customer loyalty metrics**: Use existing
+customer loyalty metrics to communicate the value of the corporate
+philanthropy program to stakeholders, including customers.
+
+• **Conduct customized deliberate customer research**: Conduct
+research specifically designed to understand how customers perceive
+the company&#39;s corporate philanthropic initiatives and whether these
+perceptions contribute to higher loyalty scores.
+
+• **Measure perceptions and loyalty scores**: Measure the perceptions
+customers have developed as a result of the company&#39;s corporate
+philanthropic initiatives and whether these perceptions are
+contributing to higher loyalty scores.
+
+------------------------------
+Turn 7...
+CEO &gt;&gt;&gt; What steps can be taken to ensure that the metrics and data collected
+from the program&#39;s impact on employee engagement and morale are also
+used to inform and improve the overall corporate philanthropy
+strategy?
+
+------------------------------
+
+Corgi-AI &gt;&gt;&gt; To ensure that metrics and data collected from the program&#39;s impact on
+employee engagement and morale are used to inform and improve the
+overall corporate philanthropy strategy, CEOs can:
+
+* View the goal of their philanthropic programs as creating business
+innovation and building new market knowledge.
+* Recognize that efficient philanthropists tend to view their
+philanthropic programs&#39; goals in this way.
+
+These steps can help leverage the benefits of philanthropy for long-
+term financial value by enhancing employee engagement and morale.
+
+------------------------------
+
+CGO &gt;&gt;&gt; Here is a summary of the plan for measuring the value of the company&#39;s
+corporate philanthropy program:
+
+• **Measure monetary donations**: Track the amount of monetary
+donations made by the company to measure the financial aspect of the
+program.
+
+• **Outcome metrics designed and tracked with expert input**: Design
+and track outcome metrics with the help of third-party domain-area
+experts to measure the impact of the corporate philanthropy program.
+These experts will collect data and conduct evaluation analysis.
+
+• **Metrics for program impact on employee engagement and morale**:
+Design and track outcome metrics to gauge the program&#39;s impact on
+employee engagement and morale, which can contribute to business value
+by enhancing employee engagement.
+
+• **Leverage existing customer loyalty metrics**: Use existing
+customer loyalty metrics to communicate the value of the corporate
+philanthropy program to stakeholders, including customers.
+
+• **Conduct customized deliberate customer research**: Conduct
+research specifically designed to understand how customers perceive
+the company&#39;s corporate philanthropic initiatives and whether these
+perceptions contribute to higher loyalty scores.
+
+• **Measure perceptions and loyalty scores**: Measure the perceptions
+customers have developed as a result of the company&#39;s corporate
+philanthropic initiatives and whether these perceptions are
+contributing to higher loyalty scores.
+
+• **Use metrics to inform and improve strategy**: View the goal of the
+philanthropic programs as creating business innovation and building
+new market knowledge. Recognize that efficient philanthropists tend to
+view their philanthropic programs&#39; goals in this way, which can help
+leverage the benefits of philanthropy for long-term financial value by
+enhancing employee engagement and morale.
+
+Note: The plan does not explicitly mention how often or when these
+metrics should be measured, but it implies that they will be used to
+inform and improve the overall corporate philanthropy strategy.
+
+------------------------------
+Turn 8...
+CEO &gt;&gt;&gt; What are some potential non-monetary metrics we could track to measure
+the value of our corporate philanthropy program, such as volunteer
+hours or community partnerships?
+
+------------------------------
+
+Corgi-AI &gt;&gt;&gt; Some potential non-monetary metrics we could track to measure the
+value of our corporate philanthropy program include:
+
+* Volunteer hours
+* Community partnerships
+
+------------------------------
+
+CGO &gt;&gt;&gt; Here is a summary of the plan for measuring the value of the company&#39;s
+corporate philanthropy program:
+
+• **Measure monetary donations**: Track the amount of monetary
+donations made by the company to measure the financial aspect of the
+program.
+
+• **Outcome metrics designed and tracked with expert input**: Design
+and track outcome metrics with the help of third-party domain-area
+experts to measure the impact of the corporate philanthropy program.
+These experts will collect data and conduct evaluation analysis.
+
+• **Metrics for program impact on employee engagement and morale**:
+Design and track outcome metrics to gauge the program&#39;s impact on
+employee engagement and morale, which can contribute to business value
+by enhancing employee engagement.
+
+• **Leverage existing customer loyalty metrics**: Use existing
+customer loyalty metrics to communicate the value of the corporate
+philanthropy program to stakeholders, including customers.
+
+• **Conduct customized deliberate customer research**: Conduct
+research specifically designed to understand how customers perceive
+the company&#39;s corporate philanthropic initiatives and whether these
+perceptions contribute to higher loyalty scores.
+
+• **Measure perceptions and loyalty scores**: Measure the perceptions
+customers have developed as a result of the company&#39;s corporate
+philanthropic initiatives and whether these perceptions are
+contributing to higher loyalty scores.
+
+• **Use metrics to inform and improve strategy**: View the goal of the
+philanthropic programs as creating business innovation and building
+new market knowledge. Recognize that efficient philanthropists tend to
+view their philanthropic programs&#39; goals in this way, which can help
+leverage the benefits of philanthropy for long-term financial value by
+enhancing employee engagement and morale.
+
+• **Non-monetary metrics**: Consider tracking non-monetary metrics
+such as volunteer hours and community partnerships to measure the
+value of the corporate philanthropy program.
+
+------------------------------
+Turn 9...
+CEO &gt;&gt;&gt; What steps can we take to ensure that our employees are aware of and
+feel invested in the corporate philanthropy program, beyond just
+tracking metrics?
+
+------------------------------
+
+Corgi-AI &gt;&gt;&gt; Companies can engage employees through group volunteer programs and
+awareness of their philanthropic initiatives, which raise employee
+motivation, productivity, and a sense of identification with the
+organization.
+
+------------------------------
+
+CGO &gt;&gt;&gt; Here is a summary of the plan for measuring the value of the company&#39;s
+corporate philanthropy program:
+
+• **Measure monetary donations**: Track the amount of monetary
+donations made by the company to measure the financial aspect of the
+program.
+
+• **Outcome metrics designed and tracked with expert input**: Design
+and track outcome metrics with the help of third-party domain-area
+experts to measure the impact of the corporate philanthropy program.
+These experts will collect data and conduct evaluation analysis.
+
+• **Metrics for program impact on employee engagement and morale**:
+Design and track outcome metrics to gauge the program&#39;s impact on
+employee engagement and morale, which can contribute to business value
+by enhancing employee engagement.
+
+• **Leverage existing customer loyalty metrics**: Use existing
+customer loyalty metrics to communicate the value of the corporate
+philanthropy program to stakeholders, including customers.
+
+• **Conduct customized deliberate customer research**: Conduct
+research specifically designed to understand how customers perceive
+the company&#39;s corporate philanthropic initiatives and whether these
+perceptions contribute to higher loyalty scores.
+
+• **Measure perceptions and loyalty scores**: Measure the perceptions
+customers have developed as a result of the company&#39;s corporate
+philanthropic initiatives and whether these perceptions are
+contributing to higher loyalty scores.
+
+• **Use metrics to inform and improve strategy**: View the goal of the
+philanthropic programs as creating business innovation and building
+new market knowledge. Recognize that efficient philanthropists tend to
+view their philanthropic programs&#39; goals in this way, which can help
+leverage the benefits of philanthropy for long-term financial value by
+enhancing employee engagement and morale.
+
+• **Non-monetary metrics**: Consider tracking non-monetary metrics
+such as volunteer hours and community partnerships to measure the
+value of the corporate philanthropy program.
+
+------------------------------
+Turn 10...
+CEO &gt;&gt;&gt; What steps can be taken to ensure that the impact of our corporate
+philanthropy program on employee engagement and morale is not only
+measured but also effectively communicated to employees, fostering a
+sense of ownership and motivation?
+
+------------------------------
+
+Corgi-AI &gt;&gt;&gt; To ensure the impact of our corporate philanthropy program on employee
+engagement and morale is effectively communicated to employees,
+fostering a sense of ownership and motivation:
+
+* Understand the diverse range of emotional needs of employees
+* Design programs that fulfill those needs
+* Measure objective metrics such as reduced absenteeism, lower
+employee turnover, and greater efficiency
+* Assess subjective outcomes like enhanced work effort, advocacy, and
+co-operative conduct in performance reviews
+
+------------------------------
+
+CGO &gt;&gt;&gt; Here is a summary of the plan for measuring the value of the company&#39;s
+corporate philanthropy program:
+
+• **Monetary donations**: Track the amount of monetary donations made
+by the company to measure the financial aspect of the program.
+
+• **Outcome metrics**: Design and track outcome metrics with expert
+input to measure the impact of the corporate philanthropy program.
+This includes metrics for:
+        + Program impact on employee engagement and morale
+        + Customer loyalty and perceptions
+
+• **Existing customer loyalty metrics**: Use existing customer loyalty
+metrics to communicate the value of the corporate philanthropy program
+to stakeholders, including customers.
+
+• **Deliberate customer research**: Conduct research specifically
+designed to understand how customers perceive the company&#39;s corporate
+philanthropic initiatives and whether these perceptions contribute to
+higher loyalty scores.
+
+• **Perceptions and loyalty scores**: Measure the perceptions
+customers have developed as a result of the company&#39;s corporate
+philanthropic initiatives and whether these perceptions are
+contributing to higher loyalty scores.
+
+• **Strategy improvement**: View the goal of the philanthropic
+programs as creating business innovation and building new market
+knowledge. Recognize that efficient philanthropists tend to view their
+philanthropic programs&#39; goals in this way, which can help leverage the
+benefits of philanthropy for long-term financial value by enhancing
+employee engagement and morale.
+
+• **Non-monetary metrics**: Consider tracking non-monetary metrics
+such as:
+        + Volunteer hours
+        + Community partnerships
+
+• **Employee engagement and morale**: To ensure the impact of the
+corporate philanthropy program on employee engagement and morale is
+effectively communicated to employees, fostering a sense of ownership
+and motivation:
+        + Understand the diverse range of emotional needs of employees
+        + Design programs that fulfill those needs
+        + Measure objective metrics such as:
+                - Reduced absenteeism
+                - Lower employee turnover
+                - Greater efficiency
+        + Assess subjective outcomes like:
+                - Enhanced work effort
+                - Advocacy
+                - Co-operative conduct in performance reviews
+
+------------------------------
+Source documents: {&#39;15&#39;, &#39;194&#39;, &#39;5&#39;, &#39;98&#39;, &#39;120&#39;, &#39;87&#39;, &#39;2&#39;, &#39;1&#39;, &#39;102&#39;, &#39;109&#39;, &#39;94&#39;, &#39;8&#39;, &#39;97&#39;, &#39;4&#39;, &#39;85&#39;, &#39;86&#39;, &#39;28&#39;, &#39;66&#39;, &#39;95&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;FINAL ANSWER&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">wrap</span><span class="p">(</span><span class="n">memory</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FINAL ANSWER
+Here is a summary of the plan for measuring the value of the company&#39;s
+corporate philanthropy program:
+
+• **Monetary donations**: Track the amount of monetary donations made
+by the company to measure the financial aspect of the program.
+
+• **Outcome metrics**: Design and track outcome metrics with expert
+input to measure the impact of the corporate philanthropy program.
+This includes metrics for:
+        + Program impact on employee engagement and morale
+        + Customer loyalty and perceptions
+
+• **Existing customer loyalty metrics**: Use existing customer loyalty
+metrics to communicate the value of the corporate philanthropy program
+to stakeholders, including customers.
+
+• **Deliberate customer research**: Conduct research specifically
+designed to understand how customers perceive the company&#39;s corporate
+philanthropic initiatives and whether these perceptions contribute to
+higher loyalty scores.
+
+• **Perceptions and loyalty scores**: Measure the perceptions
+customers have developed as a result of the company&#39;s corporate
+philanthropic initiatives and whether these perceptions are
+contributing to higher loyalty scores.
+
+• **Strategy improvement**: View the goal of the philanthropic
+programs as creating business innovation and building new market
+knowledge. Recognize that efficient philanthropists tend to view their
+philanthropic programs&#39; goals in this way, which can help leverage the
+benefits of philanthropy for long-term financial value by enhancing
+employee engagement and morale.
+
+• **Non-monetary metrics**: Consider tracking non-monetary metrics
+such as:
+        + Volunteer hours
+        + Community partnerships
+
+• **Employee engagement and morale**: To ensure the impact of the
+corporate philanthropy program on employee engagement and morale is
+effectively communicated to employees, fostering a sense of ownership
+and motivation:
+        + Understand the diverse range of emotional needs of employees
+        + Design programs that fulfill those needs
+        + Measure objective metrics such as:
+                - Reduced absenteeism
+                - Lower employee turnover
+                - Greater efficiency
+        + Assess subjective outcomes like:
+                - Enhanced work effort
+                - Advocacy
+                - Co-operative conduct in performance reviews
+</pre></div>
+</div>
+</div>
+</div>
+<p>For attribution, show the source reference documents which supported the responses.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Source documents reference id&#39;s:&quot;</span><span class="p">,</span> <span class="nb">set</span><span class="p">(</span><span class="n">docs</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Source documents reference id&#39;s: {&#39;15&#39;, &#39;194&#39;, &#39;5&#39;, &#39;98&#39;, &#39;120&#39;, &#39;87&#39;, &#39;2&#39;, &#39;1&#39;, &#39;102&#39;, &#39;109&#39;, &#39;94&#39;, &#39;8&#39;, &#39;97&#39;, &#39;4&#39;, &#39;85&#39;, &#39;86&#39;, &#39;28&#39;, &#39;66&#39;, &#39;95&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="finetune_llm.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">LLM Finetuning</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#retrieval-augmented-generation">Retrieval Augmented Generation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langchain-apis">Langchain APIs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-database">Vector Database</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chatbot">Chatbot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agents">Agents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#role-playing">Role-playing</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Terence Lim
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
