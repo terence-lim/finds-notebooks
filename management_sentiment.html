@@ -207,7 +207,7 @@
 <li class="toctree-l1"><a class="reference internal" href="sentiment_llm.html">LLM Prompting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="summarization_llm.html">LLM Text Summarization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="finetune_llm.html">LLM Finetuning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rag_agent.html">LLM RAG, Chatbots and Agents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rag_agent.html">RAG, Chatbots and Agents</a></li>
 </ul>
 
     </div>
@@ -403,9 +403,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sentiment-analysis">Sentiment analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sentiment-analysis">Sentiment analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loughran-and-macdonald-dictionary">Loughran and MacDonald dictionary</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sec-edgar-company-filings">SEC Edgar company filings</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#k-s">10-K’s</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ks">10-Ks</a></li>
 </ul>
 </li>
 </ul>
@@ -425,12 +428,12 @@ document.write(`
 <p>Concepts:</p>
 <ul class="simple">
 <li><p>Sentiment Analysis</p></li>
-<li><p>SEC Edgar Company Filings</p></li>
+<li><p>SEC Edgar</p></li>
 </ul>
 <p>References:</p>
 <ul class="simple">
-<li><p>Cohen, Malloy and Nguyen (2020)</p></li>
 <li><p>Tim Loughran and Bill McDonald, 2011, When is a Liability not a Liability? Textual Analysis, Dictionaries, and 10-Ks, Journal of Finance, 66:1, 35-65.</p></li>
+<li><p>Cohen, Malloy and Nguyen (2020), Lazy Prices, Journal of Finance, Volume 75, Issue3, June 2020, Pages 1371-1415</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -468,14 +471,17 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Last FamaFrench Date 2024-03-28 00:00:00
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Last FamaFrench Date 2024-04-30 00:00:00
 </pre></div>
 </div>
 </div>
 </div>
 <section id="sentiment-analysis">
 <h2>Sentiment analysis<a class="headerlink" href="#sentiment-analysis" title="Permalink to this heading">#</a></h2>
-<p>Loughran and MacDonald sentiment word lists</p>
+<p>Dictionary-based (also known as lexicon-based) sentiment analysis uses lists of words which have been pre-scored for sentiment as well as the strength of the sentiment. However, this approach struggles in interpreting negations, irony, and sarcasm which can reduce accuracy. In contrast, large language models are better at understanding context, syntax, and semantics, leading to more accurate sentiment analysis, especially for complex sentences. Nevertheless, dictionary-based sentiment analysis is quick, easy to implement, and results are straightforward to interpret.</p>
+<section id="loughran-and-macdonald-dictionary">
+<h3>Loughran and MacDonald dictionary<a class="headerlink" href="#loughran-and-macdonald-dictionary" title="Permalink to this heading">#</a></h3>
+<p>Loughran and McDonald (2011) noted that general sentiment lexicons were not good fits for analyzing the sentiment of financial statements.  Drawing from company 10-K filings, they scored individual words across different seven categories of sentiments important in financial contexts: “negative”, “positive”, “litigious”, “uncertainty”, “constraining”, or “superfluous”</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://sraf.nd.edu/loughranmcdonald-master-dictionary/">https://sraf.nd.edu/loughranmcdonald-master-dictionary/</a></p></li>
 </ul>
@@ -494,6 +500,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Positive sentiment words</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DataFrame</span><span class="p">(</span><span class="n">words</span><span class="p">[</span><span class="s1">&#39;positive&#39;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Positive Words&#39;</span><span class="p">])</span>
@@ -525,23 +532,23 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>attractive</td>
+      <td>leadership</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>collaborating</td>
+      <td>meritorious</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>benefitting</td>
+      <td>distinctions</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>achieving</td>
+      <td>improving</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>progress</td>
+      <td>versatile</td>
     </tr>
     <tr>
       <th>...</th>
@@ -549,29 +556,30 @@ document.write(`
     </tr>
     <tr>
       <th>349</th>
-      <td>worthy</td>
+      <td>distinction</td>
     </tr>
     <tr>
       <th>350</th>
-      <td>tremendous</td>
+      <td>beautifully</td>
     </tr>
     <tr>
       <th>351</th>
-      <td>succeed</td>
+      <td>gained</td>
     </tr>
     <tr>
       <th>352</th>
-      <td>enhancements</td>
+      <td>attain</td>
     </tr>
     <tr>
       <th>353</th>
-      <td>exclusives</td>
+      <td>improve</td>
     </tr>
   </tbody>
 </table>
 <p>354 rows × 1 columns</p>
 </div></div></div>
 </div>
+<p>Negative sentiment words</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DataFrame</span><span class="p">(</span><span class="n">words</span><span class="p">[</span><span class="s1">&#39;negative&#39;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Negative Words&#39;</span><span class="p">])</span>
@@ -603,23 +611,23 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>arrears</td>
+      <td>disaster</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>unannounced</td>
+      <td>disparagement</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>deceiving</td>
+      <td>misapplies</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>harsh</td>
+      <td>weaknesses</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>disallowances</td>
+      <td>oppose</td>
     </tr>
     <tr>
       <th>...</th>
@@ -627,29 +635,30 @@ document.write(`
     </tr>
     <tr>
       <th>2350</th>
-      <td>undercutting</td>
+      <td>nondisclosure</td>
     </tr>
     <tr>
       <th>2351</th>
-      <td>misrepresented</td>
+      <td>unprofitability</td>
     </tr>
     <tr>
       <th>2352</th>
-      <td>bribed</td>
+      <td>defended</td>
     </tr>
     <tr>
       <th>2353</th>
-      <td>convicted</td>
+      <td>confront</td>
     </tr>
     <tr>
       <th>2354</th>
-      <td>fault</td>
+      <td>counterclaims</td>
     </tr>
   </tbody>
 </table>
 <p>2355 rows × 1 columns</p>
 </div></div></div>
 </div>
+<p>List of stop words to ignore</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># stopwords</span>
@@ -705,17 +714,19 @@ document.write(`
 </div>
 </div>
 </section>
+</section>
 <section id="sec-edgar-company-filings">
 <h2>SEC Edgar company filings<a class="headerlink" href="#sec-edgar-company-filings" title="Permalink to this heading">#</a></h2>
-<p>TODO</p>
-<section id="k-s">
-<h3>10-K’s<a class="headerlink" href="#k-s" title="Permalink to this heading">#</a></h3>
+<p>The SEC EDGAR (Electronic Data Gathering, Analysis, and Retrieval) system is an online database operated by the U.S. Securities and Exchange Commission (SEC). It provides public access to financial filings and disclosure documents submitted by publicly traded companies, such as annual and quarterly reports (Forms 10-K and 10-Q), significant events (Form 8-K), beneficial ownership reports (Schedule 13D), insider sales (Form 144), proxy statements, and registration statements (S-1).</p>
 <ul class="simple">
-<li><p>management discussion and analysis section</p></li>
+<li><p><a class="reference external" href="https://www.sec.gov/edgar/search-and-access">https://www.sec.gov/edgar/search-and-access</a></p></li>
 </ul>
+<section id="ks">
+<h3>10-Ks<a class="headerlink" href="#ks" title="Permalink to this heading">#</a></h3>
+<p>A 10-K is a comprehensive annual report filed by publicly traded companies with the SEC. It provides a detailed overview of the company’s financial performance and operations, including dedicated sections for business description, management discussion and analysis (MD&amp;A) and risk factors, as well as financial statements.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># open mda10K archive</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># open 10-K archive of MD&amp;A text</span>
 <span class="n">item</span><span class="p">,</span> <span class="n">form</span> <span class="o">=</span> <span class="s1">&#39;mda10K&#39;</span><span class="p">,</span> <span class="s1">&#39;10-K&#39;</span>
 <span class="n">rows</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">ed</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">form</span><span class="o">=</span><span class="n">form</span><span class="p">,</span> <span class="n">item</span><span class="o">=</span><span class="n">item</span><span class="p">))</span>
 <span class="n">Series</span><span class="p">((</span><span class="n">rows</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">//</span> <span class="mi">10000</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">))</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
@@ -877,6 +888,7 @@ document.write(`
 </table>
 </div></div></div>
 </div>
+<p>Compute the average sentiment, and change in sentiment, of 10-K’s for all investment universe stocks between 1993 through the present.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># retrieve usual universe at end of each year</span>
@@ -1015,6 +1027,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Show universe coverage by year</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Stacked Bar Plot of universe coverage by year</span>
@@ -1037,6 +1050,7 @@ document.write(`
 <img alt="_images/55143197b259a3b4177e17407d0306681b64f102ba8bc9aec01d5eb03051f5f5.png" src="_images/55143197b259a3b4177e17407d0306681b64f102ba8bc9aec01d5eb03051f5f5.png" />
 </div>
 </div>
+<p>When are 10-K’s filed?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Stacked Bar Plot of filings date, by month and day-of-week</span>
@@ -1058,7 +1072,7 @@ document.write(`
 <img alt="_images/8911c2aa3a732aab39d0ac181c9a6fc79e91860d388033cf5ad8a08d82b42c13.png" src="_images/8911c2aa3a732aab39d0ac181c9a6fc79e91860d388033cf5ad8a08d82b42c13.png" />
 </div>
 </div>
-<p>Plt median annual sentiment and change in sentiment vs total corporate profits</p>
+<p>Show the median sentiment and change in sentiment vs total corporate profits (of all US companies), by year</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alf</span> <span class="o">=</span> <span class="n">Alfred</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;fred&#39;</span><span class="p">][</span><span class="s1">&#39;api_key&#39;</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
@@ -1098,7 +1112,7 @@ mdachg sentiment change
 <img alt="_images/f31eca8bc0b9a2ecdf1b2f2f6b110b8be2ec9bc2190503245aa915ae7034ab49.png" src="_images/f31eca8bc0b9a2ecdf1b2f2f6b110b8be2ec9bc2190503245aa915ae7034ab49.png" />
 </div>
 </div>
-<p>Compute decile spread returns, in same year (Jan-Dec) and year ahead (Apr-Mar)</p>
+<p>Compute decile cap-weighted spread returns, both in same year (Jan-Dec) and year ahead (Apr-Mar). The former case shows the contemporaneous relationship between stock returns and the sentiment of 10-K report for the same calendar year, whereas the latter is an investable strategy after 10-K’s (for the prior fiscal year) are released.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">ifig</span><span class="p">,</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="s1">&#39;mdasent&#39;</span><span class="p">,</span> <span class="s1">&#39;mdachg&#39;</span><span class="p">]):</span>
@@ -1106,7 +1120,7 @@ mdachg sentiment change
     <span class="n">ret0</span> <span class="o">=</span> <span class="p">{}</span>   <span class="c1"># to collect current-year spread returns</span>
     <span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1999</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">])</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>  <span class="c1"># loop over years</span>
         
-        <span class="c1"># compute current year spread returns</span>
+        <span class="c1"># compute current year average spread returns</span>
         <span class="n">begyr</span> <span class="o">=</span> <span class="n">bd</span><span class="o">.</span><span class="n">begyr</span><span class="p">(</span><span class="n">year</span><span class="p">)</span>
         <span class="n">endyr</span> <span class="o">=</span> <span class="n">bd</span><span class="o">.</span><span class="n">endyr</span><span class="p">(</span><span class="n">year</span><span class="p">)</span>
         <span class="n">univ</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">year</span><span class="p">]</span>\
@@ -1120,7 +1134,7 @@ mdachg sentiment change
             <span class="n">neg</span> <span class="o">=</span> <span class="n">weighted_average</span><span class="p">(</span><span class="n">univ</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sub</span><span class="o">==</span><span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;cap&#39;</span><span class="p">,</span> <span class="s1">&#39;ret&#39;</span><span class="p">]],</span> <span class="s1">&#39;cap&#39;</span><span class="p">)[</span><span class="s1">&#39;ret&#39;</span><span class="p">]</span>
             <span class="n">ret0</span><span class="p">[</span><span class="n">endyr</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;ret&#39;</span><span class="p">:</span> <span class="n">pos</span><span class="o">-</span><span class="n">neg</span><span class="p">,</span> <span class="s1">&#39;npos&#39;</span><span class="p">:</span> <span class="nb">sum</span><span class="p">(</span><span class="n">sub</span><span class="o">==</span><span class="mi">1</span><span class="p">),</span> <span class="s1">&#39;nneg&#39;</span><span class="p">:</span> <span class="nb">sum</span><span class="p">(</span><span class="n">sub</span><span class="o">==</span><span class="mi">3</span><span class="p">)}</span>
 
-        <span class="c1"># compute year ahead spread returns</span>
+        <span class="c1"># compute year ahead average spread returns</span>
         <span class="n">beg</span> <span class="o">=</span> <span class="n">bd</span><span class="o">.</span><span class="n">begmo</span><span class="p">(</span><span class="n">endyr</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
         <span class="n">end</span> <span class="o">=</span> <span class="n">bd</span><span class="o">.</span><span class="n">endmo</span><span class="p">(</span><span class="n">endyr</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
         <span class="n">univ</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">year</span><span class="p">]</span>\
@@ -1134,13 +1148,13 @@ mdachg sentiment change
             <span class="n">neg</span> <span class="o">=</span> <span class="n">weighted_average</span><span class="p">(</span><span class="n">univ</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sub</span><span class="o">==</span><span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;cap&#39;</span><span class="p">,</span> <span class="s1">&#39;ret&#39;</span><span class="p">]],</span> <span class="s1">&#39;cap&#39;</span><span class="p">)[</span><span class="s1">&#39;ret&#39;</span><span class="p">]</span>
             <span class="n">ret1</span><span class="p">[</span><span class="n">end</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;ret&#39;</span><span class="p">:</span> <span class="n">pos</span><span class="o">-</span><span class="n">neg</span><span class="p">,</span> <span class="s1">&#39;npos&#39;</span><span class="p">:</span> <span class="nb">sum</span><span class="p">(</span><span class="n">sub</span><span class="o">==</span><span class="mi">1</span><span class="p">),</span> <span class="s1">&#39;nneg&#39;</span><span class="p">:</span> <span class="nb">sum</span><span class="p">(</span><span class="n">sub</span><span class="o">==</span><span class="mi">3</span><span class="p">)}</span>
 
-    <span class="c1"># collect same-year and year-ahead spread returns</span>
+    <span class="c1"># collect same-year and year-ahead average spread returns</span>
     <span class="n">r0</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">ret0</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
     <span class="n">r0</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">r0</span><span class="o">.</span><span class="n">index</span> <span class="o">//</span> <span class="mi">10000</span>
     <span class="n">r1</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">ret1</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
     <span class="n">r1</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="p">(</span><span class="n">r1</span><span class="o">.</span><span class="n">index</span> <span class="o">//</span> <span class="mi">10000</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span>
 
-    <span class="c1"># plot same-year spread returns</span>
+    <span class="c1"># plot same-year average spread returns</span>
     <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">r0</span><span class="p">[</span><span class="s1">&#39;ret&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">width</span><span class="o">=</span><span class="mf">.85</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;C0&quot;</span><span class="p">)</span>
     <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">r0</span><span class="p">[</span><span class="s1">&#39;ret&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">(),</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">)</span>
@@ -1149,7 +1163,7 @@ mdachg sentiment change
     <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;annual returns&#39;</span><span class="p">)</span>
     <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;median&#39;</span><span class="p">,</span> <span class="s1">&#39;Annual Spread Returns&#39;</span><span class="p">])</span>
     
-    <span class="c1"># plot year-ahead spread returns</span>
+    <span class="c1"># plot year-ahead average spread returns</span>
     <span class="n">r1</span><span class="p">[</span><span class="s1">&#39;ret&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">width</span><span class="o">=</span><span class="mf">.85</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;C1&quot;</span><span class="p">)</span>
     <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">r1</span><span class="p">[</span><span class="s1">&#39;ret&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">(),</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">)</span>
     <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">r1</span><span class="p">[</span><span class="s1">&#39;ret&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-.&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">)</span>
@@ -1158,14 +1172,14 @@ mdachg sentiment change
     <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;median&#39;</span><span class="p">,</span> <span class="s1">&#39;Annual Spread Returns&#39;</span><span class="p">])</span>
     <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;fiscal year&#39;</span><span class="p">)</span>
     
-    <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> Annual Cap-weighted Decile Spread Portfolios&quot;</span><span class="p">)</span>    
+    <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2"> Annual Cap-weighted Decile Spread Portfolios&quot;</span><span class="p">)</span>    
     <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4e410cbdb47178e5346ea5f1ec664b0c6ee49ba636ae4701ae007382dca036b7.png" src="_images/4e410cbdb47178e5346ea5f1ec664b0c6ee49ba636ae4701ae007382dca036b7.png" />
-<img alt="_images/4547134ad705ad3ab8f9ccff68e69bd10362bee3344d925cad4b9d5ee531d7db.png" src="_images/4547134ad705ad3ab8f9ccff68e69bd10362bee3344d925cad4b9d5ee531d7db.png" />
+<img alt="_images/97a2f2ed5d3abbffdce6579e3c6c41bf6df8201b3b7ac0f50a06dd1e7297f943.png" src="_images/97a2f2ed5d3abbffdce6579e3c6c41bf6df8201b3b7ac0f50a06dd1e7297f943.png" />
+<img alt="_images/0ea0dcaab518132b8398d5f1ef2ed8008d835feda5aa330ffc61e33b75e380d9.png" src="_images/0ea0dcaab518132b8398d5f1ef2ed8008d835feda5aa330ffc61e33b75e380d9.png" />
 </div>
 </div>
 </section>
@@ -1236,9 +1250,12 @@ mdachg sentiment change
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sentiment-analysis">Sentiment analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sentiment-analysis">Sentiment analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loughran-and-macdonald-dictionary">Loughran and MacDonald dictionary</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sec-edgar-company-filings">SEC Edgar company filings</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#k-s">10-K’s</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ks">10-Ks</a></li>
 </ul>
 </li>
 </ul>

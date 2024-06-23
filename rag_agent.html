@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>LLM RAG, Chatbots and Agents &#8212; Financial Data Science Python Notebooks</title>
+    <title>RAG, Chatbots and Agents &#8212; Financial Data Science Python Notebooks</title>
   
   
   
@@ -206,7 +206,7 @@
 <li class="toctree-l1"><a class="reference internal" href="sentiment_llm.html">LLM Prompting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="summarization_llm.html">LLM Text Summarization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="finetune_llm.html">LLM Finetuning</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">LLM RAG, Chatbots and Agents</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">RAG, Chatbots and Agents</a></li>
 </ul>
 
     </div>
@@ -392,7 +392,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>LLM RAG, Chatbots and Agents</h1>
+    <h1>RAG, Chatbots and Agents</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -403,6 +403,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#retrieval-augmented-generation">Retrieval Augmented Generation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hallucination">Hallucination</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langchain-apis">Langchain APIs</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-database">Vector Database</a></li>
 </ul>
@@ -423,16 +424,19 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="llm-rag-chatbots-and-agents">
-<h1>LLM RAG, Chatbots and Agents<a class="headerlink" href="#llm-rag-chatbots-and-agents" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="rag-chatbots-and-agents">
+<h1>RAG, Chatbots and Agents<a class="headerlink" href="#rag-chatbots-and-agents" title="Permalink to this heading">#</a></h1>
 <p>Concepts:</p>
 <ul class="simple">
+<li><p>Measuring the value of corporate philanthropy</p></li>
 <li><p>Retrieval Augmented Generation (RAG)</p></li>
 <li><p>Chatbots</p></li>
 <li><p>LLM Agents</p></li>
 </ul>
 <p>References:</p>
 <ul class="simple">
+<li><p>Patrick Lewis, Ethan Perez, Aleksandra Piktus, Fabio Petroni, Vladimir Karpukhin, Naman Goyal†, Heinrich Küttler, Mike Lewis†, Wen-tau Yih, Tim Rocktäschel, Sebastian Riedel, Douwe Kiela, 2021,
+Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks</p></li>
 <li><p>Lim, T., 2010, Measuring the value of corporate philanthropy: Social impact, business benefits, and investor returns. published by CECP.</p></li>
 </ul>
 <div class="cell docutils container">
@@ -466,9 +470,14 @@ document.write(`
 </div>
 <section id="retrieval-augmented-generation">
 <h2>Retrieval Augmented Generation<a class="headerlink" href="#retrieval-augmented-generation" title="Permalink to this heading">#</a></h2>
+<p>Retrieval-Augmented Generation (RAG) combines two steps: retrieving information from a large database or knowledge base external to the LLM, and then generating a response using this retrieved information. By having access to up-to-date and relevant information, the LLM can provide answers that are more accurate and detailed.</p>
+<section id="hallucination">
+<h3>Hallucination<a class="headerlink" href="#hallucination" title="Permalink to this heading">#</a></h3>
+<p>Hallucination is when an AI makes up information that sounds believable but is actually incorrect or nonsensical. With RAG, since the AI’s responses are based on relevant and factual information, there is a much higher chance it will stay truthful and reliable.</p>
+</section>
 <section id="langchain-apis">
 <h3>Langchain APIs<a class="headerlink" href="#langchain-apis" title="Permalink to this heading">#</a></h3>
-<p>Common interface to models served locally (e.g. Ollama) or remotely (e.g.cloud-based server)</p>
+<p>LangChain is a framework designed to facilitate the creation of applications that utilize language models. It simplifies the process of integrating language models with external data sources and other AI tools, for example, by providing a common interface to models served both locally (e.g. Ollama) or remotely (e.g.cloud-based server).</p>
 <p><a class="reference external" href="https://python.langchain.com/v0.1/docs/integrations/llms/ollama/">https://python.langchain.com/v0.1/docs/integrations/llms/ollama/</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -478,7 +487,8 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Read and split input documents into chunks of around 1000 characters with overlap. The document is a textbook on the subject of measuring the value of corporate philanthropy, which will drive the examples of a chatbot, and a collaborative conversation between multiple LLM agents.</p>
+<p>LangChain includes convenient loaders for input documents of many formats.</p>
+<p>Documents are read and split into chunks of, say, around 1000 characters with overlap. To drive the demonstrations of a chatbot and a collaborative conversation between multiple LLM agents, we load and ground their responses in a textbook on measuring the value of corporate philanthropy. This subject is about the comprehensive approach that considers social impact, business benefits, and investor expectations, so that companies can better understand and optimize the effectiveness of their philanthropic initiatives.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">loader</span> <span class="o">=</span> <span class="n">UnstructuredMarkdownLoader</span><span class="p">(</span><span class="s1">&#39;MVCP.md&#39;</span><span class="p">)</span>
@@ -540,7 +550,7 @@ investor&#39;, metadata={&#39;source&#39;: &#39;MVCP.md&#39;})]
 </div>
 </div>
 </div>
-<p>Ollama can also server word embeddings models, such as the “mxbai-embed-large” model.</p>
+<p>Use Ollama to serve a word embeddings models, such as the “mxbai-embed-large” model, for convert and store in Chroma DB’s vector database.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># store each document in a vector embedding database</span>
@@ -556,10 +566,10 @@ investor&#39;, metadata={&#39;source&#39;: &#39;MVCP.md&#39;})]
 </div>
 </div>
 </div>
-<p>Example of Question-Answer prompt</p>
+<p>Write a prompt query</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># an example prompt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># a question-answer prompt</span>
 <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;Why is it important to measure the value of corporate philanthropy?&quot;</span>
 </pre></div>
 </div>
@@ -583,7 +593,7 @@ investor&#39;, metadata={&#39;source&#39;: &#39;MVCP.md&#39;})]
 </div>
 </div>
 </div>
-<p>Retrieve the most similar document chunks from the vector database</p>
+<p>Retrieve the 3 most similar document chunks from the vector database</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># retrieve the most relevant doc</span>
@@ -680,7 +690,7 @@ disclosures about philanthropic efforts.
 </section>
 <section id="chatbot">
 <h2>Chatbot<a class="headerlink" href="#chatbot" title="Permalink to this heading">#</a></h2>
-<p>The chatbot is an LLM instance, where a record of the past conversation is included in the next prompt, so the chatbot replies to the user’s question with memory of past queries and responses.</p>
+<p>The chatbot is an LLM instance, where a record of the past conversation is included in the next prompt, so that the chatbot can reply to the user’s question with memory of past queries and responses.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">system_prompt</span> <span class="o">=</span> <span class="s2">&quot;You are a competent AI business manager.&quot;</span>
@@ -701,7 +711,7 @@ disclosures about philanthropic efforts.
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hard-code the sequence of user queries.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simulate a sequence of user queries, which expect the LLM to remember past queries and responses.</span>
 <span class="n">user_queries</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s2">&quot;Idea: Sum up the amount of charitable contributions.&quot;</span><span class="p">,</span>
     <span class="s2">&quot;Idea: Measure the dollar value of goods contributed.&quot;</span><span class="p">,</span>
@@ -711,7 +721,7 @@ disclosures about philanthropic efforts.
 </div>
 </div>
 </div>
-<p>Concatenate user and response turns to form prompt</p>
+<p>Concatenate past query and response turns to form next prompt</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Loop over number of incremental user queries and build up memory of responses</span>
@@ -860,11 +870,14 @@ Idea: Count total employee volunteering hours.
 <section id="agents">
 <h2>Agents<a class="headerlink" href="#agents" title="Permalink to this heading">#</a></h2>
 <p>In multi-agent LLM systems, multiple LLM agents interact with each other or work in collaboration to achieve complex tasks or goals. Frameworks such as Microsoft’s Autogen provides a multi-agent conversation framework as a high-level abstraction with an open-source library to build complex workflows.</p>
-<p>Below, we model a simpler workflow of a conversation between three LLM agents, which perform the roles of a Chief Executive Officer, a Chief Giving Officer (who manages the company’s corporate philanthropy program), and an AI Assistant. Over several turns, they gradually explore and build up a plan for measuring the value of their program, drawing only from information in the RAG document store.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.microsoft.com/en-us/research/project/autogen/">https://www.microsoft.com/en-us/research/project/autogen/</a></p></li>
+</ul>
+<p>We demonstrate an illustrative workflow of a conversation between three LLM agents, who perform the roles of a Chief Executive Officer, a Chief Giving Officer (who manages the company’s corporate philanthropy program), and an AI Assistant. Over several turns, they incrementally brainstorm and build up a plan for measuring the value of their program, drawing only from information in the RAG document store.</p>
 <section id="role-playing">
 <h3>Role-playing<a class="headerlink" href="#role-playing" title="Permalink to this heading">#</a></h3>
 <p><strong>AI Assistant agent</strong></p>
-<p>This agent responds to a query using RAG.  To reduce hallucination, the prompt is clearly written to stick to the retrieved text, and to simply respond “I don’t know” if the answer cannot be found in the text.  This agent performs the role of an AI Corporate Giving expert assistant (named CorGi), since its responses only uses information retrieved from the corporate philanthropy textbook.</p>
+<p>This agent responds to a query using RAG.  To reduce hallucination, the prompt is clearly written to stick to the retrieved text, and to simply respond “I don’t know” if the answer cannot be found in the text.  This agent performs the role of an AI Corporate Giving expert assistant (named CorGi), whose responses only use information retrieved from the textbook stored in the underlying database.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rag_agent</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">n_results</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
@@ -1483,6 +1496,7 @@ Source documents: {&#39;15&#39;, &#39;194&#39;, &#39;5&#39;, &#39;98&#39;, &#39;
 </div>
 </div>
 </div>
+<p>Show the final turn</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;FINAL ANSWER&quot;</span><span class="p">)</span>
@@ -1621,6 +1635,7 @@ and motivation:
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#retrieval-augmented-generation">Retrieval Augmented Generation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hallucination">Hallucination</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langchain-apis">Langchain APIs</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-database">Vector Database</a></li>
 </ul>

@@ -207,7 +207,7 @@
 <li class="toctree-l1"><a class="reference internal" href="sentiment_llm.html">LLM Prompting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="summarization_llm.html">LLM Text Summarization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="finetune_llm.html">LLM Finetuning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rag_agent.html">LLM RAG, Chatbots and Agents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rag_agent.html">RAG, Chatbots and Agents</a></li>
 </ul>
 
     </div>
@@ -403,11 +403,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text-classification">Text classification</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tagging-and-lemmatizing">Tagging and Lemmatizing</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#textblob">Textblob</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#word-embeddings">Word Embeddings</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#word2vec">Word2Vec</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#skip-gram">Skip-gram</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cbow">CBOW</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#glove">GloVe</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#word-vector-arithmetic">Word Vector Arithmetic</a></li>
 </ul>
@@ -429,9 +429,10 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="deep-learning">
 <h1>Deep Learning<a class="headerlink" href="#deep-learning" title="Permalink to this heading">#</a></h1>
-<p><em>When you come to a fork in the road, take it</em> - Yogi Berra</p>
+<p><em>May your choices reflect your hopes, not your fears</em> – Nelson Mandela</p>
 <p>Concepts:</p>
 <ul class="simple">
+<li><p>TextBlob library</p></li>
 <li><p>Word Embeddings</p></li>
 <li><p>Feedforward Neural Networks</p></li>
 </ul>
@@ -443,7 +444,6 @@ co-adaptation of feature detectors”</p></li>
 <li><p>Jeffrey Pennington, Richard Socher, and Christopher D. Manning. 2014. GloVe: Global Vectors for Word Representation.</p></li>
 <li><p>Tomas Mikolov, Kai Chen, Greg Corrado, Jeffrey Dean, 2013, “Efficient Estimation of Word Representations in Vector Space”</p></li>
 <li><p>Greg Durrett, 2023, “CS388 Natural Language Processing course materisl”, retrieved from <a class="reference external" href="https://www.cs.utexas.edu/~gdurrett/courses/online-course/materials.html">https://www.cs.utexas.edu/~gdurrett/courses/online-course/materials.html</a></p></li>
-<li><p>Philipp Krahenbuhl, 2020, “CS395T Deep Learning course materials”, retrieved from <a class="reference external" href="http://www.philkr.net/dl_class/material">http://www.philkr.net/dl_class/material</a></p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -462,10 +462,7 @@ co-adaptation of feature detectors”</p></li>
 <span class="kn">import</span> <span class="nn">torch</span>
 <span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">nn</span>
 <span class="kn">import</span> <span class="nn">torchinfo</span>
-<span class="kn">import</span> <span class="nn">nltk</span>
-<span class="kn">from</span> <span class="nn">nltk.tag</span> <span class="kn">import</span> <span class="n">pos_tag</span>
-<span class="kn">from</span> <span class="nn">nltk.tokenize</span> <span class="kn">import</span> <span class="n">word_tokenize</span>
-<span class="kn">from</span> <span class="nn">nltk.stem</span> <span class="kn">import</span> <span class="n">WordNetLemmatizer</span>
+<span class="kn">from</span> <span class="nn">textblob</span> <span class="kn">import</span> <span class="n">TextBlob</span>
 <span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
 <span class="kn">from</span> <span class="nn">finds.database</span> <span class="kn">import</span> <span class="n">MongoDB</span><span class="p">,</span> <span class="n">SQL</span><span class="p">,</span> <span class="n">RedisDB</span>
 <span class="kn">from</span> <span class="nn">finds.unstructured</span> <span class="kn">import</span> <span class="n">Unstructured</span><span class="p">,</span> <span class="n">Edgar</span><span class="p">,</span> <span class="n">Vocab</span>
@@ -491,16 +488,6 @@ co-adaptation of feature detectors”</p></li>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># dimension of embeddings vector</span>
-<span class="n">embeddings_dim</span> <span class="o">=</span> <span class="mi">300</span>
-<span class="c1"># max size of vocab</span>
-<span class="n">vocab_len</span> <span class="o">=</span> <span class="mi">15000</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sql</span> <span class="o">=</span> <span class="n">SQL</span><span class="p">(</span><span class="o">**</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;sql&#39;</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
 <span class="n">user</span> <span class="o">=</span> <span class="n">SQL</span><span class="p">(</span><span class="o">**</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
 <span class="n">bd</span> <span class="o">=</span> <span class="n">BusDay</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
@@ -512,16 +499,15 @@ co-adaptation of feature detectors”</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Last FamaFrench Date 2024-03-28 00:00:00
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Last FamaFrench Date 2024-04-30 00:00:00
 </pre></div>
 </div>
 </div>
 </div>
-<section id="text-classification">
-<h2>Text classification<a class="headerlink" href="#text-classification" title="Permalink to this heading">#</a></h2>
+<p>Load business descriptions text and industry labels for universe of stocks</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Retrieve universe of stocks</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Retrieve universe of stocks as of start of calendar year 2023</span>
 <span class="n">univ</span> <span class="o">=</span> <span class="n">crsp</span><span class="o">.</span><span class="n">get_universe</span><span class="p">(</span><span class="n">bd</span><span class="o">.</span><span class="n">endmo</span><span class="p">(</span><span class="mi">20221231</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -559,7 +545,7 @@ co-adaptation of feature detectors”</p></li>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># retrieve 2023 bus10K&#39;s</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># retrieve 2023 10K business descriptions text</span>
 <span class="n">item</span><span class="p">,</span> <span class="n">form</span> <span class="o">=</span> <span class="s1">&#39;bus10K&#39;</span><span class="p">,</span> <span class="s1">&#39;10-K&#39;</span>
 <span class="n">rows</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">ed</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">form</span><span class="o">=</span><span class="n">form</span><span class="p">,</span> <span class="n">item</span><span class="o">=</span><span class="n">item</span><span class="p">))</span>
 <span class="n">found</span> <span class="o">=</span> <span class="n">rows</span><span class="p">[</span><span class="n">rows</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="mi">20230101</span><span class="p">,</span> <span class="mi">20231231</span><span class="p">)]</span>\
@@ -569,39 +555,111 @@ co-adaptation of feature detectors”</p></li>
 </div>
 </div>
 </div>
-<section id="tagging-and-lemmatizing">
-<h3>Tagging and Lemmatizing<a class="headerlink" href="#tagging-and-lemmatizing" title="Permalink to this heading">#</a></h3>
+<section id="textblob">
+<h2>Textblob<a class="headerlink" href="#textblob" title="Permalink to this heading">#</a></h2>
+<p>The TextBlob library provides simple API for common NLP tasks such as
+part-of-speech tagging, lemmatization, noun phrase extraction, sentiment analysis
+and spelling correction.
+It streamlines many of NLTK’s complexities and also integrates WordNet.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://textblob.readthedocs.io/en/dev/quickstart.html">https://textblob.readthedocs.io/en/dev/quickstart.html</a></p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !nltk.download(&#39;averaged_perceptron_tagger&#39;)</span>
-<span class="n">lemmatizer</span> <span class="o">=</span> <span class="n">WordNetLemmatizer</span><span class="p">()</span>
-<span class="n">bus</span> <span class="o">=</span> <span class="p">{}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bus</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="k">for</span> <span class="n">permno</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">found</span><span class="o">.</span><span class="n">index</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">permno</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">univ</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
         <span class="k">continue</span>
-    <span class="n">doc</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">ed</span><span class="p">[</span><span class="n">found</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">permno</span><span class="p">,</span> <span class="s1">&#39;pathname&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
-    <span class="n">tags</span> <span class="o">=</span> <span class="n">pos_tag</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
-    <span class="n">nouns</span> <span class="o">=</span> <span class="p">[</span><span class="n">lemmatizer</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">tags</span>
-             <span class="k">if</span> <span class="n">w</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;NN&#39;</span><span class="p">,</span> <span class="s1">&#39;NNS&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">isalpha</span><span class="p">()</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">]</span>
+    <span class="n">doc</span> <span class="o">=</span> <span class="n">TextBlob</span><span class="p">(</span><span class="n">ed</span><span class="p">[</span><span class="n">found</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">permno</span><span class="p">,</span> <span class="s1">&#39;pathname&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>  <span class="c1"># tokenize and tag</span>
+    <span class="n">nouns</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">doc</span><span class="o">.</span><span class="n">tags</span>
+             <span class="k">if</span> <span class="n">tag</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;NN&#39;</span><span class="p">,</span> <span class="s1">&#39;NNS&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">word</span><span class="o">.</span><span class="n">isalpha</span><span class="p">()</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">]</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">nouns</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">:</span>
         <span class="n">bus</span><span class="p">[</span><span class="n">permno</span><span class="p">]</span> <span class="o">=</span> <span class="n">nouns</span>
-<span class="n">store</span><span class="p">[</span><span class="s1">&#39;nouns&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bus</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bus</span> <span class="o">=</span> <span class="n">store</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;nouns&#39;</span><span class="p">)</span>
 <span class="n">permnos</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">bus</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 4625/4625 [18:12&lt;00:00,  4.24it/s]
+</pre></div>
 </div>
+</div>
+</div>
+</section>
+<section id="word-embeddings">
+<h2>Word Embeddings<a class="headerlink" href="#word-embeddings" title="Permalink to this heading">#</a></h2>
+<p>Word embeddings or vectors may be trained using neural networks or matrix factorization techniques.</p>
+<section id="word2vec">
+<h3>Word2Vec<a class="headerlink" href="#word2vec" title="Permalink to this heading">#</a></h3>
+<p>Word2Vec is a framework that includes two primary algorithms: Skip-gram and CBOW. It aims to learn distributed representations (word embeddings) of words in a continuous vector space, by ccapturing  relationships between words based on their occurrences as center words in context windows. Training uses neural networks, that are typically shallow with one hidden layer.</p>
+</section>
+<section id="skip-gram">
+<h3>Skip-gram<a class="headerlink" href="#skip-gram" title="Permalink to this heading">#</a></h3>
+<p>This approach predicts the context words (i.e. surrounding words) given a center word.</p>
+</section>
+<section id="cbow">
+<h3>CBOW<a class="headerlink" href="#cbow" title="Permalink to this heading">#</a></h3>
+<p>Continuous Bag of Words (CBOW) predicts the center word based on the context words within a fixed window size.</p>
+</section>
+<section id="glove">
+<h3>GloVe<a class="headerlink" href="#glove" title="Permalink to this heading">#</a></h3>
+<p>Global Vectors for Word Representation (GloVe) learns word vectors from global word-word co-occurrence statistics from a corpus.
+It uses matrix factorization techniques on the word co-occurrence matrix.</p>
+<p>Load GloVe vectors, and relativize to vocab words</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create textual dataset and encode labels</span>
-<span class="n">words</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load GloVe embeddings, source: &quot;https://nlp.stanford.edu/data/glove.6B.zip&quot;</span>
+<span class="n">embeddings_dim</span> <span class="o">=</span> <span class="mi">300</span>  <span class="c1"># dimension of GloVe embeddings vector</span>
+
+<span class="n">filename</span> <span class="o">=</span> <span class="n">paths</span><span class="p">[</span><span class="s1">&#39;scratch&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;glove.6B.</span><span class="si">{</span><span class="n">embeddings_dim</span><span class="si">}</span><span class="s2">d.txt&quot;</span>
+<span class="n">embeddings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">quoting</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+                         <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">low_memory</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">embeddings</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">embeddings</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">embeddings</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(400000, 300)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="word-vector-arithmetic">
+<h3>Word Vector Arithmetic<a class="headerlink" href="#word-vector-arithmetic" title="Permalink to this heading">#</a></h3>
+<p>Reflecting the idea that geometric relationships between word embeddings reflect meaningful inguistic relationships, word embeddings may be combined and manipulated arithmetically to capture analogies and semantic similarities between words.</p>
+<p>It should noted that these examples are only suggestive of what the vectors may capture, and such mathematical results are generally not as sharp; they may also show the potential for biases, such as gender roles, implicit in the training samples.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">NearestNeighbors</span>
+<span class="n">analogies</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;man king woman&quot;</span><span class="p">,</span> <span class="s2">&quot;paris france tokyo&quot;</span><span class="p">,</span> <span class="s2">&quot;big bigger cold&quot;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">analogy</span> <span class="ow">in</span> <span class="n">analogies</span><span class="p">:</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="n">analogy</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+    <span class="n">vectors</span> <span class="o">=</span> <span class="p">{</span><span class="n">word</span><span class="p">:</span> <span class="n">embeddings</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">word</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">}</span>
+    <span class="n">vec</span> <span class="o">=</span> <span class="n">vectors</span><span class="p">[</span><span class="n">words</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">-</span> <span class="n">vectors</span><span class="p">[</span><span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">+</span> <span class="n">vectors</span><span class="p">[</span><span class="n">words</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
+
+    <span class="n">sim</span> <span class="o">=</span> <span class="n">NearestNeighbors</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">embeddings</span><span class="p">)</span>
+    <span class="n">neighbors</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">kneighbors</span><span class="p">(</span><span class="n">vec</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)),</span> <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                               <span class="n">return_distance</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+    <span class="n">neighbors</span> <span class="o">=</span> <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">neighbors</span> <span class="k">if</span> <span class="n">embeddings</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">words</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">words</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> + </span><span class="si">{</span><span class="n">words</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2"> =&quot;</span><span class="p">,</span>
+          <span class="p">[</span><span class="n">embeddings</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">neighbors</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>king - man + woman = [&#39;queen&#39;]
+france - paris + tokyo = [&#39;japan&#39;]
+bigger - big + cold = [&#39;colder&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Encode textual dataset and labels, and relativize word embeddings to vocab</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">nouns</span> <span class="ow">in</span> <span class="n">bus</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
     <span class="n">words</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">nouns</span><span class="p">))</span>
 <span class="n">vocab</span> <span class="o">=</span> <span class="n">Vocab</span><span class="p">(</span><span class="n">words</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
@@ -610,7 +668,7 @@ co-adaptation of feature detectors”</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>vocab len: 79581
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>vocab len: 87381
 </pre></div>
 </div>
 </div>
@@ -645,78 +703,31 @@ co-adaptation of feature detectors”</p></li>
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="word-embeddings">
-<h2>Word Embeddings<a class="headerlink" href="#word-embeddings" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Continuous BOW, skip-gram, Word2Vec, GloVe matrix factorization</p></li>
-</ul>
-<section id="glove">
-<h3>GloVe<a class="headerlink" href="#glove" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Retrieve GloVe embeddings</span>
-<span class="n">glove_file</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;glove.6B.</span><span class="si">{</span><span class="n">embeddings_dim</span><span class="si">}</span><span class="s2">d.txt&quot;</span>
-<span class="c1">#source = &quot;https://nlp.stanford.edu/data/glove.6B.zip&quot;</span>
-<span class="c1">#response = requests.get(source)</span>
-<span class="c1">#source = io.BytesIO(response.content)</span>
-<span class="c1">#source = paths[&#39;scratch&#39;] / &#39;glove.6B.zip&#39;</span>
-<span class="c1">#with zipfile.ZipFile(source).open(glove_file) as f:</span>
-<span class="n">filename</span> <span class="o">=</span> <span class="n">paths</span><span class="p">[</span><span class="s1">&#39;scratch&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">glove_file</span>
-<span class="n">embeddings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">quoting</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
-                         <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">low_memory</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">embeddings</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">embeddings</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">embeddings</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-
-<span class="c1"># Relativize embeddings to words in vocab</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># relativize embeddings to words in vocab</span>
 <span class="n">vocab</span><span class="o">.</span><span class="n">set_embeddings</span><span class="p">(</span><span class="n">embeddings</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">vocab</span><span class="o">.</span><span class="n">embeddings</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="n">vocab</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">outdir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;dan</span><span class="si">{</span><span class="n">embeddings_dim</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">vocab_len</span><span class="si">}</span><span class="s2">.pkl&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(400000, 300)
-(79581, 300)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(87381, 300)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load previously saved Vocab</span>
-<span class="n">vocab</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">outdir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;dan</span><span class="si">{</span><span class="n">embeddings_dim</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">vocab_len</span><span class="si">}</span><span class="s2">.pkl&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vocab</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">outdir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;dan</span><span class="si">{</span><span class="n">embeddings_dim</span><span class="si">}</span><span class="s2">.pkl&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="word-vector-arithmetic">
-<h3>Word Vector Arithmetic<a class="headerlink" href="#word-vector-arithmetic" title="Permalink to this heading">#</a></h3>
-<p>It has been noted that these examples are only suggestive of what the vectors may capture, and such arithmetic results are generally not as sharp; they may also show the potential for biases, such as gender roles, implicit in the training samples.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">NearestNeighbors</span>
-<span class="n">analogies</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;man king woman&quot;</span><span class="p">,</span> <span class="s2">&quot;paris france tokyo&quot;</span><span class="p">,</span> <span class="s2">&quot;big bigger cold&quot;</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">analogy</span> <span class="ow">in</span> <span class="n">analogies</span><span class="p">:</span>
-    <span class="n">words</span> <span class="o">=</span> <span class="n">analogy</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-    <span class="n">vectors</span> <span class="o">=</span> <span class="p">{</span><span class="n">word</span><span class="p">:</span> <span class="n">embeddings</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">word</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">}</span>
-    <span class="n">vec</span> <span class="o">=</span> <span class="n">vectors</span><span class="p">[</span><span class="n">words</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">-</span> <span class="n">vectors</span><span class="p">[</span><span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">+</span> <span class="n">vectors</span><span class="p">[</span><span class="n">words</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
-
-    <span class="n">sim</span> <span class="o">=</span> <span class="n">NearestNeighbors</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">embeddings</span><span class="p">)</span>
-    <span class="n">neighbors</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">kneighbors</span><span class="p">(</span><span class="n">vec</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)),</span> <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-                               <span class="n">return_distance</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-    <span class="n">neighbors</span> <span class="o">=</span> <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">neighbors</span> <span class="k">if</span> <span class="n">embeddings</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">words</span><span class="p">]</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">words</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> + </span><span class="si">{</span><span class="n">words</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2"> =&quot;</span><span class="p">,</span>
-          <span class="p">[</span><span class="n">embeddings</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">neighbors</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>king - man + woman = [&#39;queen&#39;]
-france - paris + tokyo = [&#39;japan&#39;]
-bigger - big + cold = [&#39;colder&#39;]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load vocab</span>
+<span class="n">vocab</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">outdir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;dan</span><span class="si">{</span><span class="n">embeddings_dim</span><span class="si">}</span><span class="s2">.pkl&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -725,22 +736,29 @@ bigger - big + cold = [&#39;colder&#39;]
 </section>
 <section id="feedforward-neural-network">
 <h2>FeedForward Neural Network<a class="headerlink" href="#feedforward-neural-network" title="Permalink to this heading">#</a></h2>
+<p>Neural networks compose together linear and nonlinear functions to build a complex mathematical model. Feedforward neural networks (FFNNs) are the simplest form of neural networks, where the data flows in one direction (a forward pass) and the connections do not form a cycle.</p>
 <ul class="simple">
-<li><p>nonlinearity</p></li>
-<li><p>hidden layers and size</p></li>
-<li><p>initialization</p></li>
-<li><p>optimization: adam</p></li>
-<li><p>dropout</p></li>
+<li><p><strong>Neurons</strong> are the basic computational units or nodes of a neural network.
+Each neuron receives input, processes it using a weighted sum and a bias term, and then applies an activation function to produce an output, which is then passed to the neurons in the next layer.</p></li>
+<li><p><strong>Activation functions</strong> are the nonlinear mathematical functions applied to neurons in a neural network. They introduce non-linearity into the model, enabling it to learn and represent complex patterns in the data. Common activation functions include ReLU (Rectified Linear Unit), sigmoid, and tanh.</p></li>
+<li><p><strong>Input Layer</strong> is the first layer of a neural network which directly receives the input data. Each neuron in the input layer represents one feature of the input.</p></li>
+<li><p><strong>Hidden Layers</strong>, between the input layer and the output layer, take input from the previous layer of neurons, apply weights, biases, and activation functions, and pass the output to the next layer.</p></li>
+<li><p><strong>Output Layer</strong> is the final layer of the neural network and it produces the network’s output. Its neurons represent the predictions or classifications made by the network. The number of neurons in the output layer corresponds to the number of output classes or the dimensionality of the output. For classification tasks, softmax or sigmoid functions are often used in the output layer to provide probability distributions of the class predictions.</p></li>
+<li><p><strong>Backpropagation</strong> is used for training neural networks by updating the weights of neurons based on the error (loss) of the network’s predictions: it involves calculating the gradient of the loss function with respect to each weight by using the chain rule of calculus, and propagating these gradients backward from the output layer to the input layer.</p></li>
+<li><p><strong>Computation Graph</strong> is a graphical representation of the sequence of operations used to compute the forward pass and the backward pass for backpropagation. PyTorch’s modules automatically constructs the computation graph and computes gradients, hence simplifying the implementation of neural networks.</p></li>
+<li><p><strong>Batching</strong> divides the training data into smaller subsets called batches, rather than
+training the model on the entire dataset at once, which can be computationally intensive and inefficient. It also gives speedup compared to training the network one sample at a time due to more eﬃcient matrix operations.</p></li>
+<li><p><strong>Initialization</strong> refers to the process of setting the initial values of the weights in a neural network before training begins. Poor initialization can lead to slow convergence or getting stuck in local minima. Common initialization methods include Xavier (Glorot) and He initialization</p></li>
+<li><p><strong>Dropout</strong> is a regularization technique during training, where a random subset of neurons is “dropped out” or set to zero at each iteration. This reduces overfitting by ensuring that the model does not rely too heavily on any particular subset of neurons. Geoffrey Hinton, et al. in their 2012 paper that first introduced dropout. They found that using a simple method of 50% dropout for all hidden units and  20% dropout for input units achieve improved results with a range of  neural networks on different problem types. It is not used on the output layer.</p></li>
+<li><p><strong>Adam</strong> (Adaptive Moment Estimation) is an optimization algorithm for training neural networks which improves on stochastic gradient descent and achieves good performance on problems with large, high-dimensional data sets. It adapts the learning rate for each parameter by computing adaptive learning rates from estimates of first and second moments of the gradients.</p></li>
 </ul>
-<p>Geoffrey Hinton, et al. in their 2012 paper that first introduced dropout. They
-found that using a simple method of 50% dropout for all hidden units and
-20% dropout for input units achieve improved results with a range of
-neural networks on different problem types</p>
-<p>It is not used on the output layer.</p>
 <section id="deep-averaging-networks">
 <h3>Deep Averaging Networks<a class="headerlink" href="#deep-averaging-networks" title="Permalink to this heading">#</a></h3>
+<p>Deep Averaging Networks (DAN) are feedforward neural networks for natural language processing tasks which work by simply averaging the pre-trained embeddings of the words in a text sample to pass to its input layer.</p>
+<p>During training, the embeddings may be frozen (i.e. kept constant) or fine-tuned (i.e. allowed to be updated).</p>
 <ul class="simple">
-<li><p>Frozen and fine-tuning word embedding vectors</p></li>
+<li><p>Freezing embeddings is useful when the embeddings are already well-trained and expected to generalize well to new tasks. It reduces the number of parameters to be trained, which can make the training process faster and prevent overfitting when the dataset is small.</p></li>
+<li><p>Fine-tuning embeddings means allowing the pre-trained word embeddings to be updated during the training of a model. Adjusting the embeddings can better fit the specific task or dataset at hand, bit requires more computational resources and a larger dataset to avoid overfitting.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -804,7 +822,7 @@ neural networks on different problem types</p>
 </div>
 </div>
 </div>
-<p><strong>Train Models</strong></p>
+<p>Split the data into stratified (i.e. equal class proportions) train and test set</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Stratified train_test split</span>
@@ -812,7 +830,10 @@ neural networks on different problem types</p>
 <span class="n">train_index</span><span class="p">,</span> <span class="n">test_index</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
     <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y_all</span><span class="p">)),</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y_all</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x_all</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_all</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">train_index</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_index</span><span class="p">),</span> <span class="n">num_classes</span><span class="p">)</span>
-<span class="n">Series</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
+<span class="c1">#Series(labels).value_counts().rename(&#39;count&#39;).to_frame()</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">labels</span><span class="p">)[</span><span class="n">train_index</span><span class="p">])</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;Train&#39;</span><span class="p">),</span>
+           <span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">labels</span><span class="p">)[</span><span class="n">test_index</span><span class="p">])</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;Test&#39;</span><span class="p">)],</span>
+           <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -838,49 +859,60 @@ neural networks on different problem types</p>
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>count</th>
+      <th>Train</th>
+      <th>Test</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>Hlth</th>
-      <td>881</td>
+      <td>705</td>
+      <td>176</td>
     </tr>
     <tr>
       <th>Other</th>
-      <td>762</td>
+      <td>609</td>
+      <td>153</td>
     </tr>
     <tr>
       <th>HiTec</th>
-      <td>706</td>
+      <td>565</td>
+      <td>141</td>
     </tr>
     <tr>
       <th>Manuf</th>
-      <td>344</td>
+      <td>275</td>
+      <td>69</td>
     </tr>
     <tr>
       <th>Shops</th>
-      <td>321</td>
+      <td>257</td>
+      <td>64</td>
     </tr>
     <tr>
       <th>Durbl</th>
-      <td>164</td>
+      <td>131</td>
+      <td>33</td>
     </tr>
     <tr>
       <th>NoDur</th>
-      <td>145</td>
+      <td>116</td>
+      <td>29</td>
     </tr>
     <tr>
       <th>Enrgy</th>
-      <td>94</td>
+      <td>75</td>
+      <td>19</td>
     </tr>
     <tr>
       <th>Utils</th>
-      <td>92</td>
+      <td>74</td>
+      <td>18</td>
     </tr>
     <tr>
       <th>Telcm</th>
-      <td>50</td>
+      <td>40</td>
+      <td>10</td>
     </tr>
   </tbody>
 </table>
@@ -888,7 +920,7 @@ neural networks on different problem types</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Model and training parameters</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Specify model and training parameters</span>
 <span class="n">layers</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">hidden_size</span> <span class="o">=</span> <span class="mi">32</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">DAN</span><span class="p">(</span><span class="n">embeddings_dim</span><span class="p">,</span>
@@ -904,7 +936,7 @@ neural networks on different problem types</p>
 Layer (type:depth-idx)                   Param #
 =================================================================
 DAN                                      --
-├─EmbeddingBag: 1-1                      (23,874,300)
+├─EmbeddingBag: 1-1                      (26,214,300)
 ├─Sequential: 1-2                        --
 │    └─Dropout: 2-1                      --
 │    └─Linear: 2-2                       9,632
@@ -913,9 +945,9 @@ DAN                                      --
 │    └─Linear: 2-5                       330
 ├─LogSoftmax: 1-3                        --
 =================================================================
-Total params: 23,884,262
+Total params: 26,224,262
 Trainable params: 9,962
-Non-trainable params: 23,874,300
+Non-trainable params: 26,214,300
 =================================================================
 </pre></div>
 </div>
@@ -931,7 +963,14 @@ Non-trainable params: 23,874,300
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/terence/env3.11/lib/python3.11/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from .autonotebook import tqdm as notebook_tqdm
+</pre></div>
 </div>
+</div>
+</div>
+<p>Helper function to batch and form an input for neural network.  Pads each sample to have lengths equal to the max, and convert to Long tensor type.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">form_input</span><span class="p">(</span><span class="n">docs</span><span class="p">):</span>
@@ -1006,17 +1045,14 @@ Non-trainable params: 23,874,300
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|          | 0/50 [00:00&lt;?, ?it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 50/50 [03:48&lt;00:00,  4.56s/it]
-100%|██████████| 50/50 [03:56&lt;00:00,  4.72s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 50/50 [03:43&lt;00:00,  4.46s/it]
 100%|██████████| 50/50 [03:56&lt;00:00,  4.73s/it]
+100%|██████████| 50/50 [03:55&lt;00:00,  4.72s/it]
 </pre></div>
 </div>
 </div>
 </div>
-<p><strong>Confusion matrix</strong></p>
+<p>Display the confusion matrix for train and test sets</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">classes</span> <span class="o">=</span> <span class="n">class_encoder</span><span class="o">.</span><span class="n">classes_</span>
@@ -1050,10 +1086,10 @@ Non-trainable params: 23,874,300
 </div>
 <div class="cell_output docutils container">
 <img alt="_images/fb323a70b99435cb99611d5cad4d4d02891c9980fee6d6bd618d16243a02c8fc.png" src="_images/fb323a70b99435cb99611d5cad4d4d02891c9980fee6d6bd618d16243a02c8fc.png" />
-<img alt="_images/09a6960e1397f8a0e7b3ebe7b84efd625cc5478928e62cde61ba1176015e715d.png" src="_images/09a6960e1397f8a0e7b3ebe7b84efd625cc5478928e62cde61ba1176015e715d.png" />
+<img alt="_images/b91567d76f7c7b31f9941b48139690675fb5a65334c31baa71045122d934e666.png" src="_images/b91567d76f7c7b31f9941b48139690675fb5a65334c31baa71045122d934e666.png" />
 </div>
 </div>
-<p><strong>Accuracy</strong></p>
+<p>Plot accuracy, on train and test sets, by epoch. Training begins with frozen embeddings, then embeddings are unfrozen to allow fine-tuning, and finally dropout is implemented.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_accuracy</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">Series</span><span class="p">([</span><span class="n">epoch</span><span class="p">[</span><span class="s1">&#39;train&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="n">acc</span><span class="o">.</span><span class="n">values</span><span class="p">()])</span>
@@ -1077,9 +1113,10 @@ Non-trainable params: 23,874,300
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/93e52df6f67b1716cc95ab58d965f2d0b5088f97114564cc4fa53b531e769e8b.png" src="_images/93e52df6f67b1716cc95ab58d965f2d0b5088f97114564cc4fa53b531e769e8b.png" />
+<img alt="_images/9b51b7ba01f93b77efad2960cade31b792c16d9ad31ca181aa5bdcbe54ed14f2.png" src="_images/9b51b7ba01f93b77efad2960cade31b792c16d9ad31ca181aa5bdcbe54ed14f2.png" />
 </div>
 </div>
+<p>When embeddings are frozen, the model overfits the training data, achieving 100% training accuracy.  When dropout regularization is enabled, the test set accuracy slightly improves.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Accuracy when frozen embeddings, unfrozen and with dropouts</span>
@@ -1122,15 +1159,15 @@ Non-trainable params: 23,874,300
   <tbody>
     <tr>
       <th>train</th>
-      <td>0.842641</td>
+      <td>0.832455</td>
       <td>1.000000</td>
       <td>1.000000</td>
     </tr>
     <tr>
       <th>test</th>
-      <td>0.786517</td>
-      <td>0.807584</td>
-      <td>0.820225</td>
+      <td>0.780899</td>
+      <td>0.810393</td>
+      <td>0.821629</td>
     </tr>
   </tbody>
 </table>
@@ -1204,11 +1241,11 @@ Non-trainable params: 23,874,300
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text-classification">Text classification</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tagging-and-lemmatizing">Tagging and Lemmatizing</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#textblob">Textblob</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#word-embeddings">Word Embeddings</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#word2vec">Word2Vec</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#skip-gram">Skip-gram</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cbow">CBOW</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#glove">GloVe</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#word-vector-arithmetic">Word Vector Arithmetic</a></li>
 </ul>

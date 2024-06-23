@@ -207,7 +207,7 @@
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">LLM Prompting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="summarization_llm.html">LLM Text Summarization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="finetune_llm.html">LLM Finetuning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rag_agent.html">LLM RAG, Chatbots and Agents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rag_agent.html">RAG, Chatbots and Agents</a></li>
 </ul>
 
     </div>
@@ -403,13 +403,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#llama-3-llm">Llama-3 LLM</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ollama-server">Ollama server</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kaggle-platform">Kaggle platform</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-financial-news-sentiment-dataset">A financial news sentiment dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#large-language-models">Large language models</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#llama-3-llm">Llama-3 LLM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ollama-server">Ollama server</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nlp-tasks">NLP tasks</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prompting-techniques">Prompting techniques</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prompt-design">Prompt design</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-shot-prompt">Zero-shot prompt</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#few-shot-prompt">Few-shot prompt</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chain-of-thought">Chain of thought</a></li>
@@ -430,11 +430,14 @@ document.write(`
 <h1>LLM Prompting<a class="headerlink" href="#llm-prompting" title="Permalink to this heading">#</a></h1>
 <p>Concepts:</p>
 <ul class="simple">
-<li><p>Financial News Sentiment</p></li>
-<li><p>Llama-3</p></li>
-<li><p>Ollama</p></li>
-<li><p>Kaggle</p></li>
-<li><p>Prompting</p></li>
+<li><p>Financial news sentiment</p></li>
+<li><p>Large Language Models</p></li>
+<li><p>Prompt design</p></li>
+</ul>
+<p>References:</p>
+<ul class="simple">
+<li><p>Jacob Devlin, Ming-Wei Chang, Kenton Lee, Kristina Toutanova, 2018, BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding</p></li>
+<li><p>Greg Durrett, 2023, “CS388 Natural Language Processing course materisl”, retrieved from <a class="reference external" href="https://www.cs.utexas.edu/~gdurrett/courses/online-course/materials.html">https://www.cs.utexas.edu/~gdurrett/courses/online-course/materials.html</a></p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -446,15 +449,79 @@ document.write(`
 </div>
 </div>
 </div>
+<section id="large-language-models">
+<h2>Large language models<a class="headerlink" href="#large-language-models" title="Permalink to this heading">#</a></h2>
+<p>Large language models (LLMs) are built using deep learning techniques and are pre-trained on vast amounts of text data. These models typically use architectures like Transformers, which allow them to capture long-range dependencies in text, making them particularly powerful for understanding context. For example, the latest (2024) OpenAI GPT-4 model’s can process input with a <strong>context length</strong> of 128K <strong>tokens</strong> (tokens are how various LLM’s represent the fundamental units of text, which can be as small as single characters or as large as whole words).  Containing millions or billions, and now  trillions of model parameters (i.e. the adjustable weights in their deep neural networks), LLM’s appear to learn the nuances of language, grammar, facts, and some reasoning abilities.</p>
+<ul class="simple">
+<li><p><strong>Pre-training</strong> is the initial phase where a large language model (LLM) is trained on a massive dataset to learn the general structure and patterns of language. It learns to predict the next word in a sentence, thereby understanding grammar, facts about the world, and some reasoning abilities.
+This process builds a foundational base that can be fine-tuned for specific tasks later.</p></li>
+<li><p><strong>Instruction-tuning</strong> further trains the model on specific types of instructions or tasks to perform. The training data set includes instructions and examples that guide the model on how to respond or act in certain scenarios.</p></li>
+<li><p><strong>Reinforcement Learning</strong> with Human Feedback (RLHF) is a technique where the LLM is improved based on feedback from human reviewers. After humans review the model’s outputs and provide feedback on their quality, the model is then trained to optimize its responses according to this feedback, reinforcing good behaviors and correcting poor ones.</p></li>
+</ul>
+<p><strong>Closed-source LLMs</strong> proprietary models developed, maintained, and controlled by large tech companies or organizations, such as GPT-4 (OpenAI), Gemini (Google) and Claude (Anthropic). On the other hand, <strong>open-source LLMs</strong> are characterized by their publicly accessible source code, which invites users to share knowledge and innovations.</p>
+<ul class="simple">
+<li><p>BERT (Bidirectional Encoder Representations from Transformers), released by Google in October 2018 not long after the seminal “Attention is All You Need” paper, was one of the original transformers-based LLM architectures, which achieved state-of-the-art results on a range of NLP tasks.</p></li>
+<li><p>Llama-2 and Llama-3</p></li>
+<li><p>Alpaca, based Meta’s LLaMA-2 7B model, has been fine-tuned using a unique dataset comprising instruction-following data to enhance its ability to understand and respond to specific prompts and tasks. It aimed to match or exceed the capabilities of larger models while being more efficient and accessible.</p></li>
+<li><p>GPT (Generative Pre-trained Transformer) models, developed by OpenAI, include GPT-2 (released in February 2019), GPT-3 (June 2020), GPT-4 (March 2023) and GPT-4o (May 2024).</p></li>
+</ul>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>LLM</p></th>
+<th class="head"><p>Number of Parameters</p></th>
+<th class="head"><p>Context Length</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BERT-Base</p></td>
+<td><p>110 million</p></td>
+<td><p>512</p></td>
+</tr>
+<tr class="row-odd"><td><p>BERT-Large</p></td>
+<td><p>340 million</p></td>
+<td><p>512</p></td>
+</tr>
+<tr class="row-even"><td><p>Llama-2-7B</p></td>
+<td><p>7 billion</p></td>
+<td><p>4K</p></td>
+</tr>
+<tr class="row-odd"><td><p>Alpaca</p></td>
+<td><p>7 billion</p></td>
+<td><p>4K</p></td>
+</tr>
+<tr class="row-even"><td><p>Llama-3-8B</p></td>
+<td><p>8 billion</p></td>
+<td><p>8K</p></td>
+</tr>
+<tr class="row-odd"><td><p>Llama-3-70B</p></td>
+<td><p>70 billion</p></td>
+<td><p>8K</p></td>
+</tr>
+<tr class="row-even"><td><p>GPT-2</p></td>
+<td><p>1.5 billion</p></td>
+<td><p>1K</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPT-3.5</p></td>
+<td><p>175 billion</p></td>
+<td><p>4K</p></td>
+</tr>
+<tr class="row-even"><td><p>GPT-4</p></td>
+<td><p>~1 trillion</p></td>
+<td><p>128K</p></td>
+</tr>
+</tbody>
+</table>
 <section id="llama-3-llm">
-<h2>Llama-3 LLM<a class="headerlink" href="#llama-3-llm" title="Permalink to this heading">#</a></h2>
-<p><a class="reference external" href="https://ai.meta.com/blog/meta-llama-3/">https://ai.meta.com/blog/meta-llama-3/</a>
-<a class="reference external" href="https://ollama.com/library/llama3">https://ollama.com/library/llama3</a></p>
+<h3>Llama-3 LLM<a class="headerlink" href="#llama-3-llm" title="Permalink to this heading">#</a></h3>
+<p>Llama-3 can be downloaded for free from Meta’s website, as well as other platforms such as HuggingFace, in two different parameter sizes: 8 billion (8B) and 70 billion (70B). It is offered in two variants: pre-trained, which is a basic model for next token prediction, and instruction-tuned, which is fine-tuned to adhere to user commands. Both versions have a context limit of 8,192 tokens.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ai.meta.com/blog/meta-llama-3/">https://ai.meta.com/blog/meta-llama-3/</a></p></li>
+<li><p><a class="reference external" href="https://ollama.com/library/llama3">https://ollama.com/library/llama3</a></p></li>
+</ul>
 </section>
 <section id="ollama-server">
-<h2>Ollama server<a class="headerlink" href="#ollama-server" title="Permalink to this heading">#</a></h2>
-<p>Ollama is a tool that helps us run large language models on our local machine and makes experimentation more accessible.  It provides a simple API for creating, running, and managing models, as well as a library of pre-built models.</p>
-<p><a class="reference external" href="https://medium.com/&#64;gabrielrodewald/running-models-with-ollama-step-by-step-60b6f6125807">https://medium.com/&#64;gabrielrodewald/running-models-with-ollama-step-by-step-60b6f6125807</a></p>
+<h3>Ollama server<a class="headerlink" href="#ollama-server" title="Permalink to this heading">#</a></h3>
+<p>The Ollama package helps us run large language models on our local machines, and makes experimentation more accessible.  It provides a simple API for creating, running, and managing models, as well as a library of pre-built models.</p>
 <p><a class="github reference external" href="https://github.com/ollama/ollama">ollama/ollama</a></p>
 <ol class="arabic">
 <li><p>Install Ollama (<a class="reference external" href="https://ollama.com/">https://ollama.com/</a>)</p>
@@ -484,7 +551,7 @@ document.write(`
 <span class="c1"># sudo rm $(which ollama) # remove ollama binary</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="5">
+<ol class="arabic simple">
 <li><p>Endpoint</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">http://localhost:11434/api/generate</span> <span class="pre">-d</span> <span class="pre">'{&quot;model&quot;:</span> <span class="pre">&quot;llama3:instruct&quot;,</span> <span class="pre">&quot;prompt&quot;:&quot;Why</span> <span class="pre">is</span> <span class="pre">the</span> <span class="pre">sky</span> <span class="pre">blue?&quot;}'</span></code></p></li>
@@ -509,13 +576,31 @@ I am LLaMA, the third generation of the LLaMA AI models. I&#39;m a large languag
 </div>
 </div>
 </section>
-<section id="kaggle-platform">
-<h2>Kaggle platform<a class="headerlink" href="#kaggle-platform" title="Permalink to this heading">#</a></h2>
-<p>A subsidiary of Google, it is an online community for data scientists and machine learning engineers. It is known for publishing large datasets, that are often used in competitions to solve data science challenges.</p>
-<section id="a-financial-news-sentiment-dataset">
-<h3>A financial news sentiment dataset<a class="headerlink" href="#a-financial-news-sentiment-dataset" title="Permalink to this heading">#</a></h3>
+<section id="nlp-tasks">
+<h3>NLP tasks<a class="headerlink" href="#nlp-tasks" title="Permalink to this heading">#</a></h3>
+<p>These tasks play a crucial role in the field of natural language processing, challenging and contributing to applications that enhance how machines understand and interact with human language.  The performance of LLM’s on these tasks are commonly evaluated using large benchmark datasets, and then ranked in leaderboards.  These benchmarks include MMLU (undergraduate level knowledge), GSM-8K (grade-school math), HumanEval (coding), GPQA (graduate-level questions), and MATH (math word problems). However, the models were trained with large dataset comprising web text and scientific repositories, the intepretation of these results should be tempered by the inadvertent risk that the training data included some benchmark examples found their way in the training set.</p>
+<ul class="simple">
+<li><p>Natural Language Inference (NLI), also known as textual entailment, is the task of determining the relationship between two sentences, i.e. predict whether one sentence (the hypothesis) logically follows from another sentence (the premise).</p></li>
+<li><p>Named Entity Recognition (NER) involves identifying and classifying named entities within a text into predefined categories such as person names, organizations, locations, dates, etc.</p></li>
+<li><p>Text Generation is the process of generating coherent and contextually relevant text given a certain input or prompt.</p></li>
+<li><p>Machine translation is the task of automatically translating text from one language to another.</p></li>
+<li><p>Text Summarization involves creating a concise summary of a longer text while preserving its key information and meaning.</p></li>
+<li><p>Reading comprehension requires models to read a passage of text and answer questions about it, demonstrating understanding of the text. Some challenges when developing and evaluating reading comprehension models include:</p>
+<ul>
+<li><p>Artifacts, which refer to incorrect or misleading information generated by models that do not reflect the true content of the text but rather exploit patterns in the training data</p></li>
+<li><p>Adversarial attacks, which are instances where models fail due to intentional manipulation or perturbation of the input, aiming to mislead or deceive the model.</p></li>
+<li><p>Multihop reasoning, which refers to the ability of a model to connect multiple pieces of information or “hops” across the text to arrive at an answer.</p></li>
+</ul>
+</li>
+<li><p>Question-Answering (QA) systems that automatically answer questions posed by humans in natural language, either based on a given context or dataset (known as closed-QA) or diverse topics from any domen (open-QA).</p></li>
+<li><p>Sentiment analysis is the task of determining the sentiment or emotional tone expressed in a piece of text, such as positive, negative, or neutral.</p></li>
+</ul>
+<p>Kaggle is an online community for data scientists and machine learning engineers. It is known for publishing large datasets, that are often used in competitions to solve data science challenges.
+This dataset contains the sentiment labels for financial news headlines from the perspective of retail investors.</p>
 <p><a class="reference external" href="https://www.kaggle.com/datasets/ankurzing/sentiment-analysis-for-financial-news">https://www.kaggle.com/datasets/ankurzing/sentiment-analysis-for-financial-news</a></p>
-<p>This dataset contains the sentiments for financial news headlines from the perspective of a retail investor. Further details about the dataset can be found in: Malo, P., Sinha, A., Takala, P., Korhonen, P. and Wallenius, J. (2014): “Good debt or bad debt: Detecting semantic orientations in economic texts.” Journal of the American Society for Information Science and Technology.</p>
+<ul class="simple">
+<li><p>Malo, P., Sinha, A., Takala, P., Korhonen, P. and Wallenius, J. (2014): “Good debt or bad debt: Detecting semantic orientations in economic texts.” Journal of the American Society for Information Science and Technology.</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">news</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">paths</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="s1">&#39;all-data.csv&#39;</span><span class="p">,</span>
@@ -659,8 +744,8 @@ One of the challenges in the oil production in the North Sea is scale formation 
 </div>
 </section>
 </section>
-<section id="prompting-techniques">
-<h2>Prompting techniques<a class="headerlink" href="#prompting-techniques" title="Permalink to this heading">#</a></h2>
+<section id="prompt-design">
+<h2>Prompt design<a class="headerlink" href="#prompt-design" title="Permalink to this heading">#</a></h2>
 <p><a class="reference external" href="https://llama.meta.com/docs/how-to-guides/prompting/">https://llama.meta.com/docs/how-to-guides/prompting/</a></p>
 <section id="zero-shot-prompt">
 <h3>Zero-shot prompt<a class="headerlink" href="#zero-shot-prompt" title="Permalink to this heading">#</a></h3>
@@ -718,7 +803,7 @@ The text states that the stock&#39;s price fell by 0.2% compared to the FTSE 100
 </div>
 </div>
 </div>
-<p>Write prompt instructions clearly, and specify output requirements, such as json format</p>
+<p>Prompt instructions should be written clearly, and output requirements specified, such as json format</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generate_prompt</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
@@ -760,7 +845,7 @@ The text states that the stock&#39;s price fell by 0.2% compared to the FTSE 100
 </section>
 <section id="few-shot-prompt">
 <h3>Few-shot prompt<a class="headerlink" href="#few-shot-prompt" title="Permalink to this heading">#</a></h3>
-<p>Adding specific examples of your desired output generally results in a more accurate, consistent output.</p>
+<p>Adding specific examples of your desired output generally results in a more accurate, consistent output. This is called few-shot or <strong>in-context learning</strong> through prompt design: instead of fine-tuning (and altering the pretrained neural network weights of) the model with new training examples, the model figures out how to perform well on that task simply by taking a few task-specific examples as input.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">3</span>
@@ -817,7 +902,7 @@ Sell, true label=negative
 </div>
 </div>
 </div>
-<p>Display few-shot prompt</p>
+<p>Display text the few-shot prompt</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
@@ -866,8 +951,8 @@ Recommendation:
 </section>
 <section id="chain-of-thought">
 <h3>Chain of thought<a class="headerlink" href="#chain-of-thought" title="Permalink to this heading">#</a></h3>
-<p>Provide a series of prompts or
-questions to help guide its thinking and generate a more coherent
+<p>Providing a series of prompts or
+questions helps guide its thinking, and can generate a more coherent
 and relevant response.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1034,13 +1119,13 @@ Here&#39;s my analysis:
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#llama-3-llm">Llama-3 LLM</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ollama-server">Ollama server</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kaggle-platform">Kaggle platform</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-financial-news-sentiment-dataset">A financial news sentiment dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#large-language-models">Large language models</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#llama-3-llm">Llama-3 LLM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ollama-server">Ollama server</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nlp-tasks">NLP tasks</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prompting-techniques">Prompting techniques</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prompt-design">Prompt design</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-shot-prompt">Zero-shot prompt</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#few-shot-prompt">Few-shot prompt</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chain-of-thought">Chain of thought</a></li>

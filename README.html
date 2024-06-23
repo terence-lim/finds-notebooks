@@ -208,7 +208,7 @@
 <li class="toctree-l1"><a class="reference internal" href="sentiment_llm.html">LLM Prompting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="summarization_llm.html">LLM Text Summarization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="finetune_llm.html">LLM Finetuning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rag_agent.html">LLM RAG, Chatbots and Agents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rag_agent.html">RAG, Chatbots and Agents</a></li>
 </ul>
 
     </div>
@@ -420,7 +420,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="financial-data-science">
 <h1>FINANCIAL DATA SCIENCE<a class="headerlink" href="#financial-data-science" title="Permalink to this heading">#</a></h1>
-<p><em>Financial Data Science</em>, with <strong>FinDS</strong> <a class="reference external" href="https://github.com/terence-lim/financial-data-science">Python package</a>, in <a class="reference external" href="https://terence-lim.github.io/finds-notebooks/">Jupyter notebooks</a>:</p>
+<p><em>Financial Data Science</em> projects in <a class="reference external" href="https://terence-lim.github.io/finds-notebooks/">Jupyter notebooks</a>, with <strong>FinDS</strong> <a class="reference external" href="https://github.com/terence-lim/financial-data-science">Python package</a>:</p>
 <ul class="simple">
 <li><p>use database engines SQL, Redis, MongoDB</p></li>
 <li><p>interfaces for</p>
@@ -428,7 +428,7 @@ document.write(`
 <li><p>structured data from CRSP, Compustat, IBES, TAQ</p></li>
 <li><p>APIs from ALFRED, BEA</p></li>
 <li><p>unstructured data from SEC Edgar, Federal Reserve websites</p></li>
-<li><p>academic websites by Ken French, Loughran and MacDonald, Hoberg and Phillips</p></li>
+<li><p>academic websites by Fama and French, Loughran and MacDonald, Hoberg and Phillips</p></li>
 </ul>
 </li>
 <li><p>recipes for econometrics, finance, graphs, event studies, backtesting</p></li>
@@ -458,7 +458,7 @@ document.write(`
 <tr class="row-even"><td class="text-left"><p>fama_french</p></td>
 <td class="text-left"><p>Portfolio sorts;  <br> Value effect</p></td>
 <td class="text-left"><p>CRSP stocks;  <br> Compustat</p></td>
-<td class="text-left"><p>Linear regression;</p></td>
+<td class="text-left"><p>Linear regression</p></td>
 </tr>
 <tr class="row-odd"><td class="text-left"><p>fama_macbeth</p></td>
 <td class="text-left"><p>Cross-sectional Regressions; <br> CAPM</p></td>
@@ -517,7 +517,7 @@ document.write(`
 </tr>
 <tr class="row-even"><td class="text-left"><p>option_pricing</p></td>
 <td class="text-left"><p>Binomial tree; <br> Black-Scholes-Merton and the Greeks</p></td>
-<td class="text-left"><p>Simulations</p></td>
+<td class="text-left"><p>simulated data</p></td>
 <td class="text-left"><p>Monte Carlo simulation</p></td>
 </tr>
 <tr class="row-odd"><td class="text-left"><p>conditional_volatility</p></td>
@@ -568,15 +568,15 @@ document.write(`
 <tr class="row-even"><td class="text-left"><p>fomc_topics</p></td>
 <td class="text-left"><p>FOMC meetings</p></td>
 <td class="text-left"><p>Federal Reserve website</p></td>
-<td class="text-left"><p>Topic models</p></td>
+<td class="text-left"><p>Topic modeling</p></td>
 </tr>
 <tr class="row-odd"><td class="text-left"><p>mda_sentiment</p></td>
-<td class="text-left"><p>10-K filings</p></td>
+<td class="text-left"><p>10-K Management Discussion</p></td>
 <td class="text-left"><p>SEC Edgar; <br> Loughran and Macdonald <br> research library</p></td>
 <td class="text-left"><p>Sentiment analysis</p></td>
 </tr>
 <tr class="row-even"><td class="text-left"><p>business_description</p></td>
-<td class="text-left"><p>10-K filings</p></td>
+<td class="text-left"><p>10-K Business Description</p></td>
 <td class="text-left"><p>SEC Edgar</p></td>
 <td class="text-left"><p>POS tagging; <br> Density-based clustering</p></td>
 </tr>
@@ -596,17 +596,17 @@ document.write(`
 <td class="text-left"><p>Neural networks; <br> Word embeddings</p></td>
 </tr>
 <tr class="row-even"><td class="text-left"><p>recurrent_net</p></td>
-<td class="text-left"><p>Macroeconomic models</p></td>
+<td class="text-left"><p>Macroeconomic forecasts</p></td>
 <td class="text-left"><p>FRED-MD</p></td>
-<td class="text-left"><p>RNN; <br> Dynamic factor models</p></td>
+<td class="text-left"><p>Recurrent Neural Nets; <br> Dynamic factor models</p></td>
 </tr>
 <tr class="row-odd"><td class="text-left"><p>convolutional_net</p></td>
 <td class="text-left"><p>Macroeconomic forecasts</p></td>
 <td class="text-left"><p>FRED-MD</p></td>
-<td class="text-left"><p>CNN; <br> Vector autoregression</p></td>
+<td class="text-left"><p>Convolutional Neural Nets; <br> Vector autoregression</p></td>
 </tr>
 <tr class="row-even"><td class="text-left"><p>reinforcement_learning</p></td>
-<td class="text-left"><p>Spending policy</p></td>
+<td class="text-left"><p>Retirement spending</p></td>
 <td class="text-left"><p>SBBI</p></td>
 <td class="text-left"><p>Reinforcement learning</p></td>
 </tr>
@@ -618,12 +618,12 @@ document.write(`
 <tr class="row-even"><td class="text-left"><p>sentiment_llm</p></td>
 <td class="text-left"><p>Financial news sentiment</p></td>
 <td class="text-left"><p>Kaggle</p></td>
-<td class="text-left"><p>LLM prompt engineering</p></td>
+<td class="text-left"><p>LLM prompting</p></td>
 </tr>
 <tr class="row-odd"><td class="text-left"><p>summarization_llm</p></td>
-<td class="text-left"><p>10-K filings</p></td>
+<td class="text-left"><p>10-K Market Risks</p></td>
 <td class="text-left"><p>SEC Edgar</p></td>
-<td class="text-left"><p>LLM text summarization</p></td>
+<td class="text-left"><p>Text summarization</p></td>
 </tr>
 <tr class="row-even"><td class="text-left"><p>finetune_llm</p></td>
 <td class="text-left"><p>Industry classification</p></td>
@@ -632,8 +632,8 @@ document.write(`
 </tr>
 <tr class="row-odd"><td class="text-left"><p>rag_agent</p></td>
 <td class="text-left"><p>Corporate philanthropy</p></td>
-<td class="text-left"><p>textbooks</p></td>
-<td class="text-left"><p>LLM RAG, <br>chatbots, agents</p></td>
+<td class="text-left"><p>text documents</p></td>
+<td class="text-left"><p>RAG, LLM chatbots and agents</p></td>
 </tr>
 </tbody>
 </table>

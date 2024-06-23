@@ -56,6 +56,8 @@
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'fomc_language';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -207,7 +209,7 @@
 <li class="toctree-l1"><a class="reference internal" href="sentiment_llm.html">LLM Prompting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="summarization_llm.html">LLM Text Summarization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="finetune_llm.html">LLM Finetuning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rag_agent.html">LLM RAG, Chatbots and Agents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rag_agent.html">RAG, Chatbots and Agents</a></li>
 </ul>
 
     </div>
@@ -404,12 +406,14 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformers">Transformers</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#positional-encoding">Positional Encoding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#position-encoding">Position Encoding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attention">Attention</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#causal-mask">Causal mask</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#language-modeling">Language modeling</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perplexity">Perplexity</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nuclear-sampling">Nuclear sampling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decoding">Decoding</a></li>
 </ul>
 </li>
 </ul>
@@ -480,6 +484,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Retrieve FOMC meeting minutes text, and count number of unique words</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Retrieve and preprocess FOMC minutes text</span>
@@ -499,6 +504,9 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Implement subclass of torch Dataset with FOMC minutes data.
+Each document is split into chunks of length <code class="docutils literal notranslate"><span class="pre">seq_len</span></code>.
+An index over all chunks is converted to an index to the document and location of a chunk within the document.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pytorch Dataset and DataLoader</span>
@@ -541,6 +549,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Last document will be test set (to evaluate perplexity of the model)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># split last document to be test set</span>
@@ -587,9 +596,72 @@ document.write(`
 </div>
 <section id="transformers">
 <h2>Transformers<a class="headerlink" href="#transformers" title="Permalink to this heading">#</a></h2>
+<p>Transformers are a type of neural network architecture that has become the foundation for many modern large language models (LLMs).  They are designed to handle sequential data, and are effective for natural language processing (NLP) tasks such as language modeling, translation, and text generation.</p>
+<section id="position-encoding">
+<h3>Position Encoding<a class="headerlink" href="#position-encoding" title="Permalink to this heading">#</a></h3>
+<p>The input text is tokenized and converted into word embeddings.
+Positional encodings, which introduce information about the position of each word in the sequence are added to the word embeddings.
+A common approach uses sinusoidal functions to create positional encodings, which enable the model can learn the positions of tokens in a way that generalizes to sequences of different lengths. Alternatively, an embeddings layer can also be used to learn position encodings from the training data.</p>
+</section>
+<section id="attention">
+<h3>Attention<a class="headerlink" href="#attention" title="Permalink to this heading">#</a></h3>
+<p>Self-attention is the mechanism by which the model focuses on (i.e. weighs the importance of)  different parts of the input sequence when producing each element of the output sequence. Each word in a sequence is compared to every other word, and a weighted sum of these words is computed. Long-range dependencies and relationships between words in a sentence can be captured, regardless of their distance from each other.</p>
+<ul class="simple">
+<li><p>Each word is represented by three vectors: <em>query</em>, <em>key</em>, and <em>value</em>. The attention score is calculated using the dot product of the query vector of one word with the key vectors of all other words. These scores are used to compute a weighted sum of the value vectors.</p></li>
+<li><p>Feedforward Neural Networks apply a linear transformation followed by a non-linear activation to the attention output. These add capacity to model non-linear relationships.</p></li>
+</ul>
+<p>Multiple layers of self-attention and feedforward networks transform these embeddings into contextualized representations of each token.</p>
+</section>
+<section id="causal-mask">
+<h3>Causal mask<a class="headerlink" href="#causal-mask" title="Permalink to this heading">#</a></h3>
+<p>For decoding in autoregressive applications, a causal mask
+ensures each token only attends to previous tokens.
+The mask is just a triangular matrix applied to the attention scores to zero out  the positions that correspond to future tokens. By ensuring that each token only attends to itself and previous tokens, not future ones, it prevents the model from “cheating” by looking at future tokens when generating or predicting a sequence.  This is crucial for tasks like language generation, where each word should only be influenced by the words that came before it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">PositionalEncoding</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Positional encoder, learned with an embeddings layer&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">d_model</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">max_len</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">dropout</span><span class="p">:</span> <span class="nb">float</span><span class="o">=</span> <span class="mf">0.0</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">dropout</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">emb</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span><span class="n">num_embeddings</span><span class="o">=</span><span class="n">max_len</span><span class="p">,</span> <span class="n">embedding_dim</span><span class="o">=</span><span class="n">d_model</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Args:</span>
+<span class="sd">            x: Tensor, shape [seq_len, batch_size, embedding_dim]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">to_embed</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">1</span><span class="p">))))</span>\
+                        <span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">embedded</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">emb</span><span class="p">(</span><span class="n">to_embed</span><span class="p">)</span>
+        <span class="n">embedded</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span><span class="n">embedded</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">embedded</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    
+    <span class="sd">&quot;&quot;&quot; Instead of sine functions, positional encodings are learned with embeddings layer</span>
+<span class="sd">    def __init__(self, d_model: int, max_len: int, dropout: float = 0.1):</span>
+<span class="sd">        super().__init__()</span>
+<span class="sd">        self.dropout = nn.Dropout(p=dropout)</span>
+<span class="sd">        position = torch.arange(0, max_len, dtype=torch.float).unsqueeze(1)</span>
+<span class="sd">        div_term = torch.exp(torch.arange(0, d_model, 2)</span>
+<span class="sd">                             * (-math.log(10000.0) / d_model))</span>
+<span class="sd">        pe = torch.zeros(max_len, d_model)</span>
+<span class="sd">        pe[:, 0::2] = torch.sin(position * div_term)</span>
+<span class="sd">        pe[:, 1::2] = torch.cos(position * div_term)</span>
+<span class="sd">        pe = pe[:, None, :] </span>
+<span class="sd">        self.register_buffer(&#39;pe&#39;, pe)</span>
+
+<span class="sd">    def forward(self, x):</span>
+<span class="sd">        x = x + self.pe[:x.size(1), 0, :]</span>
+<span class="sd">        return self.dropout(x)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Transformer</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Transformer neural network&quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">seq_len</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">d_model</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">nhead</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
                  <span class="n">num_layers</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">dim_feedforward</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">dropout</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
@@ -649,54 +721,21 @@ document.write(`
 </div>
 </div>
 </div>
-<section id="positional-encoding">
-<h3>Positional Encoding<a class="headerlink" href="#positional-encoding" title="Permalink to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">PositionalEncoding</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">d_model</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">max_len</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">dropout</span><span class="p">:</span> <span class="nb">float</span><span class="o">=</span> <span class="mf">0.0</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">dropout</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">emb</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span><span class="n">num_embeddings</span><span class="o">=</span><span class="n">max_len</span><span class="p">,</span> <span class="n">embedding_dim</span><span class="o">=</span><span class="n">d_model</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Args:</span>
-<span class="sd">            x: Tensor, shape [seq_len, batch_size, embedding_dim]</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">to_embed</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">1</span><span class="p">))))</span>\
-                        <span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
-        <span class="n">embedded</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">emb</span><span class="p">(</span><span class="n">to_embed</span><span class="p">)</span>
-        <span class="n">embedded</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span><span class="n">embedded</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">embedded</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-    
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    def __init__(self, d_model: int, max_len: int, dropout: float = 0.1):</span>
-<span class="sd">        super().__init__()</span>
-<span class="sd">        self.dropout = nn.Dropout(p=dropout)</span>
-<span class="sd">        position = torch.arange(0, max_len, dtype=torch.float).unsqueeze(1)</span>
-<span class="sd">        div_term = torch.exp(torch.arange(0, d_model, 2)</span>
-<span class="sd">                             * (-math.log(10000.0) / d_model))</span>
-<span class="sd">        pe = torch.zeros(max_len, d_model)</span>
-<span class="sd">        pe[:, 0::2] = torch.sin(position * div_term)</span>
-<span class="sd">        pe[:, 1::2] = torch.cos(position * div_term)</span>
-<span class="sd">        pe = pe[:, None, :] </span>
-<span class="sd">        self.register_buffer(&#39;pe&#39;, pe)</span>
-
-<span class="sd">    def forward(self, x):</span>
-<span class="sd">        x = x + self.pe[:x.size(1), 0, :]</span>
-<span class="sd">        return self.dropout(x)</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 </section>
 <section id="language-modeling">
 <h2>Language modeling<a class="headerlink" href="#language-modeling" title="Permalink to this heading">#</a></h2>
+<p>Language modeling is the task of predicting the probability of a sequence of words based on the probability distribution learned from a training corpus of text. By learning the inherent structure of a language, including grammar, semantics, and context, this enables downstream NLP tasks such as machine translation, speech recognition, and text generation.</p>
 <section id="perplexity">
 <h3>Perplexity<a class="headerlink" href="#perplexity" title="Permalink to this heading">#</a></h3>
+<p>Perplexity is used to evaluate the performance of a language model, by quantifying how well the it predicts test set. It is calculated as the exponentiation of the average negative log likelihood of the test set:</p>
+<div class="math notranslate nohighlight">
+\[\text{Perplexity} = \exp\left( -\frac{1}{N} \sum_{i=1}^{N} \log P(w_i | w_{i-1}, \ldots, w_{i-n+1}) \right)\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(N\)</span> is the total number of words in the test set.</p></li>
+<li><p><span class="math notranslate nohighlight">\(P(w_i | w_{i-1}, \ldots, w_{i-n+1})\)</span> is the probability assigned by the language model to the word <span class="math notranslate nohighlight">\(w_i\)</span> given its context <span class="math notranslate nohighlight">\(w_{i-1}, \ldots, w_{i-n+1}\)</span>.</p></li>
+</ul>
+<p>Perplexity, intuitively, measures how surprised the model is by the text. Lower perplexity score on a test set indicates better generalization to unseen data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_next_log_probs</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">unk</span><span class="o">=</span><span class="n">UNK</span><span class="p">):</span>
@@ -722,7 +761,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_log_prob_sequence</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">next_words</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">context</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]):</span>
-    <span class="sd">&quot;&quot;&quot;Scores a bunch of characters following context&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Scores a a list of words following the given words context&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">context</span><span class="p">:</span>
         <span class="n">context</span> <span class="o">=</span> <span class="p">[</span><span class="n">UNK</span><span class="p">]</span>
     <span class="n">context</span> <span class="o">=</span> <span class="n">context</span> <span class="o">+</span> <span class="n">next_words</span>
@@ -746,6 +785,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Model and training parameters</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the model</span>
@@ -804,9 +844,10 @@ Non-trainable params: 0
 </div>
 </div>
 </div>
+<p>Train the model</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Train the model</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Specify training parameters</span>
 <span class="n">criterion</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">NLLLoss</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
 <span class="n">optimizer</span> <span class="o">=</span> <span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">lr</span><span class="p">)</span>
 <span class="n">scheduler</span> <span class="o">=</span> <span class="n">StepLR</span><span class="p">(</span><span class="n">optimizer</span><span class="p">,</span> <span class="n">step_size</span><span class="o">=</span><span class="n">step_size</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
@@ -853,7 +894,8 @@ Non-trainable params: 0
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">outdir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;transformer</span><span class="si">{</span><span class="n">nhead</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">dim_feedforward</span><span class="si">}</span><span class="s2">.pt&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># save model checkpoint</span>
+<span class="n">model</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">outdir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;transformer</span><span class="si">{</span><span class="n">nhead</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">dim_feedforward</span><span class="si">}</span><span class="s2">.pt&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -886,6 +928,7 @@ Non-trainable params: 0
 </div>
 </div>
 </div>
+<p>Evaluate model</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot perplexity</span>
@@ -908,12 +951,18 @@ Non-trainable params: 0
 </div>
 </div>
 </section>
-<section id="nuclear-sampling">
-<h3>Nuclear sampling<a class="headerlink" href="#nuclear-sampling" title="Permalink to this heading">#</a></h3>
+<section id="decoding">
+<h3>Decoding<a class="headerlink" href="#decoding" title="Permalink to this heading">#</a></h3>
+<p>Decoding refers to the process of generating a sequence of words from a language model based on learned probabilities.</p>
+<ul class="simple">
+<li><p><strong>Greedy</strong> approach: At each step of generation, the word with the highest probability according to the model is selected as the next word. While simple and computationally efficient, this results in repetitive or less diverse outputs.</p></li>
+<li><p><strong>Beam search</strong> maintains a fixed number (beam width) of partial candidate sequences of <a class="reference external" href="http://words.At">words.At</a> each step, it expands all possible next words for each candidate, keeping the top <span class="math notranslate nohighlight">\(k\)</span> based on their joint probabilities. This allows exploration of multiple promising paths, but can be computationally expensive, and may still produce suboptimal outputs due to early pruning.</p></li>
+<li><p><strong>Nucleus Sampling</strong> samples from the smallest set of <span class="math notranslate nohighlight">\(k\)</span> words whose cumulative probability mass exceeds a pre-defined threshold <span class="math notranslate nohighlight">\(p\)</span>. This approach promotes diversity in generated text by allowing for the possibility of sampling from a larger set of words.</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_nuclear_sequence</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">p</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]):</span>
-    <span class="sd">&quot;&quot;&quot;Sample sequence of words given context&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Sample sequence of words given context using nucleus sampling&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">context</span><span class="p">:</span>
         <span class="n">context</span> <span class="o">=</span> <span class="p">[</span><span class="n">UNK</span><span class="p">]</span>
     
@@ -941,7 +990,7 @@ Non-trainable params: 0
 </div>
 </div>
 </div>
-<p>Finally, generate language with nuclear sampling given starting contexts</p>
+<p>Finally, generate language with nuclear sampling, given some starting contexts</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">seq_len</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.95</span>
@@ -1057,12 +1106,14 @@ tech equipment.  Nonetheless,
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformers">Transformers</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#positional-encoding">Positional Encoding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#position-encoding">Position Encoding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attention">Attention</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#causal-mask">Causal mask</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#language-modeling">Language modeling</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perplexity">Perplexity</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nuclear-sampling">Nuclear sampling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decoding">Decoding</a></li>
 </ul>
 </li>
 </ul>

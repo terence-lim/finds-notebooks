@@ -207,7 +207,7 @@
 <li class="toctree-l1"><a class="reference internal" href="sentiment_llm.html">LLM Prompting</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">LLM Text Summarization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="finetune_llm.html">LLM Finetuning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rag_agent.html">LLM RAG, Chatbots and Agents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rag_agent.html">RAG, Chatbots and Agents</a></li>
 </ul>
 
     </div>
@@ -404,21 +404,20 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#huggingface-apis">HuggingFace APIs</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformers">Transformers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformers-modules">Transformers modules</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantization">Quantization</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-prompt">System prompt</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#temperature">Temperature</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chatgpt-llm">ChatGPT LLM</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#openai-apis">OpenAI APIs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#azure-ai-api">Azure AI API</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#openai-api">OpenAI API</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text-summarization-and-evaluation">Text summarization and evaluation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bleu">BLEU</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rouge">ROUGE</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#readability">Readability</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text-summarization">Text summarization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluation">Evaluation</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#role-prompting">Role prompting</a></li>
 </ul>
             </nav>
         </div>
@@ -434,10 +433,9 @@ document.write(`
 <h1>LLM Text Summarization<a class="headerlink" href="#llm-text-summarization" title="Permalink to this heading">#</a></h1>
 <p>Concepts:</p>
 <ul class="simple">
-<li><p>10-K Market Risk Disclosue</p></li>
-<li><p>HuggingFace transformers APIs</p></li>
-<li><p>OpenAI GPT API’s</p></li>
-<li><p>Text summarization and evaluation</p></li>
+<li><p>HuggingFace and Azure OpenAI APIs</p></li>
+<li><p>Text summarization of 10-K Disclosures About Market Risk</p></li>
+<li><p>Role prompting</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -448,6 +446,8 @@ document.write(`
 <span class="kn">import</span> <span class="nn">torch</span>
 <span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">AutoTokenizer</span><span class="p">,</span> <span class="n">AutoModelForCausalLM</span><span class="p">,</span> <span class="n">BitsAndBytesConfig</span>
 <span class="kn">from</span> <span class="nn">transformers.utils</span> <span class="kn">import</span> <span class="n">logging</span>
+<span class="kn">from</span> <span class="nn">openai</span> <span class="kn">import</span> <span class="n">AzureOpenAI</span>
+<span class="kn">from</span> <span class="nn">rouge_score</span> <span class="kn">import</span> <span class="n">rouge_scorer</span>
 <span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
 <span class="kn">from</span> <span class="nn">finds.database</span> <span class="kn">import</span> <span class="n">SQL</span><span class="p">,</span> <span class="n">RedisDB</span>
 <span class="kn">from</span> <span class="nn">finds.unstructured</span> <span class="kn">import</span> <span class="n">Edgar</span>
@@ -514,7 +514,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Qualitative and Quantitave Disclosure about Market Risk item from 10-K’s</p>
+<p>Load Disclosure about Market Risk text from 10-K’s</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># retrieve from 10K&#39;s in 1Q 2024</span>
@@ -555,8 +555,8 @@ document.write(`
 <p><code class="docutils literal notranslate"><span class="pre">huggingface-cli</span> <span class="pre">delete-cache</span></code></p>
 </li>
 </ul>
-<section id="transformers">
-<h3>Transformers<a class="headerlink" href="#transformers" title="Permalink to this heading">#</a></h3>
+<section id="transformers-modules">
+<h3>Transformers modules<a class="headerlink" href="#transformers-modules" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>AutoTokenizers</p></li>
 <li><p>AutoModels</p>
@@ -597,6 +597,7 @@ document.write(`
   &quot;_load_in_4bit&quot;: true,
   &quot;_load_in_8bit&quot;: false,
   &quot;bnb_4bit_compute_dtype&quot;: &quot;float16&quot;,
+  &quot;bnb_4bit_quant_storage&quot;: &quot;uint8&quot;,
   &quot;bnb_4bit_quant_type&quot;: &quot;nf4&quot;,
   &quot;bnb_4bit_use_double_quant&quot;: false,
   &quot;llm_int8_enable_fp32_cpu_offload&quot;: false,
@@ -611,6 +612,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Load model and tokenizer from Huggingface</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_id</span><span class="p">)</span>
@@ -625,11 +627,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/terence/env3.11/lib/python3.11/site-packages/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
-  warnings.warn(
-Loading checkpoint shards: 100%|██████████| 4/4 [00:07&lt;00:00,  1.77s/it]
-/home/terence/env3.11/lib/python3.11/site-packages/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
-  warnings.warn(
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading checkpoint shards: 100%|██████████| 4/4 [00:08&lt;00:00,  2.01s/it]
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LlamaForCausalLM(
@@ -662,6 +660,7 @@ Loading checkpoint shards: 100%|██████████| 4/4 [00:07&lt;00
 </div>
 </div>
 </div>
+<p>Show model’s context length</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Maximum context length</span>
@@ -685,14 +684,20 @@ Loading checkpoint shards: 100%|██████████| 4/4 [00:07&lt;00
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CUDA memory: 6.26 GB
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CUDA memory: 6.06 GB
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+<section id="temperature">
+<h3>Temperature<a class="headerlink" href="#temperature" title="Permalink to this heading">#</a></h3>
+<p>Temperature is a parameter used to control the randomness of the model’s output during text generation. Low Temperature (value close to 0) decreases randomness, leading to more focused and predictable outputs. High Temperature increases randomness: the model is more likely to choose less probable words, leading to more diverse and creative outputs.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generate_response</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">max_char</span><span class="o">=</span><span class="mi">20000</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Template to prompt and generate response</span>
+<span class="n">MAX_CHAR</span> <span class="o">=</span> <span class="mi">20000</span>
+<span class="k">def</span> <span class="nf">generate_response</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">max_char</span><span class="o">=</span><span class="n">MAX_CHAR</span><span class="p">,</span>
                       <span class="n">role</span><span class="o">=</span><span class="s2">&quot;You are a helpful AI assistant&quot;</span><span class="p">,</span>
                       <span class="n">prompt</span><span class="o">=</span><span class="s2">&quot;Write a concise summary of the text.&quot;</span><span class="p">):</span>
     <span class="n">content</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
@@ -736,6 +741,58 @@ Loading checkpoint shards: 100%|██████████| 4/4 [00:07&lt;00
 </div>
 </div>
 </div>
+</section>
+</section>
+<section id="azure-ai-api">
+<h2>Azure AI API<a class="headerlink" href="#azure-ai-api" title="Permalink to this heading">#</a></h2>
+<p>Azure, Microsoft’s cloud-based platform for AI and other subscription services, provides API’s and endpoints for OpenAI’s models.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://oai.azure.com/portal">https://oai.azure.com/portal</a></p></li>
+<li><p><a class="reference external" href="https://openai.com/api/">https://openai.com/api/</a></p></li>
+</ul>
+<section id="openai-api">
+<h3>OpenAI API<a class="headerlink" href="#openai-api" title="Permalink to this heading">#</a></h3>
+<p>Alternatively, GPT and other AI models, such as Whisper for automatic speech recognization (ASR), can be accessed directly from OpenAI:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://platform.openai.com/docs/overview">https://platform.openai.com/docs/overview</a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create client object</span>
+<span class="n">LLM_MODEL</span> <span class="o">=</span> <span class="s2">&quot;gpt-35-turbo-16k&quot;</span>   <span class="c1"># name of model to use</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">AzureOpenAI</span><span class="p">(</span><span class="n">api_version</span><span class="o">=</span><span class="s2">&quot;2024-02-01&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;azure&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># template to prompt GPT and generate response</span>
+<span class="k">def</span> <span class="nf">get_gpt_response</span><span class="p">(</span><span class="n">prompt</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">system_prompt</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                     <span class="n">model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">LLM_MODEL</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Creating message required by API: &quot;prompt&quot; will be the query sent to GPT&quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">messages</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;system&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">system_prompt</span><span class="p">},</span>
+                    <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">prompt</span><span class="p">}]</span>
+        <span class="n">completion</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">completions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+            <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>  <span class="c1"># must match the custom deployment name you chose</span>
+            <span class="n">messages</span><span class="o">=</span><span class="n">messages</span><span class="p">,</span>
+            <span class="n">temperature</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">completion</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">content</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ERROR!</span><span class="se">\n\n</span><span class="s2"> </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="text-summarization">
+<h2>Text summarization<a class="headerlink" href="#text-summarization" title="Permalink to this heading">#</a></h2>
+<p>Text summarization is the task of condensing a piece of text into a shorter version while retaining its key information and meaning. It aims to generate a concise summary that captures the main points of the original document or passage.</p>
+<p>Sample one company from each industry, and generate summary of risk disclosure text with quantized Llama-3-8B model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sample companies from each industry sector</span>
@@ -756,183 +813,631 @@ Loading checkpoint shards: 100%|██████████| 4/4 [00:07&lt;00
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>===== FORD MOTOR CO DEL =====
-The text discusses the market risk management practices of a company,
-including its exposure to foreign currency exchange rates, commodity
-prices, and interest rates. The company uses derivative instruments to
-hedge its exposures and has a risk management committee that monitors
-and manages these risks. The company also uses economic value
-sensitivity analysis and re-pricing gap analysis to evaluate potential
-long-term effects of changes in interest rates. The company&#39;s market
-risk exposure is quantified and disclosed in the text, including its
-sensitivity to changes in interest rates and foreign currency exchange
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>===== BOOKING HOLDINGS INC =====
+Here is a concise summary of the text:
+
+The company is exposed to market risk due to changes in interest
+rates, foreign currency exchange rates, and equity prices. To manage
+this risk, the company uses internal policies and procedures, as well
+as derivative financial instruments, such as foreign currency exchange
+contracts. The company evaluates its exposure to market risk by
+assessing near-term and long-term fluctuations in interest rates and
+foreign currency exchange rates. The company also faces exposure to
+movements in foreign currency exchange rates due to its businesses
+outside the US, which are translated from local currencies into US
+dollars. Additionally, the company is exposed to equity price risk due
+to changes in the fair values of its investments in equity securities
+of publicly-traded companies and private companies.
+
+===== PIONEER NATURAL RESOURCES CO =====
+Here is a concise summary of the text:
+
+The company, Pioneer Natural Resources Company, discloses its market
+risk exposure in its financial statements. The company&#39;s primary
+market risk exposure is related to commodity price risk, which is
+mitigated by maintaining financial flexibility and diversifying oil
+and gas sales. The company also uses marketing derivatives to
+diversify oil pricing to Gulf Coast and international markets.
+Additionally, the company is exposed to share price risk when holders
+of convertible notes exercise their conversion option, and interest
+rate risk due to fixed-rate debt. The company&#39;s credit risk is
+primarily associated with the collection of receivables from the sale
+of oil and gas production and purchased commodities, and the risk of a
+counterparty&#39;s failure to meet its obligations under derivative
+contracts.
+
+===== PAYPAL HOLDINGS INC =====
+The text discusses the market risk, interest rate risk, foreign
+currency exchange rate risk, and equity investment risk faced by the
+company. Market risk refers to the potential for economic losses due
+to adverse changes in market factors such as interest rates, foreign
+currency exchange rates, and equity investment risk. The company has
+established policies to mitigate these risks and monitors risk
+exposures on an ongoing basis.
+
+Interest rate risk is managed by maintaining a diversified portfolio
+of cash, cash equivalents, and available-for-sale debt securities, and
+by using interest rate swaps and other derivatives to hedge against
+interest rate changes. The company also has foreign currency exchange
+contracts to manage foreign currency exchange rate risk and to reduce
+the impact of currency fluctuations on its consolidated cash flows and
+results of operations.
+
+Equity investment risk is managed by diversifying the portfolio of
+strategic investments and by regularly reviewing the fair value of
+these investments. The company also has a foreign currency exchange
+exposure management program to identify material foreign currency
+exposures and to manage these exposures through the execution of
+foreign currency exchange contracts.
+
+The company&#39;s risk management policies and procedures are designed to
+identify, assess, and mitigate risks that could have a material impact
+on its financial performance and position.
+
+===== BOSTON SCIENTIFIC CORP =====
+Boston Scientific Corporation, a medical device company, reports its
+market risk exposure and risk management practices. The company&#39;s
+earnings and cash flows are exposed to market risk from changes in
+currency exchange rates and interest rates. To manage this risk, the
+company uses derivative financial instruments, such as currency and
+interest rate swaps, to hedge its exposure. The company&#39;s currency
+risk consists primarily of foreign currency-denominated firm
+commitments, forecasted foreign currency-denominated intercompany and
+third-party transactions, and net investments in certain subsidiaries.
+The company&#39;s interest rate risk relates primarily to US dollar and
+euro-denominated borrowings partially offset by US dollar cash
+investments. The company&#39;s risk management program is designed to
+minimize the impact of market risk on its earnings and cash flows.
+
+===== R T X CORP =====
+Here is a concise summary of the text:
+
+The company is exposed to market risk due to fluctuations in foreign
+currency exchange rates and interest rates. To manage this risk, they
+use foreign currency forward contracts to hedge foreign-denominated
+payments and receipts. The company also hedges foreign currency
+exposures associated with committed foreign currency purchases and
+sales. The aggregate notional amount of outstanding foreign currency
+hedges was $15.8 billion and $11.2 billion at December 31, 2023 and
+2022, respectively. The company&#39;s sales are typically denominated in
+US dollars, but they also transact business in various foreign
+currencies, exposing them to changes in foreign currency exchange
+rates. To minimize this exposure, they hedge a certain portion of
+sales to secure the rates at which US dollars will be converted. The
+company also has financial instruments subject to interest rate risk,
+primarily fixed-rate debt obligations, but they believe their exposure
+to interest rate risk is not material.
+
+===== MONSTER BEVERAGE CORP NEW =====
+Here is a concise summary of the text:
+
+The company is exposed to various market risks, including fluctuations
+in commodity and energy prices, foreign currency exchange rates, and
+limitations in raw material availability. To manage foreign exchange
+risk, the company enters into forward currency exchange contracts with
+financial institutions, but does not designate them as hedge
+transactions. The company&#39;s investments are also subject to various
+risks, including credit, liquidity, market, and interest rate risks.
+
+===== HILTON WORLDWIDE HOLDINGS INC =====
+Here is a concise summary of the text:
+
+The company is exposed to market risk primarily from changes in
+interest rates and foreign currency exchange rates. To manage this
+risk, they use derivative financial instruments, such as interest rate
+swaps and forward contracts, to hedge against a portion of the risks.
+The company&#39;s exposure to interest rate risk is primarily related to
+variable-rate indebtedness, while foreign currency exchange rate risk
+is associated with international revenues and expenses. The company
+uses hedging instruments to reduce volatility in their results of
+operations and cash flows.
+
+===== TARGET CORP =====
+The text is a section from a company&#39;s Form 10-K filing with the US
+Securities and Exchange Commission. It provides a summary of the
+company&#39;s market risk exposure, including:
+
+* Interest rate risk: The company&#39;s floating rate debt obligations and
+short-term investments expose it to changes in interest rates. A 1%
+increase in interest rates would increase earnings before income taxes
+by $5 million.
+* Pension risk: The company&#39;s qualified defined benefit pension plan
+is exposed to changes in interest rates, which could increase annual
+expense by $36 million if interest rates decrease.
+* General liability and workers&#39; compensation risk: The company&#39;s
+liabilities for general liability and workers&#39; compensation are
+recorded at net present value and fluctuate with changes in interest
 rates.
+* Nonqualified deferred compensation risk: The company&#39;s nonqualified,
+unfunded deferred compensation plans expose it to market returns on
+accumulated team member balances.
 
-===== OCCIDENTAL PETROLEUM CORP =====
+The company maintains insurance coverage to limit its exposure to
+certain events, including network security matters. It also maintains
+a funded qualified defined benefit pension plan and nonqualified and
+international pension plans that are generally unfunded.
+
+===== A T &amp; T INC =====
 Here is a concise summary of the text:
 
-Occidental&#39;s financial results are sensitive to fluctuations in oil,
-natural gas, and commodity prices. The company has implemented risk
-management controls to mitigate market risk, including limits on value
-at risk, credit limits, and segregation of duties. Occidental also
-uses value at risk to estimate potential losses and maintains liquid
-positions to neutralize market risk. The company&#39;s long-term debt
-obligations are sensitive to interest rate changes, and its
-international operations have limited foreign currency risk.
-Occidental manages credit risk by selecting financially strong
-counterparties, entering into netting arrangements, and requiring
-collateral. The company believes its exposure to credit-related losses
-is not material and has been insignificant for all years presented.
+The report discusses the financial statements of AT&amp;T Inc. (AT&amp;T) for
+the year ended December 31, 2023. The company is exposed to market
+risks, primarily from changes in interest rates and foreign currency
+exchange rates. To manage these risks, AT&amp;T employs derivatives, such
+as interest rate swaps and foreign currency exchange contracts.
 
-===== ADOBE INC =====
-Here is a concise summary of the text:
+The report also discusses the company&#39;s internal control over
+financial reporting, which is designed to provide reasonable assurance
+regarding the reliability of financial reporting and the preparation
+of financial statements. The company&#39;s management is responsible for
+maintaining effective internal control over financial reporting, and
+the independent registered public accounting firm, Ernst &amp; Young LLP,
+has issued an unqualified opinion on the effectiveness of the
+company&#39;s internal control over financial reporting.
 
-The company discloses its market risk exposure and hedging strategies
-for foreign currency and interest rate risks. For foreign currency
-risk, the company uses foreign exchange option contracts and forward
-contracts to hedge forecasted foreign currency denominated revenue and
-expenses. The company also enters into collateral security agreements
-to mitigate credit-related losses. For interest rate risk, the company
-holds short-term investments and fixed income securities, which are
-subject to market value changes due to interest rate fluctuations. The
-company uses sensitivity analysis to estimate the hypothetical changes
-in market value of its short-term investment portfolio and senior
-notes due to changes in interest rates.
+The report also highlights the critical audit matters, which are
+matters arising from the current period audit of the financial
+statements that were communicated or required to be communicated to
+the audit committee and that relate to accounts or disclosures that
+are material to the financial statements. The critical audit matters
+discussed in the report include the discount rates used in determining
+pension and postretirement benefit obligations and the evaluation of
+goodwill for impairment.
 
-===== REGENERON PHARMACEUTICALS INC =====
-Here is a concise summary of the text:
-
-The company is exposed to various market risks, including:
-
-* Interest rate risk: changes in interest rates may affect the value
-of their investment portfolio.
-* Credit quality risk: deterioration of credit quality may impact the
-recoverability of investment securities.
-* Foreign exchange risk: changes in foreign exchange rates may impact
-operating results and financial condition due to international sales
-and development expenses.
-* Market price risk: changes in the fair value of equity securities in
-their investment portfolio may impact other income (expense), net.
-
-The company has implemented various strategies to mitigate these
-risks, including monitoring and adjusting their investment portfolio,
-using derivative instruments, and assessing potential steps to
-mitigate foreign exchange risk.
-
-===== ILLINOIS TOOL WORKS INC =====
-Here is a concise summary of the text:
-
-The company is exposed to market risks, including fluctuations in
-currency exchange rates, commodity price volatility, and changes in
-interest rates. The company&#39;s exposure to interest rate risk is
-primarily related to the fair value of its fixed-rate debt, while its
-foreign currency risk is managed through the use of euro-denominated
-debt instruments to hedge its net investment in euro-denominated
-foreign operations.
-
-===== LULULEMON ATHLETICA INC =====
-Here is a concise summary of the text:
-
-The company discloses its market risk exposure in the following areas:
-
-1. Foreign currency exchange risk: The company has exposure to changes
-in foreign currency exchange rates, which can affect its reported
-financial results. It uses forward currency contracts to hedge a
-portion of this risk.
-2. Interest rate risk: The company&#39;s committed revolving credit
-facility bears interest at a variable rate, exposing it to market
-risks. It currently does not engage in interest rate hedging activity
-but may do so in the future.
-3. Credit risk: The company holds cash and cash equivalents with
-various financial institutions and is exposed to credit-related losses
-in the event of nonperformance. It seeks to minimize this risk by
-entering into transactions with reputable financial institutions.
-4. Inflation risk: The company is exposed to inflationary pressures,
-including increased costs of raw materials, wages, and transportation,
-which can affect its operating results.
-
-The company performs sensitivity analyses to determine its market risk
-exposure and may enter into derivative financial instruments in the
-future to mitigate these risks.
-
-===== M S C I INC =====
-Here is a concise summary of the text:
-
-The company is exposed to foreign currency exchange rate risk, which
-can impact the value of its revenues, expenses, assets, and
-liabilities denominated in non-US dollar currencies. The company
-invoices clients in US dollars, but a portion of its revenues are in
-euros, British pounds, Japanese yen, and other non-US dollar
-currencies. The company also has foreign currency exposure in its
-operating costs and monetary assets and liabilities. To manage this
-risk, the company uses derivative financial instruments, such as
-forward contracts, to minimize the impact on its income statement.
-
-===== NETFLIX INC =====
-Here is a concise summary of the text:
-
-The company is exposed to market risks due to interest rate changes
-and foreign currency fluctuations. As of December 31, 2023, the
-company had $14.6 billion of debt and cash equivalents invested in
-money market funds and time deposits. The fair value of the debt
-fluctuates with interest rates and foreign currency rates. The company
-operates globally and transacts in multiple currencies, exposing it to
-foreign currency risk. To mitigate this risk, the company entered into
-foreign exchange forward contracts, which may reduce but not eliminate
-the effect of foreign currency exchange fluctuations. The company also
-recognized a foreign exchange loss of $293 million in the year ended
-December 31, 2023, primarily due to the remeasurement of senior notes
-and cash and content liabilities denominated in currencies other than
-the functional currencies.
-
-===== COMCAST CORP NEW =====
-Here is a concise summary of the text:
-
-The company, Comcast Corporation, discloses its market risk management
-strategies for interest rate and foreign exchange risks. For interest
-rate risk, the company uses interest rate swaps and cross-currency
-swaps to manage its exposure to adverse changes in interest rates. The
-company estimates that these derivatives reduced its consolidated
-interest expense by $56 million in 2023.
-
-For foreign exchange risk, the company uses foreign currency forwards
-and cross-currency swaps to hedge its exposure to currency
-fluctuations. The company has significant foreign operations and uses
-these derivatives to protect the functional currency equivalent value
-of non-functional currency denominated assets, liabilities, and
-forecasted revenue and expenses.
-
-The company also discloses its counterparty credit risk management
-strategy, which involves diversification and evaluation of the
-creditworthiness of counterparties. The company has agreements with
-counterparties that include collateral provisions, but as of December
-31, 2023, it was not required to post collateral.
-
-===== REPUBLIC SERVICES INC =====
-Here is a concise summary of the text:
-
-The company discloses its market risk exposure, including interest
-rate risk, fuel price risk, and commodities price risk. For interest
-rate risk, the company uses a combination of fixed and floating rate
-debt and has historically entered into swap agreements to manage
-exposure. For fuel price risk, the company may enter into fuel hedges
-to mitigate market risk, but currently has no hedges in place. For
-commodities price risk, the company has previously entered into
-derivative instruments to manage exposure, but currently has no hedges
-in place. The company provides quantitative and qualitative
-disclosures about its market risk exposure and how it manages that
-risk.
+===== WASTE MANAGEMENT INC DEL =====
+The text discusses the market risk exposure of a company, specifically
+in the areas of interest rates, commodity prices, and Canadian
+currency rates. The company has exposure to changes in interest rates
+through its debt obligations, including short-term borrowings and tax-
+exempt bonds. The company also has exposure to commodity price risks
+through its operating agreements and investments in renewable energy
+production. The company has invested in facilities to capture methane
+from landfills and convert it into renewable natural gas, which is
+used to produce transportation fuels. The company is also exposed to
+currency rate risks due to its operations in Canada and India.
 </pre></div>
 </div>
 </div>
 </div>
+<section id="evaluation">
+<h3>Evaluation<a class="headerlink" href="#evaluation" title="Permalink to this heading">#</a></h3>
+<p><strong>ROUGE</strong></p>
+<p>Recall-Oriented Understudy for Gisting Evaluation (ROUGE) is a set of metrics used to evaluate the quality of summaries by comparing them to reference summaries or human-generated summaries.</p>
+<ul class="simple">
+<li><p>ROUGE-N measures the overlap of n-grams (contiguous sequences of n words) between the system-generated and the reference summaries</p></li>
+<li><p>ROUGE-L measures the longest common subsequence (LCS).</p></li>
+</ul>
+<p>Recall, precision and F1-measure versions of these metrics can be computed.</p>
+<p><strong>BLEU</strong></p>
+<p>Bilingual Evaluation Understudy (BLEU) is a metric originally designed for evaluating machine translation, but it is also adapted for text summarization evaluation.</p>
+<ul class="simple">
+<li><p>N-gram Precision measures the overlap of n-grams (typically up to 4-grams) between the system-generated summary and the reference summary.</p></li>
+<li><p>Brevity Penalty penalizes overly short summaries that do not capture enough information from the reference summaries.</p></li>
+<li><p>Cumulative BLEU calculates the geometric mean of BLEU scores for 1-gram to n-gram, rewarding systems that produce more accurate translations across longer phrases.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To compute rouge-1 and rouge-2 scores</span>
+<span class="n">rouge_types</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;rouge1&#39;</span><span class="p">,</span> <span class="s1">&#39;rouge2&#39;</span><span class="p">]</span>
+<span class="n">scorer</span> <span class="o">=</span> <span class="n">rouge_scorer</span><span class="o">.</span><span class="n">RougeScorer</span><span class="p">(</span><span class="n">rouge_types</span><span class="p">,</span> <span class="n">use_stemmer</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="p">{</span><span class="n">rouge_type</span><span class="p">:</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">rouge_type</span> <span class="ow">in</span> <span class="n">rouge_types</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Generete reference summaries from GPT</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reference</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">permno</span> <span class="ow">in</span> <span class="n">docs</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;=====&#39;</span><span class="p">,</span> <span class="n">univ</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">permno</span><span class="p">,</span> <span class="s1">&#39;comnam&#39;</span><span class="p">],</span> <span class="s1">&#39;=====&#39;</span><span class="p">)</span>
+    <span class="n">system_prompt</span> <span class="o">=</span> <span class="s2">&quot;You are an AI assistant.&quot;</span>
+    <span class="n">prompt_template</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&quot;Write a concise summary of the text.</span>
+
+<span class="s2">Text in triple quotes: &#39;&#39;&#39;</span><span class="si">{</span><span class="p">(</span><span class="n">found</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">permno</span><span class="p">,</span> <span class="s1">&#39;item&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span><span class="p">)[:</span><span class="n">MAX_CHAR</span><span class="p">]</span><span class="si">}</span><span class="s2">&#39;&#39;&#39;</span>
+
+<span class="s2">Summary:&quot;&quot;&quot;</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>    
+    <span class="n">reference</span><span class="p">[</span><span class="n">permno</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_gpt_response</span><span class="p">(</span><span class="n">prompt_template</span><span class="p">,</span> <span class="n">system_prompt</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">textwrap</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">reference</span><span class="p">[</span><span class="n">permno</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)]))</span>
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="n">score</span> <span class="o">=</span> <span class="n">scorer</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">reference</span><span class="p">[</span><span class="n">permno</span><span class="p">],</span> <span class="n">prediction</span><span class="o">=</span><span class="n">summary</span><span class="p">[</span><span class="n">permno</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">rouge_type</span> <span class="ow">in</span> <span class="n">rouge_types</span><span class="p">:</span>
+        <span class="n">scores</span><span class="p">[</span><span class="n">rouge_type</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Series</span><span class="p">(</span><span class="n">score</span><span class="p">[</span><span class="n">rouge_type</span><span class="p">]</span><span class="o">.</span><span class="n">_asdict</span><span class="p">(),</span>
+                                         <span class="n">name</span><span class="o">=</span><span class="n">univ</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">permno</span><span class="p">,</span> <span class="s1">&#39;comnam&#39;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>===== BOOKING HOLDINGS INC =====
+The text discusses the market risks that a company is exposed to,
+including changes in interest rates, foreign currency exchange rates,
+and equity prices. The company manages these risks through established
+policies and procedures, as well as the use of derivative financial
+instruments. The objective is to mitigate potential adverse
+fluctuations in income statement, cash flow, and fair value. The
+company evaluates its exposure by assessing near-term and long-term
+fluctuations, utilizing market indicators and projections. The company
+does not engage in speculative trading or leveraged derivatives. The
+text also mentions the impact of interest rate changes on the fair
+value of debt and the sensitivity of convertible senior notes to
+equity market price volatility. Additionally, the company faces
+exposure to foreign currency exchange rates due to the translation of
+financial results from local currencies to US dollars. The impact of
+currency exchange rates on gross bookings and revenues is discussed.
+The company uses foreign currency exchange derivatives to hedge its
+exposure. Lastly, the text mentions the equity price risk associated
+with investments in publicly-traded and private companies, with
+potential losses in fair value.
+
+===== PIONEER NATURAL RESOURCES CO =====
+The text provides quantitative and qualitative disclosures about
+market risk for a company. The company faces risks related to changes
+in commodity prices, changes in its share price, interest rate
+movements, and credit risks. The company mitigates commodity price
+risk through financial flexibility and diversification of sales. It
+also enters into pipeline capacity commitments and purchase
+transactions to diversify its sales. The company uses marketing
+derivatives to diversify its oil pricing. It has long-term marketing
+contracts that are accounted for as derivative instruments.
+Fluctuations in the fair value of marketing derivatives could occur
+based on changes in price differentials. The company is also exposed
+to share price risk and interest rate risk. It manages credit risk
+through credit risk policies and procedures.
+
+===== PAYPAL HOLDINGS INC =====
+The text discusses the market risk faced by a company due to adverse
+changes in market factors such as interest rates, foreign currency
+exchange rates, and equity investment risk. The company has policies
+in place to mitigate these risks and monitors its risk exposures. It
+is exposed to interest rate risk in its investment portfolio and
+customer balances. Changes in interest rates can affect the interest
+income earned and the fair value of securities. The company also faces
+foreign currency exchange rate risk due to its international
+operations and uses hedging contracts to manage this risk. Adverse
+changes in exchange rates can impact the company&#39;s cash flows and
+results of operations. Additionally, the company has strategic
+investments that are subject to market-related risks, and changes in
+the value of these investments can impact the company&#39;s net income.
+
+===== BOSTON SCIENTIFIC CORP =====
+The text discusses the market risks faced by a medical device company
+due to changes in currency exchange rates and interest rates. The
+company manages these risks through a risk management program that
+includes the use of derivative financial instruments. The company
+primarily uses nonderivative and derivative instruments to manage its
+exposure to currency exchange rate fluctuations. It also uses interest
+rate derivative instruments to manage its exposure to changes in
+interest rates. The company has a diversified group of major financial
+institutions as counterparties for its derivative instruments. The
+text also includes an audit opinion on the company&#39;s financial
+statements, highlighting a critical audit matter related to the
+accounting for business combinations. The auditor evaluated the
+company&#39;s controls and tested the fair value estimates of intangible
+assets and contingent consideration liabilities related to the
+acquisitions.
+
+===== R T X CORP =====
+The text discusses the market risk exposures of a company, primarily
+related to fluctuations in foreign currency exchange rates and
+interest rates. The company uses sensitivity analysis to quantify its
+market risk exposure and employs foreign currency forward contracts to
+hedge price risk associated with foreign denominated payments and
+receipts. The company actively manages foreign currency exposures and
+hedges significant exposures with foreign currency derivatives. The
+aggregate notional amount of outstanding foreign currency hedges is
+provided. The company also faces foreign currency exchange impact and
+risk to operational results due to costs incurred in local currencies
+and transacting business in various foreign currencies. To minimize
+exposure, the company hedges a portion of sales and forecasts of
+costs. Hedging gains and losses are partially offset by foreign
+currency translation impacts. The company also has fixed-rate and
+variable-rate debt obligations subject to interest rate risk, but the
+exposure is considered not material. The company may consider using
+interest rate swaps in the future to hedge floating rates.
+
+===== MONSTER BEVERAGE CORP NEW =====
+The text discusses the market risks faced by a company in its normal
+business operations. The main market risks include fluctuations in
+commodity and input prices, energy and fuel prices, and limitations in
+the availability of raw materials and packaging materials. The company
+does not use hedging agreements or alternative instruments to manage
+these risks. Additionally, the company is exposed to risks from
+changes in foreign currency exchange rates due to its international
+business expansion strategy. The company has entered into forward
+currency exchange contracts to manage a portion of the foreign
+exchange risk exposure. However, these contracts are not designated as
+hedge transactions. The gains and losses on these contracts are
+recognized in the consolidated statements of income. The company does
+not consider the potential loss resulting from a hypothetical adverse
+change in foreign currency exchange rates to be significant. The
+company also discloses its cash and investment holdings, which are
+subject to general credit, liquidity, market, and interest rate risks.
+
+===== HILTON WORLDWIDE HOLDINGS INC =====
+The company is exposed to market risk primarily from changes in
+interest rates and foreign currency exchange rates. They use
+derivative financial instruments to hedge against these risks and
+reduce volatility in their results of operations and cash flows. They
+are exposed to interest rate risk on their variable-rate indebtedness,
+but use an interest rate swap to maintain an appropriate level of
+exposure. They also have exposure to foreign currency exchange rate
+risk due to conducting business in various currencies. They use
+forward contracts as cash flow hedges and not designated as hedging
+instruments to offset this risk. The fair value and earnings effect of
+these contracts are not considered material to their financial
+statements.
+
+===== TARGET CORP =====
+The text provides various disclosures related to market risk, income
+taxes, pension accounting, legal and other contingencies, new
+accounting pronouncements, and forward-looking statements. It also
+includes quantitative and qualitative disclosures about market risk,
+specifically related to interest rate changes, debt obligations,
+short-term investments, liabilities, and pension plan exposures. The
+text concludes with an index to the financial statements.
+
+===== A T &amp; T INC =====
+The text discusses AT&amp;T Inc.&#39;s exposure to market risks, primarily
+from changes in interest rates and foreign currency exchange rates.
+The company manages these risks through the use of derivatives, such
+as interest rate swaps and foreign currency exchange contracts. They
+do not use derivatives for trading or speculative purposes. The text
+also mentions the significant assumption of the weighted-average
+discount rate used in estimating postretirement benefit obligations.
+Lower discount rates result in higher obligations, while future
+increases in rates could lead to lower obligations. The text further
+highlights the interest rate risk associated with the company&#39;s
+financial instruments, such as fixed-rate notes and debentures. AT&amp;T
+manages interest expense by controlling the mix of fixed- and
+floating-rate debt through various instruments. The company also uses
+cross-currency swaps to hedge foreign currency exchange risk. The text
+concludes with the report of management and the independent registered
+public accounting firm, which express opinions on the company&#39;s
+financial statements and internal control over financial reporting.
+
+===== WASTE MANAGEMENT INC DEL =====
+The text discusses the market risks that a company is exposed to,
+including changes in interest rates, commodity prices, and currency
+rates. The company uses derivatives to manage these risks but had no
+derivatives outstanding as of December 31, 2023. The company&#39;s
+exposure to interest rate changes primarily relates to its financing
+activities, and a 100-basis point increase in interest rates would
+increase its 2024 interest expense by $18 million. The company is also
+exposed to commodity price risks, particularly in relation to diesel
+fuel, electricity, and recycled materials. The decline in commodity
+prices has put pressure on the company&#39;s margins. Additionally, the
+company is exposed to currency rate risks due to its operations in
+Canada and support functions in India, but the impact of foreign
+currency has not materially affected its results of operations.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Compare rouge-1 metric</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rouge_type</span> <span class="o">=</span> <span class="n">rouge_types</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">scores</span><span class="p">[</span><span class="n">rouge_type</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">rouge_type</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2"> metric:&quot;</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;  average&#39;</span><span class="p">)],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ROUGE1 metric:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>precision</th>
+      <th>recall</th>
+      <th>fmeasure</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>BOOKING HOLDINGS INC</th>
+      <td>0.825758</td>
+      <td>0.586022</td>
+      <td>0.685535</td>
+    </tr>
+    <tr>
+      <th>PIONEER NATURAL RESOURCES CO</th>
+      <td>0.511450</td>
+      <td>0.544715</td>
+      <td>0.527559</td>
+    </tr>
+    <tr>
+      <th>PAYPAL HOLDINGS INC</th>
+      <td>0.500000</td>
+      <td>0.764286</td>
+      <td>0.604520</td>
+    </tr>
+    <tr>
+      <th>BOSTON SCIENTIFIC CORP</th>
+      <td>0.488372</td>
+      <td>0.456522</td>
+      <td>0.471910</td>
+    </tr>
+    <tr>
+      <th>R T X CORP</th>
+      <td>0.675000</td>
+      <td>0.646707</td>
+      <td>0.660550</td>
+    </tr>
+    <tr>
+      <th>MONSTER BEVERAGE CORP NEW</th>
+      <td>0.826667</td>
+      <td>0.382716</td>
+      <td>0.523207</td>
+    </tr>
+    <tr>
+      <th>HILTON WORLDWIDE HOLDINGS INC</th>
+      <td>0.726316</td>
+      <td>0.594828</td>
+      <td>0.654028</td>
+    </tr>
+    <tr>
+      <th>TARGET CORP</th>
+      <td>0.190217</td>
+      <td>0.583333</td>
+      <td>0.286885</td>
+    </tr>
+    <tr>
+      <th>A T &amp; T INC</th>
+      <td>0.473684</td>
+      <td>0.578947</td>
+      <td>0.521053</td>
+    </tr>
+    <tr>
+      <th>WASTE MANAGEMENT INC DEL</th>
+      <td>0.638095</td>
+      <td>0.485507</td>
+      <td>0.551440</td>
+    </tr>
+    <tr>
+      <th>average</th>
+      <td>0.585556</td>
+      <td>0.562358</td>
+      <td>0.548669</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Compare rouge-2 metric</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rouge_type</span> <span class="o">=</span> <span class="n">rouge_types</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">scores</span><span class="p">[</span><span class="n">rouge_type</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">rouge_type</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2"> metric:&quot;</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;  average&#39;</span><span class="p">)],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ROUGE2 metric:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>precision</th>
+      <th>recall</th>
+      <th>fmeasure</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>BOOKING HOLDINGS INC</th>
+      <td>0.496183</td>
+      <td>0.351351</td>
+      <td>0.411392</td>
+    </tr>
+    <tr>
+      <th>PIONEER NATURAL RESOURCES CO</th>
+      <td>0.215385</td>
+      <td>0.229508</td>
+      <td>0.222222</td>
+    </tr>
+    <tr>
+      <th>PAYPAL HOLDINGS INC</th>
+      <td>0.291080</td>
+      <td>0.446043</td>
+      <td>0.352273</td>
+    </tr>
+    <tr>
+      <th>BOSTON SCIENTIFIC CORP</th>
+      <td>0.203125</td>
+      <td>0.189781</td>
+      <td>0.196226</td>
+    </tr>
+    <tr>
+      <th>R T X CORP</th>
+      <td>0.383648</td>
+      <td>0.367470</td>
+      <td>0.375385</td>
+    </tr>
+    <tr>
+      <th>MONSTER BEVERAGE CORP NEW</th>
+      <td>0.540541</td>
+      <td>0.248447</td>
+      <td>0.340426</td>
+    </tr>
+    <tr>
+      <th>HILTON WORLDWIDE HOLDINGS INC</th>
+      <td>0.521277</td>
+      <td>0.426087</td>
+      <td>0.468900</td>
+    </tr>
+    <tr>
+      <th>TARGET CORP</th>
+      <td>0.060109</td>
+      <td>0.186441</td>
+      <td>0.090909</td>
+    </tr>
+    <tr>
+      <th>A T &amp; T INC</th>
+      <td>0.269231</td>
+      <td>0.329412</td>
+      <td>0.296296</td>
+    </tr>
+    <tr>
+      <th>WASTE MANAGEMENT INC DEL</th>
+      <td>0.355769</td>
+      <td>0.270073</td>
+      <td>0.307054</td>
+    </tr>
+    <tr>
+      <th>average</th>
+      <td>0.333635</td>
+      <td>0.304461</td>
+      <td>0.306108</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
 </section>
-<section id="system-prompt">
-<h3>System prompt<a class="headerlink" href="#system-prompt" title="Permalink to this heading">#</a></h3>
-<p>The system prompt is an initial set of instructions that serve as the starting point when starting a new chat session. This defines things for the model and helps to focus its capabilities.
-It is a good place to define a role or a well-known person: the model will assume that role or person including their style.</p>
-<p>Creating prompts based on the role or perspective of the person can be a useful technique for generating
-more relevant and engaging responses from language models.</p>
+</section>
+<section id="role-prompting">
+<h2>Role prompting<a class="headerlink" href="#role-prompting" title="Permalink to this heading">#</a></h2>
+<p>Creating prompts based on the role or perspective of the person can be a useful technique for generating more relevant and engaging responses from language models.</p>
+<p>The <strong>system prompt</strong> is an initial set of instructions that serve as the starting point when starting a new chat session. This defines things for the model and helps to focus its capabilities.
+The model will assume that role or person including their style.</p>
+<p>For example, we can generate a more user-friendly summary to help explain the risk disclosures in 10-K’s.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">role</span> <span class="o">=</span> <span class="s2">&quot;You are a helpful first-grade teacher.&quot;</span><span class="p">,</span>
@@ -948,211 +1453,214 @@ more relevant and engaging responses from language models.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>===== FORD MOTOR CO DEL =====
-Hi there! So, you know how sometimes things can change, like the price
-of something or the value of money? Well, our company has to deal with
-those kinds of changes, and we have to make sure we&#39;re prepared.
-
-We have a special team that helps us figure out how to manage those
-changes, and they use special tools like computers and math to help us
-make good decisions. They also work with other teams to make sure
-we&#39;re making the best choices for our company.
-
-One of the things they do is use something called &quot;derivatives&quot; to
-help us manage our risks. It&#39;s like having insurance, but instead of
-protecting our stuff, it helps us protect our money.
-
-We also have to think about things like interest rates and currency
-exchange rates, which can affect how much money we have. It&#39;s like
-trying to predict the weather, but instead of rain or sunshine, we&#39;re
-trying to predict how much money we&#39;ll have!
-
-Our team is very good at this, and they work hard to make sure we&#39;re
-making the best decisions for our company. They also keep an eye on
-things and make sure we&#39;re not taking too much risk.
-
-So, that&#39;s what our team does! They help us manage our risks and make
-good decisions for our company
-
-===== OCCIDENTAL PETROLEUM CORP =====
-Here&#39;s a summary of the text for a first-grader:
-
-Occidental is a big company that sells oil and gas. They have to worry
-about how much money they make because of things like oil prices going
-up or down. They also have to be careful about how much money they
-borrow and how much they owe to other people. They have special rules
-to make sure they don&#39;t lose too much money. They also have to make
-sure they can pay back the money they borrow.
-
-===== ADOBE INC =====
-Here&#39;s a summary of the text for a first-grader:
-
-Our company does business in many countries, and we need to protect
-ourselves from changes in the value of money between those countries.
-We do this by using special contracts called &quot;hedges&quot; that help us
-keep our earnings and cash flows safe.
-
-Imagine you have some money in a piggy bank, and the value of that
-money changes. If the value goes up, you&#39;re happy! But if it goes
-down, you might lose some of your money. That&#39;s what can happen when
-we do business in different countries and the value of their money
-changes.
-
-To keep our money safe, we use hedges to protect ourselves from these
-changes. We do this by making special deals with other companies that
-help us keep our earnings and cash flows safe. It&#39;s like having a
-special insurance policy that helps us keep our money safe!
-
-===== REGENERON PHARMACEUTICALS INC =====
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>===== BOOKING HOLDINGS INC =====
 Here&#39;s a summary of the text for a first-grader:
 
 Imagine you have some money in a special account. Sometimes, the value
-of that money can go up or down. This can happen because of changes in
-interest rates, which are like the prices of loans. It&#39;s like if you
-borrowed money from a friend, and the interest rate changed, it would
-affect how much you have to pay back.
+of that money can go up or down. This can happen because of things
+like changes in interest rates, like when you borrow money from a
+bank, or changes in the value of other countries&#39; money, like when you
+buy something from a friend who lives in another country.
 
-We also have to worry about the credit quality of the things we invest
-in, like bonds. It&#39;s like if you lent your friend some money, and they
-might not be able to pay you back. We have to make sure we&#39;re not
-lending too much to people who might not be able to pay us back.
+We have to be careful with our money, so we make plans to keep it
+safe. We use special tools, like special contracts, to help keep our
+money safe. We also look at what&#39;s happening in the world, like what&#39;s
+happening with interest rates and other countries&#39; money, to make sure
+we&#39;re making good choices.
 
-Sometimes, we sell things to people in other countries, and we have to
-worry about the exchange rates. It&#39;s like if you went to a different
-country and exchanged your money for their money, and the rate
-changed. It could affect how much money you have.
+Sometimes, we might have to make some changes to our plans, like if
+the value of our money goes up or down. But we&#39;re always trying to
+keep our money safe and make good choices.
 
-Finally, we have to worry about the prices of the things we invest in,
-like stocks. It&#39;s like if you bought a toy, and its price went up or
-down. We have to be careful so we don&#39;t lose too much money.
+===== PIONEER NATURAL RESOURCES CO =====
+Here&#39;s a summary of the text for a first-grader:
+
+The company that makes oil and gas is like a big store that sells
+things. They have to worry about some risks, like if the price of oil
+goes up or down. This can affect how much money they have to use for
+important things like building new things or paying bills.
+
+The company tries to be smart about this by making deals with other
+companies to sell their oil and gas to them. This helps them get a
+better price for their oil and gas. They also have to be careful about
+who they sell to, so they don&#39;t get stuck with bad debts.
+
+The company also has to worry about the price of their own shares,
+like if someone buys or sells them. This can affect how much money
+they have.
+
+The company is like a big team that works together to make sure
+they&#39;re safe and smart about their business.
+
+===== PAYPAL HOLDINGS INC =====
+Hi there! So, you know how sometimes we buy things like toys or candy,
+and we have to pay for them? Well, grown-ups have to pay for things
+too, like money they borrow from banks. And just like how we might get
+a little worried if we can&#39;t find our favorite toy, grown-ups get
+worried if they can&#39;t pay back the money they borrowed.
+
+This is because there are things called &quot;risks&quot; that can happen, like
+if the price of something goes up or down. It&#39;s like if you bought a
+toy for $10, but then the price went up to $15. You would have to pay
+more money to get the same toy!
+
+Grown-ups have to worry about these risks so they can make sure they
+have enough money to pay back what they borrowed. They do this by
+using special tools, like contracts, to help them manage these risks.
+It&#39;s like having a special insurance policy for your toys, so you can
+feel safe and not worry about losing them.
+
+So, that&#39;s what this big text is talking about! It&#39;s like a big report
+card for grown-ups, showing how they&#39;re doing with managing these
+risks and making sure they have enough money.
+
+===== BOSTON SCIENTIFIC CORP =====
+Hi there! So, you know how we use money to buy things we need and
+want? Like toys and candy? Well, grown-ups use money to buy things
+too, like buildings and machines. And just like how we have to be
+careful with our money, grown-ups have to be careful with the money
+they use to buy things too.
+
+Sometimes, grown-ups use special kinds of money, called &quot;derivatives&quot;,
+to help them make sure they have enough money to buy the things they
+need. It&#39;s like having a special kind of insurance that helps them
+feel safe and secure.
+
+The company I&#39;m talking about, Boston Scientific, is a big company
+that makes medical devices, like machines that help people feel
+better. They use derivatives to help them make sure they have enough
+money to buy the things they need to make those machines.
+
+They also have to be careful with the money they use to buy things,
+because sometimes the value of that money can go up and down. It&#39;s
+like how the value of a toy can go up and down depending on how many
+people want it. So, they have to be careful and make sure they&#39;re
+making good choices with their money.
 
 That&#39;s it!
 
-===== ILLINOIS TOOL WORKS INC =====
+===== R T X CORP =====
 Here&#39;s a summary of the text for a first-grader:
 
-The company we&#39;re talking about is like a big store that sells things
-all around the world. They have to deal with some risks, like if the
-money they borrow changes in value. This can happen if the interest
-rates change or if the money they borrow is in a different country&#39;s
-money. But don&#39;t worry, they have ways to protect themselves from
-these risks. They even have special notes that help them keep track of
-the money they borrow in different countries.
+Imagine you have some money in a special account, and you&#39;re worried
+that the value of that money might change because of something called
+&quot;market risk&quot;. This means that if the value of money changes, it could
+affect how much money you have.
 
-===== LULULEMON ATHLETICA INC =====
+The company I work for has to deal with this kind of risk because we
+do business with people in different countries. This means that we
+have to worry about changes in the value of money between those
+countries.
+
+To help us deal with this risk, we use special tools called &quot;hedges&quot;.
+These hedges are like insurance policies that help us keep the value
+of our money stable, even if the value of money changes.
+
+We also have to worry about something called &quot;interest rate risk&quot;.
+This is when the interest rate on our loans or debts changes, and it
+could affect how much money we have.
+
+But don&#39;t worry, we have people who help us manage these risks and
+make sure we have enough money to do our work.
+
+===== MONSTER BEVERAGE CORP NEW =====
 Here&#39;s a summary of the text for a first-grader:
 
-Imagine you have some money in a special account, and you want to buy
-something from another country. The problem is that the money in your
-account is in one kind of money, like dollars, but the thing you want
-to buy is in another kind of money, like euros. This can make it hard
-to know how much the thing really costs.
+Our company makes yummy drinks and foods, and we need to buy special
+things like sugar, milk, and aluminum cans to make them. Sometimes,
+the prices of these things go up and down, and that can affect how
+much money we make. We try to be careful and not get too much money
+from these price changes. We also buy things from other countries, and
+the prices of those things can change too. We have special agreements
+with banks to help us with these changes. We have a lot of money in
+the bank, and we try to be smart about how we use it.
 
-To help with this problem, some companies use special contracts to
-make sure they get the right amount of money. These contracts are like
-promises to buy or sell something at a certain price. They help the
-company know how much money they need to buy the thing they want.
-
-Sometimes, the value of money can change, like if the dollar gets
-stronger or weaker. This can make it harder for the company to know
-how much money they need. To help with this, some companies use
-special tools, like special kinds of contracts, to try to keep the
-value of their money steady.
-
-The company also talks about other kinds of risks, like the risk of
-not getting paid back if they borrow money, or the risk of not being
-able to sell their products because of things like inflation.
-
-===== M S C I INC =====
+===== HILTON WORLDWIDE HOLDINGS INC =====
 Here&#39;s a summary of the text for a first-grader:
 
-Our company does business with people from different countries, and
-that means we have to deal with different kinds of money. Sometimes,
-the value of one kind of money can change compared to another kind of
-money. This can affect how much money we make or spend. We try to
-protect ourselves from these changes by using special tools, like
-contracts, to help keep our money safe.
+Imagine you have some money in your piggy bank, and you&#39;re worried
+that it might change value because of something called &quot;interest
+rates&quot; or &quot;foreign currency exchange rates&quot;. These are like big waves
+that can make your money go up or down.
 
-===== NETFLIX INC =====
+The company I work for has to deal with these waves too. We have to be
+careful so that our money doesn&#39;t get too big or too small. To do
+this, we use special tools called &quot;derivatives&quot; that help us keep our
+money safe.
+
+For example, if we have some money that&#39;s tied to a special interest
+rate, we might use a special contract to make sure our money doesn&#39;t
+get too big or too small. It&#39;s like having a special insurance policy
+to keep our money safe!
+
+We also have to deal with foreign currencies, like when you go on a
+trip and need to exchange your money for the local currency. We have
+to be careful so that our money doesn&#39;t get too big or too small
+because of these changes.
+
+That&#39;s what this text is talking about!
+
+===== TARGET CORP =====
+Here is a summary of the text for a first-grader:
+
+Our company is like a big team that works together. We have to make
+sure we&#39;re safe and sound, so we have insurance to protect us from bad
+things that might happen. We also have to pay taxes, like when you buy
+something and have to give some money to the government. We have to
+make sure we&#39;re being fair and honest with our money.
+
+We also have to take care of our team members, like you and your
+friends. We have special plans to help them when they get old or sick.
+We have to make sure we&#39;re being kind and helping each other.
+
+We also have to be careful with our money and make sure we&#39;re not
+taking too many risks. We have to make smart choices so we can be safe
+and happy.
+
+===== A T &amp; T INC =====
+Hi there! So, you know how sometimes we talk about money and how it&#39;s
+used? Like, how much we have, how we spend it, and how we save it?
+Well, this text is about a big company called AT&amp;T, and it&#39;s talking
+about how they use their money.
+
+They&#39;re saying that they have some risks, like changes in interest
+rates and foreign currencies, that can affect how much money they
+have. But they&#39;re also saying that they have ways to manage those
+risks, like using special contracts to protect themselves.
+
+They&#39;re also talking about how they use something called &quot;discount
+rates&quot; to figure out how much money they owe to people who are
+retired. It&#39;s kind of like a big math problem, and they have to make
+some guesses about what will happen in the future.
+
+The company is also saying that they have a special team that checks
+their books to make sure everything is correct. It&#39;s like a big audit,
+and they&#39;re making sure that everything is fair and honest.
+
+So, that&#39;s what this text is about! It&#39;s like a big report card for
+AT&amp;T, and it&#39;s showing how they&#39;re doing with their money.
+
+===== WASTE MANAGEMENT INC DEL =====
 Here&#39;s a summary of the text for a first-grader:
 
-Our company does business in many different countries and uses
-different currencies. This means we can get hurt if the value of those
-currencies changes. For example, if the dollar gets weaker, it might
-cost us more money to buy things in other countries. We try to protect
-ourselves from these changes by using special contracts called
-&quot;hedges.&quot; These hedges help us keep our money safe, even if the
-currencies change.
+A big company that helps keep our planet clean has to deal with some
+risks. Just like how you might worry about losing your favorite toy,
+this company worries about things like interest rates, prices of
+things like diesel fuel and electricity, and how much money they get
+from other countries.
 
-===== COMCAST CORP NEW =====
-Here&#39;s a summary of the text for a first-grader:
+They use special tools to try to make sure they&#39;re not too worried
+about these things. They also try to make sure they&#39;re doing good
+things for the planet, like making special gas for cars and trucks.
 
-Imagine you have some money in a special account, and you want to make
-sure it&#39;s safe. To do that, you might put some of that money in a
-special kind of account that helps keep it safe. This is like having a
-special kind of insurance for your money.
-
-The company I work for does something similar. We have money that we
-use to buy things and pay for things, and we want to make sure that
-money is safe. So, we put some of that money in special accounts that
-help keep it safe. This is like having a special kind of insurance for
-our money.
-
-We also have to worry about something called &quot;market risk.&quot; This is
-like when the price of something you want to buy goes up or down. We
-want to make sure that our money is safe, so we use special kinds of
-accounts to help keep it safe.
-
-We also have to worry about something called &quot;foreign exchange risk.&quot;
-This is like when you go to a different country and you need to
-exchange your money for the money of that country. We want to make
-sure that our money is safe, so we use special kinds of accounts to
-help keep it safe.
-
-We also have to worry about something called &quot;
-
-===== REPUBLIC SERVICES INC =====
-Here&#39;s a summary of the text for a first-grader:
-
-The company that makes trash bags and recycling centers is talking
-about some big numbers and risks. They&#39;re worried about changes in
-interest rates, which are like the prices of loans. If interest rates
-go up or down, it could cost them more or less money. They&#39;re also
-worried about the prices of fuel, like gasoline, and how it affects
-their business. They&#39;re trying to find ways to make sure they&#39;re not
-hurt too much if the prices of fuel or other important things change.
+The company is like a big team working together to make sure they&#39;re
+safe and doing good things. They&#39;re like a superhero, but instead of
+having superpowers, they have smart people working together to make
+the world a better place!
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="chatgpt-llm">
-<h2>ChatGPT LLM<a class="headerlink" href="#chatgpt-llm" title="Permalink to this heading">#</a></h2>
-<p>TODO</p>
-<section id="openai-apis">
-<h3>OpenAI APIs<a class="headerlink" href="#openai-apis" title="Permalink to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: AzureOpenAI </span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="text-summarization-and-evaluation">
-<h2>Text summarization and evaluation<a class="headerlink" href="#text-summarization-and-evaluation" title="Permalink to this heading">#</a></h2>
-<p>TODO</p>
-<section id="bleu">
-<h3>BLEU<a class="headerlink" href="#bleu" title="Permalink to this heading">#</a></h3>
-</section>
-<section id="rouge">
-<h3>ROUGE<a class="headerlink" href="#rouge" title="Permalink to this heading">#</a></h3>
-</section>
-<section id="readability">
-<h3>Readability<a class="headerlink" href="#readability" title="Permalink to this heading">#</a></h3>
-</section>
 </section>
 </section>
 
@@ -1221,21 +1729,20 @@ hurt too much if the prices of fuel or other important things change.
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#huggingface-apis">HuggingFace APIs</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformers">Transformers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformers-modules">Transformers modules</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantization">Quantization</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-prompt">System prompt</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#temperature">Temperature</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chatgpt-llm">ChatGPT LLM</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#openai-apis">OpenAI APIs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#azure-ai-api">Azure AI API</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#openai-api">OpenAI API</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text-summarization-and-evaluation">Text summarization and evaluation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bleu">BLEU</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rouge">ROUGE</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#readability">Readability</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text-summarization">Text summarization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluation">Evaluation</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#role-prompting">Role prompting</a></li>
 </ul>
   </nav></div>
 

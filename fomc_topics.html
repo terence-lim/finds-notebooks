@@ -207,7 +207,7 @@
 <li class="toctree-l1"><a class="reference internal" href="sentiment_llm.html">LLM Prompting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="summarization_llm.html">LLM Text Summarization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="finetune_llm.html">LLM Finetuning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rag_agent.html">LLM RAG, Chatbots and Agents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rag_agent.html">RAG, Chatbots and Agents</a></li>
 </ul>
 
     </div>
@@ -403,14 +403,22 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fomc-minutes">FOMC minutes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenization">Tokenization</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regular-expressions">Regular Expressions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fomc-meeting-minutes">FOMC meeting minutes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text-pre-processing">Text pre-processing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenization">Tokenization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regular-expressions">Regular expressions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stopwords">Stopwords</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#casing">Casing</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vectorization">Vectorization</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#topic-models">Topic models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#topic-modeling">Topic modeling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#latent-semantic-analysis">Latent Semantic Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#latent-dirichlet-allocation">Latent Dirichlet Allocation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-negative-matrix-factorization">Non-negative matrix factorization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilistic-latent-semantic-indexing">Probabilistic Latent Semantic Indexing</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -425,10 +433,11 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="fomc-topic-modeling">
 <h1>FOMC Topic Modeling<a class="headerlink" href="#fomc-topic-modeling" title="Permalink to this heading">#</a></h1>
 <p><em>Our discussions of the economy may somtimes ring in the ears of the public with more certainty than is appropriate</em> - Jerome Powell</p>
+<p>Concepts:</p>
 <ul class="simple">
 <li><p>FOMC meeting minutes</p></li>
-<li><p>Tokenization</p></li>
-<li><p>Topic models</p></li>
+<li><p>Text pre-processing for textual analysis</p></li>
+<li><p>Topic modeling</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -456,7 +465,8 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mongodb</span> <span class="o">=</span> <span class="n">MongoDB</span><span class="p">(</span><span class="o">**</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;mongodb&#39;</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># unstructured minutes text data are stored in MongoDB </span>
+<span class="n">mongodb</span> <span class="o">=</span> <span class="n">MongoDB</span><span class="p">(</span><span class="o">**</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;mongodb&#39;</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="n">VERBOSE</span><span class="p">)</span>
 <span class="n">fomc</span> <span class="o">=</span> <span class="n">Unstructured</span><span class="p">(</span><span class="n">mongodb</span><span class="p">,</span> <span class="s1">&#39;FOMC&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -471,43 +481,25 @@ document.write(`
 </div>
 </div>
 </div>
-<section id="fomc-minutes">
-<h2>FOMC minutes<a class="headerlink" href="#fomc-minutes" title="Permalink to this heading">#</a></h2>
-<p>The FOMC holds eight regularly scheduled meetings during the year and other meetings as needed. The minutes of regularly scheduled meetings are released three weeks after the date of the policy decision.</p>
+<section id="fomc-meeting-minutes">
+<h2>FOMC meeting minutes<a class="headerlink" href="#fomc-meeting-minutes" title="Permalink to this heading">#</a></h2>
+<p>The FOMC holds eight regularly scheduled meetings during the year and other meetings as needed. The minutes of regularly scheduled meetings are released three weeks after the date of the policy decision. They provide insights into the Federal Reserve’s economic outlook and potential future monetary policy actions, which can impact interest rates, inflation, and market conditions.</p>
 <p><a class="reference external" href="https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm">https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm</a></p>
-<ul class="simple">
-<li><p>keep minutes text approximately from (and including):</p>
-<ul>
-<li><p>“Developments in Financial Markets” or</p></li>
-<li><p>“Discussion of Guideliness for Policy Normalization” or</p></li>
-<li><p>“Financial Developments and Open Market Operations” or</p></li>
-<li><p>“discussion of the economic outlook” or</p></li>
-<li><p>“the information reviewed at this meeting” or</p></li>
-<li><p>“the staff presented several briefings” (i.e. staff presentations on ad-hoc policy topics)</p></li>
-</ul>
-</li>
-<li><p>skip earlier text which may be</p>
-<ul>
-<li><p>re-affirmation of general policy statement</p></li>
-<li><p>organizational items</p></li>
-</ul>
-</li>
-<li><p>delete after adjourn line or date scheduled for next meeting, ignore:</p>
-<ul>
-<li><p>notation votes, minutes approvals, signature, and footnotes</p></li>
-<li><p>intermeeting conference calls</p></li>
-</ul>
-</li>
-</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">minutes</span> <span class="o">=</span> <span class="n">FOMCReader</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Helper class to scrape FOMC meeting minutes from Federal Reserve website</span>
+<span class="n">minutes</span> <span class="o">=</span> <span class="n">FOMCReader</span><span class="p">()</span>
+
+<span class="c1"># Show number and date range of minutes available from website</span>
 <span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;dates&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">minutes</span><span class="p">),</span> <span class="s1">&#39;start&#39;</span><span class="p">:</span> <span class="nb">min</span><span class="p">(</span><span class="n">minutes</span><span class="p">),</span> <span class="s1">&#39;end&#39;</span><span class="p">:</span> <span class="nb">max</span><span class="p">(</span><span class="n">minutes</span><span class="p">)},</span>
           <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;FOMC minutes&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 26/26 [00:06&lt;00:00,  3.78it/s]
+</pre></div>
+</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -534,9 +526,9 @@ document.write(`
   <tbody>
     <tr>
       <th>FOMC minutes</th>
-      <td>249</td>
+      <td>250</td>
       <td>19930203</td>
-      <td>20240320</td>
+      <td>20240501</td>
     </tr>
   </tbody>
 </table>
@@ -544,7 +536,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># retrieve dates stored locally</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># retrieve dates of minutes previously retrieved and stored locally</span>
 <span class="n">dates</span> <span class="o">=</span> <span class="n">fomc</span><span class="p">[</span><span class="s1">&#39;minutes&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">distinct</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -564,9 +556,28 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Trim minutes text:</p>
+<ul class="simple">
+<li><p>keep minutes text approximately from and including (skip earlier text which may be re-affirmation of general policy statementor organizational items):</p>
+<ul>
+<li><p>“Developments in Financial Markets” or</p></li>
+<li><p>“Discussion of Guideliness for Policy Normalization” or</p></li>
+<li><p>“Financial Developments and Open Market Operations” or</p></li>
+<li><p>“discussion of the economic outlook” or</p></li>
+<li><p>“the information reviewed at this meeting” or</p></li>
+<li><p>“the staff presented several briefings” (i.e. staff presentations on ad-hoc policy topics)</p></li>
+</ul>
+</li>
+<li><p>delete after adjourn line or date scheduled for next meeting, hence ignoring:</p>
+<ul>
+<li><p>notation votes, minutes approvals, signature, and footnotes</p></li>
+<li><p>intermeeting conference calls</p></li>
+</ul>
+</li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># clean minutes text</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Helper function to trim minutes text</span>
 <span class="k">def</span> <span class="nf">edit</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;helper to spawn editor and write/edit/read to tempfile&quot;&quot;&quot;</span>
     <span class="kn">import</span> <span class="nn">subprocess</span>
@@ -599,10 +610,10 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Retrieve all minutes that were stored locally</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Retrieve all minutes</span>
-<span class="n">docs</span> <span class="o">=</span> <span class="n">Series</span><span class="p">({</span><span class="n">doc</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]:</span> <span class="n">doc</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">fomc</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;minutes&#39;</span><span class="p">)},</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">docs</span> <span class="o">=</span> <span class="n">Series</span><span class="p">({</span><span class="n">doc</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]:</span> <span class="n">doc</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">fomc</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;minutes&#39;</span><span class="p">)},</span>
               <span class="n">name</span><span class="o">=</span><span class="s1">&#39;minutes&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
 <span class="n">DataFrame</span><span class="p">(</span><span class="n">docs</span><span class="p">)</span>
 </pre></div>
@@ -656,10 +667,6 @@ document.write(`
       <td>...</td>
     </tr>
     <tr>
-      <th>20230920</th>
-      <td>Developments in Financial Markets and Open Mar...</td>
-    </tr>
-    <tr>
       <th>20231101</th>
       <td>Developments in Financial Markets and Open Mar...</td>
     </tr>
@@ -675,17 +682,25 @@ document.write(`
       <th>20240320</th>
       <td>Developments in Financial Markets and Open Mar...</td>
     </tr>
+    <tr>
+      <th>20240501</th>
+      <td>Developments in Financial Markets and Open Mar...</td>
+    </tr>
   </tbody>
 </table>
-<p>249 rows × 1 columns</p>
+<p>250 rows × 1 columns</p>
 </div></div></div>
 </div>
 </section>
+<section id="text-pre-processing">
+<h2>Text pre-processing<a class="headerlink" href="#text-pre-processing" title="Permalink to this heading">#</a></h2>
+<p>Text pre-processing involves cleaning and preparing raw text data by removing noise, standardizing formats, and converting text into a structured format suitable for analysis. The first phase of textual analysis, it involves some or all the steps of tokenizating, removing stop words, casing, and vectorizing.</p>
 <section id="tokenization">
-<h2>Tokenization<a class="headerlink" href="#tokenization" title="Permalink to this heading">#</a></h2>
-<p>Splitting text into smaller units called <strong>tokens</strong>, which are usually words, but also may be phrases or subwords</p>
+<h3>Tokenization<a class="headerlink" href="#tokenization" title="Permalink to this heading">#</a></h3>
+<p>Split text into smaller units called <strong>tokens</strong>, which are usually words, but also may be phrases or subwords. The text pattern of tokens and token boundaries are often expressed using the language of regular expressions.</p>
+</section>
 <section id="regular-expressions">
-<h3>Regular Expressions<a class="headerlink" href="#regular-expressions" title="Permalink to this heading">#</a></h3>
+<h3>Regular expressions<a class="headerlink" href="#regular-expressions" title="Permalink to this heading">#</a></h3>
 <p>A regular expression is a special text spring for describing a text
 search pattern to match character combinations in strings.
 They are used in tokenization, to find word boundaries and remove whitespace.</p>
@@ -768,6 +783,12 @@ They are used in tokenization, to find word boundaries and remove whitespace.</p
 </section>
 <section id="stopwords">
 <h3>Stopwords<a class="headerlink" href="#stopwords" title="Permalink to this heading">#</a></h3>
+<p>Uninformative common words can be removed.</p>
+</section>
+<section id="casing">
+<h3>Casing<a class="headerlink" href="#casing" title="Permalink to this heading">#</a></h3>
+<p>The original casing of words may be retained if the distinction between uppercase and lowercase letters carries important semantic or syntactic information, such as differentiating proper nouns, acronyms, or the beginnings of sentences.</p>
+<p>Note that some models may interpret all upper case words as organisations.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ignore these stop words</span>
@@ -784,12 +805,18 @@ They are used in tokenization, to find word boundaries and remove whitespace.</p
 <section id="vectorization">
 <h3>Vectorization<a class="headerlink" href="#vectorization" title="Permalink to this heading">#</a></h3>
 <p>Converts text into numerical representations</p>
+<ul class="simple">
+<li><p>Bag-of-words: In a BOW approach, a documents is represented by the frequency of its words, disregarding grammar and word order but preserving multiplicity.</p></li>
+<li><p>N-grams: Two (or more) consecutive words can be treated as distinct items, not just isolated words.</p></li>
+<li><p>Indexing: Unique words in the corpus are mapped to consecutive integer indexes, forming the vocabulary.</p></li>
+<li><p>TF-IDF: Term-frequency Inverse-document-frequency vectorization transforms text into numerical features by measuring the importance of a word in a document relative to its frequency across all documents in a corpus. The <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> package provides the <code class="docutils literal notranslate"><span class="pre">TfidfVectorizaer</span></code> for vectorizing text with the TF-IDF technique, as well as <code class="docutils literal notranslate"><span class="pre">CountVectorizer</span></code> which simply counts the raw number of word occurences.</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To vectorize the input words</span>
-<span class="n">ngram_range</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>   <span class="c1"># unigrams</span>
+<span class="c1">#ngram_range = (1, 1)   # unigrams</span>
 <span class="c1">#ngram_range = (2, 2)   # bigrams</span>
-<span class="c1">#ngram_range = (1, 2)   # unigrams and bigrams</span>
+<span class="n">ngram_range</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>   <span class="c1"># unigrams and bigrams</span>
 <span class="n">max_df</span><span class="p">,</span> <span class="n">min_df</span><span class="p">,</span> <span class="n">max_features</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5000</span> <span class="c1"># some reasonable constraints</span>
 <span class="n">tfidf_vectorizer</span> <span class="o">=</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">feature_extraction</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">TfidfVectorizer</span><span class="p">(</span>
     <span class="n">strip_accents</span><span class="o">=</span><span class="s1">&#39;unicode&#39;</span><span class="p">,</span>
@@ -815,16 +842,28 @@ They are used in tokenization, to find word boundaries and remove whitespace.</p
 </div>
 </section>
 </section>
-<section id="topic-models">
-<h2>Topic models<a class="headerlink" href="#topic-models" title="Permalink to this heading">#</a></h2>
-<p>TODO</p>
-<p>Topic modeling is a statistical technique to discover latent topics
-that exist within a collection of documents</p>
+<section id="topic-modeling">
+<h2>Topic modeling<a class="headerlink" href="#topic-modeling" title="Permalink to this heading">#</a></h2>
+<p>Topic modeling uses statistical techniques to discover latent topics
+that exist within a collection of documents.</p>
+<section id="latent-semantic-analysis">
+<h3>Latent Semantic Analysis<a class="headerlink" href="#latent-semantic-analysis" title="Permalink to this heading">#</a></h3>
+<p>LSA uses singular value decomposition to analyze the relationships between terms and documents in a corpus. It constructs a matrix of the document term vectors, then through dimensionality reduction identifies underlying topics by grouping together terms and documents that co-occur frequently in this reduced space.</p>
+</section>
+<section id="latent-dirichlet-allocation">
+<h3>Latent Dirichlet Allocation<a class="headerlink" href="#latent-dirichlet-allocation" title="Permalink to this heading">#</a></h3>
+<p>LDA assumes that each document is a mixture of topics, and each topic is a mixture of words. It iteratively assigns words in documents to topics probabilistically based on the distribution of topics in the document and the distribution of words in the topic.</p>
+</section>
+<section id="non-negative-matrix-factorization">
+<h3>Non-negative matrix factorization<a class="headerlink" href="#non-negative-matrix-factorization" title="Permalink to this heading">#</a></h3>
+<p>NMF decomposes a term-document matrix into two lower-dimensional non-negative matrices: a basis matrix representing topics and a coefficient matrix representing the distribution of topics in documents. By iteratively optimizing these matrices to best reconstruct the original term-document matrix, NMF identifies latent topics and their distributions across documents.</p>
+</section>
+<section id="probabilistic-latent-semantic-indexing">
+<h3>Probabilistic Latent Semantic Indexing<a class="headerlink" href="#probabilistic-latent-semantic-indexing" title="Permalink to this heading">#</a></h3>
+<p>PLSI assumes that documents are generated from a mixture of topics, and words within documents are generated based on these topics. It estimates the probability distributions of topics and words, iteratively refining these distributions until convergence.  It can be implemented by NMF, with generalized Kullback-Leibler divergence as the norm.</p>
 <ul class="simple">
-<li><p>LSA</p></li>
-<li><p>LDA</p></li>
-<li><p>PLSI</p></li>
-<li><p>NMF</p></li>
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/decomposition.html#nmf">https://scikit-learn.org/stable/modules/decomposition.html#nmf</a></p></li>
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/auto_examples/applications/plot_topics_extraction_with_nmf_lda.html">https://scikit-learn.org/stable/auto_examples/applications/plot_topics_extraction_with_nmf_lda.html</a></p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -859,6 +898,7 @@ that exist within a collection of documents</p>
 </div>
 </div>
 </div>
+<p>Fit the models, and plot the predicted topics by date of document</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fit and plot models</span>
@@ -910,15 +950,16 @@ that exist within a collection of documents</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/cab12a26c906c228e1bf9ed7e8aa6c6217b58c5ee3570731de9164cf4b56eecb.png" src="_images/cab12a26c906c228e1bf9ed7e8aa6c6217b58c5ee3570731de9164cf4b56eecb.png" />
-<img alt="_images/32a6a7ad7296fbc892401405c6cab0f415793c4ae7e88b0d6d49c6dddec34137.png" src="_images/32a6a7ad7296fbc892401405c6cab0f415793c4ae7e88b0d6d49c6dddec34137.png" />
-<img alt="_images/de6aa7c9128ab3d409571595ffdca3799b8fb8a7dc68c2b1802bc9aebbca3a44.png" src="_images/de6aa7c9128ab3d409571595ffdca3799b8fb8a7dc68c2b1802bc9aebbca3a44.png" />
-<img alt="_images/f65bd5ff3229f008461407636cfcfb7c521dda927d2a6dcf1f7569e7f1e49564.png" src="_images/f65bd5ff3229f008461407636cfcfb7c521dda927d2a6dcf1f7569e7f1e49564.png" />
+<img alt="_images/8a9104e82fc9a04fb6ce7d9efd8feb488259a0e0dd1ce0c07465f1405364d9ad.png" src="_images/8a9104e82fc9a04fb6ce7d9efd8feb488259a0e0dd1ce0c07465f1405364d9ad.png" />
+<img alt="_images/ffaf63f56d9d74900a8f5234a349f356e238ef08af2ee1e86db9f1efdf172d7e.png" src="_images/ffaf63f56d9d74900a8f5234a349f356e238ef08af2ee1e86db9f1efdf172d7e.png" />
+<img alt="_images/8d6bf13e3f07403f1711300f8c1ad1a390e2166b71540add4d6ee2cbcdbfe629.png" src="_images/8d6bf13e3f07403f1711300f8c1ad1a390e2166b71540add4d6ee2cbcdbfe629.png" />
+<img alt="_images/9ac92ccc4a3302018d21d9a976afe7ca9577eae7403fdc6ba82556c7cd937ca3.png" src="_images/9ac92ccc4a3302018d21d9a976afe7ca9577eae7403fdc6ba82556c7cd937ca3.png" />
 </div>
 </div>
+<p>Identify the most important features (i.e. words) for discriminating each topic, using the <code class="docutils literal notranslate"><span class="pre">WordCloud</span></code> package</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Display word cloud of top n features</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Display word cloud of top n features, by model and topic</span>
 <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">ifig</span><span class="p">,</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">score</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">scores</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
     <span class="n">wc</span> <span class="o">=</span> <span class="n">WordCloud</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="s1">&#39;cool&#39;</span><span class="p">)</span> 
@@ -945,12 +986,13 @@ that exist within a collection of documents</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4a8e4bf6d6917632ad6220078d5deddda9793452f20f20c4cb23b71174fd965b.png" src="_images/4a8e4bf6d6917632ad6220078d5deddda9793452f20f20c4cb23b71174fd965b.png" />
-<img alt="_images/077ee920e956912ec60193bb2dd20b1a62f142e26f5bc292024faf7218c7584a.png" src="_images/077ee920e956912ec60193bb2dd20b1a62f142e26f5bc292024faf7218c7584a.png" />
-<img alt="_images/0c7a9f786ded0d0ee83fc72e634821e0936ef8fe655645ac0017263c3c844661.png" src="_images/0c7a9f786ded0d0ee83fc72e634821e0936ef8fe655645ac0017263c3c844661.png" />
-<img alt="_images/8ca6e254db58c531c331b5cbf3c2314c4113653a3a4c2a617aa2748e670dee14.png" src="_images/8ca6e254db58c531c331b5cbf3c2314c4113653a3a4c2a617aa2748e670dee14.png" />
+<img alt="_images/d7f0257e4cd4001e091da4a9b83e51b29c8a555d3e7f276179e022409fd5b852.png" src="_images/d7f0257e4cd4001e091da4a9b83e51b29c8a555d3e7f276179e022409fd5b852.png" />
+<img alt="_images/5c6f54f0d5db58c248b11702e1e7fd7df1b145f63a8a4986674bf1d6e89f621f.png" src="_images/5c6f54f0d5db58c248b11702e1e7fd7df1b145f63a8a4986674bf1d6e89f621f.png" />
+<img alt="_images/9f4fcd93a015ae5a28ee1e4f2c74f63fd0cd65f62b86160f0a1160102cc8f90f.png" src="_images/9f4fcd93a015ae5a28ee1e4f2c74f63fd0cd65f62b86160f0a1160102cc8f90f.png" />
+<img alt="_images/82f049cedd941d1835059be06958d55986c777e3ad8c6018b6e14b0956422507.png" src="_images/82f049cedd941d1835059be06958d55986c777e3ad8c6018b6e14b0956422507.png" />
 </div>
 </div>
+</section>
 </section>
 </section>
 
@@ -1018,14 +1060,22 @@ that exist within a collection of documents</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fomc-minutes">FOMC minutes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenization">Tokenization</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regular-expressions">Regular Expressions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fomc-meeting-minutes">FOMC meeting minutes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text-pre-processing">Text pre-processing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenization">Tokenization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regular-expressions">Regular expressions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stopwords">Stopwords</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#casing">Casing</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vectorization">Vectorization</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#topic-models">Topic models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#topic-modeling">Topic modeling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#latent-semantic-analysis">Latent Semantic Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#latent-dirichlet-allocation">Latent Dirichlet Allocation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-negative-matrix-factorization">Non-negative matrix factorization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilistic-latent-semantic-indexing">Probabilistic Latent Semantic Indexing</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

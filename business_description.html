@@ -207,7 +207,7 @@
 <li class="toctree-l1"><a class="reference internal" href="sentiment_llm.html">LLM Prompting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="summarization_llm.html">LLM Text Summarization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="finetune_llm.html">LLM Finetuning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rag_agent.html">LLM RAG, Chatbots and Agents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rag_agent.html">RAG, Chatbots and Agents</a></li>
 </ul>
 
     </div>
@@ -404,20 +404,16 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntactic-analysis">Syntactic analysis</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spacy-language-pipeline">Spacy language pipeline</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenization">Tokenization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spacy">SpaCy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lemmatization">Lemmatization</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-of-speech-tagging">Part-of-speech tagging</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entity-recognition">Entity recognition</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dependency-tree">Dependency tree</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#named-entity-recognition">Named entity recognition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dependency-parsing">Dependency parsing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#word-vectors">Word vectors</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#word2vec">Word2Vec</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#density-based-clustering">Density-based clustering</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#t-sne-visualization"><strong>t-SNE visualization</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dbscan">DBSCAN</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-spacy">Exploring Spacy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#t-sne-visualization"><strong>t-SNE visualization</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dbscan">DBSCAN</a></li>
 </ul>
             </nav>
         </div>
@@ -432,10 +428,14 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="business-text-analysis">
 <h1>Business Text Analysis<a class="headerlink" href="#business-text-analysis" title="Permalink to this heading">#</a></h1>
 <p><em>You shall know a word by the company it keeps</em> - J. R. Firth</p>
+<p>Concepts:</p>
 <ul class="simple">
-<li><p>Syntactic analysis</p></li>
-<li><p>Word2Vec</p></li>
+<li><p>Syntactic analysis of text</p></li>
 <li><p>Density-based Clustering</p></li>
+</ul>
+<p>References:</p>
+<ul class="simple">
+<li><p>Greg Durrett, 2023, “CS388 Natural Language Processing course materisl”, retrieved from <a class="reference external" href="https://www.cs.utexas.edu/~gdurrett/courses/online-course/materials.html">https://www.cs.utexas.edu/~gdurrett/courses/online-course/materials.html</a></p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -475,23 +475,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Last FamaFrench Date 2024-03-28 00:00:00
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Last FamaFrench Date 2024-04-30 00:00:00
 </pre></div>
 </div>
 </div>
 </div>
-<section id="syntactic-analysis">
-<h2>Syntactic analysis<a class="headerlink" href="#syntactic-analysis" title="Permalink to this heading">#</a></h2>
-<section id="spacy-language-pipeline">
-<h3>Spacy language pipeline<a class="headerlink" href="#spacy-language-pipeline" title="Permalink to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ! python -m spacy download en_core_web_sm</span>
-<span class="n">nlp</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;en_core_web_lg&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p>Retrieve investment universe as of end-2022: we shall subset on the largest decile (based on NYSE market cap breakpoint).</p>
+<p>Also, enable lookup of company names and tickers, for readability</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Retrieve universe of stocks, keep to decile</span>
@@ -504,12 +494,13 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Retrieve Business Description text from 10-K archive</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># retrieve 2023 bus10K&#39;s</span>
 <span class="n">item</span><span class="p">,</span> <span class="n">form</span> <span class="o">=</span> <span class="s1">&#39;bus10K&#39;</span><span class="p">,</span> <span class="s1">&#39;10-K&#39;</span>
 <span class="n">rows</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">ed</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">form</span><span class="o">=</span><span class="n">form</span><span class="p">,</span> <span class="n">item</span><span class="o">=</span><span class="n">item</span><span class="p">))</span>
-<span class="n">found</span> <span class="o">=</span> <span class="n">rows</span><span class="p">[</span><span class="n">rows</span><span class="p">[</span><span class="s1">&#39;permno&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">univ</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">univ</span><span class="o">.</span><span class="n">decile</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">])</span>  <span class="c1"># large decile</span>
+<span class="n">found</span> <span class="o">=</span> <span class="n">rows</span><span class="p">[</span><span class="n">rows</span><span class="p">[</span><span class="s1">&#39;permno&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">univ</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">univ</span><span class="o">.</span><span class="n">decile</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">])</span>  <span class="c1"># largest decile only</span>
              <span class="o">&amp;</span> <span class="n">rows</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="mi">20230101</span><span class="p">,</span> <span class="mi">20231231</span><span class="p">)]</span>\
              <span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;permno&#39;</span><span class="p">],</span> <span class="n">keep</span><span class="o">=</span><span class="s1">&#39;last&#39;</span><span class="p">)</span>\
              <span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;permno&#39;</span><span class="p">)</span>
@@ -517,12 +508,30 @@ document.write(`
 </div>
 </div>
 </div>
-</section>
-<section id="tokenization">
-<h3>Tokenization<a class="headerlink" href="#tokenization" title="Permalink to this heading">#</a></h3>
+<section id="syntactic-analysis">
+<h2>Syntactic analysis<a class="headerlink" href="#syntactic-analysis" title="Permalink to this heading">#</a></h2>
+<p>This involves analyzing the syntactic roles of words in sentences and how they combine to form phrases and sentences according to the rules of a formal grammar. It seems to model the relationships between words and phrases, such as subject-verb-object relationships, which forms the basis for NLP tasks such as dependency or constituent parsing.</p>
+<section id="spacy">
+<h3>SpaCy<a class="headerlink" href="#spacy" title="Permalink to this heading">#</a></h3>
+<p>spaCy is a popular open-source library for advanced natural language processing (NLP) tasks in Python, such as POS tagging, entity recognition and dependency parsing. It also offers pre-trained models for various languages and domains, as well as customizable pipelines for processing text data.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://spacy.io/models">https://spacy.io/models</a></p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example of NVIDIA&#39;s 10-K business description text</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ! python -m spacy download en_core_web_sm</span>
+<span class="n">nlp</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;en_core_web_lg&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="lemmatization">
+<h3>Lemmatization<a class="headerlink" href="#lemmatization" title="Permalink to this heading">#</a></h3>
+<p>To lemmatize a word is to reduce it to its base or dictionary form, known as the lemma, which represents its morphological root.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Using spaCy pipeline to tokenize NVIDIA&#39;s 10-K business description text</span>
 <span class="n">nvidia</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="s1">&#39;NVIDIA&#39;</span><span class="p">)[</span><span class="s1">&#39;permno&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">doc</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">(</span><span class="n">ed</span><span class="p">[</span><span class="n">found</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">nvidia</span><span class="p">,</span> <span class="s1">&#39;pathname&#39;</span><span class="p">]][:</span><span class="n">nlp</span><span class="o">.</span><span class="n">max_length</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
 <span class="n">tokens</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="o">.</span><span class="n">from_records</span><span class="p">([{</span><span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="n">token</span><span class="o">.</span><span class="n">text</span><span class="p">,</span>
@@ -809,6 +818,7 @@ document.write(`
 </section>
 <section id="part-of-speech-tagging">
 <h3>Part-of-speech tagging<a class="headerlink" href="#part-of-speech-tagging" title="Permalink to this heading">#</a></h3>
+<p>Part-of-speech (POS) tagging is the process of automatically assigning grammatical categories (such as noun, verb, adjective, etc.) to words in a text corpus. This helps in understanding the structure of sentences and extracting meaning from text by identifying the roles that words play in a sentence.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tags</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="o">.</span><span class="n">from_records</span><span class="p">([{</span><span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="n">token</span><span class="o">.</span><span class="n">text</span><span class="p">,</span>
@@ -1061,8 +1071,9 @@ document.write(`
 </div></div></div>
 </div>
 </section>
-<section id="entity-recognition">
-<h3>Entity recognition<a class="headerlink" href="#entity-recognition" title="Permalink to this heading">#</a></h3>
+<section id="named-entity-recognition">
+<h3>Named entity recognition<a class="headerlink" href="#named-entity-recognition" title="Permalink to this heading">#</a></h3>
+<p>Named Entity Recognition (NER) involves identifying and classifying entities (i.e. real-world objects such as persons, organizations, locations, dates, etc.) from a text corpus. Its goal is to locate and classify named entities in the text into predefined categories, such as organizations or persons.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ents</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="o">.</span><span class="n">from_records</span><span class="p">([{</span><span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="n">ent</span><span class="o">.</span><span class="n">text</span><span class="p">,</span>
@@ -1306,17 +1317,23 @@ document.write(`
 -powered deep learning include recommendation systems, which are ai algorithms trained to understand the preferences, previous decisions, and characteristics of people and products using data gathered about their interactions, large language models, which can recognize, summarize, translate, predict and generate text and other content based on knowledge gained from massive datasets, and generative ai, which uses algorithms that create new content</div></span></div></div>
 </div>
 </section>
-<section id="dependency-tree">
-<h3>Dependency tree<a class="headerlink" href="#dependency-tree" title="Permalink to this heading">#</a></h3>
+<section id="dependency-parsing">
+<h3>Dependency parsing<a class="headerlink" href="#dependency-parsing" title="Permalink to this heading">#</a></h3>
+<p>Dependency parsing determines the grammatical relationships between words in a sentence. It identifies the dependencies between words, where each word is treated as a node, and the relationships between them are represented as directed edges.  Hence the output of dependency parsing is a tree structure, where each word (except the root) is governed by another word (its head), indicating the syntactic role of each word (e.g., subject, object, modifier) in relation to other words in the sentence.</p>
+<p>Transition-based parsing algorithms uses a set of transition operations (e.g. shift, reduce) to incrementally build a dependency tree from an input sentence.</p>
+<p>In contrast, <strong>constituent parsing</strong> focuses on identifying and representing the <em>hierarchical structure of phrases</em> in a sentence according to a formal grammar. It groups words into nested syntactic units (e.g., noun phrases, verb phrases), typically as a tree structure (called a parse tree or constituent tree) where each node represents a constituent phrase and its children represent the words or smaller constituents that form it. The CKY (Cocke-Kasami-Younger) algorithm is a dynamic programming technique for parsing sentences and constructing parse trees.</p>
+<p><strong>Probabilistic Context-Free Grammar (PCFG)</strong> extends assigns probabilities to the production rules of a standard Context-Free Grammar (CFG). Each production rule defines how non-terminal symbols (such as NP for noun phrase or VP for verb phrase) can be expanded into sequences of terminal symbols (words) or other non-terminals. The probability associated with each rule indicates the likelihood of using that rule in generating or parsing sentences.</p>
+<p>The training of models for automatic tagging and parsing relies on labeled data from <strong>treebanks</strong>, which are collections of parsed sentences where each sentence has been annotated with its grammatical structure showing how words are grouped into phrases and how these phrases relate to each other through syntactic dependencies.  The <strong>Penn Treebank</strong> is one of the earliest and most widely used treebanks for English: it includes syntactic annotations such as part-of-speech tags and parse trees.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence_spans</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">sents</span><span class="p">)</span>
-<span class="n">displacy</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">sentence_spans</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">],</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;dep&quot;</span><span class="p">,</span> <span class="n">jupyter</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">displacy</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">sentence_spans</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">],</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;dep&quot;</span><span class="p">,</span> <span class="n">jupyter</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+                <span class="n">options</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">compact</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">distance</span><span class="o">=</span><span class="mi">175</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span class="tex2jax_ignore"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:lang="en" id="ba0d532b1cc3464fb2b8f029374dabe2-0" class="displacy" width="3375" height="749.5" direction="ltr" style="max-width: none; height: 749.5px; color: #000000; background: #ffffff; font-family: Arial; direction: ltr">
+<div class="output text_html"><span class="tex2jax_ignore"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:lang="en" id="59c816d5bfae4d94991b7a3f4c696ee6-0" class="displacy" width="3375" height="749.5" direction="ltr" style="max-width: none; height: 749.5px; color: #000000; background: #ffffff; font-family: Arial; direction: ltr">
 <text class="displacy-token" fill="currentColor" text-anchor="middle" y="659.5">
     <tspan class="displacy-word" fill="currentColor" x="50">since</tspan>
     <tspan class="displacy-tag" dy="2em" fill="currentColor" x="50">SCONJ</tspan>
@@ -1413,151 +1430,151 @@ document.write(`
 </text>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-0-0" stroke-width="2px" d="M70,614.5 C70,264.5 1610.0,264.5 1610.0,614.5" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-0-0" stroke-width="2px" d="M70,614.5 C70,264.5 1610.0,264.5 1610.0,614.5" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-0-0" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">prep</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-0-0" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">prep</textPath>
     </text>
     <path class="displacy-arrowhead" d="M70,616.5 L62,604.5 78,604.5" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-0-1" stroke-width="2px" d="M245,614.5 C245,439.5 550.0,439.5 550.0,614.5" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-0-1" stroke-width="2px" d="M245,614.5 C245,439.5 550.0,439.5 550.0,614.5" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-0-1" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">poss</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-0-1" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">poss</textPath>
     </text>
     <path class="displacy-arrowhead" d="M245,616.5 L237,604.5 253,604.5" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-0-2" stroke-width="2px" d="M420,614.5 C420,527.0 545.0,527.0 545.0,614.5" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-0-2" stroke-width="2px" d="M420,614.5 C420,527.0 545.0,527.0 545.0,614.5" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-0-2" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">amod</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-0-2" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">amod</textPath>
     </text>
     <path class="displacy-arrowhead" d="M420,616.5 L412,604.5 428,604.5" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-0-3" stroke-width="2px" d="M70,614.5 C70,352.0 555.0,352.0 555.0,614.5" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-0-3" stroke-width="2px" d="M70,614.5 C70,352.0 555.0,352.0 555.0,614.5" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-0-3" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">pobj</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-0-3" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">pobj</textPath>
     </text>
     <path class="displacy-arrowhead" d="M555.0,616.5 L563.0,604.5 547.0,604.5" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-0-4" stroke-width="2px" d="M595,614.5 C595,527.0 720.0,527.0 720.0,614.5" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-0-4" stroke-width="2px" d="M595,614.5 C595,527.0 720.0,527.0 720.0,614.5" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-0-4" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">prep</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-0-4" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">prep</textPath>
     </text>
     <path class="displacy-arrowhead" d="M720.0,616.5 L728.0,604.5 712.0,604.5" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-0-5" stroke-width="2px" d="M945,614.5 C945,527.0 1070.0,527.0 1070.0,614.5" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-0-5" stroke-width="2px" d="M945,614.5 C945,527.0 1070.0,527.0 1070.0,614.5" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-0-5" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">compound</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-0-5" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">compound</textPath>
     </text>
     <path class="displacy-arrowhead" d="M945,616.5 L937,604.5 953,604.5" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-0-6" stroke-width="2px" d="M770,614.5 C770,439.5 1075.0,439.5 1075.0,614.5" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-0-6" stroke-width="2px" d="M770,614.5 C770,439.5 1075.0,439.5 1075.0,614.5" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-0-6" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">pobj</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-0-6" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">pobj</textPath>
     </text>
     <path class="displacy-arrowhead" d="M1075.0,616.5 L1083.0,604.5 1067.0,604.5" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-0-7" stroke-width="2px" d="M1295,614.5 C1295,439.5 1600.0,439.5 1600.0,614.5" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-0-7" stroke-width="2px" d="M1295,614.5 C1295,439.5 1600.0,439.5 1600.0,614.5" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-0-7" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">nsubj</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-0-7" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">nsubj</textPath>
     </text>
     <path class="displacy-arrowhead" d="M1295,616.5 L1287,604.5 1303,604.5" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-0-8" stroke-width="2px" d="M1470,614.5 C1470,527.0 1595.0,527.0 1595.0,614.5" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-0-8" stroke-width="2px" d="M1470,614.5 C1470,527.0 1595.0,527.0 1595.0,614.5" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-0-8" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">aux</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-0-8" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">aux</textPath>
     </text>
     <path class="displacy-arrowhead" d="M1470,616.5 L1462,604.5 1478,604.5" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-0-9" stroke-width="2px" d="M1645,614.5 C1645,527.0 1770.0,527.0 1770.0,614.5" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-0-9" stroke-width="2px" d="M1645,614.5 C1645,527.0 1770.0,527.0 1770.0,614.5" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-0-9" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">prep</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-0-9" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">prep</textPath>
     </text>
     <path class="displacy-arrowhead" d="M1770.0,616.5 L1778.0,604.5 1762.0,604.5" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-0-10" stroke-width="2px" d="M1995,614.5 C1995,89.5 3195.0,89.5 3195.0,614.5" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-0-10" stroke-width="2px" d="M1995,614.5 C1995,89.5 3195.0,89.5 3195.0,614.5" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-0-10" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">amod</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-0-10" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">amod</textPath>
     </text>
     <path class="displacy-arrowhead" d="M1995,616.5 L1987,604.5 2003,604.5" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-0-11" stroke-width="2px" d="M2170,614.5 C2170,177.0 3190.0,177.0 3190.0,614.5" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-0-11" stroke-width="2px" d="M2170,614.5 C2170,177.0 3190.0,177.0 3190.0,614.5" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-0-11" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">amod</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-0-11" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">amod</textPath>
     </text>
     <path class="displacy-arrowhead" d="M2170,616.5 L2162,604.5 2178,604.5" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-0-12" stroke-width="2px" d="M2345,614.5 C2345,264.5 3185.0,264.5 3185.0,614.5" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-0-12" stroke-width="2px" d="M2345,614.5 C2345,264.5 3185.0,264.5 3185.0,614.5" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-0-12" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">amod</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-0-12" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">amod</textPath>
     </text>
     <path class="displacy-arrowhead" d="M2345,616.5 L2337,604.5 2353,604.5" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-0-13" stroke-width="2px" d="M2345,614.5 C2345,527.0 2470.0,527.0 2470.0,614.5" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-0-13" stroke-width="2px" d="M2345,614.5 C2345,527.0 2470.0,527.0 2470.0,614.5" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-0-13" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">cc</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-0-13" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">cc</textPath>
     </text>
     <path class="displacy-arrowhead" d="M2470.0,616.5 L2478.0,604.5 2462.0,604.5" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-0-14" stroke-width="2px" d="M2345,614.5 C2345,439.5 2650.0,439.5 2650.0,614.5" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-0-14" stroke-width="2px" d="M2345,614.5 C2345,439.5 2650.0,439.5 2650.0,614.5" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-0-14" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">conj</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-0-14" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">conj</textPath>
     </text>
     <path class="displacy-arrowhead" d="M2650.0,616.5 L2658.0,604.5 2642.0,604.5" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-0-15" stroke-width="2px" d="M2870,614.5 C2870,527.0 2995.0,527.0 2995.0,614.5" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-0-15" stroke-width="2px" d="M2870,614.5 C2870,527.0 2995.0,527.0 2995.0,614.5" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-0-15" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">advmod</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-0-15" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">advmod</textPath>
     </text>
     <path class="displacy-arrowhead" d="M2870,616.5 L2862,604.5 2878,604.5" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-0-16" stroke-width="2px" d="M2345,614.5 C2345,352.0 3005.0,352.0 3005.0,614.5" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-0-16" stroke-width="2px" d="M2345,614.5 C2345,352.0 3005.0,352.0 3005.0,614.5" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-0-16" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">conj</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-0-16" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">conj</textPath>
     </text>
     <path class="displacy-arrowhead" d="M3005.0,616.5 L3013.0,604.5 2997.0,604.5" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-0-17" stroke-width="2px" d="M1820,614.5 C1820,2.0 3200.0,2.0 3200.0,614.5" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-0-17" stroke-width="2px" d="M1820,614.5 C1820,2.0 3200.0,2.0 3200.0,614.5" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-0-17" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">pobj</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-0-17" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">pobj</textPath>
     </text>
     <path class="displacy-arrowhead" d="M3200.0,616.5 L3208.0,604.5 3192.0,604.5" fill="currentColor"/>
 </g>
 </svg>
 
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:lang="en" id="ba0d532b1cc3464fb2b8f029374dabe2-1" class="displacy" width="7925" height="662.0" direction="ltr" style="max-width: none; height: 662.0px; color: #000000; background: #ffffff; font-family: Arial; direction: ltr">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:lang="en" id="59c816d5bfae4d94991b7a3f4c696ee6-1" class="displacy" width="7925" height="662.0" direction="ltr" style="max-width: none; height: 662.0px; color: #000000; background: #ffffff; font-family: Arial; direction: ltr">
 <text class="displacy-token" fill="currentColor" text-anchor="middle" y="572.0">
     <tspan class="displacy-word" fill="currentColor" x="50">fueled</tspan>
     <tspan class="displacy-tag" dy="2em" fill="currentColor" x="50">VERB</tspan>
@@ -1786,363 +1803,364 @@ document.write(`
 </text>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-0" stroke-width="2px" d="M70,527.0 C70,2.0 3200.0,2.0 3200.0,527.0" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-0" stroke-width="2px" d="M70,527.0 C70,2.0 3200.0,2.0 3200.0,527.0" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-0" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">advcl</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-0" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">advcl</textPath>
     </text>
     <path class="displacy-arrowhead" d="M70,529.0 L62,517.0 78,517.0" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-1" stroke-width="2px" d="M70,527.0 C70,439.5 200.0,439.5 200.0,527.0" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-1" stroke-width="2px" d="M70,527.0 C70,439.5 200.0,439.5 200.0,527.0" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-1" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">agent</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-1" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">agent</textPath>
     </text>
     <path class="displacy-arrowhead" d="M200.0,529.0 L208.0,517.0 192.0,517.0" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-2" stroke-width="2px" d="M420,527.0 C420,352.0 730.0,352.0 730.0,527.0" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-2" stroke-width="2px" d="M420,527.0 C420,352.0 730.0,352.0 730.0,527.0" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-2" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">det</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-2" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">det</textPath>
     </text>
     <path class="displacy-arrowhead" d="M420,529.0 L412,517.0 428,517.0" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-3" stroke-width="2px" d="M595,527.0 C595,439.5 725.0,439.5 725.0,527.0" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-3" stroke-width="2px" d="M595,527.0 C595,439.5 725.0,439.5 725.0,527.0" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-3" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">amod</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-3" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">amod</textPath>
     </text>
     <path class="displacy-arrowhead" d="M595,529.0 L587,517.0 603,517.0" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-4" stroke-width="2px" d="M245,527.0 C245,264.5 735.0,264.5 735.0,527.0" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-4" stroke-width="2px" d="M245,527.0 C245,264.5 735.0,264.5 735.0,527.0" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-4" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">pobj</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-4" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">pobj</textPath>
     </text>
     <path class="displacy-arrowhead" d="M735.0,529.0 L743.0,517.0 727.0,517.0" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-5" stroke-width="2px" d="M770,527.0 C770,439.5 900.0,439.5 900.0,527.0" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-5" stroke-width="2px" d="M770,527.0 C770,439.5 900.0,439.5 900.0,527.0" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-5" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">prep</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-5" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">prep</textPath>
     </text>
     <path class="displacy-arrowhead" d="M900.0,529.0 L908.0,517.0 892.0,517.0" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-6" stroke-width="2px" d="M1120,527.0 C1120,352.0 1430.0,352.0 1430.0,527.0" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-6" stroke-width="2px" d="M1120,527.0 C1120,352.0 1430.0,352.0 1430.0,527.0" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-6" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">amod</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-6" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">amod</textPath>
     </text>
     <path class="displacy-arrowhead" d="M1120,529.0 L1112,517.0 1128,517.0" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-7" stroke-width="2px" d="M1295,527.0 C1295,439.5 1425.0,439.5 1425.0,527.0" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-7" stroke-width="2px" d="M1295,527.0 C1295,439.5 1425.0,439.5 1425.0,527.0" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-7" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">compound</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-7" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">compound</textPath>
     </text>
     <path class="displacy-arrowhead" d="M1295,529.0 L1287,517.0 1303,517.0" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-8" stroke-width="2px" d="M945,527.0 C945,264.5 1435.0,264.5 1435.0,527.0" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-8" stroke-width="2px" d="M945,527.0 C945,264.5 1435.0,264.5 1435.0,527.0" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-8" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">pobj</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-8" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">pobj</textPath>
     </text>
     <path class="displacy-arrowhead" d="M1435.0,529.0 L1443.0,517.0 1427.0,517.0" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-9" stroke-width="2px" d="M770,527.0 C770,177.0 1615.0,177.0 1615.0,527.0" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-9" stroke-width="2px" d="M770,527.0 C770,177.0 1615.0,177.0 1615.0,527.0" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-9" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">cc</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-9" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">cc</textPath>
     </text>
     <path class="displacy-arrowhead" d="M1615.0,529.0 L1623.0,517.0 1607.0,517.0" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-10" stroke-width="2px" d="M1820,527.0 C1820,439.5 1950.0,439.5 1950.0,527.0" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-10" stroke-width="2px" d="M1820,527.0 C1820,439.5 1950.0,439.5 1950.0,527.0" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-10" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">det</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-10" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">det</textPath>
     </text>
     <path class="displacy-arrowhead" d="M1820,529.0 L1812,517.0 1828,517.0" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-11" stroke-width="2px" d="M770,527.0 C770,89.5 1970.0,89.5 1970.0,527.0" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-11" stroke-width="2px" d="M770,527.0 C770,89.5 1970.0,89.5 1970.0,527.0" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-11" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">conj</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-11" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">conj</textPath>
     </text>
     <path class="displacy-arrowhead" d="M1970.0,529.0 L1978.0,517.0 1962.0,517.0" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-12" stroke-width="2px" d="M1995,527.0 C1995,439.5 2125.0,439.5 2125.0,527.0" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-12" stroke-width="2px" d="M1995,527.0 C1995,439.5 2125.0,439.5 2125.0,527.0" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-12" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">prep</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-12" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">prep</textPath>
     </text>
     <path class="displacy-arrowhead" d="M2125.0,529.0 L2133.0,517.0 2117.0,517.0" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-13" stroke-width="2px" d="M2345,527.0 C2345,352.0 2655.0,352.0 2655.0,527.0" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-13" stroke-width="2px" d="M2345,527.0 C2345,352.0 2655.0,352.0 2655.0,527.0" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-13" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">det</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-13" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">det</textPath>
     </text>
     <path class="displacy-arrowhead" d="M2345,529.0 L2337,517.0 2353,517.0" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-14" stroke-width="2px" d="M2520,527.0 C2520,439.5 2650.0,439.5 2650.0,527.0" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-14" stroke-width="2px" d="M2520,527.0 C2520,439.5 2650.0,439.5 2650.0,527.0" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-14" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">compound</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-14" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">compound</textPath>
     </text>
     <path class="displacy-arrowhead" d="M2520,529.0 L2512,517.0 2528,517.0" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-15" stroke-width="2px" d="M2170,527.0 C2170,264.5 2660.0,264.5 2660.0,527.0" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-15" stroke-width="2px" d="M2170,527.0 C2170,264.5 2660.0,264.5 2660.0,527.0" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-15" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">pobj</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-15" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">pobj</textPath>
     </text>
     <path class="displacy-arrowhead" d="M2660.0,529.0 L2668.0,517.0 2652.0,517.0" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-16" stroke-width="2px" d="M2870,527.0 C2870,352.0 3180.0,352.0 3180.0,527.0" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-16" stroke-width="2px" d="M2870,527.0 C2870,352.0 3180.0,352.0 3180.0,527.0" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-16" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">nsubj</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-16" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">nsubj</textPath>
     </text>
     <path class="displacy-arrowhead" d="M2870,529.0 L2862,517.0 2878,517.0" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-17" stroke-width="2px" d="M3045,527.0 C3045,439.5 3175.0,439.5 3175.0,527.0" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-17" stroke-width="2px" d="M3045,527.0 C3045,439.5 3175.0,439.5 3175.0,527.0" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-17" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">aux</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-17" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">aux</textPath>
     </text>
     <path class="displacy-arrowhead" d="M3045,529.0 L3037,517.0 3053,517.0" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-18" stroke-width="2px" d="M3395,527.0 C3395,352.0 3705.0,352.0 3705.0,527.0" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-18" stroke-width="2px" d="M3395,527.0 C3395,352.0 3705.0,352.0 3705.0,527.0" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-18" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">poss</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-18" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">poss</textPath>
     </text>
     <path class="displacy-arrowhead" d="M3395,529.0 L3387,517.0 3403,517.0" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-19" stroke-width="2px" d="M3570,527.0 C3570,439.5 3700.0,439.5 3700.0,527.0" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-19" stroke-width="2px" d="M3570,527.0 C3570,439.5 3700.0,439.5 3700.0,527.0" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-19" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">compound</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-19" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">compound</textPath>
     </text>
     <path class="displacy-arrowhead" d="M3570,529.0 L3562,517.0 3578,517.0" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-20" stroke-width="2px" d="M3220,527.0 C3220,264.5 3710.0,264.5 3710.0,527.0" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-20" stroke-width="2px" d="M3220,527.0 C3220,264.5 3710.0,264.5 3710.0,527.0" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-20" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">dobj</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-20" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">dobj</textPath>
     </text>
     <path class="displacy-arrowhead" d="M3710.0,529.0 L3718.0,517.0 3702.0,517.0" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-21" stroke-width="2px" d="M3920,527.0 C3920,439.5 4050.0,439.5 4050.0,527.0" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-21" stroke-width="2px" d="M3920,527.0 C3920,439.5 4050.0,439.5 4050.0,527.0" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-21" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">aux</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-21" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">aux</textPath>
     </text>
     <path class="displacy-arrowhead" d="M3920,529.0 L3912,517.0 3928,517.0" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-22" stroke-width="2px" d="M3220,527.0 C3220,177.0 4065.0,177.0 4065.0,527.0" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-22" stroke-width="2px" d="M3220,527.0 C3220,177.0 4065.0,177.0 4065.0,527.0" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-22" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">xcomp</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-22" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">xcomp</textPath>
     </text>
     <path class="displacy-arrowhead" d="M4065.0,529.0 L4073.0,517.0 4057.0,517.0" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-23" stroke-width="2px" d="M4095,527.0 C4095,439.5 4225.0,439.5 4225.0,527.0" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-23" stroke-width="2px" d="M4095,527.0 C4095,439.5 4225.0,439.5 4225.0,527.0" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-23" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">dobj</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-23" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">dobj</textPath>
     </text>
     <path class="displacy-arrowhead" d="M4225.0,529.0 L4233.0,517.0 4217.0,517.0" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-24" stroke-width="2px" d="M4270,527.0 C4270,439.5 4400.0,439.5 4400.0,527.0" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-24" stroke-width="2px" d="M4270,527.0 C4270,439.5 4400.0,439.5 4400.0,527.0" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-24" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">prep</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-24" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">prep</textPath>
     </text>
     <path class="displacy-arrowhead" d="M4400.0,529.0 L4408.0,517.0 4392.0,517.0" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-25" stroke-width="2px" d="M4620,527.0 C4620,439.5 4750.0,439.5 4750.0,527.0" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-25" stroke-width="2px" d="M4620,527.0 C4620,439.5 4750.0,439.5 4750.0,527.0" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-25" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">amod</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-25" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">amod</textPath>
     </text>
     <path class="displacy-arrowhead" d="M4620,529.0 L4612,517.0 4628,517.0" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-26" stroke-width="2px" d="M4445,527.0 C4445,352.0 4755.0,352.0 4755.0,527.0" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-26" stroke-width="2px" d="M4445,527.0 C4445,352.0 4755.0,352.0 4755.0,527.0" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-26" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">pobj</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-26" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">pobj</textPath>
     </text>
     <path class="displacy-arrowhead" d="M4755.0,529.0 L4763.0,517.0 4747.0,517.0" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-27" stroke-width="2px" d="M4970,527.0 C4970,439.5 5100.0,439.5 5100.0,527.0" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-27" stroke-width="2px" d="M4970,527.0 C4970,439.5 5100.0,439.5 5100.0,527.0" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-27" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">amod</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-27" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">amod</textPath>
     </text>
     <path class="displacy-arrowhead" d="M4970,529.0 L4962,517.0 4978,517.0" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-28" stroke-width="2px" d="M4795,527.0 C4795,352.0 5105.0,352.0 5105.0,527.0" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-28" stroke-width="2px" d="M4795,527.0 C4795,352.0 5105.0,352.0 5105.0,527.0" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-28" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">conj</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-28" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">conj</textPath>
     </text>
     <path class="displacy-arrowhead" d="M5105.0,529.0 L5113.0,517.0 5097.0,517.0" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-29" stroke-width="2px" d="M5145,527.0 C5145,439.5 5275.0,439.5 5275.0,527.0" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-29" stroke-width="2px" d="M5145,527.0 C5145,439.5 5275.0,439.5 5275.0,527.0" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-29" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">cc</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-29" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">cc</textPath>
     </text>
     <path class="displacy-arrowhead" d="M5275.0,529.0 L5283.0,517.0 5267.0,517.0" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-30" stroke-width="2px" d="M5145,527.0 C5145,352.0 5455.0,352.0 5455.0,527.0" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-30" stroke-width="2px" d="M5145,527.0 C5145,352.0 5455.0,352.0 5455.0,527.0" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-30" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">conj</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-30" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">conj</textPath>
     </text>
     <path class="displacy-arrowhead" d="M5455.0,529.0 L5463.0,517.0 5447.0,517.0" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-31" stroke-width="2px" d="M5670,527.0 C5670,439.5 5800.0,439.5 5800.0,527.0" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-31" stroke-width="2px" d="M5670,527.0 C5670,439.5 5800.0,439.5 5800.0,527.0" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-31" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">compound</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-31" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">compound</textPath>
     </text>
     <path class="displacy-arrowhead" d="M5670,529.0 L5662,517.0 5678,517.0" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-32" stroke-width="2px" d="M5495,527.0 C5495,352.0 5805.0,352.0 5805.0,527.0" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-32" stroke-width="2px" d="M5495,527.0 C5495,352.0 5805.0,352.0 5805.0,527.0" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-32" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">conj</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-32" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">conj</textPath>
     </text>
     <path class="displacy-arrowhead" d="M5805.0,529.0 L5813.0,517.0 5797.0,517.0" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-33" stroke-width="2px" d="M6020,527.0 C6020,439.5 6150.0,439.5 6150.0,527.0" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-33" stroke-width="2px" d="M6020,527.0 C6020,439.5 6150.0,439.5 6150.0,527.0" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-33" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">amod</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-33" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">amod</textPath>
     </text>
     <path class="displacy-arrowhead" d="M6020,529.0 L6012,517.0 6028,517.0" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-34" stroke-width="2px" d="M5845,527.0 C5845,352.0 6155.0,352.0 6155.0,527.0" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-34" stroke-width="2px" d="M5845,527.0 C5845,352.0 6155.0,352.0 6155.0,527.0" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-34" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">conj</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-34" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">conj</textPath>
     </text>
     <path class="displacy-arrowhead" d="M6155.0,529.0 L6163.0,517.0 6147.0,517.0" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-35" stroke-width="2px" d="M6195,527.0 C6195,439.5 6325.0,439.5 6325.0,527.0" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-35" stroke-width="2px" d="M6195,527.0 C6195,439.5 6325.0,439.5 6325.0,527.0" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-35" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">cc</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-35" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">cc</textPath>
     </text>
     <path class="displacy-arrowhead" d="M6325.0,529.0 L6333.0,517.0 6317.0,517.0" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-36" stroke-width="2px" d="M6545,527.0 C6545,439.5 6675.0,439.5 6675.0,527.0" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-36" stroke-width="2px" d="M6545,527.0 C6545,439.5 6675.0,439.5 6675.0,527.0" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-36" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">nmod</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-36" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">nmod</textPath>
     </text>
     <path class="displacy-arrowhead" d="M6545,529.0 L6537,517.0 6553,517.0" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-37" stroke-width="2px" d="M6720,527.0 C6720,177.0 7565.0,177.0 7565.0,527.0" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-37" stroke-width="2px" d="M6720,527.0 C6720,177.0 7565.0,177.0 7565.0,527.0" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-37" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">nmod</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-37" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">nmod</textPath>
     </text>
     <path class="displacy-arrowhead" d="M6720,529.0 L6712,517.0 6728,517.0" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-38" stroke-width="2px" d="M6895,527.0 C6895,264.5 7560.0,264.5 7560.0,527.0" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-38" stroke-width="2px" d="M6895,527.0 C6895,264.5 7560.0,264.5 7560.0,527.0" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-38" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">amod</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-38" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">amod</textPath>
     </text>
     <path class="displacy-arrowhead" d="M6895,529.0 L6887,517.0 6903,517.0" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-39" stroke-width="2px" d="M6895,527.0 C6895,439.5 7025.0,439.5 7025.0,527.0" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-39" stroke-width="2px" d="M6895,527.0 C6895,439.5 7025.0,439.5 7025.0,527.0" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-39" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">cc</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-39" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">cc</textPath>
     </text>
     <path class="displacy-arrowhead" d="M7025.0,529.0 L7033.0,517.0 7017.0,517.0" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-40" stroke-width="2px" d="M6895,527.0 C6895,352.0 7205.0,352.0 7205.0,527.0" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-40" stroke-width="2px" d="M6895,527.0 C6895,352.0 7205.0,352.0 7205.0,527.0" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-40" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">conj</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-40" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">conj</textPath>
     </text>
     <path class="displacy-arrowhead" d="M7205.0,529.0 L7213.0,517.0 7197.0,517.0" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-41" stroke-width="2px" d="M7420,527.0 C7420,439.5 7550.0,439.5 7550.0,527.0" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-41" stroke-width="2px" d="M7420,527.0 C7420,439.5 7550.0,439.5 7550.0,527.0" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-41" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">compound</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-41" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">compound</textPath>
     </text>
     <path class="displacy-arrowhead" d="M7420,529.0 L7412,517.0 7428,517.0" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-42" stroke-width="2px" d="M3220,527.0 C3220,89.5 7570.0,89.5 7570.0,527.0" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-42" stroke-width="2px" d="M3220,527.0 C3220,89.5 7570.0,89.5 7570.0,527.0" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-42" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">punct</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-42" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">punct</textPath>
     </text>
     <path class="displacy-arrowhead" d="M7570.0,529.0 L7578.0,517.0 7562.0,517.0" fill="currentColor"/>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-43" stroke-width="2px" d="M7595,527.0 C7595,439.5 7725.0,439.5 7725.0,527.0" fill="none" stroke="currentColor"/>
+    <path class="displacy-arc" id="arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-43" stroke-width="2px" d="M7595,527.0 C7595,439.5 7725.0,439.5 7725.0,527.0" fill="none" stroke="currentColor"/>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textPath xlink:href="#arrow-ba0d532b1cc3464fb2b8f029374dabe2-1-43" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">dep</textPath>
+        <textPath xlink:href="#arrow-59c816d5bfae4d94991b7a3f4c696ee6-1-43" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">dep</textPath>
     </text>
     <path class="displacy-arrowhead" d="M7725.0,529.0 L7733.0,517.0 7717.0,517.0" fill="currentColor"/>
 </g>
 </svg></span></div></div>
 </div>
 </section>
-</section>
-<section id="word2vec">
-<h2>Word2Vec<a class="headerlink" href="#word2vec" title="Permalink to this heading">#</a></h2>
-<p>Trained using the word2vec family of algorithms</p>
+<section id="word-vectors">
+<h3>Word vectors<a class="headerlink" href="#word-vectors" title="Permalink to this heading">#</a></h3>
+<p>Word embeddings are numerical representations of words in a multidimensional space, created to help capture the relationships and meanings of words. Word embeddings achieve this by mapping words into a high-dimensional space, where the positions of the words reflect their syntactical and semantic similarities based on how often they co-occur within a large corpus.</p>
+<p>For example, spaCy’s <code class="docutils literal notranslate"><span class="pre">en_core_web_lg</span></code> model represents each of some 500K+ words in its vocabulary with a unique 300-dimensional vector.</p>
+<p>Use the POS tagger in the spaCy pipeline to extract the lemmatized form of nouns from business descriptions text</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extract nouns</span>
@@ -2167,6 +2185,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Show the average word vector value for NVidia’s business description text.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># example of word vector</span>
@@ -2241,6 +2260,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Compute average word vector value for all companies’ business description text</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute sentence vectors</span>
@@ -2270,7 +2290,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Show most similar</p>
+<p>Show companies with most similar business descriptions, for some selected companies</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">most_similar</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
@@ -2294,17 +2314,18 @@ U S BANCORP DEL&#39; is most similar to &#39;AMERICAN EXPRESS&#39;
 </div>
 </div>
 </section>
-<section id="density-based-clustering">
-<h2>Density-based clustering<a class="headerlink" href="#density-based-clustering" title="Permalink to this heading">#</a></h2>
+</section>
 <section id="t-sne-visualization">
-<h3><strong>t-SNE visualization</strong><a class="headerlink" href="#t-sne-visualization" title="Permalink to this heading">#</a></h3>
+<h2><strong>t-SNE visualization</strong><a class="headerlink" href="#t-sne-visualization" title="Permalink to this heading">#</a></h2>
 <p>T-distributed Stochastic Neighbor Embedding (t-SNE)
 is a tool to visualize high-dimensional data. It
 converts similarities between data points to joint probabilities and
 tries to minimize the Kullback-Leibler divergence between the joint
 probabilities of the low-dimensional embedding and the
-high-dimensional data.</p>
-<p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html">https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html</a></p>
+high-dimensional data. It preserves the local structure of the data in 2D or 3D, ensuring that similar data points are mapped close to each other, which helps in identifying clusters that are not easily observable in higher dimensions.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html">https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html</a></p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Z</span> <span class="o">=</span> <span class="n">TSNE</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">perplexity</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>\
@@ -2313,6 +2334,7 @@ high-dimensional data.</p>
 </div>
 </div>
 </div>
+<p>Visualize the business descriptions, reduced to 2D space with the t-SNE technique, with tickers as labels.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
@@ -2329,9 +2351,9 @@ high-dimensional data.</p>
 </div>
 </section>
 <section id="dbscan">
-<h3>DBSCAN<a class="headerlink" href="#dbscan" title="Permalink to this heading">#</a></h3>
-<p>Density-based spatial clustering of applications with noise</p>
-<p>TODO: see wikipedia, most cited, advantages, how to choose eps</p>
+<h2>DBSCAN<a class="headerlink" href="#dbscan" title="Permalink to this heading">#</a></h2>
+<p>DBSCAN (Density-Based Spatial Clustering of Applications with Noise) is a clustering algorithm
+for datasets with intricate cluster shapes and varying densities. It is also robust to noise, by identifying points in low-density areas as outliers. Unlike k-means, it doesn’t require a predefined number of clusters, and requires two main parameters: epsilon (ε) and the minimum number of points to form a dense region.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># eps is the most important parameter for DBSCAN</span>
@@ -2379,6 +2401,7 @@ high-dimensional data.</p>
 </table>
 </div></div></div>
 </div>
+<p>Visualize the colored clusters of business descriptions in 2-dimensional space.  Ticker symbols of outliers are displayed with larger font sizes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cmap</span> <span class="o">=</span> <span class="n">ColorMap</span><span class="p">(</span><span class="n">n_clusters</span><span class="p">)</span>
@@ -2567,108 +2590,6 @@ high-dimensional data.</p>
 </table>
 </div></div></div>
 </div>
-<p>Ignore the rest (may go to DAN)</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vec</span> <span class="o">=</span> <span class="p">(</span><span class="n">nlp</span><span class="o">.</span><span class="n">vocab</span><span class="p">[</span><span class="s1">&#39;king&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">vector</span>
-        <span class="o">-</span> <span class="n">nlp</span><span class="o">.</span><span class="n">vocab</span><span class="p">[</span><span class="s1">&#39;man&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">vector</span>
-        <span class="o">+</span> <span class="n">nlp</span><span class="o">.</span><span class="n">vocab</span><span class="p">[</span><span class="s1">&#39;woman&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">vector</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">vec</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="n">sim</span> <span class="o">=</span> <span class="n">nlp</span><span class="o">.</span><span class="n">vocab</span><span class="o">.</span><span class="n">vectors</span><span class="o">.</span><span class="n">most_similar</span><span class="p">(</span><span class="n">vec</span><span class="p">[</span><span class="kc">None</span><span class="p">,:],</span> <span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="p">[</span><span class="n">nlp</span><span class="o">.</span><span class="n">vocab</span><span class="o">.</span><span class="n">strings</span><span class="p">[</span><span class="n">hashkey</span><span class="p">]</span> <span class="k">for</span> <span class="n">hashkey</span> <span class="ow">in</span> <span class="n">sim</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load pretrained embeddings                                                     </span>
-<span class="n">emb</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span>\
-        <span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">FloatTensor</span><span class="p">(</span><span class="n">nlp</span><span class="o">.</span><span class="n">vocab</span><span class="o">.</span><span class="n">vectors</span><span class="o">.</span><span class="n">data</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># test for Spacy.nlp and torch.embeddings                                        </span>
-<span class="n">test_vocab</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;king&#39;</span><span class="p">,</span> <span class="s1">&#39;man&#39;</span><span class="p">,</span> <span class="s1">&#39;woman&#39;</span><span class="p">,</span> <span class="s1">&#39;queen&#39;</span><span class="p">,</span> <span class="s1">&#39;e9s82j&#39;</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">test_vocab</span><span class="p">:</span>
-    <span class="n">vocab_id</span> <span class="o">=</span> <span class="n">nlp</span><span class="o">.</span><span class="n">vocab</span><span class="o">.</span><span class="n">strings</span><span class="p">[</span><span class="n">w</span><span class="p">]</span>
-    <span class="n">spacy_vec</span> <span class="o">=</span> <span class="n">nlp</span><span class="o">.</span><span class="n">vocab</span><span class="p">[</span><span class="n">w</span><span class="p">]</span><span class="o">.</span><span class="n">vector</span>
-    <span class="n">row</span> <span class="o">=</span> <span class="n">nlp</span><span class="o">.</span><span class="n">vocab</span><span class="o">.</span><span class="n">vectors</span><span class="o">.</span><span class="n">key2row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">vocab_id</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="c1"># dict                   </span>
-    <span class="k">if</span> <span class="n">row</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> is oov&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">w</span><span class="p">))</span>
-        <span class="k">continue</span>
-    <span class="n">vocab_row</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">long</span><span class="p">)</span>
-    <span class="n">embed_vec</span> <span class="o">=</span> <span class="n">emb</span><span class="p">(</span><span class="n">vocab_row</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">spacy_vec</span><span class="p">,</span> <span class="n">embed_vec</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">nlp</span><span class="o">.</span><span class="n">vocab</span><span class="o">.</span><span class="n">vectors</span><span class="o">.</span><span class="n">key2row</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="k">if</span> <span class="n">row</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">nlp</span><span class="o">.</span><span class="n">vocab</span><span class="o">.</span><span class="n">strings</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="exploring-spacy">
-<h2>Exploring Spacy<a class="headerlink" href="#exploring-spacy" title="Permalink to this heading">#</a></h2>
-<p>“””
-hashkey = nlp.vocab.strings[v]: general hash table between vocab strings and ids
-vec = nlp.vocab[v].vector: np array with word embedding vector from vocab string
-row = nlp.vocab.vectors.key2row: dict from word’s hashkey to int</p>
-<p>emb = nn.Embedding.from_pretrained(torch.FloatTensor(nlp.vocab.vectors.data))
-emb(row) == vec : equivalence of torch embedding and spacy vector</p>
-<p>token = nlp(‘king man queen woman’)[0]
-token.lower : hashkey
-token.lower_: str
-token.lex_id : row of word vector
-token.has_vector : has word vector representation
-“””</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">doc</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">(</span><span class="s1">&#39;king queen man woman a23kj4j&#39;</span><span class="p">)</span>
-<span class="n">line</span> <span class="o">=</span> <span class="p">[</span><span class="n">tok</span><span class="o">.</span><span class="n">lex_id</span> <span class="k">for</span> <span class="n">tok</span> <span class="ow">in</span> <span class="n">doc</span>
-        <span class="k">if</span> <span class="ow">not</span><span class="p">(</span><span class="n">tok</span><span class="o">.</span><span class="n">is_stop</span> <span class="ow">or</span> <span class="n">tok</span><span class="o">.</span><span class="n">is_punct</span> <span class="ow">or</span> <span class="n">tok</span><span class="o">.</span><span class="n">is_oov</span> <span class="ow">or</span> <span class="n">tok</span><span class="o">.</span><span class="n">is_space</span><span class="p">)]</span>
-
-<span class="n">vec</span> <span class="o">=</span> <span class="p">(</span><span class="n">nlp</span><span class="o">.</span><span class="n">vocab</span><span class="p">[</span><span class="s1">&#39;king&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">vector</span>
-        <span class="o">-</span> <span class="n">nlp</span><span class="o">.</span><span class="n">vocab</span><span class="p">[</span><span class="s1">&#39;man&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">vector</span>
-        <span class="o">+</span> <span class="n">nlp</span><span class="o">.</span><span class="n">vocab</span><span class="p">[</span><span class="s1">&#39;woman&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">vector</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">vec</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="n">sim</span> <span class="o">=</span> <span class="n">nlp</span><span class="o">.</span><span class="n">vocab</span><span class="o">.</span><span class="n">vectors</span><span class="o">.</span><span class="n">most_similar</span><span class="p">(</span><span class="n">vec</span><span class="p">[</span><span class="kc">None</span><span class="p">,:],</span> <span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="p">[</span><span class="n">nlp</span><span class="o">.</span><span class="n">vocab</span><span class="o">.</span><span class="n">strings</span><span class="p">[</span><span class="n">hashkey</span><span class="p">]</span> <span class="k">for</span> <span class="n">hashkey</span> <span class="ow">in</span> <span class="n">sim</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span>
-
-<span class="c1"># Load pretrained embeddings                                                     </span>
-<span class="n">emb</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span>\
-        <span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">FloatTensor</span><span class="p">(</span><span class="n">nlp</span><span class="o">.</span><span class="n">vocab</span><span class="o">.</span><span class="n">vectors</span><span class="o">.</span><span class="n">data</span><span class="p">))</span>
-
-<span class="c1"># test for Spacy.nlp and torch.embeddings                                        </span>
-<span class="n">test_vocab</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;king&#39;</span><span class="p">,</span> <span class="s1">&#39;man&#39;</span><span class="p">,</span> <span class="s1">&#39;woman&#39;</span><span class="p">,</span> <span class="s1">&#39;queen&#39;</span><span class="p">,</span> <span class="s1">&#39;e9s82j&#39;</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">test_vocab</span><span class="p">:</span>
-    <span class="n">vocab_id</span> <span class="o">=</span> <span class="n">nlp</span><span class="o">.</span><span class="n">vocab</span><span class="o">.</span><span class="n">strings</span><span class="p">[</span><span class="n">w</span><span class="p">]</span>
-    <span class="n">spacy_vec</span> <span class="o">=</span> <span class="n">nlp</span><span class="o">.</span><span class="n">vocab</span><span class="p">[</span><span class="n">w</span><span class="p">]</span><span class="o">.</span><span class="n">vector</span>
-    <span class="n">row</span> <span class="o">=</span> <span class="n">nlp</span><span class="o">.</span><span class="n">vocab</span><span class="o">.</span><span class="n">vectors</span><span class="o">.</span><span class="n">key2row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">vocab_id</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="c1"># dict                   </span>
-    <span class="k">if</span> <span class="n">row</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> is oov&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">w</span><span class="p">))</span>
-        <span class="k">continue</span>
-    <span class="n">vocab_row</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">long</span><span class="p">)</span>
-    <span class="n">embed_vec</span> <span class="o">=</span> <span class="n">emb</span><span class="p">(</span><span class="n">vocab_row</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">spacy_vec</span><span class="p">,</span> <span class="n">embed_vec</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()))</span>
-
-<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">nlp</span><span class="o">.</span><span class="n">vocab</span><span class="o">.</span><span class="n">vectors</span><span class="o">.</span><span class="n">key2row</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="k">if</span> <span class="n">row</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">nlp</span><span class="o">.</span><span class="n">vocab</span><span class="o">.</span><span class="n">strings</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 </section>
 
@@ -2737,20 +2658,16 @@ token.has_vector : has word vector representation
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntactic-analysis">Syntactic analysis</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spacy-language-pipeline">Spacy language pipeline</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenization">Tokenization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spacy">SpaCy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lemmatization">Lemmatization</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-of-speech-tagging">Part-of-speech tagging</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entity-recognition">Entity recognition</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dependency-tree">Dependency tree</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#named-entity-recognition">Named entity recognition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dependency-parsing">Dependency parsing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#word-vectors">Word vectors</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#word2vec">Word2Vec</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#density-based-clustering">Density-based clustering</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#t-sne-visualization"><strong>t-SNE visualization</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dbscan">DBSCAN</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-spacy">Exploring Spacy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#t-sne-visualization"><strong>t-SNE visualization</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dbscan">DBSCAN</a></li>
 </ul>
   </nav></div>
 

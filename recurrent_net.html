@@ -209,7 +209,7 @@
 <li class="toctree-l1"><a class="reference internal" href="sentiment_llm.html">LLM Prompting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="summarization_llm.html">LLM Text Summarization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="finetune_llm.html">LLM Finetuning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rag_agent.html">LLM RAG, Chatbots and Agents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rag_agent.html">RAG, Chatbots and Agents</a></li>
 </ul>
 
     </div>
@@ -405,8 +405,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recurrent-neural-network">Recurrent Neural Network</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elman-network">Elman Network</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#elman-rnn">Elman RNN</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-rate">Learning rate</a></li>
 </ul>
 </li>
@@ -427,17 +426,14 @@ document.write(`
 <p><em>The only thing we know about the future is that it will be different</em> - Peter Drucker</p>
 <p>Concepts:</p>
 <ul class="simple">
-<li><p>Recurrent Neural Network</p></li>
+<li><p>Elman RNN</p></li>
 <li><p>Linear Dynamic Factor Models</p></li>
-<li><p>(?) Dynamic Factor Models:
-latent autocorrelated factors estimated by EM or Kalman Filter algorithm</p>
-<ul>
-<li><p>model selection on factor AR lags</p></li>
 </ul>
-</li>
-<li><p>(?) RNN: hidden states feedback</p></li>
+<p>References</p>
+<ul class="simple">
+<li><p>Philipp Krahenbuhl, 2020, “CS395T Deep Learning course materials”, retrieved from <a class="reference external" href="http://www.philkr.net/dl_class/material">http://www.philkr.net/dl_class/material</a></p></li>
+<li><p><a class="reference external" href="https://www.statsmodels.org/dev/examples/notebooks/generated/statespace_dfm_coincident.html">https://www.statsmodels.org/dev/examples/notebooks/generated/statespace_dfm_coincident.html</a></p></li>
 </ul>
-<p><a class="reference external" href="https://www.statsmodels.org/dev/examples/notebooks/generated/statespace_dfm_coincident.html">https://www.statsmodels.org/dev/examples/notebooks/generated/statespace_dfm_coincident.html</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -687,10 +683,8 @@ latent autocorrelated factors estimated by EM or Kalman Filter algorithm</p>
 <p>687 rows × 6 columns</p>
 </div></div></div>
 </div>
-<section id="recurrent-neural-network">
-<h2>Recurrent Neural Network<a class="headerlink" href="#recurrent-neural-network" title="Permalink to this heading">#</a></h2>
-<section id="elman-network">
-<h3>Elman Network<a class="headerlink" href="#elman-network" title="Permalink to this heading">#</a></h3>
+<section id="elman-rnn">
+<h2>Elman RNN<a class="headerlink" href="#elman-rnn" title="Permalink to this heading">#</a></h2>
 <p>Applies a multi-layer Elman RNN with tanh (or ReLU) non-linearity to an input sequence.</p>
 <p>For each element in the input sequence, each layer computes the following function:</p>
 <div class="math notranslate nohighlight">
@@ -739,7 +733,6 @@ latent autocorrelated factors estimated by EM or Kalman Filter algorithm</p>
 </div>
 </div>
 </div>
-</section>
 <section id="learning-rate">
 <h3>Learning rate<a class="headerlink" href="#learning-rate" title="Permalink to this heading">#</a></h3>
 <p>learning rate schedulimg</p>
@@ -1345,8 +1338,7 @@ Number of parameters: 31
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recurrent-neural-network">Recurrent Neural Network</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elman-network">Elman Network</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#elman-rnn">Elman RNN</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-rate">Learning rate</a></li>
 </ul>
 </li>

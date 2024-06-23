@@ -59,7 +59,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'finetune_llm';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="LLM RAG, Chatbots and Agents" href="rag_agent.html" />
+    <link rel="next" title="RAG, Chatbots and Agents" href="rag_agent.html" />
     <link rel="prev" title="LLM Text Summarization" href="summarization_llm.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -207,7 +207,7 @@
 <li class="toctree-l1"><a class="reference internal" href="sentiment_llm.html">LLM Prompting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="summarization_llm.html">LLM Text Summarization</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">LLM Finetuning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rag_agent.html">LLM RAG, Chatbots and Agents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rag_agent.html">RAG, Chatbots and Agents</a></li>
 </ul>
 
     </div>
@@ -403,10 +403,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unsloth-apis">Unsloth APIs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#low-rank-adaptation">Low-rank adaptation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#huggingface-datasets">HuggingFace datasets</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supervised-fine-tuning">Supervised fine-tuning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transfer-learning">Transfer learning</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-efficient-fine-tuning">Performance-Efficient Fine-Tuning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#low-rank-adaptation">Low-Rank Adaptation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unsloth-apis">Unsloth APIs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supervised-fine-tuning">Supervised fine-tuning</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#huggingface-dataset-module">HuggingFace Dataset module</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -422,9 +428,9 @@ document.write(`
 <h1>LLM Finetuning<a class="headerlink" href="#llm-finetuning" title="Permalink to this heading">#</a></h1>
 <p>Concepts:</p>
 <ul class="simple">
-<li><p>Industry Classification</p></li>
-<li><p>Unsloth APIs</p></li>
-<li><p>Performance Efficient Fine-tuning</p></li>
+<li><p>Industry classification from 10-K business descriptions</p></li>
+<li><p>Performance-Efficient Fine-tuning</p></li>
+<li><p>Low-Rank Adaptation</p></li>
 <li><p>Supervised Fine-tuning</p></li>
 </ul>
 <div class="cell docutils container">
@@ -515,12 +521,6 @@ document.write(`
 <span class="n">industry</span> <span class="o">=</span> <span class="n">industry</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">industry</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">univ</span><span class="p">[</span><span class="s1">&#39;siccd&#39;</span><span class="p">])</span>
 <span class="n">sectors</span> <span class="o">=</span> <span class="n">Sectoring</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">scheme</span><span class="o">=</span><span class="s1">&#39;codes10&#39;</span><span class="p">,</span> <span class="n">fillna</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>   <span class="c1"># supplement from crosswalk</span>
 <span class="n">univ</span><span class="p">[</span><span class="s1">&#39;sector&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sectors</span><span class="p">[</span><span class="n">industry</span><span class="p">]</span>
-<span class="c1">#fullnames = Series({&#39;Durbl&#39;: &quot;Durable&quot;, &#39;Enrgy&#39;: &quot;Energy&quot;,</span>
-<span class="c1">#                    &#39;HiTec&#39;: &quot;Technology&quot;, &#39;Hlth&#39;: &quot;Healthcare&quot;,</span>
-<span class="c1">#                    &#39;Manuf&#39;: &quot;Manufacturing&quot;, &#39;NoDur&#39;: &quot;Nondurable&quot;,</span>
-<span class="c1">#                    &#39;Other&#39;: &quot;Other&quot;, &#39;Shops&#39;: &quot;Retail&quot;,</span>
-<span class="c1">#                    &#39;Telcm&#39;: &quot;Telecommunications&quot;, &#39;Utils&#39;: &quot;Utilities&quot;})</span>
-<span class="c1">#univ[&#39;sector&#39;] = fullnames[sectors[industry]].values</span>
 </pre></div>
 </div>
 </div>
@@ -631,7 +631,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># helper to decode class label in text</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># helper to decode class label from response text</span>
 <span class="n">class_labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">decode_label</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Extract label from output string text&quot;&quot;&quot;</span>
@@ -650,9 +650,20 @@ document.write(`
 </div>
 </div>
 </div>
+<section id="transfer-learning">
+<h2>Transfer learning<a class="headerlink" href="#transfer-learning" title="Permalink to this heading">#</a></h2>
+<p><strong>Transfer learning</strong> refers to the technique of starting with a pre-trained model (which captures general features from its source dataset) and then adapting it learn to perform on a specfic dataset and target task. <strong>Fine-tuning</strong> is a specific type of transfer learning where the (pre-trained) model parameters are adjusted by training it on the new, task-specific dataset. This can involve adjusting all layers of the model or just the final layers, depending on the complexity of the task.</p>
+<section id="performance-efficient-fine-tuning">
+<h3>Performance-Efficient Fine-Tuning<a class="headerlink" href="#performance-efficient-fine-tuning" title="Permalink to this heading">#</a></h3>
+<p>Performance-efficient fine-tuning (PEFT) describes the approach of adapting a pre-trained model to a new, specific task using minimal computational resources and data. It employs efficient techniques, like LoRA which fine-tunes a small number of (extra) model parameters instead of all the model’s parameters.</p>
+</section>
+<section id="low-rank-adaptation">
+<h3>Low-Rank Adaptation<a class="headerlink" href="#low-rank-adaptation" title="Permalink to this heading">#</a></h3>
+<p>Low-Rank Adaptation (LoRA) speeds up the training process of large models by approximating the large set of parameters and representing them in a lower-dimensional space. It reduces the number of trainable parameters by learning pairs of rank-decompostion matrices while freezing the original weights.</p>
+</section>
 <section id="unsloth-apis">
-<h2>Unsloth APIs<a class="headerlink" href="#unsloth-apis" title="Permalink to this heading">#</a></h2>
-<p>Unsloth’s library uses several advanced techniques to make training large language models (LLMs) much faster and more efficient, for example, by optimizing matrix multiplications, which are a key part of LLM training, by chaining them together efficiently.</p>
+<h3>Unsloth APIs<a class="headerlink" href="#unsloth-apis" title="Permalink to this heading">#</a></h3>
+<p>Unsloth provides a library that uses several advanced techniques to make training large language models (LLMs) much faster and more efficient, for example, by optimizing matrix multiplications, which are a key part of LLM training, by chaining them together efficiently.</p>
 <p>Installing unsloth:</p>
 <p><code class="docutils literal notranslate"><span class="pre">!pip</span> <span class="pre">install</span> <span class="pre">&quot;unsloth[colab-new]</span> <span class="pre">&#64;</span> <span class="pre">git+https://github.com/unslothai/unsloth.git&quot;</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">major_version,</span> <span class="pre">minor_version</span> <span class="pre">=</span> <span class="pre">torch.cuda.get_device_capability()</span></code> - must install separately since torch 2.2.1 breaks packages</p>
@@ -715,14 +726,10 @@ O^O/ \_/ \    Pytorch: 2.2.1+cu121. CUDA = 8.6. CUDA Toolkit = 12.1.
 </div>
 </div>
 </div>
-</section>
-<section id="low-rank-adaptation">
-<h2>Low-rank adaptation<a class="headerlink" href="#low-rank-adaptation" title="Permalink to this heading">#</a></h2>
-<p>Parameter-efficient fine-tuning (PEFT) methods significantly decrease the computational and storage costs for large language models by only fine-tuning a small number of (extra) model parameters instead of all the model’s parameters. Low-rank adaptation (LoRA) reduces the number of trainable parameters by learning pairs of rank-decompostion matrices while freezing the original weights.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">unsloth</span></code> library replaces HuggingFace’s <code class="docutils literal notranslate"><span class="pre">peft</span></code>:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">unsloth</span></code> library replaces HuggingFace’s <code class="docutils literal notranslate"><span class="pre">peft</span></code> module:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">peft</span> <span class="kn">import</span> <span class="n">AutoPeftModelForCausalLM</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">AutoPeftModelForCausalLM</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span>
-    <span class="n">savedir</span><span class="p">,</span> <span class="c1"># YOUR MODEL YOU USED FOR TRAINING</span>
+    <span class="n">savedir</span><span class="p">,</span>  <span class="c1"># YOUR MODEL YOU USED FOR TRAINING</span>
     <span class="n">load_in_4bit</span> <span class="o">=</span> <span class="n">load_in_4bit</span><span class="p">,</span>
 <span class="p">)</span>
 
@@ -768,11 +775,19 @@ O^O/ \_/ \    Pytorch: 2.2.1+cu121. CUDA = 8.6. CUDA Toolkit = 12.1.
 </div>
 </div>
 </section>
-<section id="huggingface-datasets">
-<h2>HuggingFace datasets<a class="headerlink" href="#huggingface-datasets" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="supervised-fine-tuning">
+<h2>Supervised fine-tuning<a class="headerlink" href="#supervised-fine-tuning" title="Permalink to this heading">#</a></h2>
+<p>Supervised Fine-Tuning adapts a pre-trained model to a specific task, by training the model on a new labeled dataset to predict the correct label for each input.</p>
+<p>The TRL library provides the SFTTrainer class, which is designed to facilitate the SFT process. This class accepts a column in your training dataset that contains the prompt constructed from system instructions, questions, and answers.</p>
+<p><a class="reference external" href="https://huggingface.co/docs/trl/sft_trainer">https://huggingface.co/docs/trl/sft_trainer</a></p>
+<section id="huggingface-dataset-module">
+<h3>HuggingFace Dataset module<a class="headerlink" href="#huggingface-dataset-module" title="Permalink to this heading">#</a></h3>
+<p>The training data are converted to LLM instruction statements, and implemented as a HuggingFace Dataset class. This class can be conveniently created from many different sources, including data files of various formats or from a generator function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">EOS_TOKEN</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">eos_token</span>   <span class="c1"># Must add EOS_TOKEN</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To generate a prompt statement as a a training data point</span>
+<span class="n">EOS_TOKEN</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">eos_token</span>   <span class="c1"># Must add EOS_TOKEN</span>
 <span class="k">def</span> <span class="nf">generate_prompt</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
     <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">Below is an instruction that describes a task. </span>
@@ -796,7 +811,8 @@ O^O/ \_/ \    Pytorch: 2.2.1+cu121. CUDA = 8.6. CUDA Toolkit = 12.1.
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">MAX_CHARS</span> <span class="o">=</span> <span class="mi">4096</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Provide training prompt statement as a generator function to implement a Dataset class</span>
+<span class="n">MAX_CHARS</span> <span class="o">=</span> <span class="mi">4096</span>
 <span class="k">def</span> <span class="nf">data_generator</span><span class="p">():</span>
     <span class="k">for</span> <span class="n">permno</span> <span class="ow">in</span> <span class="n">train_index</span><span class="p">:</span>
         <span class="n">text</span> <span class="o">=</span> <span class="n">ed</span><span class="p">[</span><span class="n">found</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">permno</span><span class="p">,</span> <span class="s1">&#39;pathname&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()[:</span><span class="n">MAX_CHARS</span><span class="p">]</span>
@@ -806,12 +822,6 @@ O^O/ \_/ \    Pytorch: 2.2.1+cu121. CUDA = 8.6. CUDA Toolkit = 12.1.
 </div>
 </div>
 </div>
-</section>
-<section id="supervised-fine-tuning">
-<h2>Supervised fine-tuning<a class="headerlink" href="#supervised-fine-tuning" title="Permalink to this heading">#</a></h2>
-<p>Supervised Fine-Tuning adapts a pre-trained model to a specific task, by training the model on a new labeled dataset to predict the correct label for each input.</p>
-<p>The TRL library provides the SFTTrainer class, which is designed to facilitate the SFT process. This class accepts a column in your training dataset that contains the prompt constructed from system instructions, questions, and answers.</p>
-<p><a class="reference external" href="https://huggingface.co/docs/trl/sft_trainer">https://huggingface.co/docs/trl/sft_trainer</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">MAX_EPOCHS</span> <span class="o">=</span> <span class="mi">16</span>
@@ -869,10 +879,10 @@ O^O/ \_/ \    Pytorch: 2.2.1+cu121. CUDA = 8.6. CUDA Toolkit = 12.1.
 </div>
 </div>
 </div>
+<p>Helpers to generate input tokens and response</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Helpers to generate input tokens and response</span>
-<span class="k">def</span> <span class="nf">generate_inputs</span><span class="p">(</span><span class="n">permno</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generate_inputs</span><span class="p">(</span><span class="n">permno</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Transform text corresponding to permno into tokenized input&quot;&quot;&quot;</span>
     <span class="n">text</span> <span class="o">=</span> <span class="n">ed</span><span class="p">[</span><span class="n">found</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">permno</span><span class="p">,</span> <span class="s1">&#39;pathname&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()[:</span><span class="n">MAX_CHARS</span><span class="p">]</span>
     <span class="n">inputs</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="p">([</span><span class="n">generate_prompt</span><span class="p">(</span><span class="n">text</span><span class="p">)],</span> <span class="n">return_tensors</span><span class="o">=</span><span class="s2">&quot;pt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span><span class="p">)</span>
@@ -1041,7 +1051,7 @@ Peak reserved memory for training % of max memory = 21.285 %.
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run inference on train split</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Evaluate train split</span>
 <span class="k">if</span> <span class="kc">False</span><span class="p">:</span>
     <span class="n">FastLanguageModel</span><span class="o">.</span><span class="n">for_inference</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>   <span class="c1"># Enable native 2x faster inference</span>
     <span class="n">y_pred</span><span class="p">,</span> <span class="n">y_true</span> <span class="o">=</span> <span class="n">evaluate_output</span><span class="p">(</span><span class="n">train_index</span><span class="p">)</span>
@@ -1056,7 +1066,7 @@ Peak reserved memory for training % of max memory = 21.285 %.
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run inference on test split</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Evaluate test split</span>
 <span class="k">if</span> <span class="kc">True</span><span class="p">:</span>
     <span class="n">FastLanguageModel</span><span class="o">.</span><span class="n">for_inference</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>   <span class="c1"># Enable native 2x faster inference</span>
     <span class="n">y_pred</span><span class="p">,</span> <span class="n">y_true</span> <span class="o">=</span> <span class="n">evaluate_output</span><span class="p">(</span><span class="n">test_index</span><span class="p">)</span>
@@ -1102,7 +1112,7 @@ weighted avg       0.79      0.72      0.75       712
 </div>
 </div>
 </div>
-<p>Display a few responses from fine-tuned model</p>
+<p>Display a few responses from latest model checkpoint</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span> <span class="o">=</span> <span class="n">evaluate_output</span><span class="p">(</span><span class="n">test_index</span><span class="p">[::</span><span class="mi">32</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -1137,6 +1147,7 @@ weighted avg       0.79      0.72      0.75       712
 </div>
 </div>
 </div>
+</section>
 </section>
 </section>
 
@@ -1184,7 +1195,7 @@ weighted avg       0.79      0.72      0.75       712
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">LLM RAG, Chatbots and Agents</p>
+        <p class="prev-next-title">RAG, Chatbots and Agents</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1204,10 +1215,16 @@ weighted avg       0.79      0.72      0.75       712
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unsloth-apis">Unsloth APIs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#low-rank-adaptation">Low-rank adaptation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#huggingface-datasets">HuggingFace datasets</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supervised-fine-tuning">Supervised fine-tuning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transfer-learning">Transfer learning</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-efficient-fine-tuning">Performance-Efficient Fine-Tuning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#low-rank-adaptation">Low-Rank Adaptation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unsloth-apis">Unsloth APIs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supervised-fine-tuning">Supervised fine-tuning</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#huggingface-dataset-module">HuggingFace Dataset module</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
